@@ -1,0 +1,207 @@
+{
+	"env": {
+		"browser": true,
+		"es2020": true,
+		"node": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:prettier/recommended",
+		"prettier",
+		"prettier/@typescript-eslint"
+		// "plugin:vue/vue3-essential",
+		// "@vue/standard",
+		// "@vue/typescript/recommended"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaVersion": 2020,
+		"sourceType": "module"
+	},
+	"plugins": [
+		"@typescript-eslint",
+		"prettier"
+	],
+	"ignorePatterns": "*.js",
+	"overrides": [
+		{
+			"files": [
+				"*.json"
+			],
+			"rules": {
+				"class-methods-use-this": "error",
+				"lines-between-class-members": "warn",
+				"prettier/prettier": [
+					"warn",
+					{
+						"tabWidth": 1,
+						"useTabs": true,
+						"usePrettierrc": false,
+						"singleQuote": false,
+						"parser": "json",
+						"semi": false,
+						"trailingComma": "none",
+						"bracketSpacing": true,
+						"arrowParens": "always",
+						"printWidth": 1000
+					}
+				],
+				"no-multiple-empty-lines": [
+					"warn",
+					{
+						"max": 0,
+						"maxEOF": 0,
+						"maxBOF": 0
+					}
+				],
+				"sort-keys": "warn",
+				"max-len": [
+					"warn",
+					{
+						"code": 1000
+					}
+				]
+			}
+		},
+		{
+			"files": [
+				"**/__tests__/*.{j,t}s?(x)",
+				"**/tests/unit/**/*.spec.{j,t}s?(x)"
+			],
+			"env": {
+				"jest": true
+			}
+		}
+	],
+	"rules": {
+		"max-len": [
+			"warn",
+			{
+				"code": 160
+			}
+		],
+		"no-mixed-spaces-and-tabs": "warn",
+		"indent": [
+			"warn",
+			"tab",
+			{
+				"SwitchCase": 1,
+				"MemberExpression": 1
+			}
+		],
+		"linebreak-style": [
+			"error",
+			"unix"
+		],
+		"quotes": [
+			"error",
+			"double"
+		],
+		"semi": [
+			"error",
+			"never"
+		],
+		"camelcase": [
+			"error",
+			{
+				"properties": "always"
+			}
+		],
+		"comma-spacing": [
+			"warn",
+			{
+				"before": false,
+				"after": true
+			}
+		],
+		"comma-style": [
+			"warn",
+			"last"
+		],
+		"brace-style": [
+			"warn",
+			"1tbs"
+		],
+		"block-spacing": [
+			"warn",
+			"always"
+		],
+		"max-classes-per-file": [
+			"error",
+			1
+		],
+		"getter-return": [
+			"error"
+		],
+		"@typescript-eslint/explicit-member-accessibility": [
+			"error"
+		],
+		"no-tabs": [
+			"off"
+		],
+		"space-before-function-paren": [
+			"off"
+		],
+		"no-eq-null": [
+			"warn"
+		],
+		"no-undefined": [
+			"error"
+		],
+		"no-use-before-define": "error",
+		"max-statements-per-line": [
+			"warn",
+			{
+				"max": 1
+			}
+		],
+		"no-multiple-empty-lines": [
+			"warn",
+			{
+				"max": 1,
+				"maxEOF": 1,
+				"maxBOF": 0
+			}
+		],
+		"array-bracket-spacing": [
+			"warn",
+			"never"
+		],
+		"newline-per-chained-call": "warn",
+		"@typescript-eslint/explicit-function-return-type": [
+			"warn",
+			{
+				"allowExpressions": true,
+				"allowTypedFunctionExpressions": true,
+				"allowHigherOrderFunctions": true,
+				"allowConciseArrowFunctionExpressionsStartingWithVoid": true
+			}
+		],
+		"no-unused-vars": "off",
+		"@typescript-eslint/no-unused-vars": [
+			"warn",
+			{
+				"vars": "all",
+				"args": "none",
+				"ignoreRestSiblings": true
+			}
+		],
+		"prettier/prettier": [
+			"warn",
+			{
+				"tabWidth": 1,
+				"useTabs": true,
+				"usePrettierrc": false,
+				"singleQuote": false,
+				"parser": "typescript",
+				"semi": false,
+				"trailingComma": "none",
+				"bracketSpacing": true,
+				"arrowParens": "always",
+				"printWidth": 160
+			}
+		]
+	},
+	"root": true
+}

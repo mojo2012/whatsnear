@@ -1,0 +1,8 @@
+{
+	"name": "whatsnear",
+	"integrations": {
+		"capacitor": {}
+	},
+	"type": "vue",
+	"id": "ecb21ca8"
+}

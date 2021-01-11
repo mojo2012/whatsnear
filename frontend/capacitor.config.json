@@ -1,0 +1,17 @@
+{
+  "appId": "io.spotnext.whatsnear",
+  "appName": "whatsnear",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {},
+  "server": {
+    "url": "http://10.0.0.101:8100",
+    "cleartext": true
+  }
+}

@@ -1,0 +1,3206 @@
+{
+  "program": {
+    "fileInfos": {
+      "../../node_modules/typescript/lib/lib.es5.d.ts": {
+        "version": "70ae6416528e68c2ee7b62892200d2ca631759943d4429f8b779b947ff1e124d",
+        "signature": "70ae6416528e68c2ee7b62892200d2ca631759943d4429f8b779b947ff1e124d",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2015.d.ts": {
+        "version": "dc47c4fa66b9b9890cf076304de2a9c5201e94b740cffdf09f87296d877d71f6",
+        "signature": "dc47c4fa66b9b9890cf076304de2a9c5201e94b740cffdf09f87296d877d71f6",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/typescript/lib/lib.es2016.d.ts": {
+        "version": "7a387c58583dfca701b6c85e0adaf43fb17d590fb16d5b2dc0a2fbd89f35c467",
+        "signature": "7a387c58583dfca701b6c85e0adaf43fb17d590fb16d5b2dc0a2fbd89f35c467",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/typescript/lib/lib.es2017.d.ts": {
+        "version": "8a12173c586e95f4433e0c6dc446bc88346be73ffe9ca6eec7aa63c8f3dca7f9",
+        "signature": "8a12173c586e95f4433e0c6dc446bc88346be73ffe9ca6eec7aa63c8f3dca7f9",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/typescript/lib/lib.es2018.d.ts": {
+        "version": "5f4e733ced4e129482ae2186aae29fde948ab7182844c3a5a51dd346182c7b06",
+        "signature": "5f4e733ced4e129482ae2186aae29fde948ab7182844c3a5a51dd346182c7b06",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/typescript/lib/lib.es2019.d.ts": {
+        "version": "e6b724280c694a9f588847f754198fb96c43d805f065c3a5b28bbc9594541c84",
+        "signature": "e6b724280c694a9f588847f754198fb96c43d805f065c3a5b28bbc9594541c84",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/typescript/lib/lib.es2020.d.ts": {
+        "version": "94b4108552f078722078d7c4a010ca4851063882f6c0c51a1468aa7a39aed4b3",
+        "signature": "94b4108552f078722078d7c4a010ca4851063882f6c0c51a1468aa7a39aed4b3",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/typescript/lib/lib.esnext.d.ts": {
+        "version": "2f8f379dedbdbd96a38a1e445cb3919853a1157a950fd977f85808db8d0f8a58",
+        "signature": "2f8f379dedbdbd96a38a1e445cb3919853a1157a950fd977f85808db8d0f8a58",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/typescript/lib/lib.dom.d.ts": {
+        "version": "9affb0a2ddc57df5b8174c0af96c288d697a262e5bc9ca1f544c999dc64a91e6",
+        "signature": "9affb0a2ddc57df5b8174c0af96c288d697a262e5bc9ca1f544c999dc64a91e6",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.dom.iterable.d.ts": {
+        "version": "fb0c09b697dc42afa84d1587e3c994a2f554d2a45635e4f0618768d16a86b69a",
+        "signature": "fb0c09b697dc42afa84d1587e3c994a2f554d2a45635e4f0618768d16a86b69a",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.scripthost.d.ts": {
+        "version": "097a57355ded99c68e6df1b738990448e0bf170e606707df5a7c0481ff2427cd",
+        "signature": "097a57355ded99c68e6df1b738990448e0bf170e606707df5a7c0481ff2427cd",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2015.core.d.ts": {
+        "version": "63e0cc12d0f77394094bd19e84464f9840af0071e5b9358ced30511efef1d8d2",
+        "signature": "63e0cc12d0f77394094bd19e84464f9840af0071e5b9358ced30511efef1d8d2",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2015.collection.d.ts": {
+        "version": "43fb1d932e4966a39a41b464a12a81899d9ae5f2c829063f5571b6b87e6d2f9c",
+        "signature": "43fb1d932e4966a39a41b464a12a81899d9ae5f2c829063f5571b6b87e6d2f9c",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2015.generator.d.ts": {
+        "version": "cdccba9a388c2ee3fd6ad4018c640a471a6c060e96f1232062223063b0a5ac6a",
+        "signature": "cdccba9a388c2ee3fd6ad4018c640a471a6c060e96f1232062223063b0a5ac6a",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts": {
+        "version": "42f5e41e5893da663dbf0394268f54f1da4b43dc0ddd2ea4bf471fe5361d6faf",
+        "signature": "42f5e41e5893da663dbf0394268f54f1da4b43dc0ddd2ea4bf471fe5361d6faf",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2015.promise.d.ts": {
+        "version": "0b7a905675e6cb4211c128f0a3aa47d414b275180a299a9aad5d3ec298abbfc4",
+        "signature": "0b7a905675e6cb4211c128f0a3aa47d414b275180a299a9aad5d3ec298abbfc4",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2015.proxy.d.ts": {
+        "version": "dfff68b3c34338f6b307a25d4566de15eed7973b0dc5d69f9fde2bcac1c25315",
+        "signature": "dfff68b3c34338f6b307a25d4566de15eed7973b0dc5d69f9fde2bcac1c25315",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2015.reflect.d.ts": {
+        "version": "cb609802a8698aa28b9c56331d4b53f590ca3c1c3a255350304ae3d06017779d",
+        "signature": "cb609802a8698aa28b9c56331d4b53f590ca3c1c3a255350304ae3d06017779d",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2015.symbol.d.ts": {
+        "version": "3013574108c36fd3aaca79764002b3717da09725a36a6fc02eac386593110f93",
+        "signature": "3013574108c36fd3aaca79764002b3717da09725a36a6fc02eac386593110f93",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": {
+        "version": "4670208dd7da9d6c774ab1b75c1527a810388c7989c4905de6aaea8561cb9dce",
+        "signature": "4670208dd7da9d6c774ab1b75c1527a810388c7989c4905de6aaea8561cb9dce",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2016.array.include.d.ts": {
+        "version": "3be5a1453daa63e031d266bf342f3943603873d890ab8b9ada95e22389389006",
+        "signature": "3be5a1453daa63e031d266bf342f3943603873d890ab8b9ada95e22389389006",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2017.object.d.ts": {
+        "version": "17bb1fc99591b00515502d264fa55dc8370c45c5298f4a5c2083557dccba5a2a",
+        "signature": "17bb1fc99591b00515502d264fa55dc8370c45c5298f4a5c2083557dccba5a2a",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts": {
+        "version": "d0db416bccdb33975548baf09a42ee8c47eace1aac7907351a000f1e568e7232",
+        "signature": "d0db416bccdb33975548baf09a42ee8c47eace1aac7907351a000f1e568e7232",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2017.string.d.ts": {
+        "version": "6a6b173e739a6a99629a8594bfb294cc7329bfb7b227f12e1f7c11bc163b8577",
+        "signature": "6a6b173e739a6a99629a8594bfb294cc7329bfb7b227f12e1f7c11bc163b8577",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2017.intl.d.ts": {
+        "version": "12a310447c5d23c7d0d5ca2af606e3bd08afda69100166730ab92c62999ebb9d",
+        "signature": "12a310447c5d23c7d0d5ca2af606e3bd08afda69100166730ab92c62999ebb9d",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2017.typedarrays.d.ts": {
+        "version": "b0124885ef82641903d232172577f2ceb5d3e60aed4da1153bab4221e1f6dd4e",
+        "signature": "b0124885ef82641903d232172577f2ceb5d3e60aed4da1153bab4221e1f6dd4e",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts": {
+        "version": "0eb85d6c590b0d577919a79e0084fa1744c1beba6fd0d4e951432fa1ede5510a",
+        "signature": "0eb85d6c590b0d577919a79e0084fa1744c1beba6fd0d4e951432fa1ede5510a",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2018.asynciterable.d.ts": {
+        "version": "a40c4d82bf13fcded295ac29f354eb7d40249613c15e07b53f2fc75e45e16359",
+        "signature": "a40c4d82bf13fcded295ac29f354eb7d40249613c15e07b53f2fc75e45e16359",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2018.intl.d.ts": {
+        "version": "df9c8a72ca8b0ed62f5470b41208a0587f0f73f0a7db28e5a1272cf92537518e",
+        "signature": "df9c8a72ca8b0ed62f5470b41208a0587f0f73f0a7db28e5a1272cf92537518e",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2018.promise.d.ts": {
+        "version": "bb2d3fb05a1d2ffbca947cc7cbc95d23e1d053d6595391bd325deb265a18d36c",
+        "signature": "bb2d3fb05a1d2ffbca947cc7cbc95d23e1d053d6595391bd325deb265a18d36c",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2018.regexp.d.ts": {
+        "version": "c80df75850fea5caa2afe43b9949338ce4e2de086f91713e9af1a06f973872b8",
+        "signature": "c80df75850fea5caa2afe43b9949338ce4e2de086f91713e9af1a06f973872b8",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2019.array.d.ts": {
+        "version": "9d57b2b5d15838ed094aa9ff1299eecef40b190722eb619bac4616657a05f951",
+        "signature": "9d57b2b5d15838ed094aa9ff1299eecef40b190722eb619bac4616657a05f951",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2019.object.d.ts": {
+        "version": "6c51b5dd26a2c31dbf37f00cfc32b2aa6a92e19c995aefb5b97a3a64f1ac99de",
+        "signature": "6c51b5dd26a2c31dbf37f00cfc32b2aa6a92e19c995aefb5b97a3a64f1ac99de",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2019.string.d.ts": {
+        "version": "93544ca2f26a48716c1b6c5091842cad63129daac422dfa4bc52460465f22bb1",
+        "signature": "93544ca2f26a48716c1b6c5091842cad63129daac422dfa4bc52460465f22bb1",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2019.symbol.d.ts": {
+        "version": "2ad234885a4240522efccd77de6c7d99eecf9b4de0914adb9a35c0c22433f993",
+        "signature": "2ad234885a4240522efccd77de6c7d99eecf9b4de0914adb9a35c0c22433f993",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2020.bigint.d.ts": {
+        "version": "4f435f794b7853c55e2ae7cff6206025802aa79232d2867544178f2ca8ff5eaa",
+        "signature": "4f435f794b7853c55e2ae7cff6206025802aa79232d2867544178f2ca8ff5eaa",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2020.promise.d.ts": {
+        "version": "7435b75fdf3509622e79622dbe5091cf4b09688410ee2034e4fc17d0c99d0862",
+        "signature": "7435b75fdf3509622e79622dbe5091cf4b09688410ee2034e4fc17d0c99d0862",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2020.string.d.ts": {
+        "version": "faf0221ae0465363c842ce6aa8a0cbda5d9296940a8e26c86e04cc4081eea21e",
+        "signature": "faf0221ae0465363c842ce6aa8a0cbda5d9296940a8e26c86e04cc4081eea21e",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts": {
+        "version": "936d7d2e8851af9ccfa5333b15e877a824417d352b1d7fd06388639dc69ef80a",
+        "signature": "936d7d2e8851af9ccfa5333b15e877a824417d352b1d7fd06388639dc69ef80a",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.esnext.intl.d.ts": {
+        "version": "89bf2b7a601b73ea4311eda9c41f86a58994fec1bee3b87c4a14d68d9adcdcbd",
+        "signature": "89bf2b7a601b73ea4311eda9c41f86a58994fec1bee3b87c4a14d68d9adcdcbd",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.esnext.string.d.ts": {
+        "version": "fb4416144c1bf0323ccbc9afb0ab289c07312214e8820ad17d709498c865a3fe",
+        "signature": "fb4416144c1bf0323ccbc9afb0ab289c07312214e8820ad17d709498c865a3fe",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.esnext.promise.d.ts": {
+        "version": "cd6efb9467a8b6338ece2e2855e37765700f2cd061ca54b01b33878cf5c7677e",
+        "signature": "cd6efb9467a8b6338ece2e2855e37765700f2cd061ca54b01b33878cf5c7677e",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/tslib/tslib.d.ts": {
+        "version": "55d7868222288a4054166fecbfbaeee46dd3b1b58e4a118e40e9c8c13a9fbe84",
+        "signature": "55d7868222288a4054166fecbfbaeee46dd3b1b58e4a118e40e9c8c13a9fbe84",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/ionicons/dist/types/components/icon/icon.d.ts": {
+        "version": "f3e41ac88e3549a8e1ec01995e57898e35f203a101ad27e2207adc60e3749d73",
+        "signature": "f3e41ac88e3549a8e1ec01995e57898e35f203a101ad27e2207adc60e3749d73",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/ionicons/dist/types/components/icon/utils.d.ts": {
+        "version": "f3adc85e98313afb1eba9b3139f1bbfd2878c6caa8f06bf2df899250a68e42ac",
+        "signature": "f3adc85e98313afb1eba9b3139f1bbfd2878c6caa8f06bf2df899250a68e42ac",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/ionicons/dist/types/stencil-public-runtime.d.ts": {
+        "version": "c7911afe8f970edc4e648e51d032b69ad179ac40601b8db7fe9587cd97379bc8",
+        "signature": "c7911afe8f970edc4e648e51d032b69ad179ac40601b8db7fe9587cd97379bc8",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/ionicons/dist/types/components.d.ts": {
+        "version": "68c91a21824757a11be51f326a678cd069d2b2f031c22315f0df41a933f5fd23",
+        "signature": "68c91a21824757a11be51f326a678cd069d2b2f031c22315f0df41a933f5fd23",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/ionicons/dist/types/index.d.ts": {
+        "version": "99f7514305bf527bc3538ae461b6ed1d0fc59ad9c82c812a2b341868318bbeb9",
+        "signature": "99f7514305bf527bc3538ae461b6ed1d0fc59ad9c82c812a2b341868318bbeb9",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/stencil-public-runtime.d.ts": {
+        "version": "103230b7209f5b256ac7714a6dcacaaaf4b096814d5bb1bd4fd633a525a73be0",
+        "signature": "103230b7209f5b256ac7714a6dcacaaaf4b096814d5bb1bd4fd633a525a73be0",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/utils/sanitization/index.d.ts": {
+        "version": "bbb06f7d4d60c3ccd5fb06313ed8da405376eddfb1c4f31a05e046b01a8ecf15",
+        "signature": "bbb06f7d4d60c3ccd5fb06313ed8da405376eddfb1c4f31a05e046b01a8ecf15",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/route/route-interface.d.ts": {
+        "version": "3a46ce202130a9c96b9ab104246aebc09d7e17f642ea7615810f4ad7a47727a0",
+        "signature": "3a46ce202130a9c96b9ab104246aebc09d7e17f642ea7615810f4ad7a47727a0",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/select/select-interface.d.ts": {
+        "version": "93d8298b3ca3fcb505bdd8877c129eaafa1becc7f006b35c3d92426c370662b5",
+        "signature": "93d8298b3ca3fcb505bdd8877c129eaafa1becc7f006b35c3d92426c370662b5",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components.d.ts": {
+        "version": "908797e53e4f8c4feb1de8c302a267970dfbf795ba9c841ba25087d2703cf6d2",
+        "signature": "908797e53e4f8c4feb1de8c302a267970dfbf795ba9c841ba25087d2703cf6d2",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@ionic/core/dist/types/utils/animation/animation-interface.d.ts": {
+        "version": "652b2335136f5aa30d971cdb4e60f136a9574e73e4e4e0d4214d901fa8159d46",
+        "signature": "652b2335136f5aa30d971cdb4e60f136a9574e73e4e4e0d4214d901fa8159d46",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/utils/animation/animation.d.ts": {
+        "version": "6b6f37da455473c1194903369d372447fa67e32a252a03894472afb833a0af87",
+        "signature": "6b6f37da455473c1194903369d372447fa67e32a252a03894472afb833a0af87",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/utils/transition/index.d.ts": {
+        "version": "50ce3dc68a9f73bb91945577c6b3c9e918a895a885a60545e596065f60ab1844",
+        "signature": "50ce3dc68a9f73bb91945577c6b3c9e918a895a885a60545e596065f60ab1844",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/utils/transition/ios.transition.d.ts": {
+        "version": "e3735771c8e028339ee512d7fab867104c7a898228d5c96591300508e7ab343b",
+        "signature": "e3735771c8e028339ee512d7fab867104c7a898228d5c96591300508e7ab343b",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/utils/transition/md.transition.d.ts": {
+        "version": "0874abd7c8ad19867a32a1841436c5deec87740cecd09c7f19419d5c33b49bb1",
+        "signature": "0874abd7c8ad19867a32a1841436c5deec87740cecd09c7f19419d5c33b49bb1",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/utils/animation/cubic-bezier.d.ts": {
+        "version": "fb9bcb145ddaf5573823a8ab781e97111b2f442fb26b1ec96daee929b506ec6a",
+        "signature": "fb9bcb145ddaf5573823a8ab781e97111b2f442fb26b1ec96daee929b506ec6a",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/utils/gesture/gesture-controller.d.ts": {
+        "version": "6806760bd4054f85b7461841ed1bdcb678a426052d5200c09dd1ca0bbe5a11e0",
+        "signature": "6806760bd4054f85b7461841ed1bdcb678a426052d5200c09dd1ca0bbe5a11e0",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/utils/gesture/index.d.ts": {
+        "version": "5dd5cd7e4e2a843c72400ba541b1639d907a5cfd75b7d25aec2e928453813a9b",
+        "signature": "5dd5cd7e4e2a843c72400ba541b1639d907a5cfd75b7d25aec2e928453813a9b",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/utils/platform.d.ts": {
+        "version": "5db54a2d2ade42c49afa090d0e9f12ff6287b6470ada35c6e90ac0337d7f639a",
+        "signature": "5db54a2d2ade42c49afa090d0e9f12ff6287b6470ada35c6e90ac0337d7f639a",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/utils/config.d.ts": {
+        "version": "2837918fac4cab7ddedb1928a7be6ebe74188e47ec7e4dee067bf1e348ec6e4b",
+        "signature": "2837918fac4cab7ddedb1928a7be6ebe74188e47ec7e4dee067bf1e348ec6e4b",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/nav/constants.d.ts": {
+        "version": "b507647261a2f5ed71006ee352a8e65df0b1fea17279b0166dcc016e1a0db25e",
+        "signature": "b507647261a2f5ed71006ee352a8e65df0b1fea17279b0166dcc016e1a0db25e",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/utils/menu-controller/index.d.ts": {
+        "version": "31e38f749b68df8f707fd7aa16634bb77e466992cdd6932ffd0b8a8f76af9827",
+        "signature": "31e38f749b68df8f707fd7aa16634bb77e466992cdd6932ffd0b8a8f76af9827",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/utils/overlays.d.ts": {
+        "version": "a8a8beb7b58c3c9fcbdf1e9102046603706f62d40461d0c043cf6e7cc76acf80",
+        "signature": "a8a8beb7b58c3c9fcbdf1e9102046603706f62d40461d0c043cf6e7cc76acf80",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/index.d.ts": {
+        "version": "a15e4a9539dab874502d504196ed948518b2e2dbfcea6b2d44ecbf4d501109c0",
+        "signature": "a15e4a9539dab874502d504196ed948518b2e2dbfcea6b2d44ecbf4d501109c0",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/alert/alert-interface.d.ts": {
+        "version": "b7582fc04f9a4973d7284ba162c3a9787b2550aed442054483991ee95ac467a1",
+        "signature": "b7582fc04f9a4973d7284ba162c3a9787b2550aed442054483991ee95ac467a1",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/action-sheet/action-sheet-interface.d.ts": {
+        "version": "e7c3d0760341e4e33900c1a4d9440dedf6e37b7a200548097ddbce8a311697df",
+        "signature": "e7c3d0760341e4e33900c1a4d9440dedf6e37b7a200548097ddbce8a311697df",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/content/content-interface.d.ts": {
+        "version": "8974d5f80f01df2fb9f5f3e5bd84444b6a54f689bcf274dac31e17940f684e02",
+        "signature": "8974d5f80f01df2fb9f5f3e5bd84444b6a54f689bcf274dac31e17940f684e02",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/checkbox/checkbox-interface.d.ts": {
+        "version": "9299057164ef28d1c1a0cf20d2d01d923b6cb1e74b5e7cb2f6f5ef1c6c368686",
+        "signature": "9299057164ef28d1c1a0cf20d2d01d923b6cb1e74b5e7cb2f6f5ef1c6c368686",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/datetime/datetime-interface.d.ts": {
+        "version": "0009f8e7f56ee27c895c4c860ce62b70dbe0e8eba6971aa5ce8f5cd60197892b",
+        "signature": "0009f8e7f56ee27c895c4c860ce62b70dbe0e8eba6971aa5ce8f5cd60197892b",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/input/input-interface.d.ts": {
+        "version": "2cb51c598083d23ad3273230b69366dcc42d3fd55d69b4b1565d0fedad0955d3",
+        "signature": "2cb51c598083d23ad3273230b69366dcc42d3fd55d69b4b1565d0fedad0955d3",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/loading/loading-interface.d.ts": {
+        "version": "231c4236ca6b3b27ff991a902c2421fd981f747215b730ef909436823ffa2975",
+        "signature": "231c4236ca6b3b27ff991a902c2421fd981f747215b730ef909436823ffa2975",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/menu/menu-interface.d.ts": {
+        "version": "a2ac575e8a68ccd00cd175837cfc5bc525d00498d9be1ca746a7cbd721b46155",
+        "signature": "a2ac575e8a68ccd00cd175837cfc5bc525d00498d9be1ca746a7cbd721b46155",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/modal/modal-interface.d.ts": {
+        "version": "9f12b5379909075050698c73dacf2ff17a8eb8758bbead4c09f74d48bc77324b",
+        "signature": "9f12b5379909075050698c73dacf2ff17a8eb8758bbead4c09f74d48bc77324b",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/nav/view-controller.d.ts": {
+        "version": "c277685f275fd0fcc9aebd2d706b8573219f74fc850c1cbe0c5162d9cb92f0ab",
+        "signature": "c277685f275fd0fcc9aebd2d706b8573219f74fc850c1cbe0c5162d9cb92f0ab",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/nav/nav-interface.d.ts": {
+        "version": "86d8bc1c04681d8092ccb311258816c3f2439852942235c8767a352ae9c9cf56",
+        "signature": "86d8bc1c04681d8092ccb311258816c3f2439852942235c8767a352ae9c9cf56",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/picker/picker-interface.d.ts": {
+        "version": "f4c65b566931d20e0177e19b9644447c2ec711a912d8fc6a5c5ae29b8e39f0a5",
+        "signature": "f4c65b566931d20e0177e19b9644447c2ec711a912d8fc6a5c5ae29b8e39f0a5",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/popover/popover-interface.d.ts": {
+        "version": "b0311e57685843dc5bd9bfe36f1bf1632062843896c7b2355c75936ff1016133",
+        "signature": "b0311e57685843dc5bd9bfe36f1bf1632062843896c7b2355c75936ff1016133",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/radio-group/radio-group-interface.d.ts": {
+        "version": "bf5e432abc37054a609525264068a242ccfbb0072af21724f6abf00597390c61",
+        "signature": "bf5e432abc37054a609525264068a242ccfbb0072af21724f6abf00597390c61",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/range/range-interface.d.ts": {
+        "version": "73e4600f071dfc57aa74ded74355e0719fea17f858123aaaccd3e25d7a733cfa",
+        "signature": "73e4600f071dfc57aa74ded74355e0719fea17f858123aaaccd3e25d7a733cfa",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/router/utils/interface.d.ts": {
+        "version": "37f3c91812c88ce5f6aee16a20356cbbed8bc7c5c3fddbdedd52faf76059cb10",
+        "signature": "37f3c91812c88ce5f6aee16a20356cbbed8bc7c5c3fddbdedd52faf76059cb10",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/refresher/refresher-interface.d.ts": {
+        "version": "88d85a3a23861c70e49fc193d4011826f0872081cbc2c07971194dc9cf90705a",
+        "signature": "88d85a3a23861c70e49fc193d4011826f0872081cbc2c07971194dc9cf90705a",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/reorder-group/reorder-group-interface.d.ts": {
+        "version": "1e99ab97ac6a51633128a39000e46e9553dfb43d265943054f0c0d39d23f0228",
+        "signature": "1e99ab97ac6a51633128a39000e46e9553dfb43d265943054f0c0d39d23f0228",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/searchbar/searchbar-interface.d.ts": {
+        "version": "baa3287474dc809735439e7ef257e00fa6d05327790d4e04c5a1c3aa1605a83b",
+        "signature": "baa3287474dc809735439e7ef257e00fa6d05327790d4e04c5a1c3aa1605a83b",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/segment/segment-interface.d.ts": {
+        "version": "38977971a2db9d5de6af6b9e45ba719a89926eadba74b716fbeb7ab3d50b5c77",
+        "signature": "38977971a2db9d5de6af6b9e45ba719a89926eadba74b716fbeb7ab3d50b5c77",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/select-popover/select-popover-interface.d.ts": {
+        "version": "bac244f0d429959a282238afd0246257df9f004f5dbfbc31a704cbb783d52868",
+        "signature": "bac244f0d429959a282238afd0246257df9f004f5dbfbc31a704cbb783d52868",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/spinner/spinner-configs.d.ts": {
+        "version": "1d34b1084fd2abdbc171d2725fc263f895738a57e9f0a02807d15b7c806ac288",
+        "signature": "1d34b1084fd2abdbc171d2725fc263f895738a57e9f0a02807d15b7c806ac288",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/spinner/spinner-interface.d.ts": {
+        "version": "df583bec8de09b934e954e133b36242a271e1a24cccda3d3308afea3f0cb7aea",
+        "signature": "df583bec8de09b934e954e133b36242a271e1a24cccda3d3308afea3f0cb7aea",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/tab-bar/tab-bar-interface.d.ts": {
+        "version": "8c78860dae652b1bf82ebee9c5128e2a5b4d3e751bc6bbaf676862fb16167b38",
+        "signature": "8c78860dae652b1bf82ebee9c5128e2a5b4d3e751bc6bbaf676862fb16167b38",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/textarea/textarea-interface.d.ts": {
+        "version": "8cb7fffd9446f5a4ee41abf17a32fd0bf545f993ea803b1fbf93fe368962e108",
+        "signature": "8cb7fffd9446f5a4ee41abf17a32fd0bf545f993ea803b1fbf93fe368962e108",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/toast/toast-interface.d.ts": {
+        "version": "24ab18bf34f77af00458ba5c208fa3db8707460c0f2639d1fccbd66f6b747cd2",
+        "signature": "24ab18bf34f77af00458ba5c208fa3db8707460c0f2639d1fccbd66f6b747cd2",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/toggle/toggle-interface.d.ts": {
+        "version": "0b3b8aaf4db6b5a838edda78dbfb96ba386eea41e1e775c32b2484c7beb03d31",
+        "signature": "0b3b8aaf4db6b5a838edda78dbfb96ba386eea41e1e775c32b2484c7beb03d31",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/components/virtual-scroll/virtual-scroll-interface.d.ts": {
+        "version": "3a135e45600564041a18547998f16d3ca29b9b3967a1210a356461826611b60b",
+        "signature": "3a135e45600564041a18547998f16d3ca29b9b3967a1210a356461826611b60b",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/utils/overlays-interface.d.ts": {
+        "version": "42e133caebf95c3ec60622d0479c965ed2b141f201b20c65ca6dc70b53be06e4",
+        "signature": "42e133caebf95c3ec60622d0479c965ed2b141f201b20c65ca6dc70b53be06e4",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/global/config.d.ts": {
+        "version": "361d016e20866e36d8bad50889e41bcdd40ee70c5f09c6540de361836a32b06f",
+        "signature": "361d016e20866e36d8bad50889e41bcdd40ee70c5f09c6540de361836a32b06f",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/core/dist/types/interface.d.ts": {
+        "version": "f0cd8c84581541964edd4868c336391602c15d5bf617df8fb534900c05739ffa",
+        "signature": "f0cd8c84581541964edd4868c336391602c15d5bf617df8fb534900c05739ffa",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@vue/shared/dist/shared.d.ts": {
+        "version": "5a4379f902f6ed97139be8e1522baebbb652ded6593a053f6e14969c7e1a8064",
+        "signature": "5a4379f902f6ed97139be8e1522baebbb652ded6593a053f6e14969c7e1a8064",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@babel/types/lib/index.d.ts": {
+        "version": "bcb65ca77412000e1f33384efbbb615a8dac55aca6aa06a4552b01e7c8cd6577",
+        "signature": "bcb65ca77412000e1f33384efbbb615a8dac55aca6aa06a4552b01e7c8cd6577",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@babel/parser/typings/babel-parser.d.ts": {
+        "version": "b1401d1d9117a5e4d981c965e3408dcb6e2b63022b716816e6d83599ab369a53",
+        "signature": "b1401d1d9117a5e4d981c965e3408dcb6e2b63022b716816e6d83599ab369a53",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@vue/compiler-core/node_modules/source-map/source-map.d.ts": {
+        "version": "2887592574fcdfd087647c539dcb0fbe5af2521270dad4a37f9d17c16190d579",
+        "signature": "2887592574fcdfd087647c539dcb0fbe5af2521270dad4a37f9d17c16190d579",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@vue/compiler-core/dist/compiler-core.d.ts": {
+        "version": "abe3c872bcaf200af7e880aa8ec76c82504656d7bd9c8ac69597c25b4d6e6add",
+        "signature": "abe3c872bcaf200af7e880aa8ec76c82504656d7bd9c8ac69597c25b4d6e6add",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@vue/compiler-dom/dist/compiler-dom.d.ts": {
+        "version": "ec615941bf9e09cdfdcf87234001e2ef7120407b44d887ef81a6043ee3f6ca1f",
+        "signature": "ec615941bf9e09cdfdcf87234001e2ef7120407b44d887ef81a6043ee3f6ca1f",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@vue/reactivity/dist/reactivity.d.ts": {
+        "version": "7e33be288a7c10bd0a069ea3bd025baeb72ab399a2a33a137712135f74f15d88",
+        "signature": "7e33be288a7c10bd0a069ea3bd025baeb72ab399a2a33a137712135f74f15d88",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@vue/runtime-core/dist/runtime-core.d.ts": {
+        "version": "37283f2790ead5b55920d7eb787e2ade9909582449a123086acadf27b98721ab",
+        "signature": "37283f2790ead5b55920d7eb787e2ade9909582449a123086acadf27b98721ab",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/csstype/index.d.ts": {
+        "version": "f5c7642899e130a4ea871a03822a1cfb0e23ae9f62ad481f23b38b5a6f71ddac",
+        "signature": "f5c7642899e130a4ea871a03822a1cfb0e23ae9f62ad481f23b38b5a6f71ddac",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@vue/runtime-dom/dist/runtime-dom.d.ts": {
+        "version": "a8db96819762bd9c0775eacef9e0577aabb667be8b40082fcb3cc3dd9c1d9a8f",
+        "signature": "a8db96819762bd9c0775eacef9e0577aabb667be8b40082fcb3cc3dd9c1d9a8f",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/vue/dist/vue.d.ts": {
+        "version": "db6ca7a40a1c61e910f5ff9b9f06f785601c4b352ecbf98b5c1823b9bde2a2f2",
+        "signature": "db6ca7a40a1c61e910f5ff9b9f06f785601c4b352ecbf98b5c1823b9bde2a2f2",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/vue/dist/types/vue-component-lib/utils.d.ts": {
+        "version": "0c0c6a3677f541afcde9b335234f9921cba9f68b07b9c59e4b19925789df440c",
+        "signature": "0c0c6a3677f541afcde9b335234f9921cba9f68b07b9c59e4b19925789df440c",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/vue/dist/types/proxies.d.ts": {
+        "version": "6dad02188e8c3bdece8b5841e429db69de7ec385b3c04b8e7bda1badba179403",
+        "signature": "6dad02188e8c3bdece8b5841e429db69de7ec385b3c04b8e7bda1badba179403",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/vue/dist/types/ionic-vue.d.ts": {
+        "version": "975f68714bfba1a094ca9fef339dffea26e56a7e88b2f8dc40bed632a88fbb22",
+        "signature": "975f68714bfba1a094ca9fef339dffea26e56a7e88b2f8dc40bed632a88fbb22",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/vue/dist/types/components/ionbackbutton.d.ts": {
+        "version": "892697571122b9396598e288771d00efed973becd0d2e0d664099149be84e45b",
+        "signature": "892697571122b9396598e288771d00efed973becd0d2e0d664099149be84e45b",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/vue/dist/types/components/ionpage.d.ts": {
+        "version": "f0b0c6d8cc10a7016f98bb0ada6a53acc160c79d940c3ff42b0a9840a8ae07f1",
+        "signature": "f0b0c6d8cc10a7016f98bb0ada6a53acc160c79d940c3ff42b0a9840a8ae07f1",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/vue-router/dist/vue-router.d.ts": {
+        "version": "fd6849d5509b180102a4a33262dd45ae8573239193f2ce34df6b44786c264841",
+        "signature": "fd6849d5509b180102a4a33262dd45ae8573239193f2ce34df6b44786c264841",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/vue/dist/types/components/ionrouteroutlet.d.ts": {
+        "version": "e9642d17fd20409e6babb6dcd56311bee8ff9a8bff0f11503e33d54accb3ea78",
+        "signature": "e9642d17fd20409e6babb6dcd56311bee8ff9a8bff0f11503e33d54accb3ea78",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/vue/dist/types/components/iontabbutton.d.ts": {
+        "version": "8f1d24d94f2d23719f7ca63e4387f94b2aee8b77fd494d849a456ea777f36cc2",
+        "signature": "8f1d24d94f2d23719f7ca63e4387f94b2aee8b77fd494d849a456ea777f36cc2",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/vue/dist/types/components/iontabs.d.ts": {
+        "version": "89e421509bf149d18dcdc339b1d6ebaeb339ef90ff4b2742f7bf44728296876a",
+        "signature": "89e421509bf149d18dcdc339b1d6ebaeb339ef90ff4b2742f7bf44728296876a",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/vue/dist/types/components/iontabbar.d.ts": {
+        "version": "7fa8f8e380cbd257e0a0651be70271127849e12d9f09a561533fcb34832c956e",
+        "signature": "7fa8f8e380cbd257e0a0651be70271127849e12d9f09a561533fcb34832c956e",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/vue/dist/types/components/ionnav.d.ts": {
+        "version": "bf624bc60f1013edb3b99a1edbc1b45808fd8eac98694b1721d07dd09b15a466",
+        "signature": "bf624bc60f1013edb3b99a1edbc1b45808fd8eac98694b1721d07dd09b15a466",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/vue/dist/types/components/ionicon.d.ts": {
+        "version": "49b3d799d3966049452de02d0d115bbcbc2cb60d7ee24cef4c167669dbceaa28",
+        "signature": "49b3d799d3966049452de02d0d115bbcbc2cb60d7ee24cef4c167669dbceaa28",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/vue/dist/types/components/ionapp.d.ts": {
+        "version": "c0d8cfcefd84d407ff4635336dc7cb907c364b99c32cedef7d0cbcbc6fe0877b",
+        "signature": "c0d8cfcefd84d407ff4635336dc7cb907c364b99c32cedef7d0cbcbc6fe0877b",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/vue/dist/types/vue-component-lib/overlays.d.ts": {
+        "version": "de2cba5c5a45f44da4a635eaee4e65894d336437649df029100a29a2b415b202",
+        "signature": "de2cba5c5a45f44da4a635eaee4e65894d336437649df029100a29a2b415b202",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/vue/dist/types/components/overlays.d.ts": {
+        "version": "9f9f8c5a3e0404be0600f5f9a70a74908763e15e349960495bcef937aab18411",
+        "signature": "9f9f8c5a3e0404be0600f5f9a70a74908763e15e349960495bcef937aab18411",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/vue/dist/types/hooks.d.ts": {
+        "version": "179587cdc3104eeb55ed61c37ec464319a3659e3ccd5c0dc0ffe963221d031d8",
+        "signature": "179587cdc3104eeb55ed61c37ec464319a3659e3ccd5c0dc0ffe963221d031d8",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/vue/dist/types/controllers.d.ts": {
+        "version": "2e4c7b6009ac762a3fc45efb3ec96e5dbf0eda053d5543f69c2d9d225e6e69f7",
+        "signature": "2e4c7b6009ac762a3fc45efb3ec96e5dbf0eda053d5543f69c2d9d225e6e69f7",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/vue/dist/types/globalextensions.d.ts": {
+        "version": "36039989021b7fa8364c98c724ea1ce0cf75026ce263127482cc64eaccbd4b38",
+        "signature": "36039989021b7fa8364c98c724ea1ce0cf75026ce263127482cc64eaccbd4b38",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/vue/dist/types/index.d.ts": {
+        "version": "14640abc1455d2871670e10ee0c3e0fa248176471a31823e097ed5ae37d1c9de",
+        "signature": "14640abc1455d2871670e10ee0c3e0fa248176471a31823e097ed5ae37d1c9de",
+        "affectsGlobalScope": false
+      },
+      "../../src/app.vue.ts": {
+        "version": "bf2886e593ba98c4891e79133072fa6aeb474c2ec182c5b833edc9af8025006b",
+        "signature": "37bacee3547cfb2d754570ddbce979c96a74474fc1bed365d7df266f779f398f",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/vue-router/dist/types/types.d.ts": {
+        "version": "bb3a2e7fec116adeabdb5119f6c73fa8ca0344afa7932cd77de1425f7d042df8",
+        "signature": "bb3a2e7fec116adeabdb5119f6c73fa8ca0344afa7932cd77de1425f7d042df8",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic/vue-router/dist/types/index.d.ts": {
+        "version": "48e9b65e77a76ca4974eb78ba20fd8fca71428304db5e1b517e9a86c1825f8e3",
+        "signature": "48e9b65e77a76ca4974eb78ba20fd8fca71428304db5e1b517e9a86c1825f8e3",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/ionicons/icons/index.d.ts": {
+        "version": "bbf0e9f7bafe494c7a47581e569ac84555cf9766cd0ec1a3c578d32f219d5f47",
+        "signature": "bbf0e9f7bafe494c7a47581e569ac84555cf9766cd0ec1a3c578d32f219d5f47",
+        "affectsGlobalScope": false
+      },
+      "../../src/views/tabs.vue.ts": {
+        "version": "ce3a6e32a2bfa7d16d693b8e85647c5402ecbf7b1133a873a5ccecdb7e608370",
+        "signature": "42bba74839336ad1b657c96c76ec4d389e39073977650f0011037787845a3136",
+        "affectsGlobalScope": false
+      },
+      "../../src/components/explorecontainer.vue.ts": {
+        "version": "7b660b3987ff83b057be03ac785067e42de1e221bb434bd6173c81fef079e6f2",
+        "signature": "c6145005e1113f0c50d84dcbb0df1320ffb3fd60d1a07577faf08c0a36ee2d5a",
+        "affectsGlobalScope": false
+      },
+      "../../src/configuration/settings.ts": {
+        "version": "0294493c9ace6140d001dcd5e127b7590b29cdc5e07e2c9a51044a131ec15933",
+        "signature": "fde8faafdd35b6903c365932ff875030c096ef3ecadff8d27d253e92c9a4e9ed",
+        "affectsGlobalScope": false
+      },
+      "../../src/dtos/geolocation.ts": {
+        "version": "d57c851c9134be16838cec0df600ac71ae758ab4015909ff152c8c88895d6b32",
+        "signature": "2d6fde80b42f97acbb0a64745843d6aa6d993646b9d9ca0b4ddc87abf33fdb11",
+        "affectsGlobalScope": false
+      },
+      "../../src/dtos/latlng.ts": {
+        "version": "01f2ba5ed3a50b458c4ed8dd047610f173d226b64d5c69beeeef4a1343aa45a6",
+        "signature": "33c9032db35c1d52d6727767c908404d505096175224b51c604d04da0e069e1d",
+        "affectsGlobalScope": false
+      },
+      "../../src/dtos/markerdto.ts": {
+        "version": "5b9b4562b9ac34e16f2538b40f0b62bb1e8dcf0d1572cf1abdf69135def993a1",
+        "signature": "58b5491ae6ac26ef5c15c3cd72975abd3961f72d3fda00927aabc74cdca163cd",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts": {
+        "version": "cc15028d3d69cf1f07e101b772c55470b1b2c3ed1e0438b22ce3738852e01a14",
+        "signature": "cc15028d3d69cf1f07e101b772c55470b1b2c3ed1e0438b22ce3738852e01a14",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@capacitor/core/dist/esm/definitions.d.ts": {
+        "version": "4a44176eb236e17c81343e7acd8753585fadeb2a776e16d60b62df9eed35c657",
+        "signature": "4a44176eb236e17c81343e7acd8753585fadeb2a776e16d60b62df9eed35c657",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@capacitor/core/dist/esm/global.d.ts": {
+        "version": "43035a14902866d9c18922320ceda077976b3f7d6c63cdb4259492449fdc7ebc",
+        "signature": "43035a14902866d9c18922320ceda077976b3f7d6c63cdb4259492449fdc7ebc",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts": {
+        "version": "0713c6feda829850ca0dcfd93d8a6c07160e6f5b1bf5ff5eccbd0d196dcb70ae",
+        "signature": "0713c6feda829850ca0dcfd93d8a6c07160e6f5b1bf5ff5eccbd0d196dcb70ae",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@capacitor/core/dist/esm/web/accessibility.d.ts": {
+        "version": "1b89a606ae17315b533930cab01bd49baa7c78ab07c82135f32a71e5d0f1f37a",
+        "signature": "1b89a606ae17315b533930cab01bd49baa7c78ab07c82135f32a71e5d0f1f37a",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@capacitor/core/dist/esm/web/app.d.ts": {
+        "version": "c3dc8ba45e9cba5b58cda83595b03fbe4837d374f7b091a7ba914d176cdbab01",
+        "signature": "c3dc8ba45e9cba5b58cda83595b03fbe4837d374f7b091a7ba914d176cdbab01",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@capacitor/core/dist/esm/web/browser.d.ts": {
+        "version": "e8f79426d71da12b7dd91e28d747fd1acfd443839665e421e56ef785f98f25e2",
+        "signature": "e8f79426d71da12b7dd91e28d747fd1acfd443839665e421e56ef785f98f25e2",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@capacitor/core/dist/esm/web/camera.d.ts": {
+        "version": "28f7282f45e9e63c92c0c8e0cf47d01a167fd1576798d0176ff1ba9fca041143",
+        "signature": "28f7282f45e9e63c92c0c8e0cf47d01a167fd1576798d0176ff1ba9fca041143",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@capacitor/core/dist/esm/web/clipboard.d.ts": {
+        "version": "aaee73f774d0c1e367c8cc36b17f9ce02a54f82f0f8178c3032b5c7375ff7de9",
+        "signature": "aaee73f774d0c1e367c8cc36b17f9ce02a54f82f0f8178c3032b5c7375ff7de9",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@capacitor/core/dist/esm/web/filesystem.d.ts": {
+        "version": "a51d751213a3674d1c7a55297352f0ddbbffd47321fac86af3e68aaec93d18cb",
+        "signature": "a51d751213a3674d1c7a55297352f0ddbbffd47321fac86af3e68aaec93d18cb",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@capacitor/core/dist/esm/web/geolocation.d.ts": {
+        "version": "f43200832f0d6a1e7b6a607792588170a9dbab10985b64e2cda88d2051b540e8",
+        "signature": "f43200832f0d6a1e7b6a607792588170a9dbab10985b64e2cda88d2051b540e8",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@capacitor/core/dist/esm/web/device.d.ts": {
+        "version": "4eca9a5ef996c8cf219bec2cb335be5d0f90f70bc40f79bde4d8d612a720cac4",
+        "signature": "4eca9a5ef996c8cf219bec2cb335be5d0f90f70bc40f79bde4d8d612a720cac4",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@capacitor/core/dist/esm/web/local-notifications.d.ts": {
+        "version": "e4fdd2c3bd54d99a8bfebabe76c0c5df3dba15da7feee3fc23c2b04d76c17ccb",
+        "signature": "e4fdd2c3bd54d99a8bfebabe76c0c5df3dba15da7feee3fc23c2b04d76c17ccb",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@capacitor/core/dist/esm/web/share.d.ts": {
+        "version": "f4222b3b031a61afef347593c9b6ef5b14d9b40d515af3e991a42bf86e3259b0",
+        "signature": "f4222b3b031a61afef347593c9b6ef5b14d9b40d515af3e991a42bf86e3259b0",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@capacitor/core/dist/esm/web/modals.d.ts": {
+        "version": "d6c0d34971c0cbbc96e229be85c779fa87603b7a68b6265c9ca677b62b37f309",
+        "signature": "d6c0d34971c0cbbc96e229be85c779fa87603b7a68b6265c9ca677b62b37f309",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@capacitor/core/dist/esm/web/motion.d.ts": {
+        "version": "ba5e5930ec0d1501581481813ac61f322fe307eacb182462ef0e8c1ccad47444",
+        "signature": "ba5e5930ec0d1501581481813ac61f322fe307eacb182462ef0e8c1ccad47444",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@capacitor/core/dist/esm/web/network.d.ts": {
+        "version": "8ef8637e50070651486e1b5c03052b9b86392520ad83b4944eb128a1c4b97cba",
+        "signature": "8ef8637e50070651486e1b5c03052b9b86392520ad83b4944eb128a1c4b97cba",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@capacitor/core/dist/esm/web/permissions.d.ts": {
+        "version": "df802cbbcb953852bf4fcc437c1a38fde8977e11f022a04245b97fb6a246c450",
+        "signature": "df802cbbcb953852bf4fcc437c1a38fde8977e11f022a04245b97fb6a246c450",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@capacitor/core/dist/esm/web/splash-screen.d.ts": {
+        "version": "9b7221755a2614467ab311b9bbeda3bf661dfc5251401aa9921eac48060a0823",
+        "signature": "9b7221755a2614467ab311b9bbeda3bf661dfc5251401aa9921eac48060a0823",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@capacitor/core/dist/esm/web/storage.d.ts": {
+        "version": "bceb94f2077176f9cccb3381cdf7d7aa6caf866edf3d521eea583d4ca5762bf6",
+        "signature": "bceb94f2077176f9cccb3381cdf7d7aa6caf866edf3d521eea583d4ca5762bf6",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@capacitor/core/dist/esm/web/toast.d.ts": {
+        "version": "0885c928f5f3ed1fe371d5d022b797072bed67701f6fb0afd3ac7db498adc4ba",
+        "signature": "0885c928f5f3ed1fe371d5d022b797072bed67701f6fb0afd3ac7db498adc4ba",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@capacitor/core/dist/esm/web-plugins.d.ts": {
+        "version": "aa14060266fbcaf812920547b135cac1ce42c1b7e1dd982f36f4549adbccdd78",
+        "signature": "aa14060266fbcaf812920547b135cac1ce42c1b7e1dd982f36f4549adbccdd78",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@capacitor/core/dist/esm/index.d.ts": {
+        "version": "5b91e37a89c5442f9f0a047fe9f1e032f0d71c69a833d2d259d157bbf9edd17f",
+        "signature": "5b91e37a89c5442f9f0a047fe9f1e032f0d71c69a833d2d259d157bbf9edd17f",
+        "affectsGlobalScope": false
+      },
+      "../../src/services/locationservice.ts": {
+        "version": "3eaae48ffb5bd6c894849d08306a402e2d02a62e7e9ec767bbf140219549c141",
+        "signature": "9fde450fed9e15174496cc413ef2d51c02567a45ad1800164a2b7a7226e01e6b",
+        "affectsGlobalScope": false
+      },
+      "../../src/enums/mapmarkertype.ts": {
+        "version": "2b59ca09aaf8e6dc0da84da24d276990c23549f473f0cb088e3a35c4d809e4d4",
+        "signature": "788e23cae2cf0ae4b69196298c9549b728042eb4264d26c5915ac61afea127cc",
+        "affectsGlobalScope": false
+      },
+      "../../src/dtos/mapmarker.ts": {
+        "version": "3333f66496976828e58de5e4d084878f7c3c000c5b935d36289a42ac81746f8e",
+        "signature": "88d9d4d8f78d1e5eeef89e40521639f9696caa7c5e523bba56a99857d8ddea81",
+        "affectsGlobalScope": false
+      },
+      "../../src/utils/mathutil.ts": {
+        "version": "94c976bd63a30b3a898ef78b6caf69843689ed057bcbbb83da52012e752fa24f",
+        "signature": "38a0c63ec351174b0adccdf370a30c13e36c2b3c8751a424c33867d05f436ecc",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/types.d.ts": {
+        "version": "98bbf533543802cb2767155b7733c257d6a72f79c1ec8bc98ab0528a9c96eddf",
+        "signature": "98bbf533543802cb2767155b7733c257d6a72f79c1ec8bc98ab0528a9c96eddf",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/computedestinationpoint.d.ts": {
+        "version": "a1a456327161c9d125f1382a77255699a929ac0afcad1f9327f8ca3b48cef58a",
+        "signature": "a1a456327161c9d125f1382a77255699a929ac0afcad1f9327f8ca3b48cef58a",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/convertarea.d.ts": {
+        "version": "9671c1c0e31e7ac3dcdd0e3abafbb5139ca8ca0374828968f04c960aee62d90d",
+        "signature": "9671c1c0e31e7ac3dcdd0e3abafbb5139ca8ca0374828968f04c960aee62d90d",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/convertdistance.d.ts": {
+        "version": "8bd3ab008329c459b6409dba003efcce89ad2714456c669ca55bad1cf65296c6",
+        "signature": "8bd3ab008329c459b6409dba003efcce89ad2714456c669ca55bad1cf65296c6",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/convertspeed.d.ts": {
+        "version": "ec283dd4c08931b8447b0a5cef09129fda5eb955f7fe0645e00b0a2e988057f8",
+        "signature": "ec283dd4c08931b8447b0a5cef09129fda5eb955f7fe0645e00b0a2e988057f8",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/decimaltosexagesimal.d.ts": {
+        "version": "a080fd70a1925a1d85fca0dc23f678a902dfffaacf1215532752691a851ce25e",
+        "signature": "a080fd70a1925a1d85fca0dc23f678a902dfffaacf1215532752691a851ce25e",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/findnearest.d.ts": {
+        "version": "f5a7b23697cfcbdbf81e2fb1d5e30dd677d70381d0e039ceaed7fb192858d4a3",
+        "signature": "f5a7b23697cfcbdbf81e2fb1d5e30dd677d70381d0e039ceaed7fb192858d4a3",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/getareaofpolygon.d.ts": {
+        "version": "fa795f995b9109d4a9d0b5896c432a190a4681b4e350ea9839d76b7eb18fcfc5",
+        "signature": "fa795f995b9109d4a9d0b5896c432a190a4681b4e350ea9839d76b7eb18fcfc5",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/getbounds.d.ts": {
+        "version": "5deadb02de94feeff149db1e03e5b8f8d9cfcedd8be3663c51a4524152acf822",
+        "signature": "5deadb02de94feeff149db1e03e5b8f8d9cfcedd8be3663c51a4524152acf822",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/getboundsofdistance.d.ts": {
+        "version": "4af4a23586d62ba595a25df27c52fa24f17537356a9ed98bfe0c8578ab33c23e",
+        "signature": "4af4a23586d62ba595a25df27c52fa24f17537356a9ed98bfe0c8578ab33c23e",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/getcenter.d.ts": {
+        "version": "fadbf851b586ef59c76074ad10d07a3b4c0289dd9bd0843de07430b00e502449",
+        "signature": "fadbf851b586ef59c76074ad10d07a3b4c0289dd9bd0843de07430b00e502449",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/getcenterofbounds.d.ts": {
+        "version": "5dc4bf6f0b20cb43ab0f1d362647827b96b903c4aa8315403de201fbec8d7606",
+        "signature": "5dc4bf6f0b20cb43ab0f1d362647827b96b903c4aa8315403de201fbec8d7606",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/getcompassdirection.d.ts": {
+        "version": "860fef6437907e1d6d2e10b6e833f581269946aada6c46c182a72b9c5b2f9c20",
+        "signature": "860fef6437907e1d6d2e10b6e833f581269946aada6c46c182a72b9c5b2f9c20",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/getcoordinatekey.d.ts": {
+        "version": "3afed5ac7f15a3255d024717d86da1f12dfbc23877f10ee4cb75ad95cc92fdf0",
+        "signature": "3afed5ac7f15a3255d024717d86da1f12dfbc23877f10ee4cb75ad95cc92fdf0",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/getcoordinatekeys.d.ts": {
+        "version": "368c9dccee699a2e10d91f5b04c7dc359ae0e07cff73333a478a4bfe9496313e",
+        "signature": "368c9dccee699a2e10d91f5b04c7dc359ae0e07cff73333a478a4bfe9496313e",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/getdistance.d.ts": {
+        "version": "0c15c884a1a2c4dd1fa566e3983bd11552432cfc58a40127cb7ab44132bf9214",
+        "signature": "0c15c884a1a2c4dd1fa566e3983bd11552432cfc58a40127cb7ab44132bf9214",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/getdistancefromline.d.ts": {
+        "version": "63cbabbe5bbc3482b7d76ff8ea7c0d11c19f90d00cf923943839ade6585c88ce",
+        "signature": "63cbabbe5bbc3482b7d76ff8ea7c0d11c19f90d00cf923943839ade6585c88ce",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/getgreatcirclebearing.d.ts": {
+        "version": "b570b7326841fe39489ab4f67d2916c48ca3d27f3d3e55458f03a68b70430416",
+        "signature": "b570b7326841fe39489ab4f67d2916c48ca3d27f3d3e55458f03a68b70430416",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/getlatitude.d.ts": {
+        "version": "9dfc0843a63f9e604d9224df3602fa42019d1a800da63adfaa31b1139f46a450",
+        "signature": "9dfc0843a63f9e604d9224df3602fa42019d1a800da63adfaa31b1139f46a450",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/getlongitude.d.ts": {
+        "version": "125d099877efdbdd481fdc5586a1289c625c77f35b03d80264536323aa057e4d",
+        "signature": "125d099877efdbdd481fdc5586a1289c625c77f35b03d80264536323aa057e4d",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/getpathlength.d.ts": {
+        "version": "1ab33671f349b1c24439fde27ff2594c515fcd4110e863654673c63b548f67a8",
+        "signature": "1ab33671f349b1c24439fde27ff2594c515fcd4110e863654673c63b548f67a8",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/getprecisedistance.d.ts": {
+        "version": "1d40901e31908c6e80e1656ed37094f6925b1b369202f286c9fddaa926b9423d",
+        "signature": "1d40901e31908c6e80e1656ed37094f6925b1b369202f286c9fddaa926b9423d",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/getrhumblinebearing.d.ts": {
+        "version": "67808a8f20c0033de14affa973d61ea207e3cff7ec0364feb0823b9e28bda7ba",
+        "signature": "67808a8f20c0033de14affa973d61ea207e3cff7ec0364feb0823b9e28bda7ba",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/getroughcompassdirection.d.ts": {
+        "version": "88a1722eab8263432e0884a4137b00d9f912f246d67206183e792eba9895c492",
+        "signature": "88a1722eab8263432e0884a4137b00d9f912f246d67206183e792eba9895c492",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/getspeed.d.ts": {
+        "version": "572392828dcf0ad1a40d7a22a7c3cf570874450ae078a46b459fe9a6f05142a7",
+        "signature": "572392828dcf0ad1a40d7a22a7c3cf570874450ae078a46b459fe9a6f05142a7",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/isdecimal.d.ts": {
+        "version": "e9cf31c962755cf6a669b8b10bb55a98a85bab0c01092c6e3062dc60624eb4a9",
+        "signature": "e9cf31c962755cf6a669b8b10bb55a98a85bab0c01092c6e3062dc60624eb4a9",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/ispointinline.d.ts": {
+        "version": "df4a34bed60c4f1a84539b92ffafd3a1ec2738592da5ac3e04cb1bd3776478ee",
+        "signature": "df4a34bed60c4f1a84539b92ffafd3a1ec2738592da5ac3e04cb1bd3776478ee",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/ispointinpolygon.d.ts": {
+        "version": "d290f7dbd4ea7a41aee4f92d769bc27a2cd8f6206302782276c61cfdcde40d08",
+        "signature": "d290f7dbd4ea7a41aee4f92d769bc27a2cd8f6206302782276c61cfdcde40d08",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/ispointnearline.d.ts": {
+        "version": "0a4d286e982286be3471dbd22310c9486deed176f31d6d86966f46da4b5c842b",
+        "signature": "0a4d286e982286be3471dbd22310c9486deed176f31d6d86966f46da4b5c842b",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/ispointwithinradius.d.ts": {
+        "version": "3628225154d7d50fc0edcfb741e0668ff0b440f15ff82e6bc70b355c11b1d2dc",
+        "signature": "3628225154d7d50fc0edcfb741e0668ff0b440f15ff82e6bc70b355c11b1d2dc",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/issexagesimal.d.ts": {
+        "version": "51fbe52534cd93041eab08015983350f445d5fe3c7faec3e7c5f5ee3cba652af",
+        "signature": "51fbe52534cd93041eab08015983350f445d5fe3c7faec3e7c5f5ee3cba652af",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/isvalidcoordinate.d.ts": {
+        "version": "42c813c80c8ab167191fb6985b2863a2552e7565fade837c0e5f7e316c8d7c23",
+        "signature": "42c813c80c8ab167191fb6985b2863a2552e7565fade837c0e5f7e316c8d7c23",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/isvalidlatitude.d.ts": {
+        "version": "66c5261c7309bba04b5f1c9dae4cdae8dd44e38998434bfaa4049b1cc2d9b4af",
+        "signature": "66c5261c7309bba04b5f1c9dae4cdae8dd44e38998434bfaa4049b1cc2d9b4af",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/isvalidlongitude.d.ts": {
+        "version": "55b2857afdfe25a82bf1412d1b3a5018357e52c4080f2da51fc9e6c294fa2269",
+        "signature": "55b2857afdfe25a82bf1412d1b3a5018357e52c4080f2da51fc9e6c294fa2269",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/orderbydistance.d.ts": {
+        "version": "47419ec63702bd98f26ea6b4063369f0ac40db391f68565638a4d768da30397c",
+        "signature": "47419ec63702bd98f26ea6b4063369f0ac40db391f68565638a4d768da30397c",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/sexagesimaltodecimal.d.ts": {
+        "version": "f4f031b17ccde8d38a80a6122263c2b3bcad5e3b5df77a79130c00614714737e",
+        "signature": "f4f031b17ccde8d38a80a6122263c2b3bcad5e3b5df77a79130c00614714737e",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/todecimal.d.ts": {
+        "version": "bd138d4dcfc7a80b05f39e5c3cd39b52f5fa6f67019f6d13ab905599fa81e7e4",
+        "signature": "bd138d4dcfc7a80b05f39e5c3cd39b52f5fa6f67019f6d13ab905599fa81e7e4",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/torad.d.ts": {
+        "version": "b9a4af82feb6a68db822e9f96981ad6fe4726b08e460a845febd369fe731607c",
+        "signature": "b9a4af82feb6a68db822e9f96981ad6fe4726b08e460a845febd369fe731607c",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/todeg.d.ts": {
+        "version": "254c5c406cd28eaedb7f862bfd5416385eead82fad65cbe2efd6e452035179c4",
+        "signature": "254c5c406cd28eaedb7f862bfd5416385eead82fad65cbe2efd6e452035179c4",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/wkttopolygon.d.ts": {
+        "version": "04761b581601486688e45c9d7c7eca75970c10542c90b197882b6263ec3ac5cd",
+        "signature": "04761b581601486688e45c9d7c7eca75970c10542c90b197882b6263ec3ac5cd",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/constants.d.ts": {
+        "version": "60bbb86cad981aa817a04169874188b6b3b72251e2534b62c85bc3bbcdd3be0c",
+        "signature": "60bbb86cad981aa817a04169874188b6b3b72251e2534b62c85bc3bbcdd3be0c",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/geolib/es/index.d.ts": {
+        "version": "d8c995451b0cdbf317ca463d8268160fe52260a91183232da998ff85c57ecdeb",
+        "signature": "d8c995451b0cdbf317ca463d8268160fe52260a91183232da998ff85c57ecdeb",
+        "affectsGlobalScope": false
+      },
+      "../../src/services/mapsservice.ts": {
+        "version": "e19cdf8e967ae38a7a044c2f5b78832d49c1ac1e854ef3e77d182ba714307be3",
+        "signature": "c7887b0e7de70074aec31c375a6f60a6138505d0a4655cac779f9f0794feeb11",
+        "affectsGlobalScope": false
+      },
+      "../../src/types/ionictypes.ts": {
+        "version": "9ceb532cfed78327e25c730491cac15b398515a6486ad0467ecff894e7783546",
+        "signature": "44163e34ae50518010f9977b97545ea991828cf2ac43bf4a52893a3d44a7ddf1",
+        "affectsGlobalScope": false
+      },
+      "../../src/views/addmarkerview/addmarkerview.ts": {
+        "version": "4d62eec72a832fd6a6c4f4c39f1d991ce6c4974d167168176cce7f950f8e92c3",
+        "signature": "094cca3ea9f86b2b17ddae8af48eb01816551b7b561b7fa40c8a19d390311ea0",
+        "affectsGlobalScope": false
+      },
+      "../../src/views/addmarkerview/addmarkerview.vue.ts": {
+        "version": "724f59e838494c1d39651f2cf431be257b99be52c25f472f3304305e05f8453c",
+        "signature": "10f0de47d28c8a52e0880dc4f9a0d06412f82f1510d38a385359b008730659d5",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/vue-class-component/dist/vue-class-component.d.ts": {
+        "version": "03b76b1104ddfad8c49c49c9fead7848aa492d71a73769de5156b63572f05840",
+        "signature": "03b76b1104ddfad8c49c49c9fead7848aa492d71a73769de5156b63572f05840",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@types/googlemaps/style-reference.d.ts": {
+        "version": "d71666cec33cc3064f416a42525311e1492fb8d2e5d4b3b55d6549b8fb14a4c8",
+        "signature": "d71666cec33cc3064f416a42525311e1492fb8d2e5d4b3b55d6549b8fb14a4c8",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/map.d.ts": {
+        "version": "931d4b088049a38a62145e10e471c711bd253b115323aca181b09bdd42263038",
+        "signature": "931d4b088049a38a62145e10e471c711bd253b115323aca181b09bdd42263038",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/coordinates.d.ts": {
+        "version": "3c6c93910866e1a3564e76a484388be11ea3ce3ae6bad06df09cea00218cf106",
+        "signature": "3c6c93910866e1a3564e76a484388be11ea3ce3ae6bad06df09cea00218cf106",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/event.d.ts": {
+        "version": "878d6562d4c54379317c708b364bbeb9a5508ce8574db1f484d0d6a0d43b8cdb",
+        "signature": "878d6562d4c54379317c708b364bbeb9a5508ce8574db1f484d0d6a0d43b8cdb",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/control.d.ts": {
+        "version": "a06bdd6c54f4ef8be4456c97c0376f8cc5b1fe5e1b18224ff400bd3d74a44c41",
+        "signature": "a06bdd6c54f4ef8be4456c97c0376f8cc5b1fe5e1b18224ff400bd3d74a44c41",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/geometry.d.ts": {
+        "version": "b611f55c940fc9378507f3be5267a7d8f6345db5dd751d84ff06a810b6857592",
+        "signature": "b611f55c940fc9378507f3be5267a7d8f6345db5dd751d84ff06a810b6857592",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/marker.d.ts": {
+        "version": "b53381265223e909eacc72f0e3e2fb186651524bf9f46e7e54b40ce7f41e5216",
+        "signature": "b53381265223e909eacc72f0e3e2fb186651524bf9f46e7e54b40ce7f41e5216",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/info-window.d.ts": {
+        "version": "a424f9740946e7a58997924edaa6c1eb84da174217c88924cd515559bb156a19",
+        "signature": "a424f9740946e7a58997924edaa6c1eb84da174217c88924cd515559bb156a19",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/polygon.d.ts": {
+        "version": "95c97d175b2907c9e3d86b69094c891222c5fd046d9dc935c7eeff96042d95ff",
+        "signature": "95c97d175b2907c9e3d86b69094c891222c5fd046d9dc935c7eeff96042d95ff",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/data.d.ts": {
+        "version": "50a781ae5ce905c88b1fbbf88baf98fc23d94229bb2f2b88a98c20cac216e6b6",
+        "signature": "50a781ae5ce905c88b1fbbf88baf98fc23d94229bb2f2b88a98c20cac216e6b6",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/overlay-view.d.ts": {
+        "version": "3783422fa957b07b9e396113fbe9d56c2369189ffd742abd7386f118983d1d3a",
+        "signature": "3783422fa957b07b9e396113fbe9d56c2369189ffd742abd7386f118983d1d3a",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/kml.d.ts": {
+        "version": "e0be32a9c5c42ff3c1412340ce1cd93573f759078e64ff8e79e370d269c2812c",
+        "signature": "e0be32a9c5c42ff3c1412340ce1cd93573f759078e64ff8e79e370d269c2812c",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/image-overlay.d.ts": {
+        "version": "5ae6c86b886ed3eb32d085974a8f2e54e4d817e16e57215b5f8d793a95566711",
+        "signature": "5ae6c86b886ed3eb32d085974a8f2e54e4d817e16e57215b5f8d793a95566711",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/drawing.d.ts": {
+        "version": "7b36f6f3526fcf9bb9bec49343f91e8b863dea677d19f69a03d5104959d08bd2",
+        "signature": "7b36f6f3526fcf9bb9bec49343f91e8b863dea677d19f69a03d5104959d08bd2",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/visualization.d.ts": {
+        "version": "2ab8ec723248f3b10b9cb869139742b7b4deace31da55f3dd640703d54fa4b42",
+        "signature": "2ab8ec723248f3b10b9cb869139742b7b4deace31da55f3dd640703d54fa4b42",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/max-zoom.d.ts": {
+        "version": "e127f251a0ec444ad6742ee3248d5b49594acb70f1b387fd39adf7561027f35a",
+        "signature": "e127f251a0ec444ad6742ee3248d5b49594acb70f1b387fd39adf7561027f35a",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/street-view.d.ts": {
+        "version": "1f7369a15a2cd1435f6a701f79e4deae6b6ca226744b5ab92b51962d6998f7c4",
+        "signature": "1f7369a15a2cd1435f6a701f79e4deae6b6ca226744b5ab92b51962d6998f7c4",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/street-view-service.d.ts": {
+        "version": "b010a408fc193fd8438c7df32e5fa3eecdc8f0e8983ed469d066b0971500ad6f",
+        "signature": "b010a408fc193fd8438c7df32e5fa3eecdc8f0e8983ed469d066b0971500ad6f",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/places-widget.d.ts": {
+        "version": "b56ee16152836323779fb45fcbf8018968c03ea5b1cba0cd4f449b5b7e70676b",
+        "signature": "b56ee16152836323779fb45fcbf8018968c03ea5b1cba0cd4f449b5b7e70676b",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/places-service.d.ts": {
+        "version": "3239117c14159055a72c8f6ed374c8fb656265262261b5b963d14dc07cb2bc63",
+        "signature": "3239117c14159055a72c8f6ed374c8fb656265262261b5b963d14dc07cb2bc63",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/places-autocomplete-service.d.ts": {
+        "version": "120de417659ec12c957c167ad6825686fb354a69772381d9fbb36784628a8d72",
+        "signature": "120de417659ec12c957c167ad6825686fb354a69772381d9fbb36784628a8d72",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/geocoder.d.ts": {
+        "version": "a64b788498f72bb31f01da1fabdca6c72fd08daaf8537d2e9393fb3d3608e668",
+        "signature": "a64b788498f72bb31f01da1fabdca6c72fd08daaf8537d2e9393fb3d3608e668",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/directions.d.ts": {
+        "version": "bed005e068c6cbd2bc22a4961434b91c393120a1d336b308e4c0dd2c2dcd43df",
+        "signature": "bed005e068c6cbd2bc22a4961434b91c393120a1d336b308e4c0dd2c2dcd43df",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/distance-matrix.d.ts": {
+        "version": "d11bece84ef9c124d6dc305018438a8dcc3e47ba8575ee4597b1c63ec86d7ed3",
+        "signature": "d11bece84ef9c124d6dc305018438a8dcc3e47ba8575ee4597b1c63ec86d7ed3",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/reference/elevation.d.ts": {
+        "version": "0cdc52e2c3766f000b79c2dece6426d66d02f33567dc1746b856d9d5dfa5332f",
+        "signature": "0cdc52e2c3766f000b79c2dece6426d66d02f33567dc1746b856d9d5dfa5332f",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/@types/googlemaps/index.d.ts": {
+        "version": "a2d6d88d124bf8058c1b90591844e5649e20fc5cb0b35670d79d72b3921a2119",
+        "signature": "a2d6d88d124bf8058c1b90591844e5649e20fc5cb0b35670d79d72b3921a2119",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/vue3-google-map/dist/types/themes/aubergine.d.ts": {
+        "version": "e6d6c5aa947e63194a63c51cbc1c42b23e4cd2092e082a03fc20025e9ba3decc",
+        "signature": "e6d6c5aa947e63194a63c51cbc1c42b23e4cd2092e082a03fc20025e9ba3decc",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/vue3-google-map/dist/types/themes/dark.d.ts": {
+        "version": "a01f9cfd81a367564c4cdcb1a3e424b081f3311489a77970e4224191918b6ddb",
+        "signature": "a01f9cfd81a367564c4cdcb1a3e424b081f3311489a77970e4224191918b6ddb",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/vue3-google-map/dist/types/themes/grey.d.ts": {
+        "version": "2551be6a242a7d41d1485aa7986cf987b3be7e88d6ff6a7730f81a85642b2ffe",
+        "signature": "2551be6a242a7d41d1485aa7986cf987b3be7e88d6ff6a7730f81a85642b2ffe",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/vue3-google-map/dist/types/themes/minimal.d.ts": {
+        "version": "cd36d2724effc43f67158b91e21ff24033f2da737f1b5c7930cc1396ed2d2ad1",
+        "signature": "cd36d2724effc43f67158b91e21ff24033f2da737f1b5c7930cc1396ed2d2ad1",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/vue3-google-map/dist/types/themes/retro.d.ts": {
+        "version": "85636eb84924ddb72430538544645381086f6ef026bc8c8c30aa7ef72a343731",
+        "signature": "85636eb84924ddb72430538544645381086f6ef026bc8c8c30aa7ef72a343731",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/vue3-google-map/dist/types/themes/roadways.d.ts": {
+        "version": "8bb583dc284279e78127f705d2a8d8d9547237595c5d02ae4a0edc4d7b33a3c7",
+        "signature": "8bb583dc284279e78127f705d2a8d8d9547237595c5d02ae4a0edc4d7b33a3c7",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/vue3-google-map/dist/types/themes/roadwaysminimal.d.ts": {
+        "version": "442dc8ed0efbdcb293fba1272901a709deaad227f571bc5d05f38da253db0401",
+        "signature": "442dc8ed0efbdcb293fba1272901a709deaad227f571bc5d05f38da253db0401",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/vue3-google-map/dist/types/themes/ultralight.d.ts": {
+        "version": "14a1d127b2ecef97c9f7098e5a4f7efe36301f10ecb302a229e479e0532db3e1",
+        "signature": "14a1d127b2ecef97c9f7098e5a4f7efe36301f10ecb302a229e479e0532db3e1",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/vue3-google-map/dist/types/themes/index.d.ts": {
+        "version": "e2541b26182c329ddbfcb600b006c5c736c69a1d7b6845d6d652c5493f1f1cae",
+        "signature": "e2541b26182c329ddbfcb600b006c5c736c69a1d7b6845d6d652c5493f1f1cae",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/vue3-google-map/dist/types/@types/index.d.ts": {
+        "version": "f261e4b9335afb302dc667ccd13dd42a2eb1fcaa97b05e324731fbdea2d305ed",
+        "signature": "f261e4b9335afb302dc667ccd13dd42a2eb1fcaa97b05e324731fbdea2d305ed",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/vue3-google-map/dist/types/components/marker.d.ts": {
+        "version": "e324bc4cdbc520ecafcccb85755fc3a5cb91fc86eebc26faac127e531d51af02",
+        "signature": "e324bc4cdbc520ecafcccb85755fc3a5cb91fc86eebc26faac127e531d51af02",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/vue3-google-map/dist/types/components/polyline.d.ts": {
+        "version": "b4c6f81104ef7b8b019564ec29af6b871380b3fdc09cd756b156b73ea8bbbd1c",
+        "signature": "b4c6f81104ef7b8b019564ec29af6b871380b3fdc09cd756b156b73ea8bbbd1c",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/vue3-google-map/dist/types/components/polygon.d.ts": {
+        "version": "dfdc8803e92aa66dec84bc0a68a33307f11ba8148bef6c73bf430d1a20a90e7d",
+        "signature": "dfdc8803e92aa66dec84bc0a68a33307f11ba8148bef6c73bf430d1a20a90e7d",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/vue3-google-map/dist/types/components/rectangle.d.ts": {
+        "version": "238661eea7ad78472092e37bda9030e7067fb79cf6b1a160d4dc83bd73914c30",
+        "signature": "238661eea7ad78472092e37bda9030e7067fb79cf6b1a160d4dc83bd73914c30",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/vue3-google-map/dist/types/components/circle.d.ts": {
+        "version": "27b4547212d31e676d6c31a5e2e97fcabbda3e3e4d7d030cf3385004eb1adacf",
+        "signature": "27b4547212d31e676d6c31a5e2e97fcabbda3e3e4d7d030cf3385004eb1adacf",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/vue3-google-map/dist/types/components/index.d.ts": {
+        "version": "ee584990eccfb3c890870eb996000fd52ac590a1d569acd868452c43932724bf",
+        "signature": "ee584990eccfb3c890870eb996000fd52ac590a1d569acd868452c43932724bf",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/vue3-google-map/dist/types/index.d.ts": {
+        "version": "6b1a0e60d6ed21c434af54ddf31f8f43a6d810ba04b4e713679673f899a64861",
+        "signature": "6b1a0e60d6ed21c434af54ddf31f8f43a6d810ba04b4e713679673f899a64861",
+        "affectsGlobalScope": false
+      },
+      "../../src/views/mapview/mapview.ts": {
+        "version": "919418b98f853775fd5129a7b37265d61b23a39373f300b0b9be56e4b0df362a",
+        "signature": "0c4a1aa566210a6e19881601326be7fddc66077159dbc2db168d546214566ded",
+        "affectsGlobalScope": false
+      },
+      "../../src/views/mapview/mapview.vue.ts": {
+        "version": "f2d5e1ce85434ec3a9df071ae34ebbe5308cb26928258a2dcec7c73776740879",
+        "signature": "46570e232517b567fca871efb5f27901c93bfd3f690795e7c0bedc279764b1b3",
+        "affectsGlobalScope": false
+      },
+      "../../src/views/conversionationsview/conversionationsview.vue.ts": {
+        "version": "afd31ad17c8dd8138fedc3158a849fb345c1d70fd50628c6c09b6579a1c7c321",
+        "signature": "687ccea307752a4984da8404960e00e7bfa6c3085ef75ec53a54fad4f37a3ed1",
+        "affectsGlobalScope": false
+      },
+      "../../src/views/settingsview/settingsview.vue.ts": {
+        "version": "6201a53d4e82321102bd6c9d7621d43a08bd71be6809640fc1b81e9a000fa505",
+        "signature": "687ccea307752a4984da8404960e00e7bfa6c3085ef75ec53a54fad4f37a3ed1",
+        "affectsGlobalScope": false
+      },
+      "../../src/router/index.ts": {
+        "version": "ec2d7583a9ab7b2229ed32083c1ef9fc6927e0ed3097e463019529a590b32a03",
+        "signature": "2484eadb07b268ddd6b1ca48525126faacaabfe37fb08d37f1fd514919bb681b",
+        "affectsGlobalScope": false
+      },
+      "../../src/main.ts": {
+        "version": "e9cff64d277a645b12b055b61198a32871aaba8ed95ad2ab5a9b3707c634849f",
+        "signature": "6877e24eb56fd4330bd845f4c9858ae5f019139c8ee22bd75f13ea396e3ade2b",
+        "affectsGlobalScope": false
+      },
+      "../../src/shims-vue.d.ts": {
+        "version": "8f4180b12e055fbcfed93a06a00de285927202fb24eee95c3eaed28d7441d682",
+        "signature": "8f4180b12e055fbcfed93a06a00de285927202fb24eee95c3eaed28d7441d682",
+        "affectsGlobalScope": false
+      },
+      "../../src/components/spoticon.ts": {
+        "version": "f1a3e1b2ebf17e6ab8a9875962425c3de8b9c378d7d3745d93814706fcdc815d",
+        "signature": "c6a6f6424def5fe807b5bfe6834a033a3c30910addd30eadead345b94e62d2df",
+        "affectsGlobalScope": false
+      },
+      "../../src/dtos/extendedgeolocation.ts": {
+        "version": "d9330ddebb012ebc87af0a3aa682184c2f9155e0cb53b12df8cf9c9289b547c1",
+        "signature": "cd13e94bc269cd21c3d07512e05ba4ef83f54049d033787ee19559b91bff26a4",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@ionic-native/globalization/index.d.ts": {
+        "version": "128c7acabdab756a3749c8a563aa3e9a098832a54e2b9f889fd76a871bc7df3b",
+        "signature": "128c7acabdab756a3749c8a563aa3e9a098832a54e2b9f889fd76a871bc7df3b",
+        "affectsGlobalScope": false
+      },
+      "../../src/utils/numberformatter.ts": {
+        "version": "ec7658f6f04003c0c9c6d6ce0cbc6c2cc0a9211fe87c4d6061d37f61327033b6",
+        "signature": "faf8392b01c1c9461ee61a3288ce5fdb60dc2073d05217c7b35774681638a44b",
+        "affectsGlobalScope": false
+      },
+      "../../src/components/spoticon.vue.ts": {
+        "version": "9ce6eaf8098ae4bbb764a1afd1105259cc1caa3a8b77bada11f15a2c8d83313a",
+        "signature": "96490aecfe375b5b78e2b191c23d6e04dc8cec6b3454d7e6d47a64e8101293a2",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@vue/test-utils/dist/types.d.ts": {
+        "version": "3fbb840a8e1804ec52f938005233d6b5fd925bdd3daf5a70a7deb1c681f6bea7",
+        "signature": "3fbb840a8e1804ec52f938005233d6b5fd925bdd3daf5a70a7deb1c681f6bea7",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@vue/test-utils/dist/createdomevent.d.ts": {
+        "version": "106bfeb3eeabf5dce6aec895e089c01e9d0ab9942d962b0d631954c5af8d6e75",
+        "signature": "106bfeb3eeabf5dce6aec895e089c01e9d0ab9942d962b0d631954c5af8d6e75",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@vue/test-utils/dist/domwrapper.d.ts": {
+        "version": "0529e5e980d39343efda4bd010f79cfc25399a448fb038a112c3ad958ee13477",
+        "signature": "0529e5e980d39343efda4bd010f79cfc25399a448fb038a112c3ad958ee13477",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@vue/test-utils/dist/vuewrapper.d.ts": {
+        "version": "87c7d8863b7f50c658462c7dd1b1c193535ab80a6adba266573006f63263b1ec",
+        "signature": "87c7d8863b7f50c658462c7dd1b1c193535ab80a6adba266573006f63263b1ec",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@vue/test-utils/dist/mount.d.ts": {
+        "version": "de0cf87f1e5771d6f61934bf64dfe6a3affc65e8bffb9e42cdf0daf72d0879dc",
+        "signature": "de0cf87f1e5771d6f61934bf64dfe6a3affc65e8bffb9e42cdf0daf72d0879dc",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@vue/test-utils/dist/components/routerlinkstub.d.ts": {
+        "version": "794c0ff491e6ee95f91869e9404ae0215b6f04d299d8d8d31811f8e80e774c33",
+        "signature": "794c0ff491e6ee95f91869e9404ae0215b6f04d299d8d8d31811f8e80e774c33",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@vue/test-utils/dist/config.d.ts": {
+        "version": "f95168131980bea135c8869fccfb62d49a09cdd32e72b440ce96620f555e23b9",
+        "signature": "f95168131980bea135c8869fccfb62d49a09cdd32e72b440ce96620f555e23b9",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@vue/test-utils/dist/utils/flushpromises.d.ts": {
+        "version": "779c5f38053bcbc4bda3e45d4932da517471b486b2bbe51bbdcc912b3101fda4",
+        "signature": "779c5f38053bcbc4bda3e45d4932da517471b486b2bbe51bbdcc912b3101fda4",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@vue/test-utils/dist/index.d.ts": {
+        "version": "3f87e598e875b35e09e259f5a12ede1b7be4a43b1493a3a0958bda5bf0eb5c44",
+        "signature": "3f87e598e875b35e09e259f5a12ede1b7be4a43b1493a3a0958bda5bf0eb5c44",
+        "affectsGlobalScope": false
+      },
+      "../../tests/unit/example.spec.ts": {
+        "version": "a26a3e267fcc1ea42e3cae62444b2ba204c271843504ed90cedc8fd93e6b79ca",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@types/webpack-env/index.d.ts": {
+        "version": "5b3e6ce357a7a1a07c858432a3d2002750058725874db09a03a0a9e899d861f5",
+        "signature": "5b3e6ce357a7a1a07c858432a3d2002750058725874db09a03a0a9e899d861f5",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/jest-diff/build/types.d.ts": {
+        "version": "71ba0678a3c647f5c0706ae975c031ace0d464e60f9ce56eaa7f1678d065aab7",
+        "signature": "71ba0678a3c647f5c0706ae975c031ace0d464e60f9ce56eaa7f1678d065aab7",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/jest-diff/build/index.d.ts": {
+        "version": "162c6f2951bd80ae6e16679378f382200b26bba9de8f255af3a2895fbfa670b4",
+        "signature": "162c6f2951bd80ae6e16679378f382200b26bba9de8f255af3a2895fbfa670b4",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@types/jest/index.d.ts": {
+        "version": "375c56b1890858dcdae495877f0ce3b694980adf64762e2fd3fbe78e3eac76ba",
+        "signature": "375c56b1890858dcdae495877f0ce3b694980adf64762e2fd3fbe78e3eac76ba",
+        "affectsGlobalScope": true
+      }
+    },
+    "options": {
+      "resolveJsonModule": true,
+      "allowJs": true,
+      "allowSyntheticDefaultImports": true,
+      "alwaysStrict": true,
+      "declaration": true,
+      "declarationMap": false,
+      "composite": true,
+      "pretty": true,
+      "skipLibCheck": true,
+      "emitDecoratorMetadata": true,
+      "emitBOM": true,
+      "experimentalDecorators": true,
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "incremental": true,
+      "module": 1,
+      "moduleResolution": 2,
+      "noImplicitAny": true,
+      "noImplicitReturns": true,
+      "noImplicitThis": true,
+      "noUnusedLocals": false,
+      "noUnusedParameters": false,
+      "outDir": "./",
+      "isolatedModules": false,
+      "target": 2,
+      "lib": [
+        "lib.esnext.d.ts",
+        "lib.dom.d.ts",
+        "lib.dom.iterable.d.ts",
+        "lib.scripthost.d.ts"
+      ],
+      "baseUrl": "../..",
+      "types": [
+        "webpack-env",
+        "jest",
+        "googlemaps"
+      ],
+      "paths": {
+        "@config/*": [
+          "config/*"
+        ],
+        "@/*": [
+          "src/*"
+        ]
+      },
+      "useDefineForClassFields": true,
+      "importsNotUsedAsValues": 1,
+      "removeComments": false,
+      "sourceMap": false,
+      "strict": true,
+      "strictBindCallApply": true,
+      "strictFunctionTypes": true,
+      "strictNullChecks": true,
+      "strictPropertyInitialization": true,
+      "skipDefaultLibCheck": true,
+      "downlevelIteration": true,
+      "importHelpers": true,
+      "inlineSourceMap": false,
+      "configFilePath": "../../tsconfig.json"
+    },
+    "referencedMap": {
+      "../../node_modules/@babel/parser/typings/babel-parser.d.ts": [
+        "../../node_modules/@babel/types/lib/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/definitions.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/definitions.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/global.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/definitions.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/index.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/global.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web-plugins.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web-plugins.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/web/accessibility.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/app.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/browser.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/camera.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/clipboard.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/device.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/filesystem.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/geolocation.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/local-notifications.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/modals.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/motion.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/network.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/permissions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/share.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/splash-screen.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/storage.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/toast.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/accessibility.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/app.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/browser.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/camera.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/clipboard.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/device.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/filesystem.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/geolocation.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/definitions.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/local-notifications.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/modals.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/motion.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/network.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/permissions.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/share.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/splash-screen.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/storage.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/toast.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/components/route/route-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/select/select-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/stencil-public-runtime.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/sanitization/index.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/action-sheet/action-sheet-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/alert/alert-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/stencil-public-runtime.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/sanitization/index.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/content/content-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/datetime/datetime-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/loading/loading-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/sanitization/index.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/menu/menu-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/modal/modal-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/nav/nav-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/components/nav/view-controller.d.ts",
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/nav/view-controller.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/picker/picker-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/popover/popover-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/router/utils/interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/components/route/route-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/spinner/spinner-configs.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/components/spinner/spinner-interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/spinner/spinner-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/components/spinner/spinner-configs.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/toast/toast-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/sanitization/index.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/global/config.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/index.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/components/nav/constants.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/animation/animation.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/animation/cubic-bezier.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/config.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/gesture/index.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/menu-controller/index.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/overlays.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/platform.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/sanitization/index.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/transition/ios.transition.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/transition/md.transition.d.ts",
+        "../../node_modules/ionicons/dist/types/index.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/components.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/action-sheet/action-sheet-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/alert/alert-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/checkbox/checkbox-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/content/content-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/datetime/datetime-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/input/input-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/loading/loading-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/menu/menu-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/modal/modal-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/nav/nav-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/picker/picker-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/popover/popover-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/radio-group/radio-group-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/range/range-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/refresher/refresher-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/reorder-group/reorder-group-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/router/utils/interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/searchbar/searchbar-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/segment/segment-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/select-popover/select-popover-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/select/select-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/spinner/spinner-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/tab-bar/tab-bar-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/textarea/textarea-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/toast/toast-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/toggle/toggle-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/virtual-scroll/virtual-scroll-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/global/config.d.ts",
+        "../../node_modules/@ionic/core/dist/types/index.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/animation/animation-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/gesture/index.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/overlays-interface.d.ts",
+        "../../node_modules/ionicons/dist/types/index.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/utils/animation/animation.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/utils/animation/animation-interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/utils/config.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/utils/gesture/index.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/utils/gesture/gesture-controller.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/utils/menu-controller/index.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/utils/overlays-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/stencil-public-runtime.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/utils/overlays.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/utils/transition/index.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/utils/transition/ios.transition.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/transition/index.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/utils/transition/md.transition.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/transition/index.d.ts"
+      ],
+      "../../node_modules/@ionic/vue-router/dist/types/index.d.ts": [
+        "../../node_modules/@ionic/vue-router/dist/types/types.d.ts",
+        "../../node_modules/vue-router/dist/vue-router.d.ts"
+      ],
+      "../../node_modules/@ionic/vue-router/dist/types/types.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/vue-router/dist/vue-router.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/components/ionapp.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/components/ionbackbutton.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/components/ionicon.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/components/ionnav.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/components/ionpage.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/components/ionrouteroutlet.d.ts": [
+        "../../node_modules/vue-router/dist/vue-router.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/components/iontabbar.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/components/iontabbutton.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/components/iontabs.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/components/overlays.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/vue-component-lib/overlays.d.ts",
+        "../../node_modules/@vue/reactivity/dist/reactivity.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/controllers.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/globalextensions.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+        "../../node_modules/vue-router/dist/vue-router.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/hooks.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/index.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/components/ionapp.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/components/ionbackbutton.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/components/ionicon.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/components/ionnav.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/components/ionpage.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/components/ionrouteroutlet.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/components/iontabbar.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/components/iontabbutton.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/components/iontabs.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/components/overlays.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/controllers.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/globalextensions.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/hooks.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/ionic-vue.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/proxies.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/ionic-vue.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/proxies.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/vue-component-lib/utils.d.ts",
+        "../../node_modules/@vue/reactivity/dist/reactivity.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/vue-component-lib/overlays.d.ts": [
+        "../../node_modules/@vue/reactivity/dist/reactivity.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/vue-component-lib/utils.d.ts": [
+        "../../node_modules/@vue/reactivity/dist/reactivity.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@types/googlemaps/index.d.ts": [
+        "../../node_modules/@types/googlemaps/reference/control.d.ts",
+        "../../node_modules/@types/googlemaps/reference/coordinates.d.ts",
+        "../../node_modules/@types/googlemaps/reference/data.d.ts",
+        "../../node_modules/@types/googlemaps/reference/directions.d.ts",
+        "../../node_modules/@types/googlemaps/reference/distance-matrix.d.ts",
+        "../../node_modules/@types/googlemaps/reference/drawing.d.ts",
+        "../../node_modules/@types/googlemaps/reference/elevation.d.ts",
+        "../../node_modules/@types/googlemaps/reference/event.d.ts",
+        "../../node_modules/@types/googlemaps/reference/geocoder.d.ts",
+        "../../node_modules/@types/googlemaps/reference/geometry.d.ts",
+        "../../node_modules/@types/googlemaps/reference/image-overlay.d.ts",
+        "../../node_modules/@types/googlemaps/reference/info-window.d.ts",
+        "../../node_modules/@types/googlemaps/reference/kml.d.ts",
+        "../../node_modules/@types/googlemaps/reference/map.d.ts",
+        "../../node_modules/@types/googlemaps/reference/marker.d.ts",
+        "../../node_modules/@types/googlemaps/reference/max-zoom.d.ts",
+        "../../node_modules/@types/googlemaps/reference/overlay-view.d.ts",
+        "../../node_modules/@types/googlemaps/reference/places-autocomplete-service.d.ts",
+        "../../node_modules/@types/googlemaps/reference/places-service.d.ts",
+        "../../node_modules/@types/googlemaps/reference/places-widget.d.ts",
+        "../../node_modules/@types/googlemaps/reference/polygon.d.ts",
+        "../../node_modules/@types/googlemaps/reference/street-view-service.d.ts",
+        "../../node_modules/@types/googlemaps/reference/street-view.d.ts",
+        "../../node_modules/@types/googlemaps/reference/visualization.d.ts",
+        "../../node_modules/@types/googlemaps/style-reference.d.ts"
+      ],
+      "../../node_modules/@types/jest/index.d.ts": [
+        "../../node_modules/jest-diff/build/index.d.ts"
+      ],
+      "../../node_modules/@vue/compiler-core/dist/compiler-core.d.ts": [
+        "../../node_modules/@babel/parser/typings/babel-parser.d.ts",
+        "../../node_modules/@vue/compiler-core/node_modules/source-map/source-map.d.ts",
+        "../../node_modules/@vue/shared/dist/shared.d.ts"
+      ],
+      "../../node_modules/@vue/compiler-dom/dist/compiler-dom.d.ts": [
+        "../../node_modules/@vue/compiler-core/dist/compiler-core.d.ts"
+      ],
+      "../../node_modules/@vue/runtime-core/dist/runtime-core.d.ts": [
+        "../../node_modules/@vue/reactivity/dist/reactivity.d.ts",
+        "../../node_modules/@vue/runtime-dom/dist/runtime-dom.d.ts",
+        "../../node_modules/@vue/shared/dist/shared.d.ts"
+      ],
+      "../../node_modules/@vue/runtime-dom/dist/runtime-dom.d.ts": [
+        "../../node_modules/@vue/reactivity/dist/reactivity.d.ts",
+        "../../node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+        "../../node_modules/csstype/index.d.ts"
+      ],
+      "../../node_modules/@vue/test-utils/dist/components/routerlinkstub.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@vue/test-utils/dist/config.d.ts": [
+        "../../node_modules/@vue/test-utils/dist/domwrapper.d.ts",
+        "../../node_modules/@vue/test-utils/dist/types.d.ts",
+        "../../node_modules/@vue/test-utils/dist/vuewrapper.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@vue/test-utils/dist/domwrapper.d.ts": [
+        "../../node_modules/@vue/test-utils/dist/createdomevent.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@vue/test-utils/dist/index.d.ts": [
+        "../../node_modules/@vue/test-utils/dist/components/routerlinkstub.d.ts",
+        "../../node_modules/@vue/test-utils/dist/config.d.ts",
+        "../../node_modules/@vue/test-utils/dist/domwrapper.d.ts",
+        "../../node_modules/@vue/test-utils/dist/mount.d.ts",
+        "../../node_modules/@vue/test-utils/dist/types.d.ts",
+        "../../node_modules/@vue/test-utils/dist/utils/flushpromises.d.ts",
+        "../../node_modules/@vue/test-utils/dist/vuewrapper.d.ts"
+      ],
+      "../../node_modules/@vue/test-utils/dist/mount.d.ts": [
+        "../../node_modules/@vue/test-utils/dist/types.d.ts",
+        "../../node_modules/@vue/test-utils/dist/vuewrapper.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@vue/test-utils/dist/types.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@vue/test-utils/dist/vuewrapper.d.ts": [
+        "../../node_modules/@vue/test-utils/dist/createdomevent.d.ts",
+        "../../node_modules/@vue/test-utils/dist/domwrapper.d.ts",
+        "../../node_modules/@vue/test-utils/dist/types.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/geolib/es/computedestinationpoint.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/constants.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/findnearest.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getareaofpolygon.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getboundsofdistance.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getcenter.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getcenterofbounds.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getcompassdirection.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getcoordinatekey.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getcoordinatekeys.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getdistance.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getdistancefromline.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getgreatcirclebearing.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getlatitude.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getlongitude.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getpathlength.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getprecisedistance.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getrhumblinebearing.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getspeed.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/index.d.ts": [
+        "../../node_modules/geolib/es/computedestinationpoint.d.ts",
+        "../../node_modules/geolib/es/constants.d.ts",
+        "../../node_modules/geolib/es/convertarea.d.ts",
+        "../../node_modules/geolib/es/convertdistance.d.ts",
+        "../../node_modules/geolib/es/convertspeed.d.ts",
+        "../../node_modules/geolib/es/decimaltosexagesimal.d.ts",
+        "../../node_modules/geolib/es/findnearest.d.ts",
+        "../../node_modules/geolib/es/getareaofpolygon.d.ts",
+        "../../node_modules/geolib/es/getbounds.d.ts",
+        "../../node_modules/geolib/es/getboundsofdistance.d.ts",
+        "../../node_modules/geolib/es/getcenter.d.ts",
+        "../../node_modules/geolib/es/getcenterofbounds.d.ts",
+        "../../node_modules/geolib/es/getcompassdirection.d.ts",
+        "../../node_modules/geolib/es/getcoordinatekey.d.ts",
+        "../../node_modules/geolib/es/getcoordinatekeys.d.ts",
+        "../../node_modules/geolib/es/getdistance.d.ts",
+        "../../node_modules/geolib/es/getdistancefromline.d.ts",
+        "../../node_modules/geolib/es/getgreatcirclebearing.d.ts",
+        "../../node_modules/geolib/es/getlatitude.d.ts",
+        "../../node_modules/geolib/es/getlongitude.d.ts",
+        "../../node_modules/geolib/es/getpathlength.d.ts",
+        "../../node_modules/geolib/es/getprecisedistance.d.ts",
+        "../../node_modules/geolib/es/getrhumblinebearing.d.ts",
+        "../../node_modules/geolib/es/getroughcompassdirection.d.ts",
+        "../../node_modules/geolib/es/getspeed.d.ts",
+        "../../node_modules/geolib/es/isdecimal.d.ts",
+        "../../node_modules/geolib/es/ispointinline.d.ts",
+        "../../node_modules/geolib/es/ispointinpolygon.d.ts",
+        "../../node_modules/geolib/es/ispointnearline.d.ts",
+        "../../node_modules/geolib/es/ispointwithinradius.d.ts",
+        "../../node_modules/geolib/es/issexagesimal.d.ts",
+        "../../node_modules/geolib/es/isvalidcoordinate.d.ts",
+        "../../node_modules/geolib/es/isvalidlatitude.d.ts",
+        "../../node_modules/geolib/es/isvalidlongitude.d.ts",
+        "../../node_modules/geolib/es/orderbydistance.d.ts",
+        "../../node_modules/geolib/es/sexagesimaltodecimal.d.ts",
+        "../../node_modules/geolib/es/todecimal.d.ts",
+        "../../node_modules/geolib/es/todeg.d.ts",
+        "../../node_modules/geolib/es/torad.d.ts",
+        "../../node_modules/geolib/es/wkttopolygon.d.ts"
+      ],
+      "../../node_modules/geolib/es/ispointinline.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/ispointinpolygon.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/ispointnearline.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/ispointwithinradius.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/isvalidcoordinate.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/orderbydistance.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/ionicons/dist/types/components.d.ts": [
+        "../../node_modules/ionicons/dist/types/stencil-public-runtime.d.ts"
+      ],
+      "../../node_modules/ionicons/dist/types/components/icon/utils.d.ts": [
+        "../../node_modules/ionicons/dist/types/components/icon/icon.d.ts"
+      ],
+      "../../node_modules/ionicons/dist/types/index.d.ts": [
+        "../../node_modules/ionicons/dist/types/components.d.ts",
+        "../../node_modules/ionicons/dist/types/components/icon/utils.d.ts"
+      ],
+      "../../node_modules/jest-diff/build/index.d.ts": [
+        "../../node_modules/jest-diff/build/types.d.ts"
+      ],
+      "../../node_modules/vue-class-component/dist/vue-class-component.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/vue-router/dist/vue-router.d.ts": [
+        "../../node_modules/@ionic/vue/dist/types/globalextensions.d.ts",
+        "../../node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/vue/dist/vue.d.ts": [
+        "../../node_modules/@vue/compiler-dom/dist/compiler-dom.d.ts",
+        "../../node_modules/@vue/runtime-dom/dist/runtime-dom.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/@types/index.d.ts": [
+        "../../node_modules/@types/googlemaps/index.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/themes/index.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/components/circle.d.ts": [
+        "../../node_modules/@types/googlemaps/index.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/components/index.d.ts": [
+        "../../node_modules/vue3-google-map/dist/types/components/circle.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/components/marker.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/components/polygon.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/components/polyline.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/components/rectangle.d.ts",
+        "../../src/shims-vue.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/components/marker.d.ts": [
+        "../../node_modules/@types/googlemaps/index.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/components/polygon.d.ts": [
+        "../../node_modules/@types/googlemaps/index.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/components/polyline.d.ts": [
+        "../../node_modules/@types/googlemaps/index.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/components/rectangle.d.ts": [
+        "../../node_modules/@types/googlemaps/index.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/index.d.ts": [
+        "../../node_modules/vue3-google-map/dist/types/@types/index.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/components/index.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/themes/aubergine.d.ts": [
+        "../../node_modules/vue3-google-map/dist/types/@types/index.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/themes/dark.d.ts": [
+        "../../node_modules/vue3-google-map/dist/types/@types/index.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/themes/grey.d.ts": [
+        "../../node_modules/vue3-google-map/dist/types/@types/index.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/themes/index.d.ts": [
+        "../../node_modules/vue3-google-map/dist/types/themes/aubergine.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/themes/dark.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/themes/grey.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/themes/minimal.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/themes/retro.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/themes/roadways.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/themes/roadwaysminimal.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/themes/ultralight.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/themes/minimal.d.ts": [
+        "../../node_modules/vue3-google-map/dist/types/@types/index.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/themes/retro.d.ts": [
+        "../../node_modules/vue3-google-map/dist/types/@types/index.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/themes/roadways.d.ts": [
+        "../../node_modules/vue3-google-map/dist/types/@types/index.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/themes/roadwaysminimal.d.ts": [
+        "../../node_modules/vue3-google-map/dist/types/@types/index.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/themes/ultralight.d.ts": [
+        "../../node_modules/vue3-google-map/dist/types/@types/index.d.ts"
+      ],
+      "../../src/app.vue.ts": [
+        "../../node_modules/@ionic/vue/dist/types/index.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../src/components/spoticon.ts": [
+        "../../node_modules/@ionic/vue/dist/types/index.d.ts",
+        "../../node_modules/ionicons/icons/index.d.ts",
+        "../../node_modules/vue-class-component/dist/vue-class-component.d.ts"
+      ],
+      "../../src/components/spoticon.vue.ts": [
+        "../../src/components/spoticon.ts"
+      ],
+      "../../src/dtos/extendedgeolocation.ts": [
+        "../../src/dtos/geolocation.ts"
+      ],
+      "../../src/dtos/mapmarker.ts": [
+        "../../src/dtos/geolocation.ts",
+        "../../src/enums/mapmarkertype.ts"
+      ],
+      "../../src/dtos/markerdto.ts": [
+        "../../src/dtos/latlng.ts"
+      ],
+      "../../src/main.ts": [
+        "../../node_modules/@ionic/vue/dist/types/index.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts",
+        "../../src/app.vue.ts",
+        "../../src/router/index.ts"
+      ],
+      "../../src/router/index.ts": [
+        "../../node_modules/@ionic/vue-router/dist/types/index.d.ts",
+        "../../node_modules/vue-router/dist/vue-router.d.ts",
+        "../../src/views/conversionationsview/conversionationsview.vue.ts",
+        "../../src/views/mapview/mapview.vue.ts",
+        "../../src/views/settingsview/settingsview.vue.ts",
+        "../../src/views/tabs.vue.ts"
+      ],
+      "../../src/services/locationservice.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/index.d.ts"
+      ],
+      "../../src/services/mapsservice.ts": [
+        "../../node_modules/geolib/es/index.d.ts",
+        "../../src/dtos/geolocation.ts",
+        "../../src/dtos/mapmarker.ts",
+        "../../src/enums/mapmarkertype.ts",
+        "../../src/utils/mathutil.ts"
+      ],
+      "../../src/shims-vue.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../src/types/ionictypes.ts": [
+        "../../node_modules/@ionic/vue/dist/types/index.d.ts"
+      ],
+      "../../src/utils/numberformatter.ts": [
+        "../../node_modules/@ionic-native/globalization/index.d.ts"
+      ],
+      "../../src/views/addmarkerview/addmarkerview.ts": [
+        "../../node_modules/@ionic/vue/dist/types/index.d.ts",
+        "../../src/components/explorecontainer.vue.ts",
+        "../../src/enums/mapmarkertype.ts"
+      ],
+      "../../src/views/addmarkerview/addmarkerview.vue.ts": [
+        "../../src/views/addmarkerview/addmarkerview.ts"
+      ],
+      "../../src/views/conversionationsview/conversionationsview.vue.ts": [
+        "../../node_modules/@ionic/vue/dist/types/index.d.ts",
+        "../../src/components/explorecontainer.vue.ts"
+      ],
+      "../../src/views/mapview/mapview.ts": [
+        "../../node_modules/@ionic/vue/dist/types/index.d.ts",
+        "../../node_modules/ionicons/icons/index.d.ts",
+        "../../node_modules/vue-class-component/dist/vue-class-component.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/index.d.ts",
+        "../../src/components/explorecontainer.vue.ts",
+        "../../src/configuration/settings.ts",
+        "../../src/dtos/geolocation.ts",
+        "../../src/dtos/latlng.ts",
+        "../../src/dtos/markerdto.ts",
+        "../../src/services/locationservice.ts",
+        "../../src/services/mapsservice.ts",
+        "../../src/types/ionictypes.ts",
+        "../../src/views/addmarkerview/addmarkerview.vue.ts"
+      ],
+      "../../src/views/mapview/mapview.vue.ts": [
+        "../../src/views/mapview/mapview.ts"
+      ],
+      "../../src/views/settingsview/settingsview.vue.ts": [
+        "../../node_modules/@ionic/vue/dist/types/index.d.ts",
+        "../../src/components/explorecontainer.vue.ts"
+      ],
+      "../../src/views/tabs.vue.ts": [
+        "../../node_modules/@ionic/vue/dist/types/index.d.ts",
+        "../../node_modules/ionicons/icons/index.d.ts"
+      ],
+      "../../tests/unit/example.spec.ts": [
+        "../../node_modules/@vue/test-utils/dist/index.d.ts",
+        "../../src/shims-vue.d.ts"
+      ]
+    },
+    "exportedModulesMap": {
+      "../../node_modules/@babel/parser/typings/babel-parser.d.ts": [
+        "../../node_modules/@babel/types/lib/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/definitions.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/definitions.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/global.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/definitions.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/index.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/global.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web-plugins.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web-plugins.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/web/accessibility.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/app.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/browser.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/camera.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/clipboard.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/device.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/filesystem.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/geolocation.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/local-notifications.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/modals.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/motion.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/network.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/permissions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/share.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/splash-screen.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/storage.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/toast.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/accessibility.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/app.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/browser.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/camera.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/clipboard.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/device.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/filesystem.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/geolocation.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/definitions.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/local-notifications.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/modals.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/motion.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/network.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/permissions.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/share.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/splash-screen.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/storage.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@capacitor/core/dist/esm/web/toast.d.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+        "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/components/route/route-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/select/select-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/stencil-public-runtime.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/sanitization/index.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/action-sheet/action-sheet-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/alert/alert-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/stencil-public-runtime.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/sanitization/index.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/content/content-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/datetime/datetime-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/loading/loading-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/sanitization/index.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/menu/menu-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/modal/modal-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/nav/nav-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/components/nav/view-controller.d.ts",
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/nav/view-controller.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/picker/picker-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/popover/popover-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/router/utils/interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/components/route/route-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/spinner/spinner-configs.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/components/spinner/spinner-interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/spinner/spinner-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/components/spinner/spinner-configs.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/components/toast/toast-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/sanitization/index.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/global/config.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/index.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/components/nav/constants.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/animation/animation.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/animation/cubic-bezier.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/config.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/gesture/index.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/menu-controller/index.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/overlays.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/platform.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/sanitization/index.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/transition/ios.transition.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/transition/md.transition.d.ts",
+        "../../node_modules/ionicons/dist/types/index.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/components.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/action-sheet/action-sheet-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/alert/alert-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/checkbox/checkbox-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/content/content-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/datetime/datetime-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/input/input-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/loading/loading-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/menu/menu-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/modal/modal-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/nav/nav-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/picker/picker-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/popover/popover-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/radio-group/radio-group-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/range/range-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/refresher/refresher-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/reorder-group/reorder-group-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/router/utils/interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/searchbar/searchbar-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/segment/segment-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/select-popover/select-popover-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/select/select-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/spinner/spinner-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/tab-bar/tab-bar-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/textarea/textarea-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/toast/toast-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/toggle/toggle-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/components/virtual-scroll/virtual-scroll-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/global/config.d.ts",
+        "../../node_modules/@ionic/core/dist/types/index.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/animation/animation-interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/gesture/index.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/overlays-interface.d.ts",
+        "../../node_modules/ionicons/dist/types/index.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/utils/animation/animation.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/utils/animation/animation-interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/utils/config.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/utils/gesture/index.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/utils/gesture/gesture-controller.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/utils/menu-controller/index.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/utils/overlays-interface.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/stencil-public-runtime.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/utils/overlays.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/utils/transition/index.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/utils/transition/ios.transition.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/transition/index.d.ts"
+      ],
+      "../../node_modules/@ionic/core/dist/types/utils/transition/md.transition.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@ionic/core/dist/types/utils/transition/index.d.ts"
+      ],
+      "../../node_modules/@ionic/vue-router/dist/types/index.d.ts": [
+        "../../node_modules/@ionic/vue-router/dist/types/types.d.ts",
+        "../../node_modules/vue-router/dist/vue-router.d.ts"
+      ],
+      "../../node_modules/@ionic/vue-router/dist/types/types.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/vue-router/dist/vue-router.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/components/ionapp.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/components/ionbackbutton.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/components/ionicon.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/components/ionnav.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/components/ionpage.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/components/ionrouteroutlet.d.ts": [
+        "../../node_modules/vue-router/dist/vue-router.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/components/iontabbar.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/components/iontabbutton.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/components/iontabs.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/components/overlays.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/vue-component-lib/overlays.d.ts",
+        "../../node_modules/@vue/reactivity/dist/reactivity.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/controllers.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/globalextensions.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+        "../../node_modules/vue-router/dist/vue-router.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/hooks.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/index.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/components/ionapp.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/components/ionbackbutton.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/components/ionicon.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/components/ionnav.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/components/ionpage.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/components/ionrouteroutlet.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/components/iontabbar.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/components/iontabbutton.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/components/iontabs.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/components/overlays.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/controllers.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/globalextensions.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/hooks.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/ionic-vue.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/proxies.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/ionic-vue.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/proxies.d.ts": [
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/vue-component-lib/utils.d.ts",
+        "../../node_modules/@vue/reactivity/dist/reactivity.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/vue-component-lib/overlays.d.ts": [
+        "../../node_modules/@vue/reactivity/dist/reactivity.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@ionic/vue/dist/types/vue-component-lib/utils.d.ts": [
+        "../../node_modules/@vue/reactivity/dist/reactivity.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@types/googlemaps/index.d.ts": [
+        "../../node_modules/@types/googlemaps/reference/control.d.ts",
+        "../../node_modules/@types/googlemaps/reference/coordinates.d.ts",
+        "../../node_modules/@types/googlemaps/reference/data.d.ts",
+        "../../node_modules/@types/googlemaps/reference/directions.d.ts",
+        "../../node_modules/@types/googlemaps/reference/distance-matrix.d.ts",
+        "../../node_modules/@types/googlemaps/reference/drawing.d.ts",
+        "../../node_modules/@types/googlemaps/reference/elevation.d.ts",
+        "../../node_modules/@types/googlemaps/reference/event.d.ts",
+        "../../node_modules/@types/googlemaps/reference/geocoder.d.ts",
+        "../../node_modules/@types/googlemaps/reference/geometry.d.ts",
+        "../../node_modules/@types/googlemaps/reference/image-overlay.d.ts",
+        "../../node_modules/@types/googlemaps/reference/info-window.d.ts",
+        "../../node_modules/@types/googlemaps/reference/kml.d.ts",
+        "../../node_modules/@types/googlemaps/reference/map.d.ts",
+        "../../node_modules/@types/googlemaps/reference/marker.d.ts",
+        "../../node_modules/@types/googlemaps/reference/max-zoom.d.ts",
+        "../../node_modules/@types/googlemaps/reference/overlay-view.d.ts",
+        "../../node_modules/@types/googlemaps/reference/places-autocomplete-service.d.ts",
+        "../../node_modules/@types/googlemaps/reference/places-service.d.ts",
+        "../../node_modules/@types/googlemaps/reference/places-widget.d.ts",
+        "../../node_modules/@types/googlemaps/reference/polygon.d.ts",
+        "../../node_modules/@types/googlemaps/reference/street-view-service.d.ts",
+        "../../node_modules/@types/googlemaps/reference/street-view.d.ts",
+        "../../node_modules/@types/googlemaps/reference/visualization.d.ts",
+        "../../node_modules/@types/googlemaps/style-reference.d.ts"
+      ],
+      "../../node_modules/@types/jest/index.d.ts": [
+        "../../node_modules/jest-diff/build/index.d.ts"
+      ],
+      "../../node_modules/@vue/compiler-core/dist/compiler-core.d.ts": [
+        "../../node_modules/@babel/parser/typings/babel-parser.d.ts",
+        "../../node_modules/@vue/compiler-core/node_modules/source-map/source-map.d.ts",
+        "../../node_modules/@vue/shared/dist/shared.d.ts"
+      ],
+      "../../node_modules/@vue/compiler-dom/dist/compiler-dom.d.ts": [
+        "../../node_modules/@vue/compiler-core/dist/compiler-core.d.ts"
+      ],
+      "../../node_modules/@vue/runtime-core/dist/runtime-core.d.ts": [
+        "../../node_modules/@vue/reactivity/dist/reactivity.d.ts",
+        "../../node_modules/@vue/runtime-dom/dist/runtime-dom.d.ts",
+        "../../node_modules/@vue/shared/dist/shared.d.ts"
+      ],
+      "../../node_modules/@vue/runtime-dom/dist/runtime-dom.d.ts": [
+        "../../node_modules/@vue/reactivity/dist/reactivity.d.ts",
+        "../../node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+        "../../node_modules/csstype/index.d.ts"
+      ],
+      "../../node_modules/@vue/test-utils/dist/components/routerlinkstub.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@vue/test-utils/dist/config.d.ts": [
+        "../../node_modules/@vue/test-utils/dist/domwrapper.d.ts",
+        "../../node_modules/@vue/test-utils/dist/types.d.ts",
+        "../../node_modules/@vue/test-utils/dist/vuewrapper.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@vue/test-utils/dist/domwrapper.d.ts": [
+        "../../node_modules/@vue/test-utils/dist/createdomevent.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@vue/test-utils/dist/index.d.ts": [
+        "../../node_modules/@vue/test-utils/dist/components/routerlinkstub.d.ts",
+        "../../node_modules/@vue/test-utils/dist/config.d.ts",
+        "../../node_modules/@vue/test-utils/dist/domwrapper.d.ts",
+        "../../node_modules/@vue/test-utils/dist/mount.d.ts",
+        "../../node_modules/@vue/test-utils/dist/types.d.ts",
+        "../../node_modules/@vue/test-utils/dist/utils/flushpromises.d.ts",
+        "../../node_modules/@vue/test-utils/dist/vuewrapper.d.ts"
+      ],
+      "../../node_modules/@vue/test-utils/dist/mount.d.ts": [
+        "../../node_modules/@vue/test-utils/dist/types.d.ts",
+        "../../node_modules/@vue/test-utils/dist/vuewrapper.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@vue/test-utils/dist/types.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/@vue/test-utils/dist/vuewrapper.d.ts": [
+        "../../node_modules/@vue/test-utils/dist/createdomevent.d.ts",
+        "../../node_modules/@vue/test-utils/dist/domwrapper.d.ts",
+        "../../node_modules/@vue/test-utils/dist/types.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/geolib/es/computedestinationpoint.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/constants.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/findnearest.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getareaofpolygon.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getboundsofdistance.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getcenter.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getcenterofbounds.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getcompassdirection.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getcoordinatekey.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getcoordinatekeys.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getdistance.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getdistancefromline.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getgreatcirclebearing.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getlatitude.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getlongitude.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getpathlength.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getprecisedistance.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getrhumblinebearing.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/getspeed.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/index.d.ts": [
+        "../../node_modules/geolib/es/computedestinationpoint.d.ts",
+        "../../node_modules/geolib/es/constants.d.ts",
+        "../../node_modules/geolib/es/convertarea.d.ts",
+        "../../node_modules/geolib/es/convertdistance.d.ts",
+        "../../node_modules/geolib/es/convertspeed.d.ts",
+        "../../node_modules/geolib/es/decimaltosexagesimal.d.ts",
+        "../../node_modules/geolib/es/findnearest.d.ts",
+        "../../node_modules/geolib/es/getareaofpolygon.d.ts",
+        "../../node_modules/geolib/es/getbounds.d.ts",
+        "../../node_modules/geolib/es/getboundsofdistance.d.ts",
+        "../../node_modules/geolib/es/getcenter.d.ts",
+        "../../node_modules/geolib/es/getcenterofbounds.d.ts",
+        "../../node_modules/geolib/es/getcompassdirection.d.ts",
+        "../../node_modules/geolib/es/getcoordinatekey.d.ts",
+        "../../node_modules/geolib/es/getcoordinatekeys.d.ts",
+        "../../node_modules/geolib/es/getdistance.d.ts",
+        "../../node_modules/geolib/es/getdistancefromline.d.ts",
+        "../../node_modules/geolib/es/getgreatcirclebearing.d.ts",
+        "../../node_modules/geolib/es/getlatitude.d.ts",
+        "../../node_modules/geolib/es/getlongitude.d.ts",
+        "../../node_modules/geolib/es/getpathlength.d.ts",
+        "../../node_modules/geolib/es/getprecisedistance.d.ts",
+        "../../node_modules/geolib/es/getrhumblinebearing.d.ts",
+        "../../node_modules/geolib/es/getroughcompassdirection.d.ts",
+        "../../node_modules/geolib/es/getspeed.d.ts",
+        "../../node_modules/geolib/es/isdecimal.d.ts",
+        "../../node_modules/geolib/es/ispointinline.d.ts",
+        "../../node_modules/geolib/es/ispointinpolygon.d.ts",
+        "../../node_modules/geolib/es/ispointnearline.d.ts",
+        "../../node_modules/geolib/es/ispointwithinradius.d.ts",
+        "../../node_modules/geolib/es/issexagesimal.d.ts",
+        "../../node_modules/geolib/es/isvalidcoordinate.d.ts",
+        "../../node_modules/geolib/es/isvalidlatitude.d.ts",
+        "../../node_modules/geolib/es/isvalidlongitude.d.ts",
+        "../../node_modules/geolib/es/orderbydistance.d.ts",
+        "../../node_modules/geolib/es/sexagesimaltodecimal.d.ts",
+        "../../node_modules/geolib/es/todecimal.d.ts",
+        "../../node_modules/geolib/es/todeg.d.ts",
+        "../../node_modules/geolib/es/torad.d.ts",
+        "../../node_modules/geolib/es/wkttopolygon.d.ts"
+      ],
+      "../../node_modules/geolib/es/ispointinline.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/ispointinpolygon.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/ispointnearline.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/ispointwithinradius.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/isvalidcoordinate.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/geolib/es/orderbydistance.d.ts": [
+        "../../node_modules/geolib/es/types.d.ts"
+      ],
+      "../../node_modules/ionicons/dist/types/components.d.ts": [
+        "../../node_modules/ionicons/dist/types/stencil-public-runtime.d.ts"
+      ],
+      "../../node_modules/ionicons/dist/types/components/icon/utils.d.ts": [
+        "../../node_modules/ionicons/dist/types/components/icon/icon.d.ts"
+      ],
+      "../../node_modules/ionicons/dist/types/index.d.ts": [
+        "../../node_modules/ionicons/dist/types/components.d.ts",
+        "../../node_modules/ionicons/dist/types/components/icon/utils.d.ts"
+      ],
+      "../../node_modules/jest-diff/build/index.d.ts": [
+        "../../node_modules/jest-diff/build/types.d.ts"
+      ],
+      "../../node_modules/vue-class-component/dist/vue-class-component.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/vue-router/dist/vue-router.d.ts": [
+        "../../node_modules/@ionic/vue/dist/types/globalextensions.d.ts",
+        "../../node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/vue/dist/vue.d.ts": [
+        "../../node_modules/@vue/compiler-dom/dist/compiler-dom.d.ts",
+        "../../node_modules/@vue/runtime-dom/dist/runtime-dom.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/@types/index.d.ts": [
+        "../../node_modules/@types/googlemaps/index.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/themes/index.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/components/circle.d.ts": [
+        "../../node_modules/@types/googlemaps/index.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/components/index.d.ts": [
+        "../../node_modules/vue3-google-map/dist/types/components/circle.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/components/marker.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/components/polygon.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/components/polyline.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/components/rectangle.d.ts",
+        "../../src/shims-vue.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/components/marker.d.ts": [
+        "../../node_modules/@types/googlemaps/index.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/components/polygon.d.ts": [
+        "../../node_modules/@types/googlemaps/index.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/components/polyline.d.ts": [
+        "../../node_modules/@types/googlemaps/index.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/components/rectangle.d.ts": [
+        "../../node_modules/@types/googlemaps/index.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/index.d.ts": [
+        "../../node_modules/vue3-google-map/dist/types/@types/index.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/components/index.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/themes/aubergine.d.ts": [
+        "../../node_modules/vue3-google-map/dist/types/@types/index.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/themes/dark.d.ts": [
+        "../../node_modules/vue3-google-map/dist/types/@types/index.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/themes/grey.d.ts": [
+        "../../node_modules/vue3-google-map/dist/types/@types/index.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/themes/index.d.ts": [
+        "../../node_modules/vue3-google-map/dist/types/themes/aubergine.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/themes/dark.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/themes/grey.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/themes/minimal.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/themes/retro.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/themes/roadways.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/themes/roadwaysminimal.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/themes/ultralight.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/themes/minimal.d.ts": [
+        "../../node_modules/vue3-google-map/dist/types/@types/index.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/themes/retro.d.ts": [
+        "../../node_modules/vue3-google-map/dist/types/@types/index.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/themes/roadways.d.ts": [
+        "../../node_modules/vue3-google-map/dist/types/@types/index.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/themes/roadwaysminimal.d.ts": [
+        "../../node_modules/vue3-google-map/dist/types/@types/index.d.ts"
+      ],
+      "../../node_modules/vue3-google-map/dist/types/themes/ultralight.d.ts": [
+        "../../node_modules/vue3-google-map/dist/types/@types/index.d.ts"
+      ],
+      "../../src/app.vue.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../src/components/spoticon.ts": [
+        "../../node_modules/vue-class-component/dist/vue-class-component.d.ts"
+      ],
+      "../../src/components/spoticon.vue.ts": [
+        "../../src/components/spoticon.ts"
+      ],
+      "../../src/dtos/extendedgeolocation.ts": [
+        "../../src/dtos/geolocation.ts"
+      ],
+      "../../src/dtos/mapmarker.ts": [
+        "../../src/dtos/geolocation.ts",
+        "../../src/enums/mapmarkertype.ts"
+      ],
+      "../../src/dtos/markerdto.ts": [
+        "../../src/dtos/latlng.ts"
+      ],
+      "../../src/router/index.ts": [
+        "../../node_modules/vue-router/dist/vue-router.d.ts"
+      ],
+      "../../src/services/locationservice.ts": [
+        "../../node_modules/@capacitor/core/dist/esm/index.d.ts"
+      ],
+      "../../src/services/mapsservice.ts": [
+        "../../src/dtos/geolocation.ts",
+        "../../src/dtos/mapmarker.ts"
+      ],
+      "../../src/shims-vue.d.ts": [
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../src/types/ionictypes.ts": [
+        "../../node_modules/@ionic/vue/dist/types/index.d.ts"
+      ],
+      "../../src/views/addmarkerview/addmarkerview.ts": [
+        "../../node_modules/@ionic/core/dist/types/components.d.ts",
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/vue-component-lib/utils.d.ts",
+        "../../node_modules/@vue/reactivity/dist/reactivity.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../src/views/addmarkerview/addmarkerview.vue.ts": [
+        "../../src/views/addmarkerview/addmarkerview.ts"
+      ],
+      "../../src/views/conversionationsview/conversionationsview.vue.ts": [
+        "../../node_modules/@ionic/core/dist/types/components.d.ts",
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/vue-component-lib/utils.d.ts",
+        "../../node_modules/@vue/reactivity/dist/reactivity.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../src/views/mapview/mapview.ts": [
+        "../../node_modules/vue-class-component/dist/vue-class-component.d.ts",
+        "../../src/dtos/latlng.ts",
+        "../../src/dtos/markerdto.ts"
+      ],
+      "../../src/views/mapview/mapview.vue.ts": [
+        "../../src/views/mapview/mapview.ts"
+      ],
+      "../../src/views/settingsview/settingsview.vue.ts": [
+        "../../node_modules/@ionic/core/dist/types/components.d.ts",
+        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/vue-component-lib/utils.d.ts",
+        "../../node_modules/@vue/reactivity/dist/reactivity.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ],
+      "../../src/views/tabs.vue.ts": [
+        "../../node_modules/@ionic/core/dist/types/components.d.ts",
+        "../../node_modules/@ionic/vue/dist/types/vue-component-lib/utils.d.ts",
+        "../../node_modules/@vue/reactivity/dist/reactivity.d.ts",
+        "../../node_modules/vue/dist/vue.d.ts"
+      ]
+    },
+    "semanticDiagnosticsPerFile": [
+      "../../node_modules/@babel/parser/typings/babel-parser.d.ts",
+      "../../node_modules/@babel/types/lib/index.d.ts",
+      "../../node_modules/@capacitor/core/dist/esm/core-plugin-definitions.d.ts",
+      "../../node_modules/@capacitor/core/dist/esm/definitions.d.ts",
+      "../../node_modules/@capacitor/core/dist/esm/global.d.ts",
+      "../../node_modules/@capacitor/core/dist/esm/index.d.ts",
+      "../../node_modules/@capacitor/core/dist/esm/web-plugins.d.ts",
+      "../../node_modules/@capacitor/core/dist/esm/web/accessibility.d.ts",
+      "../../node_modules/@capacitor/core/dist/esm/web/app.d.ts",
+      "../../node_modules/@capacitor/core/dist/esm/web/browser.d.ts",
+      "../../node_modules/@capacitor/core/dist/esm/web/camera.d.ts",
+      "../../node_modules/@capacitor/core/dist/esm/web/clipboard.d.ts",
+      "../../node_modules/@capacitor/core/dist/esm/web/device.d.ts",
+      "../../node_modules/@capacitor/core/dist/esm/web/filesystem.d.ts",
+      "../../node_modules/@capacitor/core/dist/esm/web/geolocation.d.ts",
+      "../../node_modules/@capacitor/core/dist/esm/web/index.d.ts",
+      "../../node_modules/@capacitor/core/dist/esm/web/local-notifications.d.ts",
+      "../../node_modules/@capacitor/core/dist/esm/web/modals.d.ts",
+      "../../node_modules/@capacitor/core/dist/esm/web/motion.d.ts",
+      "../../node_modules/@capacitor/core/dist/esm/web/network.d.ts",
+      "../../node_modules/@capacitor/core/dist/esm/web/permissions.d.ts",
+      "../../node_modules/@capacitor/core/dist/esm/web/share.d.ts",
+      "../../node_modules/@capacitor/core/dist/esm/web/splash-screen.d.ts",
+      "../../node_modules/@capacitor/core/dist/esm/web/storage.d.ts",
+      "../../node_modules/@capacitor/core/dist/esm/web/toast.d.ts",
+      "../../node_modules/@ionic-native/globalization/index.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/action-sheet/action-sheet-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/alert/alert-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/checkbox/checkbox-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/content/content-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/datetime/datetime-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/input/input-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/loading/loading-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/menu/menu-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/modal/modal-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/nav/constants.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/nav/nav-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/nav/view-controller.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/picker/picker-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/popover/popover-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/radio-group/radio-group-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/range/range-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/refresher/refresher-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/reorder-group/reorder-group-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/route/route-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/router/utils/interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/searchbar/searchbar-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/segment/segment-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/select-popover/select-popover-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/select/select-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/spinner/spinner-configs.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/spinner/spinner-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/tab-bar/tab-bar-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/textarea/textarea-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/toast/toast-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/toggle/toggle-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/components/virtual-scroll/virtual-scroll-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/global/config.d.ts",
+      "../../node_modules/@ionic/core/dist/types/index.d.ts",
+      "../../node_modules/@ionic/core/dist/types/interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/stencil-public-runtime.d.ts",
+      "../../node_modules/@ionic/core/dist/types/utils/animation/animation-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/utils/animation/animation.d.ts",
+      "../../node_modules/@ionic/core/dist/types/utils/animation/cubic-bezier.d.ts",
+      "../../node_modules/@ionic/core/dist/types/utils/config.d.ts",
+      "../../node_modules/@ionic/core/dist/types/utils/gesture/gesture-controller.d.ts",
+      "../../node_modules/@ionic/core/dist/types/utils/gesture/index.d.ts",
+      "../../node_modules/@ionic/core/dist/types/utils/menu-controller/index.d.ts",
+      "../../node_modules/@ionic/core/dist/types/utils/overlays-interface.d.ts",
+      "../../node_modules/@ionic/core/dist/types/utils/overlays.d.ts",
+      "../../node_modules/@ionic/core/dist/types/utils/platform.d.ts",
+      "../../node_modules/@ionic/core/dist/types/utils/sanitization/index.d.ts",
+      "../../node_modules/@ionic/core/dist/types/utils/transition/index.d.ts",
+      "../../node_modules/@ionic/core/dist/types/utils/transition/ios.transition.d.ts",
+      "../../node_modules/@ionic/core/dist/types/utils/transition/md.transition.d.ts",
+      "../../node_modules/@ionic/vue-router/dist/types/index.d.ts",
+      "../../node_modules/@ionic/vue-router/dist/types/types.d.ts",
+      "../../node_modules/@ionic/vue/dist/types/components/ionapp.d.ts",
+      "../../node_modules/@ionic/vue/dist/types/components/ionbackbutton.d.ts",
+      "../../node_modules/@ionic/vue/dist/types/components/ionicon.d.ts",
+      "../../node_modules/@ionic/vue/dist/types/components/ionnav.d.ts",
+      "../../node_modules/@ionic/vue/dist/types/components/ionpage.d.ts",
+      "../../node_modules/@ionic/vue/dist/types/components/ionrouteroutlet.d.ts",
+      "../../node_modules/@ionic/vue/dist/types/components/iontabbar.d.ts",
+      "../../node_modules/@ionic/vue/dist/types/components/iontabbutton.d.ts",
+      "../../node_modules/@ionic/vue/dist/types/components/iontabs.d.ts",
+      "../../node_modules/@ionic/vue/dist/types/components/overlays.d.ts",
+      "../../node_modules/@ionic/vue/dist/types/controllers.d.ts",
+      "../../node_modules/@ionic/vue/dist/types/globalextensions.d.ts",
+      "../../node_modules/@ionic/vue/dist/types/hooks.d.ts",
+      "../../node_modules/@ionic/vue/dist/types/index.d.ts",
+      "../../node_modules/@ionic/vue/dist/types/ionic-vue.d.ts",
+      "../../node_modules/@ionic/vue/dist/types/proxies.d.ts",
+      "../../node_modules/@ionic/vue/dist/types/vue-component-lib/overlays.d.ts",
+      "../../node_modules/@ionic/vue/dist/types/vue-component-lib/utils.d.ts",
+      "../../node_modules/@types/googlemaps/index.d.ts",
+      "../../node_modules/@types/googlemaps/reference/control.d.ts",
+      "../../node_modules/@types/googlemaps/reference/coordinates.d.ts",
+      "../../node_modules/@types/googlemaps/reference/data.d.ts",
+      "../../node_modules/@types/googlemaps/reference/directions.d.ts",
+      "../../node_modules/@types/googlemaps/reference/distance-matrix.d.ts",
+      "../../node_modules/@types/googlemaps/reference/drawing.d.ts",
+      "../../node_modules/@types/googlemaps/reference/elevation.d.ts",
+      "../../node_modules/@types/googlemaps/reference/event.d.ts",
+      "../../node_modules/@types/googlemaps/reference/geocoder.d.ts",
+      "../../node_modules/@types/googlemaps/reference/geometry.d.ts",
+      "../../node_modules/@types/googlemaps/reference/image-overlay.d.ts",
+      "../../node_modules/@types/googlemaps/reference/info-window.d.ts",
+      "../../node_modules/@types/googlemaps/reference/kml.d.ts",
+      "../../node_modules/@types/googlemaps/reference/map.d.ts",
+      "../../node_modules/@types/googlemaps/reference/marker.d.ts",
+      "../../node_modules/@types/googlemaps/reference/max-zoom.d.ts",
+      "../../node_modules/@types/googlemaps/reference/overlay-view.d.ts",
+      "../../node_modules/@types/googlemaps/reference/places-autocomplete-service.d.ts",
+      "../../node_modules/@types/googlemaps/reference/places-service.d.ts",
+      "../../node_modules/@types/googlemaps/reference/places-widget.d.ts",
+      "../../node_modules/@types/googlemaps/reference/polygon.d.ts",
+      "../../node_modules/@types/googlemaps/reference/street-view-service.d.ts",
+      "../../node_modules/@types/googlemaps/reference/street-view.d.ts",
+      "../../node_modules/@types/googlemaps/reference/visualization.d.ts",
+      "../../node_modules/@types/googlemaps/style-reference.d.ts",
+      "../../node_modules/@types/jest/index.d.ts",
+      "../../node_modules/@types/webpack-env/index.d.ts",
+      "../../node_modules/@vue/compiler-core/dist/compiler-core.d.ts",
+      "../../node_modules/@vue/compiler-core/node_modules/source-map/source-map.d.ts",
+      "../../node_modules/@vue/compiler-dom/dist/compiler-dom.d.ts",
+      "../../node_modules/@vue/reactivity/dist/reactivity.d.ts",
+      "../../node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+      "../../node_modules/@vue/runtime-dom/dist/runtime-dom.d.ts",
+      "../../node_modules/@vue/shared/dist/shared.d.ts",
+      "../../node_modules/@vue/test-utils/dist/components/routerlinkstub.d.ts",
+      "../../node_modules/@vue/test-utils/dist/config.d.ts",
+      "../../node_modules/@vue/test-utils/dist/createdomevent.d.ts",
+      "../../node_modules/@vue/test-utils/dist/domwrapper.d.ts",
+      "../../node_modules/@vue/test-utils/dist/index.d.ts",
+      "../../node_modules/@vue/test-utils/dist/mount.d.ts",
+      "../../node_modules/@vue/test-utils/dist/types.d.ts",
+      "../../node_modules/@vue/test-utils/dist/utils/flushpromises.d.ts",
+      "../../node_modules/@vue/test-utils/dist/vuewrapper.d.ts",
+      "../../node_modules/csstype/index.d.ts",
+      "../../node_modules/geolib/es/computedestinationpoint.d.ts",
+      "../../node_modules/geolib/es/constants.d.ts",
+      "../../node_modules/geolib/es/convertarea.d.ts",
+      "../../node_modules/geolib/es/convertdistance.d.ts",
+      "../../node_modules/geolib/es/convertspeed.d.ts",
+      "../../node_modules/geolib/es/decimaltosexagesimal.d.ts",
+      "../../node_modules/geolib/es/findnearest.d.ts",
+      "../../node_modules/geolib/es/getareaofpolygon.d.ts",
+      "../../node_modules/geolib/es/getbounds.d.ts",
+      "../../node_modules/geolib/es/getboundsofdistance.d.ts",
+      "../../node_modules/geolib/es/getcenter.d.ts",
+      "../../node_modules/geolib/es/getcenterofbounds.d.ts",
+      "../../node_modules/geolib/es/getcompassdirection.d.ts",
+      "../../node_modules/geolib/es/getcoordinatekey.d.ts",
+      "../../node_modules/geolib/es/getcoordinatekeys.d.ts",
+      "../../node_modules/geolib/es/getdistance.d.ts",
+      "../../node_modules/geolib/es/getdistancefromline.d.ts",
+      "../../node_modules/geolib/es/getgreatcirclebearing.d.ts",
+      "../../node_modules/geolib/es/getlatitude.d.ts",
+      "../../node_modules/geolib/es/getlongitude.d.ts",
+      "../../node_modules/geolib/es/getpathlength.d.ts",
+      "../../node_modules/geolib/es/getprecisedistance.d.ts",
+      "../../node_modules/geolib/es/getrhumblinebearing.d.ts",
+      "../../node_modules/geolib/es/getroughcompassdirection.d.ts",
+      "../../node_modules/geolib/es/getspeed.d.ts",
+      "../../node_modules/geolib/es/index.d.ts",
+      "../../node_modules/geolib/es/isdecimal.d.ts",
+      "../../node_modules/geolib/es/ispointinline.d.ts",
+      "../../node_modules/geolib/es/ispointinpolygon.d.ts",
+      "../../node_modules/geolib/es/ispointnearline.d.ts",
+      "../../node_modules/geolib/es/ispointwithinradius.d.ts",
+      "../../node_modules/geolib/es/issexagesimal.d.ts",
+      "../../node_modules/geolib/es/isvalidcoordinate.d.ts",
+      "../../node_modules/geolib/es/isvalidlatitude.d.ts",
+      "../../node_modules/geolib/es/isvalidlongitude.d.ts",
+      "../../node_modules/geolib/es/orderbydistance.d.ts",
+      "../../node_modules/geolib/es/sexagesimaltodecimal.d.ts",
+      "../../node_modules/geolib/es/todecimal.d.ts",
+      "../../node_modules/geolib/es/todeg.d.ts",
+      "../../node_modules/geolib/es/torad.d.ts",
+      "../../node_modules/geolib/es/types.d.ts",
+      "../../node_modules/geolib/es/wkttopolygon.d.ts",
+      "../../node_modules/ionicons/dist/types/components.d.ts",
+      "../../node_modules/ionicons/dist/types/components/icon/icon.d.ts",
+      "../../node_modules/ionicons/dist/types/components/icon/utils.d.ts",
+      "../../node_modules/ionicons/dist/types/index.d.ts",
+      "../../node_modules/ionicons/dist/types/stencil-public-runtime.d.ts",
+      "../../node_modules/ionicons/icons/index.d.ts",
+      "../../node_modules/jest-diff/build/index.d.ts",
+      "../../node_modules/jest-diff/build/types.d.ts",
+      "../../node_modules/tslib/tslib.d.ts",
+      "../../node_modules/typescript/lib/lib.dom.d.ts",
+      "../../node_modules/typescript/lib/lib.dom.iterable.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.collection.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.core.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.generator.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.promise.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.proxy.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.reflect.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.symbol.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
+      "../../node_modules/typescript/lib/lib.es2016.array.include.d.ts",
+      "../../node_modules/typescript/lib/lib.es2016.d.ts",
+      "../../node_modules/typescript/lib/lib.es2017.d.ts",
+      "../../node_modules/typescript/lib/lib.es2017.intl.d.ts",
+      "../../node_modules/typescript/lib/lib.es2017.object.d.ts",
+      "../../node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts",
+      "../../node_modules/typescript/lib/lib.es2017.string.d.ts",
+      "../../node_modules/typescript/lib/lib.es2017.typedarrays.d.ts",
+      "../../node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts",
+      "../../node_modules/typescript/lib/lib.es2018.asynciterable.d.ts",
+      "../../node_modules/typescript/lib/lib.es2018.d.ts",
+      "../../node_modules/typescript/lib/lib.es2018.intl.d.ts",
+      "../../node_modules/typescript/lib/lib.es2018.promise.d.ts",
+      "../../node_modules/typescript/lib/lib.es2018.regexp.d.ts",
+      "../../node_modules/typescript/lib/lib.es2019.array.d.ts",
+      "../../node_modules/typescript/lib/lib.es2019.d.ts",
+      "../../node_modules/typescript/lib/lib.es2019.object.d.ts",
+      "../../node_modules/typescript/lib/lib.es2019.string.d.ts",
+      "../../node_modules/typescript/lib/lib.es2019.symbol.d.ts",
+      "../../node_modules/typescript/lib/lib.es2020.bigint.d.ts",
+      "../../node_modules/typescript/lib/lib.es2020.d.ts",
+      "../../node_modules/typescript/lib/lib.es2020.promise.d.ts",
+      "../../node_modules/typescript/lib/lib.es2020.string.d.ts",
+      "../../node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts",
+      "../../node_modules/typescript/lib/lib.es5.d.ts",
+      "../../node_modules/typescript/lib/lib.esnext.d.ts",
+      "../../node_modules/typescript/lib/lib.esnext.intl.d.ts",
+      "../../node_modules/typescript/lib/lib.esnext.promise.d.ts",
+      "../../node_modules/typescript/lib/lib.esnext.string.d.ts",
+      "../../node_modules/typescript/lib/lib.scripthost.d.ts",
+      "../../node_modules/vue-class-component/dist/vue-class-component.d.ts",
+      "../../node_modules/vue-router/dist/vue-router.d.ts",
+      "../../node_modules/vue/dist/vue.d.ts",
+      "../../node_modules/vue3-google-map/dist/types/@types/index.d.ts",
+      "../../node_modules/vue3-google-map/dist/types/components/circle.d.ts",
+      "../../node_modules/vue3-google-map/dist/types/components/index.d.ts",
+      "../../node_modules/vue3-google-map/dist/types/components/marker.d.ts",
+      "../../node_modules/vue3-google-map/dist/types/components/polygon.d.ts",
+      "../../node_modules/vue3-google-map/dist/types/components/polyline.d.ts",
+      "../../node_modules/vue3-google-map/dist/types/components/rectangle.d.ts",
+      "../../node_modules/vue3-google-map/dist/types/index.d.ts",
+      "../../node_modules/vue3-google-map/dist/types/themes/aubergine.d.ts",
+      "../../node_modules/vue3-google-map/dist/types/themes/dark.d.ts",
+      "../../node_modules/vue3-google-map/dist/types/themes/grey.d.ts",
+      "../../node_modules/vue3-google-map/dist/types/themes/index.d.ts",
+      "../../node_modules/vue3-google-map/dist/types/themes/minimal.d.ts",
+      "../../node_modules/vue3-google-map/dist/types/themes/retro.d.ts",
+      "../../node_modules/vue3-google-map/dist/types/themes/roadways.d.ts",
+      "../../node_modules/vue3-google-map/dist/types/themes/roadwaysminimal.d.ts",
+      "../../node_modules/vue3-google-map/dist/types/themes/ultralight.d.ts",
+      "../../src/app.vue.ts",
+      "../../src/components/explorecontainer.vue.ts",
+      "../../src/components/spoticon.ts",
+      "../../src/components/spoticon.vue.ts",
+      "../../src/configuration/settings.ts",
+      "../../src/dtos/extendedgeolocation.ts",
+      "../../src/dtos/geolocation.ts",
+      "../../src/dtos/latlng.ts",
+      "../../src/dtos/mapmarker.ts",
+      "../../src/dtos/markerdto.ts",
+      "../../src/enums/mapmarkertype.ts",
+      "../../src/main.ts",
+      "../../src/router/index.ts",
+      "../../src/services/locationservice.ts",
+      "../../src/services/mapsservice.ts",
+      "../../src/shims-vue.d.ts",
+      "../../src/types/ionictypes.ts",
+      "../../src/utils/mathutil.ts",
+      "../../src/utils/numberformatter.ts",
+      "../../src/views/addmarkerview/addmarkerview.ts",
+      "../../src/views/addmarkerview/addmarkerview.vue.ts",
+      "../../src/views/conversionationsview/conversionationsview.vue.ts",
+      "../../src/views/mapview/mapview.ts",
+      "../../src/views/mapview/mapview.vue.ts",
+      "../../src/views/settingsview/settingsview.vue.ts",
+      "../../src/views/tabs.vue.ts",
+      "../../tests/unit/example.spec.ts"
+    ]
+  },
+  "version": "3.9.7"
+}

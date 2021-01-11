@@ -1,0 +1,92 @@
+{
+	"compileOnSave": true,
+	"ts-node": {
+		"transpileOnly": true,
+		"typeCheck": true
+	},
+	"compilerOptions": {
+		"resolveJsonModule": true,
+		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
+		"alwaysStrict": true,
+		"declaration": true,
+		"declarationMap": true,
+		"composite": true,
+		"pretty": true,
+		"skipLibCheck": true,
+		"emitDecoratorMetadata": true,
+		"emitBOM": true,
+		"experimentalDecorators": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"incremental": true,
+		"module": "CommonJS",
+		"moduleResolution": "node",
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noUnusedLocals": false,
+		"noUnusedParameters": false,
+		"outDir": "./dist/out-tsc",
+		"isolatedModules": false,
+		"target": "es2015",
+		"lib": [
+			"ESNext",
+			"dom",
+			"dom.iterable",
+			"scripthost"
+		],
+		"baseUrl": ".",
+		"types": [
+			"webpack-env",
+			"jest",
+			"googlemaps"
+		],
+		"paths": {
+			"@config/*": [
+				"config/*"
+			],
+			"@/*": [
+				"src/*"
+			]
+		},
+		"useDefineForClassFields": true,
+		"importsNotUsedAsValues": "preserve",
+		"removeComments": false,
+		"sourceMap": true,
+		"strict": true,
+		"strictBindCallApply": true,
+		"strictFunctionTypes": true,
+		"strictNullChecks": true,
+		"strictPropertyInitialization": true,
+		"skipDefaultLibCheck": true,
+		"downlevelIteration": true,
+		"importHelpers": true,
+		// "types": [
+		// 	"ol",
+		// 	"jest"
+		// ]
+	},
+	"angularCompilerOptions": {
+		"fullTemplateTypeCheck": true,
+		"strictInjectionParameters": true
+	},
+	"include": [
+		"config/**/*.json",
+		"src/**/*.ts",
+		"src/**/*.tsx",
+		"src/**/*.vue",
+		"tests/**/*.ts",
+		"tests/**/*.tsx"
+	],
+	"exclude": [
+		"node_modules",
+		"**/node_modules",
+		"**/bower_components",
+		"**/jspm_packages",
+		"**/tmp",
+		"**/temp",
+		"**/dist",
+		"**/.*"
+	]
+}

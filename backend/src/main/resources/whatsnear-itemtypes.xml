@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<types xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://spot-next.io/schemas/v2/itemtypes.xsd">
+
+	<enum name="ListingType"
+		package="io.spotnext.whatsnear.itemtypes.enumeration">
+		<description>Listing Types</description>
+		<value code="Request" />
+		<value code="Offer" />
+	</enum>
+
+	<type name="Listing" typeCode="Listing"
+		package="io.spotnext.whatsnear.itemtypes" extends="UniqueIdItem"
+		persistable="true">
+		<properties>
+			<property name="author" type="String" />
+			<property name="title" type="String" />
+			<property name="description" type="String" />
+			<property name="position" type="GeoLocation" />
+			<property name="latitude" type="Double" />
+			<property name="longitude" type="Double" />
+			<property name="type" type="ListingType" />
+		</properties>
+	</type>
+
+	<type name="GeoLocation" typeCode="GeoLocation"
+		package="io.spotnext.whatsnear.itemtypes" persistable="true">
+		<properties>
+			<property name="latitude" type="Double" />
+			<property name="longitude" type="Double" />
+		</properties>
+	</type>
+
+</types>
