@@ -18,7 +18,8 @@ import {
 	IonLabel,
 	IonList,
 	IonMenu,
-	IonMenuButton, IonModal,
+	IonMenuButton,
+	IonModal,
 	IonPage,
 	IonSearchbar,
 	IonTitle,
@@ -134,7 +135,7 @@ export class MapView extends Vue {
 		this.mapCenter = this.convertGeoLocationToLatLng(coords.coords)
 	}
 
-	public onLocateMebutton(event: MouseEvent): void {
+	public onLocateMeButtonClick(event: MouseEvent): void {
 		this.goToCurrentPosition()
 	}
 
@@ -148,6 +149,11 @@ export class MapView extends Vue {
 
 	public async onAddMarkerButtonClick(event: MouseEvent): Promise<void> {
 		await this.showAddMarkerView()
+	}
+
+	public async onAddMarkerClicked(event: any): Promise<void> {
+		// await this.showAddMarkerView()
+		console.log("onAddMarkerClicked: title=" + event.title)
 	}
 
 	private async toggleSidebarVisibility(): Promise<void> {

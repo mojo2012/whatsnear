@@ -1,27 +1,44 @@
 <template>
 	<ion-page>
-		<ion-header collapse="condense" mode="ios" :translucent="true">
+		<ion-header mode="ios" :translucent="true">
 			<ion-toolbar>
-				<ion-title size="large">Add new marker</ion-title>
+				<ion-buttons slot="start">
+					<ion-button @click="onCancelButtonClick" >Cancel</ion-button>
+				</ion-buttons>
+
+				<ion-title size="middle">New marker</ion-title>
+
+				<ion-buttons slot="end">
+					<ion-button @click="onAddButtonClick" color="primary"> Add </ion-button>
+				</ion-buttons>
 			</ion-toolbar>
 		</ion-header>
 		<ion-content fullscreen>
 			<ion-list lines="full" class="ion-no-margin">
+				<GoogleMap
+					:api-key="apiKey"
+					style="width: 100vw; height: 30vh"
+					:center="mapCenter"
+					:zoom="13"
+				>
+					<!-- current position -->
+					<Marker :options="{ position: mapCenter }" />
+				</GoogleMap>
+
 				<!-- HEADER -->
-				<ion-list-header lines="full">
-					<ion-label>
-						Add new map marker
-					</ion-label>
-				</ion-list-header>
+				<!-- <ion-list-header lines="full">
+					<ion-label> Add new map marker </ion-label>
+				</ion-list-header> -->
 
 				<!-- TITLE -->
 				<ion-item>
-					<ion-input placeholder="Title"></ion-input>
+					<ion-input placeholder="Title" v-model="title" :value="title"></ion-input>
 				</ion-item>
 
 				<!-- MARKER TYPE -->
 				<ion-item>
-					<ion-select>
+					<ion-label>Marker types</ion-label>
+					<ion-select placeholder="">
 						<ion-label>Marker types</ion-label>
 						<ion-select-option
 							v-for="(markerType, index) in markerTypes"
@@ -41,57 +58,14 @@
 					></ion-textarea>
 				</ion-item>
 			</ion-list>
-
-			<ion-list lines="full" class="ion-no-margin">
-				<ion-list-header lines="full">
-					<ion-label>
-						Input Types
-					</ion-label>
-				</ion-list-header>
-
-				<ion-item>
-					<ion-label>Text Input</ion-label>
-					<ion-input
-						placeholder="placeholder"
-						type="text"
-					></ion-input>
-				</ion-item>
-
-				<ion-item>
-					<ion-label>Number Input</ion-label>
-					<ion-input
-						placeholder="placeholder"
-						type="number"
-					></ion-input>
-				</ion-item>
-
-				<ion-item>
-					<ion-label>Password Input</ion-label>
-					<ion-input
-						placeholder="placeholder"
-						type="password"
-					></ion-input>
-				</ion-item>
-
-				<ion-item>
-					<ion-label position="stacked">Multiple Inputs</ion-label>
-					<ion-input placeholder="Address Line 1"></ion-input>
-					<ion-input placeholder="Address Line 2"></ion-input>
-					<ion-input placeholder="City"></ion-input>
-					<ion-input placeholder="State"></ion-input>
-					<ion-input placeholder="Zip Code"></ion-input>
-				</ion-item>
-
-				<ion-item>
-					<ion-label position="stacked">Textarea</ion-label>
-					<ion-textarea placeholder="placeholder"></ion-textarea>
-				</ion-item>
-			</ion-list>
 		</ion-content>
 	</ion-page>
 </template>
 
-<script lang="ts" src="./AddMarkerView.ts"></script>
+<script lang="ts">
+import { AddMarkerView } from "./AddMarkerView"
+export default AddMarkerView
+</script>
 
 <style scope>
 /* ion-page, .add-marker-view {

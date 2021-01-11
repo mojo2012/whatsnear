@@ -1046,16 +1046,6 @@
         "signature": "44163e34ae50518010f9977b97545ea991828cf2ac43bf4a52893a3d44a7ddf1",
         "affectsGlobalScope": false
       },
-      "../../src/views/addmarkerview/addmarkerview.ts": {
-        "version": "4d62eec72a832fd6a6c4f4c39f1d991ce6c4974d167168176cce7f950f8e92c3",
-        "signature": "094cca3ea9f86b2b17ddae8af48eb01816551b7b561b7fa40c8a19d390311ea0",
-        "affectsGlobalScope": false
-      },
-      "../../src/views/addmarkerview/addmarkerview.vue.ts": {
-        "version": "724f59e838494c1d39651f2cf431be257b99be52c25f472f3304305e05f8453c",
-        "signature": "10f0de47d28c8a52e0880dc4f9a0d06412f82f1510d38a385359b008730659d5",
-        "affectsGlobalScope": false
-      },
       "../../node_modules/vue-class-component/dist/vue-class-component.d.ts": {
         "version": "03b76b1104ddfad8c49c49c9fead7848aa492d71a73769de5156b63572f05840",
         "signature": "03b76b1104ddfad8c49c49c9fead7848aa492d71a73769de5156b63572f05840",
@@ -1276,13 +1266,23 @@
         "signature": "6b1a0e60d6ed21c434af54ddf31f8f43a6d810ba04b4e713679673f899a64861",
         "affectsGlobalScope": false
       },
+      "../../src/views/addmarkerview/addmarkerview.ts": {
+        "version": "456084bd9204ff45388b2328216770f97c2c53c0fdbaf2016d6f1d87290ce3af",
+        "signature": "f71bf376b47d8ba801b239bf78a10b0eafca6fe49ae4bbea1c8c27438c64b94b",
+        "affectsGlobalScope": false
+      },
+      "../../src/views/addmarkerview/addmarkerview.vue.ts": {
+        "version": "80af05d5a48cb63a4c75e379315f1b8fac68d6395c0abe31dc6394fec729fe70",
+        "signature": "cc5f0e9b3cc115845389530570e88fccc7da6ca0e1fc9115509845034bdff5ac",
+        "affectsGlobalScope": false
+      },
       "../../src/views/mapview/mapview.ts": {
-        "version": "919418b98f853775fd5129a7b37265d61b23a39373f300b0b9be56e4b0df362a",
-        "signature": "0c4a1aa566210a6e19881601326be7fddc66077159dbc2db168d546214566ded",
+        "version": "7015157a8bd87624f6f8fe844056d70147424c7de6343c5bb81d721ac273889e",
+        "signature": "289f0df03a945a279e05037ac4077d39d4b08f735a602ddf86fa0370933b0fc7",
         "affectsGlobalScope": false
       },
       "../../src/views/mapview/mapview.vue.ts": {
-        "version": "f2d5e1ce85434ec3a9df071ae34ebbe5308cb26928258a2dcec7c73776740879",
+        "version": "4f87a7b395a519af363ca94165b5d48b74e04326dd453ebdaca7286dae464874",
         "signature": "46570e232517b567fca871efb5f27901c93bfd3f690795e7c0bedc279764b1b3",
         "affectsGlobalScope": false
       },
@@ -2164,8 +2164,12 @@
       ],
       "../../src/views/addmarkerview/addmarkerview.ts": [
         "../../node_modules/@ionic/vue/dist/types/index.d.ts",
+        "../../node_modules/vue-class-component/dist/vue-class-component.d.ts",
+        "../../node_modules/vue3-google-map/dist/types/index.d.ts",
         "../../src/components/explorecontainer.vue.ts",
-        "../../src/enums/mapmarkertype.ts"
+        "../../src/configuration/settings.ts",
+        "../../src/enums/mapmarkertype.ts",
+        "../../src/types/ionictypes.ts"
       ],
       "../../src/views/addmarkerview/addmarkerview.vue.ts": [
         "../../src/views/addmarkerview/addmarkerview.ts"
@@ -2880,10 +2884,7 @@
         "../../node_modules/@ionic/vue/dist/types/index.d.ts"
       ],
       "../../src/views/addmarkerview/addmarkerview.ts": [
-        "../../node_modules/@ionic/core/dist/types/components.d.ts",
-        "../../node_modules/@ionic/core/dist/types/interface.d.ts",
-        "../../node_modules/@ionic/vue/dist/types/vue-component-lib/utils.d.ts",
-        "../../node_modules/@vue/reactivity/dist/reactivity.d.ts",
+        "../../node_modules/vue-class-component/dist/vue-class-component.d.ts",
         "../../node_modules/vue/dist/vue.d.ts"
       ],
       "../../src/views/addmarkerview/addmarkerview.vue.ts": [

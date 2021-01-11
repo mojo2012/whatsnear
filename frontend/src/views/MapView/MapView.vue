@@ -46,7 +46,7 @@
 							:icon="icons.addIcon"
 						></ion-icon>
 					</ion-button>
-					<ion-button @click="onLocateMebutton">
+					<ion-button @click="onLocateMeButtonClick">
 						<ion-icon
 							slot="icon-only"
 							:icon="icons.navigateIcon"
@@ -100,7 +100,10 @@
 			css-class="add-marker-view"
 			@onDidDismiss="isShowAddMarkerView = false"
 		>
-			<add-marker-view :data="data"></add-marker-view>
+			<add-marker-view
+				:mapCenter="mapCenter"
+				@onAddMarker="onAddMarkerClicked"
+			></add-marker-view>
 		</ion-modal>
 	</ion-page>
 </template>
@@ -117,8 +120,9 @@ ion-input#addInputBox {
 </style>
 <style>
 .add-marker-view > .modal-wrapper {
-	margin-top: 30px;
+	margin-top: 10px;
 	border-radius: 20px;
 	width: 98vw;
+	max-width: 500px;
 }
 </style>
