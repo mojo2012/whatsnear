@@ -12,5 +12,15 @@
 		"eslint.debug": true,
 		"eslint.format.enable": true,
 		"vetur.experimental.templateInterpolationService": true,
+		"[typescript]": {
+			"editor.codeActionsOnSave": {
+				"source.organizeImports": true,
+				"source.fixAll": true,
+			},
+			"editor.formatOnSave": true,
+			"editor.formatOnType": false,
+			"editor.formatOnSaveMode": "modifications",
+			"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+		},
 	}
 }

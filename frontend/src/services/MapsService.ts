@@ -2,7 +2,7 @@ import { DistanceData } from "@/dtos/DistanceData"
 import { DistanceUnit } from "@/dtos/DistanceUnit"
 import { GeoLocation } from "@/dtos/GeoLocation"
 import { PointOfInterest } from "@/dtos/PointOfInterest"
-import { MapMarkerType } from "@/enums/MapMarkerType"
+import { PointOfServiceType } from "@/enums/PointOfServiceType"
 import { MathUtil } from "@/utils/MathUtil"
 import { getDistance } from "geolib"
 
@@ -25,13 +25,15 @@ export class MapsService {
 
 			this.cache.push(
 				new PointOfInterest(
-					MapMarkerType.SELLING,
+					PointOfServiceType.SELLING,
+					"me",
 					location,
 					{
 						value: 0,
 						unit: DistanceUnit.Meters
 					},
 					"Lego max" + x,
+					"description",
 					new Date()
 				)
 			)

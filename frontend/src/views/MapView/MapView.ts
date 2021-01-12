@@ -1,4 +1,5 @@
 import ExploreContainer from "@/components/ExploreContainer.vue"
+import { PointOfServiceTypeIconMapping } from "@/configuration/Mappings"
 import { Settings } from "@/configuration/Settings"
 import { GeoLocation } from "@/dtos/GeoLocation"
 import { LatLng } from "@/dtos/LatLng"
@@ -27,9 +28,7 @@ import {
 	menuController,
 	modalController
 } from "@ionic/vue"
-import {
-	add, close, navigate, search
-} from "ionicons/icons"
+import { add, close, navigate, search } from "ionicons/icons"
 import { Options, Vue } from "vue-class-component"
 import { GoogleMap, Marker } from "vue3-google-map"
 
@@ -61,6 +60,7 @@ import { GoogleMap, Marker } from "vue3-google-map"
 export class MapView extends Vue {
 	// private static nullGeoLocation: LatLng = { lat: 1, lng: 1 }
 	// private static distanceFormatter = new Intl.NumberFormat('en-us', {minimumFractionDigits: 2})
+
 	private menuController!: MenuController
 	private modalController!: ModalController
 
@@ -124,7 +124,7 @@ export class MapView extends Vue {
 						lat: marker.location.latitude,
 						lng: marker.location.longitude
 					},
-					label: marker.type,
+					label: PointOfServiceTypeIconMapping[marker.type],
 					title: marker.description,
 					distance: (marker.distance.value / 1000).toFixed(1),
 					distanceUnit: "km"

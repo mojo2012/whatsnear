@@ -38,9 +38,9 @@
 				<!-- MARKER TYPE -->
 				<ion-item>
 					<ion-label>Marker types</ion-label>
-					<ion-select placeholder="">
+					<ion-select placeholder="" :value="type">
 						<ion-label>Marker types</ion-label>
-						<ion-select-option
+						<ion-select-option value="markerType"
 							v-for="(markerType, index) in markerTypes"
 							:value="markerType"
 							:key="'markerType-' + index"

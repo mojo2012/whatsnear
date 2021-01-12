@@ -1,7 +1,9 @@
 /* eslint-disable max-classes-per-file */
 import ExploreContainer from "@/components/ExploreContainer.vue"
+import { PointOfServiceTypeIconMapping, PointOfServiceTypeIconMappingType } from "@/configuration/Mappings"
 import { Settings } from "@/configuration/Settings"
-import { MapMarkerType } from "@/enums/MapMarkerType"
+import { CreatePointOfInterestRequest } from "@/dtos/CreatePointOfInterestRequest"
+import { PointOfServiceType } from "@/enums/PointOfServiceType"
 import { ModalController } from "@/types/IonicTypes"
 import {
 	IonButton,
@@ -57,6 +59,8 @@ export class AddMarkerView extends Vue.with(Props) {
 
 	public apiKey = Settings.googleApiKey
 	public title = ""
+	public description = ""
+	public type?: PointOfServiceType
 
 	public onCancelButtonClick(_event: MouseEvent): void {
 		console.log("onCancelButtonClick")
@@ -67,13 +71,19 @@ export class AddMarkerView extends Vue.with(Props) {
 	public onAddButtonClick(_event: MouseEvent): void {
 		console.log("onAddButtonClick")
 
-		this.$emit("onAddMarker", { title: this.title })
+		const newPointOfService: CreatePointOfInterestRequest = {
+			title: this.title,
+			description: this.description,
+			location: this.mapCenter,
+			type: this.type ? this.type : PointOfServiceType.NEED_HELP
+		}
 
-		this.modalController.dismiss()
+		this.$emit("onAddMarker", newPointOfService)
+
+		// this.modalController.dismiss()
 	}
 
-	public get markerTypes(): string[] {
-		const enumValues = Object.keys(MapMarkerType)
-		return enumValues
+	public get markerTypes(): PointOfServiceTypeIconMappingType {
+		return PointOfServiceTypeIconMapping
 	}
 }

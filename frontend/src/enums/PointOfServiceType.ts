@@ -1,0 +1,6 @@
+export enum PointOfServiceType {
+	NEED_HELP = "NEED_HELP",
+	LOOKING_FOR = "LOOKING_FOR",
+	SELLING = "SELLING",
+	GIVE_AWAY = "GIVE_AWAY"
+}
