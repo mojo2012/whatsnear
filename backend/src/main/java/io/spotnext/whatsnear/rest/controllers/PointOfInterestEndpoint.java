@@ -6,12 +6,11 @@ import io.spotnext.core.infrastructure.annotation.logging.Log;
 import io.spotnext.core.infrastructure.http.DataResponse;
 import io.spotnext.core.infrastructure.http.HttpResponse;
 import io.spotnext.core.infrastructure.support.LogLevel;
-import io.spotnext.core.infrastructure.support.Logger;
 import io.spotnext.core.infrastructure.support.MimeType;
 import io.spotnext.core.management.annotation.Handler;
 import io.spotnext.core.management.annotation.RemoteEndpoint;
 import io.spotnext.core.management.service.impl.AbstractRestEndpoint;
-import io.spotnext.core.management.support.BasicAuthenticationFilter;
+import io.spotnext.core.management.support.NoAuthenticationFilter;
 import io.spotnext.core.management.transformer.JsonResponseTransformer;
 import io.spotnext.whatsnear.beans.PointOfInterestQueryData;
 import io.spotnext.whatsnear.services.PointOfInterestService;
@@ -19,7 +18,7 @@ import spark.Request;
 import spark.Response;
 import spark.route.HttpMethod;
 
-@RemoteEndpoint(portConfigKey = "service.typesystem.rest.port", port = 19000, pathMapping = "/v1/poi", authenticationFilter = BasicAuthenticationFilter.class)
+@RemoteEndpoint(portConfigKey = "service.typesystem.rest.port", port = 19000, pathMapping = "/v1/poi", authenticationFilter = NoAuthenticationFilter.class)
 public class PointOfInterestEndpoint extends AbstractRestEndpoint {
 
 	@Autowired
@@ -30,8 +29,6 @@ public class PointOfInterestEndpoint extends AbstractRestEndpoint {
 	public HttpResponse getPropertyWithPrefix(final Request request, final Response response) {
 		
 		var locationParam = request.params(":location");
-		Logger.warn(locationParam);
-		
 		var typeQuery = request.queryParams("type");
 		var textSearch = request.queryParams("textSearch");
 		var maxDistance = request.queryParams("maxDistance");
