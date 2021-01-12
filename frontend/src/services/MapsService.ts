@@ -1,5 +1,7 @@
+import { DistanceData } from "@/dtos/DistanceData"
+import { DistanceUnit } from "@/dtos/DistanceUnit"
 import { GeoLocation } from "@/dtos/GeoLocation"
-import { MapMarker } from "@/dtos/MapMarker"
+import { PointOfInterest } from "@/dtos/PointOfInterest"
 import { MapMarkerType } from "@/enums/MapMarkerType"
 import { MathUtil } from "@/utils/MathUtil"
 import { getDistance } from "geolib"
@@ -7,7 +9,7 @@ import { getDistance } from "geolib"
 export class MapsService {
 	private static _instance: MapsService
 
-	private cache: MapMarker[] = []
+	private cache: PointOfInterest[] = []
 
 	private constructor() {
 		console.log("MapsService instantiated")
@@ -21,14 +23,32 @@ export class MapsService {
 				longitude: randomLon
 			}
 
-			this.cache.push(new MapMarker(MapMarkerType.SELLING, location, 0, "Lego max" + x))
+			this.cache.push(
+				new PointOfInterest(
+					MapMarkerType.SELLING,
+					location,
+					{
+						value: 0,
+						unit: DistanceUnit.Meters
+					},
+					"Lego max" + x,
+					new Date()
+				)
+			)
 		}
 
 		console.log(`${this.cache.length} markers in cache`)
 	}
 
-	private calculateDistance(point1: GeoLocation, point2: GeoLocation): number {
-		return getDistance(point1, point2)
+	private calculateDistance(point1: GeoLocation, point2: GeoLocation): DistanceData {
+		const distanceValueInMeters = getDistance(point1, point2)
+
+		const distance: DistanceData = {
+			unit: DistanceUnit.Meters,
+			value: distanceValueInMeters
+		}
+
+		return distance
 	}
 
 	public static get instance(): MapsService {
@@ -39,14 +59,14 @@ export class MapsService {
 		return MapsService._instance
 	}
 
-	public addMarker(marker: MapMarker): void {
+	public addMarker(marker: PointOfInterest): void {
 		this.cache.push(marker)
 	}
 
 	/**
 	 * @param maxDistance in meters
 	 */
-	public getMarkers(location: GeoLocation, maxDistance: number, searchTerm?: string): MapMarker[] {
+	public getMarkers(location: GeoLocation, maxDistance: number, searchTerm?: string): PointOfInterest[] {
 		let filteredMarkers = this.cache
 
 		if (searchTerm) {
@@ -57,7 +77,7 @@ export class MapsService {
 		this.cache.forEach((marker) => (marker.distance = this.calculateDistance(location, marker.location)))
 
 		// sort by distance
-		this.cache.sort((marker1: MapMarker, marker2: MapMarker) => marker1.distance - marker2.distance)
+		this.cache.sort((marker1: PointOfInterest, marker2: PointOfInterest) => marker1.distance.value - marker2.distance.value)
 
 		return filteredMarkers
 	}

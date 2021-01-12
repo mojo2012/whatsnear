@@ -1,12 +1,14 @@
+import { DistanceData } from "@/dtos/DistanceData"
 import { GeoLocation } from "@/dtos/GeoLocation"
 import { MapMarkerType } from "@/enums/MapMarkerType"
 
-export class MapMarker {
+export class PointOfInterest {
 	public constructor(
 		public type: MapMarkerType, //
 		public location: GeoLocation,
-		public distance: number,
-		public description: string
+		public distance: DistanceData,
+		public description: string,
+		public validTo: Date
 	) {
 		//
 	}

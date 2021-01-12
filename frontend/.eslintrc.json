@@ -9,7 +9,9 @@
 		"plugin:@typescript-eslint/recommended",
 		"plugin:prettier/recommended",
 		"prettier",
-		"prettier/@typescript-eslint"
+		"prettier/@typescript-eslint",
+		"plugin:import/errors",
+		"plugin:import/warnings"
 		// "plugin:vue/vue3-essential",
 		// "@vue/standard",
 		// "@vue/typescript/recommended"
@@ -21,7 +23,8 @@
 	},
 	"plugins": [
 		"@typescript-eslint",
-		"prettier"
+		"prettier",
+		"import"
 	],
 	"ignorePatterns": "*.js",
 	"overrides": [

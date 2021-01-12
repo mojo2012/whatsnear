@@ -36,3 +36,4 @@ npm-debug.log*
 **/src/gen/*
 **/target/*
 .flattened-pom.xml
+frontend/dist

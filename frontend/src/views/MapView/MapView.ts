@@ -27,7 +27,9 @@ import {
 	menuController,
 	modalController
 } from "@ionic/vue"
-import { add, close, navigate, search } from "ionicons/icons"
+import {
+	add, close, navigate, search
+} from "ionicons/icons"
 import { Options, Vue } from "vue-class-component"
 import { GoogleMap, Marker } from "vue3-google-map"
 
@@ -63,7 +65,10 @@ export class MapView extends Vue {
 	private modalController!: ModalController
 
 	// proprties
-	public mapCenter: LatLng = { lat: 48, lng: 16 }
+	public mapCenter: LatLng = {
+		lat: 48,
+		lng: 16
+	}
 	public isSearchBoxVisible = false
 	public isSidebarVisible = false
 	public markerFilter = ""
@@ -121,7 +126,7 @@ export class MapView extends Vue {
 					},
 					label: marker.type,
 					title: marker.description,
-					distance: (marker.distance / 1000).toFixed(1),
+					distance: (marker.distance.value / 1000).toFixed(1),
 					distanceUnit: "km"
 				} as MarkerDto
 			})
