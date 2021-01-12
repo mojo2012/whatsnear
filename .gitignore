@@ -36,3 +36,5 @@ npm-debug.log*
 **/src/gen/*
 **/target/*
 .flattened-pom.xml
+ajcore*
+backend/data/store/*

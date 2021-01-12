@@ -1,33 +1,71 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <types xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="http://spot-next.io/schemas/v2/itemtypes.xsd">
+	xsi:noNamespaceSchemaLocation="https://core-next.io/schemas/v2/itemtypes.xsd">
 
-	<enum name="ListingType"
+	<!-- ENUMS -->
+	<enum name="PointOfInterestType"
 		package="io.spotnext.whatsnear.itemtypes.enumeration">
-		<description>Listing Types</description>
+		<description>PointOfInterest Types</description>
 		<value code="Request" />
 		<value code="Offer" />
 	</enum>
+	
+	<enum name="DistanceUnit"
+		package="io.spotnext.whatsnear.itemtypes.enumeration">
+		<description>PointOfInterest Types</description>
+		<value code="Kilometers" />
+		<value code="Meters" />
+	</enum>
 
-	<type name="Listing" typeCode="Listing"
+	<!-- DTOs -->
+	<bean name="PointOfInterestData" package="io.spotnext.whatsnear.beans">
+		<properties>
+			<property name="uid" type="String">
+				<description>The listing id.</description>
+			</property>
+			<property name="type" type="PointOfInterestType" />
+			<property name="author" type="String" />
+			<property name="title" type="String" />
+			<property name="description" type="String" />
+			<property name="location" type="GeoLocationData" />
+			<property name="distance" type="DistanceData" />
+		</properties>
+	</bean>
+	
+	<bean name="GeoLocationData" package="io.spotnext.whatsnear.beans">
+		<properties>
+			<property name="latitude" type="Double" />
+			<property name="longitude" type="Double" />
+		</properties>
+	</bean>
+	
+	<bean name="DistanceData" package="io.spotnext.whatsnear.beans">
+		<properties>
+			<property name="value" type="Double" />
+			<property name="unit" type="DistanceUnit" />
+		</properties>
+	</bean>
+	
+	<bean name="PointOfInterestQueryData" package="io.spotnext.whatsnear.beans">
+		<properties>
+			<property name="location" type="String" />
+			<property name="type" type="String" />
+			<property name="textSearch" type="String" />
+			<property name="maxDistance" type="String" />
+		</properties>
+	</bean>
+	
+	<!-- ITEM TYPES -->
+	<type name="PointOfInterest" typeCode="PointOfInterest"
 		package="io.spotnext.whatsnear.itemtypes" extends="UniqueIdItem"
 		persistable="true">
 		<properties>
 			<property name="author" type="String" />
 			<property name="title" type="String" />
 			<property name="description" type="String" />
-			<property name="position" type="GeoLocation" />
 			<property name="latitude" type="Double" />
 			<property name="longitude" type="Double" />
-			<property name="type" type="ListingType" />
-		</properties>
-	</type>
-
-	<type name="GeoLocation" typeCode="GeoLocation"
-		package="io.spotnext.whatsnear.itemtypes" persistable="true">
-		<properties>
-			<property name="latitude" type="Double" />
-			<property name="longitude" type="Double" />
+			<property name="type" type="PointOfInterestType" />
 		</properties>
 	</type>
 
