@@ -1,9 +1,0 @@
-INSERT_UPDATE GeoLocation;latitude[unique=true];longitude[unique=true]
-;48;16
-;48.5;16
-;48;16.5
-;48.5;16.5
-
-
-INSERT_UPDATE Listing;uid[unique=true];author;title;description;latitude;longitude;type;
-;listing1;Testuser;Testitem;Testdescription;48;16;Request;

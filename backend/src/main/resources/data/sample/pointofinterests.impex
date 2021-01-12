@@ -1,0 +1,5 @@
+INSERT_UPDATE PointOfInterest;uid[unique=true];author;title;description;latitude;longitude;type;
+;listing1;Testuser;Testitem;Testdescription;48;16;Request;
+;listing2;Testuser2;Testitem2;Testdescription2;48.5;16;Request;
+;listing3;Testuser3;Testitem3;Testdescription3;48;16.5;Offer;
+;listing4;Testuser4;Testitem4;Testdescription4;48.5;16.5;Offer;
