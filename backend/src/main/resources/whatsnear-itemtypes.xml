@@ -6,8 +6,10 @@
 	<enum name="PointOfInterestType"
 		package="io.spotnext.whatsnear.itemtypes.enumeration">
 		<description>PointOfInterest Types</description>
-		<value code="Request" />
-		<value code="Offer" />
+		<value code="NEED_HELP" />
+		<value code="LOOKING_FOR" />
+		<value code="SELLING" />
+		<value code="GIVE_AWAY" />
 	</enum>
 	
 	<enum name="DistanceUnit"

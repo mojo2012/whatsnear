@@ -13,4 +13,6 @@ public interface PointOfInterestService {
 
 	List<PointOfInterestData> findAllNear(PointOfInterestQueryData query);
 	
+	PointOfInterestData save(PointOfInterestData data);
+	
 }

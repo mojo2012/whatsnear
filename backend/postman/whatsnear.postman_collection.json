@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "880f8749-6758-48dd-b34d-4ac243ef7904",
+		"name": "whatsnear",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create pointofservice",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"author\": \"Super Author\",\n    \"title\": \"Super Title 3\",\n    \"description\": \"Super Description\",\n    \"type\": \"SELLING\",\n    \"location\": {\n        \"latitude\": 47.2,\n        \"longitude\": 18.6\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:19000/v1/poi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "19000",
+					"path": [
+						"v1",
+						"poi"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

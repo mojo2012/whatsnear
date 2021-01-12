@@ -69,6 +69,32 @@ public class DefaultPointOfInterestService extends AbstractService implements Po
 		return ret;
 	}
 	
+	@Override
+	public PointOfInterestData save(PointOfInterestData data) {
+		var poi = modelService.create(PointOfInterest.class);
+		
+		poi.setAuthor(data.getAuthor());
+		poi.setDescription(data.getDescription());
+		poi.setTitle(data.getTitle());
+		poi.setType(data.getType());
+		poi.setUid(getUid(data.getTitle()));
+		poi.setLatitude(data.getLocation().getLatitude());
+		poi.setLongitude(data.getLocation().getLongitude());
+		
+		modelService.save(poi);
+		
+		return convert(poi);
+	}
+	
+	private String getUid(String title) {
+		var ret = StringUtils.lowerCase(title);
+		ret = ret.replace(" ", "-");
+		
+		// TODO: check if uid exists
+		
+		return ret;
+	}
+	
 	private void addDistance(List<PointOfInterestData> pois, Point searchPoint) {
 		if (CollectionUtils.isNotEmpty(pois)) {
 			for (var poi : pois) {
