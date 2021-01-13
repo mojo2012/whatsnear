@@ -39,3 +39,4 @@ npm-debug.log*
 frontend/dist
 ajcore*
 backend/data/store/*
+**/node_modules/*
