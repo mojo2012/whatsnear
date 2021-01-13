@@ -3,13 +3,15 @@
 		<ion-header mode="ios" :translucent="true">
 			<ion-toolbar>
 				<ion-buttons slot="start">
-					<ion-button @click="onCancelButtonClick" >Cancel</ion-button>
+					<ion-button @click="onCancelButtonClick">Cancel</ion-button>
 				</ion-buttons>
 
 				<ion-title size="middle">New marker</ion-title>
 
 				<ion-buttons slot="end">
-					<ion-button @click="onAddButtonClick" color="primary"> Add </ion-button>
+					<ion-button @click="onAddButtonClick" color="primary">
+						Add
+					</ion-button>
 				</ion-buttons>
 			</ion-toolbar>
 		</ion-header>
@@ -32,7 +34,11 @@
 
 				<!-- TITLE -->
 				<ion-item>
-					<ion-input placeholder="Title" v-model="title" :value="title"></ion-input>
+					<ion-input
+						placeholder="Title"
+						v-model="title"
+						:value="title"
+					></ion-input>
 				</ion-item>
 
 				<!-- MARKER TYPE -->
@@ -40,12 +46,13 @@
 					<ion-label>Marker types</ion-label>
 					<ion-select placeholder="" :value="type">
 						<ion-label>Marker types</ion-label>
-						<ion-select-option value="markerType"
-							v-for="(markerType, index) in markerTypes"
+						<ion-select-option
+							value="markerType"
+							v-for="(markerType, code) in markerTypes"
 							:value="markerType"
-							:key="'markerType-' + index"
+							:key="'markerType-' + code"
 						>
-							{{ markerType }}
+							{{ markerType }} {{ code }}
 						</ion-select-option>
 					</ion-select>
 				</ion-item>
