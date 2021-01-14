@@ -1,10 +1,12 @@
 package io.spotnext.whatsnear.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.grum.geocalc.Coordinate;
@@ -18,15 +20,22 @@ import io.spotnext.whatsnear.beans.PointOfInterestData;
 import io.spotnext.whatsnear.beans.PointOfInterestQueryData;
 import io.spotnext.whatsnear.itemtypes.PointOfInterest;
 import io.spotnext.whatsnear.itemtypes.enumeration.DistanceUnit;
+import io.spotnext.whatsnear.itemtypes.enumeration.PointOfInterestType;
+import io.spotnext.whatsnear.repositories.PointOfInterestRepository;
 import io.spotnext.whatsnear.services.PointOfInterestService;
 
 @Service
 public class DefaultPointOfInterestService extends AbstractService implements PointOfInterestService {
 
+	@Autowired
+	private PointOfInterestRepository pointOfInterestRepository;
+	
 	@Override
-	public List<PointOfInterestData> findAll() {
+	public List<PointOfInterestData> findAll(PointOfInterestQueryData query) {
 		
-		var listings = modelService.getAll(PointOfInterest.class, null);
+		var type = StringUtils.isNotBlank(query.getType()) ? PointOfInterestType.valueOf(query.getType()) : null;
+		var text = StringUtils.isNotBlank(query.getTextSearch()) ? StringUtils.lowerCase(query.getTextSearch()) : null;
+		var listings = pointOfInterestRepository.findAllByTypeAndText(type, text);
 		
 		return listings.stream().map(l -> convert(l)).collect(Collectors.toList());
 	}
@@ -40,21 +49,21 @@ public class DefaultPointOfInterestService extends AbstractService implements Po
 			var position = StringUtils.split(location, ",");
 			var latitude = Double.parseDouble(position[0]);
 			var longitude = Double.parseDouble(position[1]);
-			ret = findAllNear(latitude, longitude);
+			ret = findAllNear(latitude, longitude, query);
 		} else {
-			ret = findAll();
+			ret = findAll(new PointOfInterestQueryData());
 		}
 		
 		return ret;
 	}
 
 	@Override
-	public List<PointOfInterestData> findAllNear(double latitude, double longitude) {
+	public List<PointOfInterestData> findAllNear(double latitude, double longitude, PointOfInterestQueryData query) {
 		
 		var searchPoint = getPoint(latitude, longitude);
-		
-		var pois = findAll();
-		addDistance(pois, searchPoint);
+		var maxDistance = Double.parseDouble(query.getMaxDistance());
+		var pois = findAll(query);
+		pois = checkDistance(pois, searchPoint, maxDistance);
 		
 		var ret = pois.stream().sorted((a, b) -> {
 			if (a.getDistance() == b.getDistance()) {
@@ -95,11 +104,31 @@ public class DefaultPointOfInterestService extends AbstractService implements Po
 		return ret;
 	}
 	
-	private void addDistance(List<PointOfInterestData> pois, Point searchPoint) {
+	private List<PointOfInterestData> checkDistance(List<PointOfInterestData> pois, Point searchPoint, Double maxDistance) {
+		var ret = new ArrayList<PointOfInterestData>();
 		if (CollectionUtils.isNotEmpty(pois)) {
 			for (var poi : pois) {
-				poi.setDistance(getDistance(searchPoint, getPoint(poi)));
+				var distance = getDistance(searchPoint, getPoint(poi));
+				var distanceInMeters = convertUnit(distance, DistanceUnit.Meters);
+				if (maxDistance != null && maxDistance >= distanceInMeters.getValue()) {
+					poi.setDistance(distance);
+					ret.add(poi);
+				}
 			}
+		}
+		return ret;
+	}
+	
+	private DistanceData convertUnit(DistanceData data, DistanceUnit toUnit) {
+		if (data.getUnit().equals(toUnit)) {
+			return data;
+		} else {
+			if (DistanceUnit.Meters.equals(toUnit)) {
+				data.setValue(data.getValue() * 1000);
+			} else if (DistanceUnit.Kilometers.equals(toUnit)) {
+				data.setValue(data.getValue() / 1000);
+			}
+			return data;
 		}
 	}
 	

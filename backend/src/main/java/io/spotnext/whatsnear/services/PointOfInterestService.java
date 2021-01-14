@@ -7,12 +7,14 @@ import io.spotnext.whatsnear.beans.PointOfInterestQueryData;
 
 public interface PointOfInterestService {
 	
-	List<PointOfInterestData> findAll();
+	List<PointOfInterestData> findAll(PointOfInterestQueryData query);
 	
-	List<PointOfInterestData> findAllNear(double latitude, double longitude);
+	List<PointOfInterestData> findAllNear(double latitude, double longitude, PointOfInterestQueryData query);
 
 	List<PointOfInterestData> findAllNear(PointOfInterestQueryData query);
 	
 	PointOfInterestData save(PointOfInterestData data);
+
+
 	
 }

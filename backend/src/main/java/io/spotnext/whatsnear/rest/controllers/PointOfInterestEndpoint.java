@@ -1,8 +1,7 @@
 package io.spotnext.whatsnear.rest.controllers;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import com.fasterxml.jackson.databind.DeserializationConfig;
 
 import io.spotnext.core.infrastructure.annotation.logging.Log;
 import io.spotnext.core.infrastructure.http.DataResponse;
@@ -51,7 +50,11 @@ public class PointOfInterestEndpoint extends AbstractRestEndpoint {
 		query.setLocation(locationParam);
 		query.setType(typeQuery);
 		query.setTextSearch(textSearch);
-		query.setMaxDistance(maxDistance);
+		if (StringUtils.isNotBlank(maxDistance)) {
+			query.setMaxDistance(maxDistance);
+		} else {
+			query.setMaxDistance("100000");
+		}
 		
 		var listings = pointOfInterestService.findAllNear(query);
 		

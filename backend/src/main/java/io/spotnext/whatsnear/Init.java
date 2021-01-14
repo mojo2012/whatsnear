@@ -10,6 +10,7 @@ import io.spotnext.core.infrastructure.support.init.ModuleInit;
 @DependsOn(value = "coreInit")
 @SpringBootApplication(scanBasePackages = { 
 		"io.spotnext.whatsnear", 
+		"io.spotnext.whatsnear.repositories", 
 		"io.spotnext.whatsnear.rest.controllers",
 		"io.spotnext.whatsnear.services.impl"
 })
