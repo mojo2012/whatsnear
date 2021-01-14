@@ -8,6 +8,6 @@ export class Settings {
 	}
 
 	public static get backendUrl(): string {
-		return "https://0acd55be2ca9.ngrok.io/v1/poi/48,16"
+		return process.env.VUE_APP_BACKEND_BASE_URL
 	}
 }
