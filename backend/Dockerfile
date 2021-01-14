@@ -9,7 +9,6 @@ RUN apk add --update --no-cache \
 	util-linux \
 	&& rm -rf /var/cache/apk/*
 
-#ENV DEVELOPMODE="false"
 ENV SPRING_PROFILES_ACTIVE=""
 ENV PRINT_ENV="false"
 ENV ADDITIONAL_JAVA_ARG="\
@@ -30,11 +29,7 @@ COPY ${DEPENDENCY}/BOOT-INF/lib        /app/lib
 COPY ${DEPENDENCY}/META-INF            /app/META-INF
 COPY ${DEPENDENCY}/BOOT-INF/classes    /app/
 COPY docker/*                          /app/
-#COPY docker/YourKit/                   /app/YourKit
-#COPY docker/.resources/fonts           /usr/share/fonts
-#COPY docker/.resources/fontconfig      /usr/share/fontconfig
 
 RUN chmod +x /app/docker_entrypoint.sh
-#RUN chmod +x /app/wait-for-it.sh
 
 ENTRYPOINT [ "/app/docker_entrypoint.sh" ]
