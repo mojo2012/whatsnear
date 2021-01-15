@@ -14,8 +14,10 @@
 		"eslint:check": "eslint \"{src,test}/**/*.ts\"",
 		"eslint:fix": "eslint \"{src,test}/**/*.ts\" --fix",
 		"heroku:login": "heroku login && heroku container:login",
-		"docker:build": "docker build --compress -t registry.heroku.com/whatsnear/whatsappfrontend:latest .",
-		"docker:push": ""
+		"docker:build": "docker build --compress -t registry.heroku.com/whatsnear-frontend/web:latest .",
+		"heroku:container:push": "heroku container:push web --app whatsnear-frontend",
+		"heroku:container:release": "heroku container:push web --app whatsnear-frontend",
+		"heroku:logs": "heroku logs --tail --app whatsnear-frontend"
 	},
 	"dependencies": {
 		"@capacitor/core": "2.4.5",
