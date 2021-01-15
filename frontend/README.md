@@ -1,2 +1,2 @@
-# whatsnear
-Find people near you.
+# whatsnear frontend
+The frontend to whatsnear.

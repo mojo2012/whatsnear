@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  frontend:
+    ports:
+      - "8080:80"
+    image: "whatsappfrontend"
+    hostname: frontend
+    environment:
+      NGINX_HOST: frontend
+      NGINX_PORT: 80
+    env_file:
+      - ../frontend/env.docker.local
+
+
+volumes:
+  esdat1:

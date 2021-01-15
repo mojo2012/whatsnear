@@ -12,7 +12,10 @@
 		"test:e2e": "vue-cli-service test:e2e",
 		"lint": "vue-cli-service lint",
 		"eslint:check": "eslint \"{src,test}/**/*.ts\"",
-		"eslint:fix": "eslint \"{src,test}/**/*.ts\" --fix"
+		"eslint:fix": "eslint \"{src,test}/**/*.ts\" --fix",
+		"heroku:login": "heroku login && heroku container:login",
+		"docker:build": "docker build --compress -t registry.heroku.com/whatsnear/whatsappfrontend:latest .",
+		"docker:push": ""
 	},
 	"dependencies": {
 		"@capacitor/core": "2.4.5",

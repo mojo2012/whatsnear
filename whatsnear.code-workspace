@@ -1,10 +1,16 @@
 {
 	"folders": [
+		// {
+		// 	"path": "./backend"
+		// },
+		// {
+		// 	"path": "./frontend"
+		// },
+		// {
+		// 	"path": "./infrastructure"
+		// },
 		{
-			"path": "./backend"
-		},
-		{
-			"path": "./frontend"
+			"path": "./"
 		}
 	],
 	"settings": {

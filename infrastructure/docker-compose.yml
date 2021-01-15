@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  backend:
+    volumes:
+      - ./backend/data:/app/data:rw,delegated
+    ports:
+      - '19000:19000'
+    image: "registry.heroku.com/indahood/web"
+    hostname: backend
+    environment:
+      PORT: 19000
+      SPRING_PROFILES_ACTIVE: "custom"
+
+volumes:
+  esdat1:

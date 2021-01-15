@@ -1,3 +1,4 @@
+import { Settings } from "@/configuration/Settings"
 import { DistanceData } from "@/dtos/DistanceData"
 import { DistanceUnit } from "@/dtos/DistanceUnit"
 import { GeoLocation } from "@/dtos/GeoLocation"
@@ -63,6 +64,8 @@ export class MapsService {
 
 	public addMarker(marker: PointOfInterest): void {
 		this.cache.push(marker)
+
+		fetch(Settings.backendUrl + "/", {})
 	}
 
 	/**
