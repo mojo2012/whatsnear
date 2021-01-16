@@ -1,4 +1,5 @@
 import { Settings } from "@/configuration/Settings"
+import { CreatePointOfInterestRequest } from "@/dtos/CreatePointOfInterestRequest"
 import { DistanceData } from "@/dtos/DistanceData"
 import { DistanceUnit } from "@/dtos/DistanceUnit"
 import { GeoLocation } from "@/dtos/GeoLocation"
@@ -62,10 +63,14 @@ export class MapsService {
 		return MapsService._instance
 	}
 
-	public addMarker(marker: PointOfInterest): void {
-		this.cache.push(marker)
+	public async addMarker(pointOfInterest: CreatePointOfInterestRequest): Promise<void> {
+		const url = Settings.backendUrl + "poi"
 
-		fetch(Settings.backendUrl + "/", {})
+		try {
+			await fetch(url, { method: "POST", headers: [], body: JSON.stringify(pointOfInterest) })
+		} catch (ex) {
+			console.error("Could not add marker", ex)
+		}
 	}
 
 	/**

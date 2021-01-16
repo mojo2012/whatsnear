@@ -1,8 +1,10 @@
 /* eslint-disable max-classes-per-file */
 import ExploreContainer from "@/components/ExploreContainer.vue"
-import { PointOfServiceTypeIconMapping, PointOfServiceTypeIconMappingType } from "@/configuration/Mappings"
+import { PointOfServiceTypeIconMappingType, POINT_OF_SERVICE_MAPPING } from "@/configuration/Mappings"
 import { Settings } from "@/configuration/Settings"
 import { CreatePointOfInterestRequest } from "@/dtos/CreatePointOfInterestRequest"
+import { GeoLocation } from "@/dtos/GeoLocation"
+import { LatLng } from "@/dtos/LatLng"
 import { PointOfServiceType } from "@/enums/PointOfServiceType"
 import { ModalController } from "@/types/IonicTypes"
 import {
@@ -26,8 +28,12 @@ import { Options, prop, Vue } from "vue-class-component"
 import { GoogleMap, Marker } from "vue3-google-map"
 
 class Props {
-	public mapCenter = prop({
-		type: Object,
+	public mapLat = prop({
+		type: Number,
+		required: true
+	})
+	public mapLon = prop({
+		type: Number,
 		required: true
 	})
 }
@@ -71,19 +77,28 @@ export class AddMarkerView extends Vue.with(Props) {
 	public onAddButtonClick(_event: MouseEvent): void {
 		console.log("onAddButtonClick")
 
+		const mapCenter: GeoLocation = {
+			latitude: this.mapLat,
+			longitude: this.mapLon
+		}
+
 		const newPointOfService: CreatePointOfInterestRequest = {
 			title: this.title,
 			description: this.description,
-			location: this.mapCenter,
+			location: mapCenter,
 			type: this.type ? this.type : PointOfServiceType.NEED_HELP
 		}
 
 		this.$emit("onAddMarker", newPointOfService)
 
-		// this.modalController.dismiss()
+		this.modalController.dismiss()
 	}
 
-	public get markerTypes(): PointOfServiceTypeIconMappingType {
-		return PointOfServiceTypeIconMapping
+	public get markerTypes(): PointOfServiceTypeIconMappingType[] {
+		return POINT_OF_SERVICE_MAPPING
+	}
+
+	public get mapCenter(): LatLng {
+		return { lat: this.mapLat, lng: this.mapLon }
 	}
 }

@@ -1,12 +1,13 @@
 import { PointOfServiceType } from "@/enums/PointOfServiceType"
 
-export type PointOfServiceTypeIconMappingType = {
-	[key in PointOfServiceType]: string
+export interface PointOfServiceTypeIconMappingType {
+	code: PointOfServiceType
+	icon: string
 }
 
-export const PointOfServiceTypeIconMapping: PointOfServiceTypeIconMappingType = {
-	NEED_HELP: "🆘",
-	LOOKING_FOR: "👀",
-	SELLING: "💲",
-	GIVE_AWAY: "💲"
-}
+export const POINT_OF_SERVICE_MAPPING: PointOfServiceTypeIconMappingType[] = [
+	{ code: PointOfServiceType.NEED_HELP, icon: "🆘" },
+	{ code: PointOfServiceType.LOOKING_FOR, icon: "👀" },
+	{ code: PointOfServiceType.SELLING, icon: "💲" },
+	{ code: PointOfServiceType.GIVE_AWAY, icon: "💲" }
+]

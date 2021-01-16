@@ -62,6 +62,8 @@
 					<ion-textarea
 						:autoGrow="true"
 						placeholder="Description"
+						v-model="description"
+						:value="description"
 					></ion-textarea>
 				</ion-item>
 			</ion-list>

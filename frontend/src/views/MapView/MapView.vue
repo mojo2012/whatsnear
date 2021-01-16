@@ -101,7 +101,8 @@
 			@onDidDismiss="isShowAddMarkerView = false"
 		>
 			<add-marker-view
-				:mapCenter="mapCenter"
+				:mapLat="mapCenter.lat"
+				:mapLon="mapCenter.lng"
 				@onAddMarker="onAddMarkerClicked"
 			></add-marker-view>
 		</ion-modal>
