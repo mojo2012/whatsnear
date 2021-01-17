@@ -23,7 +23,10 @@ LABEL projectName="whatsnear-frontend"
 
 RUN rm -rf /usr/share/nginx/html/*
 
-ENV PORT 8080
+#ENV PORT 8080
 ENV HOST_NAME localhost
 
 COPY --from=build /app/dist/ /usr/share/nginx/html/
+
+CMD ["nginx", "-g", "daemon off;"]
+

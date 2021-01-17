@@ -17,7 +17,7 @@
 		"docker:build": "docker build --compress -t registry.heroku.com/whatsnear-frontend/web:latest .",
 		"heroku:container:push": "heroku container:push web --app whatsnear-frontend",
 		"heroku:container:pull": "heroku container:pull web --app whatsnear-frontend",
-		"heroku:container:release": "heroku container:push web --app whatsnear-frontend",
+		"heroku:container:release": "heroku container:release web --app whatsnear-frontend",
 		"heroku:logs": "heroku logs --tail --app whatsnear-frontend",
 		"docker:run:backend": "cd ../infrastructure && docker-compose -f docker.compose.yml up",
 		"docker:run:frontend": "cd ../infrastructure && docker-compose -f docker-compose.frontend.yml up"

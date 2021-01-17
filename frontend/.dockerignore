@@ -4,7 +4,6 @@
 **/ios
 **/node_modules
 **/.env*
-**/resources
 .dockerignore
 Dockerfile
 README.md
