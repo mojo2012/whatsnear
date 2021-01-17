@@ -88,7 +88,6 @@
 					v-for="(marker, index) in markers"
 					:key="index"
 					:options="marker"
-					@click="onMarkerSelected"
 				/>
 			</GoogleMap>
 		</ion-content>

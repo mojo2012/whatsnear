@@ -64,7 +64,7 @@ export class MapsService {
 	}
 
 	public async addMarker(pointOfInterest: CreatePointOfInterestRequest): Promise<void> {
-		const url = Settings.backendUrl + "poi"
+		const url = Settings.backendUrlV1 + "poi"
 
 		try {
 			await fetch(url, { method: "POST", headers: [], body: JSON.stringify(pointOfInterest) })
@@ -76,19 +76,36 @@ export class MapsService {
 	/**
 	 * @param maxDistance in meters
 	 */
-	public getMarkers(location: GeoLocation, maxDistance: number, searchTerm?: string): PointOfInterest[] {
-		let filteredMarkers = this.cache
+	public async getMarkers(location: GeoLocation, maxDistance: number, searchTerm?: string): Promise<PointOfInterest[]> {
+		const url = new URL(Settings.backendUrlV1 + `poi/${location.latitude},${location.longitude}`)
+		url.searchParams.append("maxDistance", maxDistance + "")
 
 		if (searchTerm) {
-			filteredMarkers = this.cache.filter((marker) => marker.description?.toLowerCase()?.includes(searchTerm?.toLowerCase()))
+			url.searchParams.append("searchText", searchTerm)
 		}
 
-		// update distance
-		this.cache.forEach((marker) => (marker.distance = this.calculateDistance(location, marker.location)))
+		//  type
 
-		// sort by distance
-		this.cache.sort((marker1: PointOfInterest, marker2: PointOfInterest) => marker1.distance.value - marker2.distance.value)
+		try {
+			const results: Promise<{ data: PointOfInterest[] }> = await (await fetch(url.toString(), { method: "GET", headers: [] })).json()
 
-		return filteredMarkers
+			return (await results).data
+		} catch (ex) {
+			console.error("Could not add marker", ex)
+		}
+
+		// let filteredMarkers = this.cache
+
+		// if (searchTerm) {
+		// 	filteredMarkers = this.cache.filter((marker) => marker.description?.toLowerCase()?.includes(searchTerm?.toLowerCase()))
+		// }
+
+		// // update distance
+		// this.cache.forEach((marker) => (marker.distance = this.calculateDistance(location, marker.location)))
+
+		// // sort by distance
+		// this.cache.sort((marker1: PointOfInterest, marker2: PointOfInterest) => marker1.distance.value - marker2.distance.value)
+
+		return []
 	}
 }
