@@ -81,7 +81,7 @@ export class MapsService {
 		url.searchParams.append("maxDistance", maxDistance + "")
 
 		if (searchTerm) {
-			url.searchParams.append("searchText", searchTerm)
+			url.searchParams.append("textSearch", searchTerm)
 		}
 
 		//  type

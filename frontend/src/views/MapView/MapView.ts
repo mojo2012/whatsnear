@@ -8,6 +8,7 @@ import { MarkerDto } from "@/dtos/MarkerDto"
 import { LocationService } from "@/services/LocationService"
 import { MapsService } from "@/services/MapsService"
 import { MenuController, ModalController } from "@/types/IonicTypes"
+import { MathUtil } from "@/utils/MathUtil"
 import AddMarkerView from "@/views/AddMarkerView/AddMarkerView.vue"
 import {
 	IonButton,
@@ -66,10 +67,17 @@ export class MapView extends Vue {
 	private modalController!: ModalController
 
 	// proprties
-	public mapCenter: LatLng = {
+	private static DEFAULT_MAP_CENTER: LatLng = {
 		lat: 48,
 		lng: 16
 	}
+
+	public mapCenter: LatLng = MapView.DEFAULT_MAP_CENTER
+
+	public currentPositionMarker: MarkerDto = {
+		position: this.mapCenter
+	}
+
 	public isSearchBoxVisible = false
 	public isSidebarVisible = false
 	public markerFilter = ""
@@ -100,7 +108,10 @@ export class MapView extends Vue {
 	public async mounted(this: this): Promise<void> {
 		console.log("Mounted")
 
-		this.goToCurrentPosition()
+		await this.goToCurrentPosition()
+
+		this.currentPositionMarker = { position: this.mapCenter, label: "+" }
+
 		this.syncMarkers()
 	}
 
@@ -138,12 +149,11 @@ export class MapView extends Vue {
 
 	public async goToCurrentPosition(): Promise<void> {
 		const coords = await this.locationService.getGeoLocation()
-
 		this.mapCenter = this.convertGeoLocationToLatLng(coords.coords)
 	}
 
-	public onLocateMeButtonClick(event: MouseEvent): void {
-		this.goToCurrentPosition()
+	public async onLocateMeButtonClick(event: MouseEvent): Promise<void> {
+		await this.goToCurrentPosition()
 	}
 
 	public async onMenuButtonClick(event: MouseEvent): Promise<void> {
@@ -177,9 +187,10 @@ export class MapView extends Vue {
 	}
 
 	private convertGeoLocationToLatLng(geoLocation: GeoLocation): LatLng {
+		// need to make sure that the coordinates change a bit for vue to pickup the change
 		return {
-			lat: geoLocation.latitude,
-			lng: geoLocation.longitude
+			lat: geoLocation.latitude + MathUtil.random(0, 0.000001),
+			lng: geoLocation.longitude + MathUtil.random(0, 0.000001)
 		}
 	}
 

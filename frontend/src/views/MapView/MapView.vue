@@ -49,12 +49,12 @@
 							:icon="icons.navigateIcon"
 						></ion-icon>
 					</ion-button>
-					<ion-button @mouseup="onSearchButtonClick">
+					<!-- <ion-button @mouseup="onSearchButtonClick">
 						<ion-icon
 							slot="icon-only"
 							:icon="icons.searchIcon"
 						></ion-icon>
-					</ion-button>
+					</ion-button> -->
 					<ion-menu-button
 						@click="onMenuButtonClick"
 						auto-hide="false"
@@ -65,12 +65,12 @@
 		<ion-content id="main-content" :fullscreen="true">
 			<GoogleMap
 				:api-key="apiKey"
-				style="width: 100vw; height: 100vh"
+				style="width: 100%; height: 100%"
 				:center="mapCenter"
 				:zoom="10"
 			>
 				<!-- current position -->
-				<Marker :options="{ position: mapCenter }" />
+				<Marker :options="currentPositionMarker" />
 
 				<!-- marker -->
 				<Marker

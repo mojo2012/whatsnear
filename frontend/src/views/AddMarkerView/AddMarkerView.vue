@@ -19,9 +19,9 @@
 			<ion-list lines="full" class="ion-no-margin">
 				<GoogleMap
 					:api-key="apiKey"
-					style="width: 100vw; height: 30vh"
+					style="width: 100%; height: 30vh"
 					:center="mapCenter"
-					:zoom="13"
+					:zoom="15"
 				>
 					<!-- current position -->
 					<Marker :options="{ position: mapCenter }" />
@@ -43,16 +43,15 @@
 
 				<!-- MARKER TYPE -->
 				<ion-item>
-					<ion-label>Marker types</ion-label>
-					<ion-select placeholder="" :value="type">
+					<ion-label>Marker types {{ markerType.toString() }}</ion-label>
+
+					<ion-select placeholder="" :value="markerType">
 						<ion-label>Marker types</ion-label>
 						<ion-select-option
-							value="markerType"
-							v-for="(markerType, code) in markerTypes"
-							:value="markerType"
-							:key="'markerType-' + code"
+							v-for="mk in markerTypes"
+							:value="mk.code"
 						>
-							{{ markerType }} {{ code }}
+							{{ mk.icon }} {{ mk.code }}
 						</ion-select-option>
 					</ion-select>
 				</ion-item>
