@@ -104,8 +104,9 @@ export class MapView extends Vue {
 		this.syncMarkers()
 	}
 
-	public onSearchBarInput(event: InputEvent): void {
+	public async onSearchBarInput(event: InputEvent): Promise<void> {
 		this.markerFilter = (event.target as HTMLInputElement).value as string
+		this.syncMarkers()
 	}
 
 	public onMarkerSelected(event: MouseEvent, marker: MarkerDto): void {

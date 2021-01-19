@@ -2,12 +2,12 @@ version: '3.7'
 services:
   frontend:
     ports:
-      - "8080:8080"
+      - "8100:8100"
     image: "registry.heroku.com/whatsnear-frontend/web"
     hostname: frontend
     environment:
+      PORT: 8100
       HOST_NAME: frontend
-      PORT: 8080
     env_file:
       - ../frontend/.env.docker.local
 

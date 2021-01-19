@@ -10,6 +10,7 @@ module.exports = {
 			warnings: true,
 			errors: true,
 		},
+		disableHostCheck: true,
 	},
 	transpileDependencies: ["x5-gmaps"],
 };

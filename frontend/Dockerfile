@@ -1,5 +1,8 @@
-# BUILDING
-FROM node:14-alpine as build
+FROM node:14-alpine
+
+LABEL authors="Matthias Fuchs, Thomas Rotter"
+LABEL projectName="whatsnear-frontend"
+
 WORKDIR /app
 #COPY package*.json /app/
 
@@ -11,22 +14,8 @@ RUN npm install -g npm@latest && \
 
 COPY ./ /app/
 
-RUN ionic build
+ENV HOST_NAME frontend
+ENV PORT 8100
 
-# RUNTIME CONTAINER
-FROM nginx:alpine
-
-COPY resources/docker/templates/default.conf.template /etc/nginx/templates/
-
-LABEL authors="Matthias Fuchs, Thomas Rotter"
-LABEL projectName="whatsnear-frontend"
-
-RUN rm -rf /usr/share/nginx/html/*
-
-#ENV PORT 8080
-ENV HOST_NAME localhost
-
-COPY --from=build /app/dist/ /usr/share/nginx/html/
-
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["npm", "run", "start:prod"]
 
