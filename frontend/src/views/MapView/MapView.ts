@@ -1,6 +1,7 @@
 import ExploreContainer from "@/components/ExploreContainer.vue"
-import { PointOfServiceTypeIconMapping } from "@/configuration/Mappings"
+import { POINT_OF_SERVICE_MAPPING } from "@/configuration/Mappings"
 import { Settings } from "@/configuration/Settings"
+import { CreatePointOfInterestRequest } from "@/dtos/CreatePointOfInterestRequest"
 import { GeoLocation } from "@/dtos/GeoLocation"
 import { LatLng } from "@/dtos/LatLng"
 import { MarkerDto } from "@/dtos/MarkerDto"
@@ -74,6 +75,7 @@ export class MapView extends Vue {
 	public markerFilter = ""
 	public apiKey = Settings.googleApiKey
 	public isShowAddMarkerView = false
+	public markers: MarkerDto[] = []
 
 	// icons
 	public icons = {
@@ -99,10 +101,12 @@ export class MapView extends Vue {
 		console.log("Mounted")
 
 		this.goToCurrentPosition()
+		this.syncMarkers()
 	}
 
-	public onSearchBarInput(event: InputEvent): void {
+	public async onSearchBarInput(event: InputEvent): Promise<void> {
 		this.markerFilter = (event.target as HTMLInputElement).value as string
+		this.syncMarkers()
 	}
 
 	public onMarkerSelected(event: MouseEvent, marker: MarkerDto): void {
@@ -111,12 +115,12 @@ export class MapView extends Vue {
 		this.mapCenter = marker.position
 	}
 
-	public get markers(): MarkerDto[] {
+	public async syncMarkers(): Promise<void> {
 		const currentGeoLocation = this.convertLatLngToGeoLocation(this.mapCenter)
-
-		const markers = this.mapsService
-			.getMarkers(currentGeoLocation, 10_000, this.markerFilter) //
+		this.markers = (await this.mapsService.getMarkers(currentGeoLocation, 100_000, this.markerFilter)) //
 			.map((marker) => {
+				const label = POINT_OF_SERVICE_MAPPING.filter((i) => i.code === marker.type)[0]?.icon
+
 				return {
 					//
 					position: {
@@ -124,14 +128,12 @@ export class MapView extends Vue {
 						lat: marker.location.latitude,
 						lng: marker.location.longitude
 					},
-					label: PointOfServiceTypeIconMapping[marker.type],
+					label: label,
 					title: marker.description,
 					distance: (marker.distance.value / 1000).toFixed(1),
 					distanceUnit: "km"
 				} as MarkerDto
 			})
-
-		return markers
 	}
 
 	public async goToCurrentPosition(): Promise<void> {
@@ -156,9 +158,10 @@ export class MapView extends Vue {
 		await this.showAddMarkerView()
 	}
 
-	public async onAddMarkerClicked(event: any): Promise<void> {
-		// await this.showAddMarkerView()
+	public async onAddMarkerClicked(event: CreatePointOfInterestRequest): Promise<void> {
 		console.log("onAddMarkerClicked: title=" + event.title)
+		await this.mapsService.addMarker(event)
+		await this.syncMarkers()
 	}
 
 	private async toggleSidebarVisibility(): Promise<void> {

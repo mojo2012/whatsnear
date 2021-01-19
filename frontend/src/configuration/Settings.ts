@@ -10,4 +10,8 @@ export class Settings {
 	public static get backendUrl(): string {
 		return process.env.VUE_APP_BACKEND_BASE_URL
 	}
+
+	public static get backendUrlV1(): string {
+		return Settings.backendUrl + "/v1/"
+	}
 }

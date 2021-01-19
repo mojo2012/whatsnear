@@ -29,15 +29,12 @@
 
 		<ion-header>
 			<ion-toolbar>
-				<ion-input
-					id="addInputBox"
-					clear-input
-					placeholder="I'm looking for ..."
-					type="search"
-				></ion-input>
-				<!-- <ion-searchbar
-					placeholder="I'm looking for ..."
-				></ion-searchbar> -->
+				<ion-searchbar
+					debounce="500"
+					animated
+					@input="onSearchBarInput"
+					placeholder="Filter ..."
+				></ion-searchbar>
 
 				<ion-buttons slot="end">
 					<ion-button @click="onAddMarkerButtonClick">
@@ -64,14 +61,6 @@
 					></ion-menu-button>
 				</ion-buttons>
 			</ion-toolbar>
-			<ion-toolbar v-if="isSearchBoxVisible">
-				<ion-searchbar
-					debounce="500"
-					animated
-					@input="onSearchBarInput"
-					placeholder="Filter ..."
-				></ion-searchbar>
-			</ion-toolbar>
 		</ion-header>
 		<ion-content id="main-content" :fullscreen="true">
 			<GoogleMap
@@ -88,7 +77,6 @@
 					v-for="(marker, index) in markers"
 					:key="index"
 					:options="marker"
-					@click="onMarkerSelected"
 				/>
 			</GoogleMap>
 		</ion-content>
@@ -101,7 +89,8 @@
 			@onDidDismiss="isShowAddMarkerView = false"
 		>
 			<add-marker-view
-				:mapCenter="mapCenter"
+				:mapLat="mapCenter.lat"
+				:mapLon="mapCenter.lng"
 				@onAddMarker="onAddMarkerClicked"
 			></add-marker-view>
 		</ion-modal>

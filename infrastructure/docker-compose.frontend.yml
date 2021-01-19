@@ -2,14 +2,14 @@ version: '3.7'
 services:
   frontend:
     ports:
-      - "8080:80"
-    image: "whatsappfrontend"
+      - "8100:8100"
+    image: "registry.heroku.com/whatsnear-frontend/web"
     hostname: frontend
     environment:
-      NGINX_HOST: frontend
-      NGINX_PORT: 80
+      PORT: 8100
+      HOST_NAME: frontend
     env_file:
-      - ../frontend/env.docker.local
+      - ../frontend/.env.docker.local
 
 
 volumes:

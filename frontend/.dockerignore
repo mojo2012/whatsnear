@@ -1,5 +1,9 @@
-**/node_modules
+**/.history
+**/.vscode
 **/dist
 **/ios
-**/.vscode
-**/.env.local
+**/node_modules
+**/.env*
+.dockerignore
+Dockerfile
+README.md

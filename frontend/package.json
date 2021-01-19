@@ -5,7 +5,9 @@
 	"description": "An Ionic project",
 	"author": "Matthias Fuchs",
 	"scripts": {
-		"start": "ionic serve --no-open",
+		"start": "npm run start:dev",
+		"start:dev": "ionic serve --no-open",
+		"start:prod": "HOST_NAME='${HOST_NAME:=localhost}' PORT='${PORT:=8100}' ionic serve --no-open --consolelogs --external --no-livereload --prod --port=$PORT --host=0.0.0.0 --public-host=$HOST_NAME",
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
 		"test:unit": "vue-cli-service test:unit",
@@ -16,8 +18,11 @@
 		"heroku:login": "heroku login && heroku container:login",
 		"docker:build": "docker build --compress -t registry.heroku.com/whatsnear-frontend/web:latest .",
 		"heroku:container:push": "heroku container:push web --app whatsnear-frontend",
-		"heroku:container:release": "heroku container:push web --app whatsnear-frontend",
-		"heroku:logs": "heroku logs --tail --app whatsnear-frontend"
+		"heroku:container:pull": "heroku container:pull web --app whatsnear-frontend",
+		"heroku:container:release": "heroku container:release web --app whatsnear-frontend",
+		"heroku:logs": "heroku logs --tail --app whatsnear-frontend",
+		"docker:run:backend": "cd ../infrastructure && docker-compose -f docker-compose.yml up",
+		"docker:run:frontend": "cd ../infrastructure && docker-compose -f docker-compose.frontend.yml up"
 	},
 	"dependencies": {
 		"@capacitor/core": "2.4.5",
@@ -70,5 +75,5 @@
 		"vue-jest": "^5.0.0-0",
 		"vue-template-compiler": "^2.6.12"
 	},
-	"homepage": "https://ionicframework.com/"
+	"homepage": "https://whatsnear-frontend.herokuapp.com/"
 }
