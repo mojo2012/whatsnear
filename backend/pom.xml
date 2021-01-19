@@ -345,6 +345,13 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.2.14</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
 			<groupId>io.spot-next</groupId>
 			<artifactId>spot-core</artifactId>
 			<version>${spot.version}</version>
