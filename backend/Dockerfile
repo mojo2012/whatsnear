@@ -19,9 +19,11 @@ ENV ADDITIONAL_JAVA_ARG="\
 	-XX:-ShrinkHeapInSteps \
 	-XX:+UnlockExperimentalVMOptions \
 	-XX:+UseShenandoahGC \
-	-Xms10m -Xmx250m \  
+	-Xms10m -Xmx400m \  
 	-XX:ShenandoahUncommitDelay=1000 \
-	-XX:ShenandoahGuaranteedGCInterval=10000"
+	-XX:ShenandoahGuaranteedGCInterval=10000 \
+	-XX:MaxHeapFreeRatio=16 \
+	-XX:MinHeapFreeRatio=8"
 
 ARG DEPENDENCY=target/dependency
 
