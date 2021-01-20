@@ -7,27 +7,20 @@ import {
 	IonIcon,
 	IonInput,
 	IonItem,
-	IonItemDivider,
-	IonItemGroup,
 	IonLabel,
 	IonList,
-	IonListHeader,
 	IonPage,
 	IonSelect,
 	IonSelectOption,
 	IonTextarea,
 	IonTitle,
-	IonToggle,
 	IonToolbar
 } from "@ionic/vue"
 import { Options, Vue } from "vue-class-component"
 
 @Options({
-	name: "settings-view",
+	name: "conversation-view",
 	components: {
-		IonListHeader,
-		IonIcon,
-		IonItemGroup,
 		IonHeader,
 		IonToolbar,
 		IonTitle,
@@ -42,12 +35,9 @@ import { Options, Vue } from "vue-class-component"
 		IonSelect,
 		IonSelectOption,
 		IonPage,
-		IonItemDivider,
-		IonToggle
+		IonIcon
 	}
 })
-export class SettingsView extends Vue {
-	public radiusEntries = [50, 100, 200, 500, 1000]
-	public maxRadius = 100
-	public notifyAboutNewMarkers = true
+export class ConversationsView extends Vue {
+	//
 }

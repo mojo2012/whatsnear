@@ -1,19 +1,16 @@
 <template>
 	<ion-page>
-		<ion-page>
-			<ion-header collapse="condense" mode="ios" :translucent="true">
-				<ion-toolbar>
-					<ion-title size="large">Settings</ion-title>
-				</ion-toolbar>
-			</ion-header>
-		</ion-page>
+		<ion-header collapse="condense">
+			<ion-toolbar>
+				<ion-title size="large">Settings</ion-title>
+			</ion-toolbar>
+		</ion-header>
 
 		<ion-content :fullscreen="true">
 			<ion-list>
-
 				<ion-item-group>
 					<ion-list-header>
-						<ion-label>General settings</ion-label>
+						<ion-label>General</ion-label>
 					</ion-list-header>
 					<ion-item>
 						<ion-label>Max. radius</ion-label>
