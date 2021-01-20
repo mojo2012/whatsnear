@@ -4,9 +4,7 @@ import { DistanceData } from "@/dtos/DistanceData"
 import { DistanceUnit } from "@/dtos/DistanceUnit"
 import { GeoLocation } from "@/dtos/GeoLocation"
 import { PointOfInterest } from "@/dtos/PointOfInterest"
-import { PointOfServiceType } from "@/enums/PointOfServiceType"
 import { BackendNotReachableException } from "@/exceptions/BackendNotReachableException"
-import { MathUtil } from "@/utils/MathUtil"
 import { getDistance } from "geolib"
 
 export class MapsService {
@@ -17,32 +15,30 @@ export class MapsService {
 	private constructor() {
 		console.log("MapsService instantiated")
 
-		for (let x = 0; x < 100; x++) {
-			const randomLat = MathUtil.random(46, 49)
-			const randomLon = MathUtil.random(9, 17)
+		// for (let x = 0; x < 100; x++) {
+		// 	const randomLat = MathUtil.random(46, 49)
+		// 	const randomLon = MathUtil.random(9, 17)
 
-			const location: GeoLocation = {
-				latitude: randomLat,
-				longitude: randomLon
-			}
+		// 	const location: GeoLocation = {
+		// 		latitude: randomLat,
+		// 		longitude: randomLon
+		// 	}
 
-			this.cache.push(
-				new PointOfInterest(
-					PointOfServiceType.SELLING,
-					"me",
-					location,
-					{
-						value: 0,
-						unit: DistanceUnit.Meters
-					},
-					"Lego max" + x,
-					"description",
-					new Date()
-				)
-			)
-		}
-
-		console.log(`${this.cache.length} markers in cache`)
+		// 	this.cache.push(
+		// 		new PointOfInterest(
+		// 			PointOfServiceType.SELLING,
+		// 			"me",
+		// 			location,
+		// 			{
+		// 				value: 0,
+		// 				unit: DistanceUnit.Meters
+		// 			},
+		// 			"Lego max" + x,
+		// 			"description",
+		// 			new Date()
+		// 		)
+		// 	)
+		// }
 	}
 
 	private calculateDistance(point1: GeoLocation, point2: GeoLocation): DistanceData {
