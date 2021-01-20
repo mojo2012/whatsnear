@@ -86,7 +86,7 @@ export class AddMarkerView extends Vue.with(Props) {
 			title: this.title,
 			description: this.description,
 			location: mapCenter,
-			type: this.markerType ? this.markerType : PointOfServiceType.NEED_HELP
+			type: this.markerType
 		}
 
 		this.$emit("onAddMarker", newPointOfService)
@@ -95,8 +95,7 @@ export class AddMarkerView extends Vue.with(Props) {
 	}
 
 	public onMarkerTypeChanged(event: { detail: { value: PointOfServiceType } }): void {
-		// this.markerType = event.detail.value
-		console.log(event.detail)
+		this.markerType = event.detail.value
 	}
 
 	public get markerTypes(): PointOfServiceTypeIconMappingType[] {

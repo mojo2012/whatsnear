@@ -30,11 +30,23 @@
 		<ion-header>
 			<ion-toolbar>
 				<ion-searchbar
-					debounce="500"
+					debounce="1000"
 					animated
+					mode="ios"
+					class="search-box"
 					@input="onSearchBarInput"
 					placeholder="Filter ..."
 				></ion-searchbar>
+
+				<!-- <ion-input
+					type="search"
+					:clearInput="true"
+					:debounce="true"
+					inputmode="search"
+					placeholder="Search ..."
+					@input="onSearchBarInput"
+				>
+				</ion-input> -->
 
 				<ion-buttons slot="end">
 					<ion-button @click="onAddMarkerButtonClick">
@@ -94,6 +106,15 @@
 				@onAddMarker="onAddMarkerClicked"
 			></add-marker-view>
 		</ion-modal>
+
+		<ion-toast
+			:is-open="
+				notificationMessage !== null && notificationMessage.length > 0
+			"
+			:message="notificationMessage"
+			:duration="5000"
+		>
+		</ion-toast>
 	</ion-page>
 </template>
 
@@ -113,5 +134,9 @@ ion-input#addInputBox {
 	border-radius: 20px;
 	width: 98vw;
 	max-width: 500px;
+}
+
+ion-searchbar.search-box {
+	padding-top: 15px;
 }
 </style>

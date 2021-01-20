@@ -43,9 +43,9 @@
 
 				<!-- MARKER TYPE -->
 				<ion-item>
-					<ion-label>Marker types {{ markerType.toString() }}</ion-label>
+					<ion-label>Marker types</ion-label>
 
-					<ion-select placeholder="" :value="markerType">
+					<ion-select placeholder="" :value="markerType" @ionChange="onMarkerTypeChanged">
 						<ion-label>Marker types</ion-label>
 						<ion-select-option
 							v-for="mk in markerTypes"

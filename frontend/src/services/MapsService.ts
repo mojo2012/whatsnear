@@ -5,6 +5,7 @@ import { DistanceUnit } from "@/dtos/DistanceUnit"
 import { GeoLocation } from "@/dtos/GeoLocation"
 import { PointOfInterest } from "@/dtos/PointOfInterest"
 import { PointOfServiceType } from "@/enums/PointOfServiceType"
+import { BackendNotReachableException } from "@/exceptions/BackendNotReachableException"
 import { MathUtil } from "@/utils/MathUtil"
 import { getDistance } from "geolib"
 
@@ -91,21 +92,7 @@ export class MapsService {
 
 			return (await results).data
 		} catch (ex) {
-			console.error("Could not add marker", ex)
+			throw new BackendNotReachableException("Could not load markers from backend", ex)
 		}
-
-		// let filteredMarkers = this.cache
-
-		// if (searchTerm) {
-		// 	filteredMarkers = this.cache.filter((marker) => marker.description?.toLowerCase()?.includes(searchTerm?.toLowerCase()))
-		// }
-
-		// // update distance
-		// this.cache.forEach((marker) => (marker.distance = this.calculateDistance(location, marker.location)))
-
-		// // sort by distance
-		// this.cache.sort((marker1: PointOfInterest, marker2: PointOfInterest) => marker1.distance.value - marker2.distance.value)
-
-		return []
 	}
 }

@@ -26,6 +26,7 @@ import {
 	IonPage,
 	IonSearchbar,
 	IonTitle,
+	IonToast,
 	IonToolbar,
 	menuController,
 	modalController
@@ -56,6 +57,7 @@ import { GoogleMap, Marker } from "vue3-google-map"
 		IonItem,
 		IonMenu,
 		IonLabel,
+		IonToast,
 		AddMarkerView
 	}
 })
@@ -78,6 +80,7 @@ export class MapView extends Vue {
 		position: this.mapCenter
 	}
 
+	public notificationMessage = ""
 	public isSearchBoxVisible = false
 	public isSidebarVisible = false
 	public markerFilter = ""
@@ -128,23 +131,29 @@ export class MapView extends Vue {
 
 	public async syncMarkers(): Promise<void> {
 		const currentGeoLocation = this.convertLatLngToGeoLocation(this.mapCenter)
-		this.markers = (await this.mapsService.getMarkers(currentGeoLocation, 100_000, this.markerFilter)) //
-			.map((marker) => {
-				const label = POINT_OF_SERVICE_MAPPING.filter((i) => i.code === marker.type)[0]?.icon
 
-				return {
-					//
-					position: {
+		try {
+			this.markers = (await this.mapsService.getMarkers(currentGeoLocation, 100_000, this.markerFilter)) //
+				.map((marker) => {
+					const label = POINT_OF_SERVICE_MAPPING.filter((i) => i.code === marker.type)[0]?.icon
+
+					return {
 						//
-						lat: marker.location.latitude,
-						lng: marker.location.longitude
-					},
-					label: label,
-					title: marker.description,
-					distance: (marker.distance.value / 1000).toFixed(1),
-					distanceUnit: "km"
-				} as MarkerDto
-			})
+						position: {
+							//
+							lat: marker.location.latitude,
+							lng: marker.location.longitude
+						},
+						label: label,
+						title: marker.description,
+						distance: (marker.distance.value / 1000).toFixed(1),
+						distanceUnit: "km"
+					} as MarkerDto
+				})
+		} catch (exception) {
+			console.log(exception.message)
+			this.showNotificationMessage(exception.message)
+		}
 	}
 
 	public async goToCurrentPosition(): Promise<void> {
@@ -192,6 +201,27 @@ export class MapView extends Vue {
 			lat: geoLocation.latitude + MathUtil.random(0, 0.000001),
 			lng: geoLocation.longitude + MathUtil.random(0, 0.000001)
 		}
+	}
+
+	private async showNotificationMessage(message: string): Promise<void> {
+		this.notificationMessage = message
+
+		// const toast = await toastController.create({
+		// 	header: message,
+		// 	position: "bottom",
+		// 	translucent: true,
+		// 	buttons: [
+		// 		{
+		// 			text: "OK",
+		// 			role: "cancel",
+		// 			handler: () => {
+		// 				// console.log("Cancel clicked")
+		// 			}
+		// 		}
+		// 	]
+		// })
+
+		// toast.present()
 	}
 
 	private convertLatLngToGeoLocation(value: LatLng): GeoLocation {
