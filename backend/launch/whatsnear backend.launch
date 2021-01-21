@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-        <listEntry value="/whatsnear/src/main/java/io/spotnext/whatsnear/Init.java"/>
+        <listEntry value="/whatsnear"/>
     </listAttribute>
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
-        <listEntry value="1"/>
+        <listEntry value="4"/>
     </listAttribute>
     <mapAttribute key="org.eclipse.debug.core.environmentVariables">
         <mapEntry key="DB_PASSWORD" value="17dac3294217ff6a14bdfbecf04f7e9a5b86fa92f6e14a330ca44998f4cd99b6"/>
@@ -17,7 +17,6 @@
     <stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
     <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="io.spotnext.whatsnear.Init"/>
     <stringAttribute key="org.eclipse.jdt.launching.MODULE_NAME" value="whatsnear"/>
-    <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="--core.setup.typesystem.initialize=true,--core.setup.import.initialdata=true,--core.setup.import.sampledata=true"/>
     <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="whatsnear"/>
     <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
     <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-XXcompactRatio:50 -XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningGcOnIdle -XX:-ShrinkHeapInSteps -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -Xms10m -Xmx250m -XX:ShenandoahUncommitDelay=1000 -XX:ShenandoahGuaranteedGCInterval=10000 -XX:MaxHeapFreeRatio=8 -XX:MinHeapFreeRatio=2"/>

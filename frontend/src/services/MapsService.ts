@@ -4,8 +4,7 @@ import { DistanceData } from "@/dtos/DistanceData"
 import { DistanceUnit } from "@/dtos/DistanceUnit"
 import { GeoLocation } from "@/dtos/GeoLocation"
 import { PointOfInterest } from "@/dtos/PointOfInterest"
-import { PointOfServiceType } from "@/enums/PointOfServiceType"
-import { MathUtil } from "@/utils/MathUtil"
+import { BackendNotReachableException } from "@/exceptions/BackendNotReachableException"
 import { getDistance } from "geolib"
 
 export class MapsService {
@@ -16,32 +15,30 @@ export class MapsService {
 	private constructor() {
 		console.log("MapsService instantiated")
 
-		for (let x = 0; x < 100; x++) {
-			const randomLat = MathUtil.random(46, 49)
-			const randomLon = MathUtil.random(9, 17)
+		// for (let x = 0; x < 100; x++) {
+		// 	const randomLat = MathUtil.random(46, 49)
+		// 	const randomLon = MathUtil.random(9, 17)
 
-			const location: GeoLocation = {
-				latitude: randomLat,
-				longitude: randomLon
-			}
+		// 	const location: GeoLocation = {
+		// 		latitude: randomLat,
+		// 		longitude: randomLon
+		// 	}
 
-			this.cache.push(
-				new PointOfInterest(
-					PointOfServiceType.SELLING,
-					"me",
-					location,
-					{
-						value: 0,
-						unit: DistanceUnit.Meters
-					},
-					"Lego max" + x,
-					"description",
-					new Date()
-				)
-			)
-		}
-
-		console.log(`${this.cache.length} markers in cache`)
+		// 	this.cache.push(
+		// 		new PointOfInterest(
+		// 			PointOfServiceType.SELLING,
+		// 			"me",
+		// 			location,
+		// 			{
+		// 				value: 0,
+		// 				unit: DistanceUnit.Meters
+		// 			},
+		// 			"Lego max" + x,
+		// 			"description",
+		// 			new Date()
+		// 		)
+		// 	)
+		// }
 	}
 
 	private calculateDistance(point1: GeoLocation, point2: GeoLocation): DistanceData {
@@ -81,7 +78,7 @@ export class MapsService {
 		url.searchParams.append("maxDistance", maxDistance + "")
 
 		if (searchTerm) {
-			url.searchParams.append("searchText", searchTerm)
+			url.searchParams.append("textSearch", searchTerm)
 		}
 
 		//  type
@@ -91,21 +88,7 @@ export class MapsService {
 
 			return (await results).data
 		} catch (ex) {
-			console.error("Could not add marker", ex)
+			throw new BackendNotReachableException("Could not load markers from backend", ex)
 		}
-
-		// let filteredMarkers = this.cache
-
-		// if (searchTerm) {
-		// 	filteredMarkers = this.cache.filter((marker) => marker.description?.toLowerCase()?.includes(searchTerm?.toLowerCase()))
-		// }
-
-		// // update distance
-		// this.cache.forEach((marker) => (marker.distance = this.calculateDistance(location, marker.location)))
-
-		// // sort by distance
-		// this.cache.sort((marker1: PointOfInterest, marker2: PointOfInterest) => marker1.distance.value - marker2.distance.value)
-
-		return []
 	}
 }

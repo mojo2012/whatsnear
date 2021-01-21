@@ -66,7 +66,7 @@ export class AddMarkerView extends Vue.with(Props) {
 	public apiKey = Settings.googleApiKey
 	public title = ""
 	public description = ""
-	public type?: PointOfServiceType
+	public markerType: PointOfServiceType = PointOfServiceType.NEED_HELP
 
 	public onCancelButtonClick(_event: MouseEvent): void {
 		console.log("onCancelButtonClick")
@@ -86,12 +86,16 @@ export class AddMarkerView extends Vue.with(Props) {
 			title: this.title,
 			description: this.description,
 			location: mapCenter,
-			type: this.type ? this.type : PointOfServiceType.NEED_HELP
+			type: this.markerType
 		}
 
 		this.$emit("onAddMarker", newPointOfService)
 
 		this.modalController.dismiss()
+	}
+
+	public onMarkerTypeChanged(event: { detail: { value: PointOfServiceType } }): void {
+		this.markerType = event.detail.value
 	}
 
 	public get markerTypes(): PointOfServiceTypeIconMappingType[] {

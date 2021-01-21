@@ -1,0 +1,17 @@
+{
+	"theme_color": "#f69435",
+	"background_color": "#ffffff",
+	"display": "fullscreen",
+	"scope": "/",
+	"start_url": "/",
+	"app_name": "Whatsnear",
+	"short_name": "Whatsnear",
+	"description": "See what people around you are looking for",
+	"icons": [
+		{
+			"src": "/asserts/icon/android-icon-192x192.png",
+			"sizes": "192x",
+			"type": "image/png"
+		}
+	]
+}

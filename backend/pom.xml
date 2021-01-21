@@ -30,7 +30,7 @@
 		<repository>
 			<id>central</id>
 			<name>Central Repository</name>
-			<url>http://repo.maven.apache.org/maven2</url>
+			<url>https://repo.maven.apache.org/maven2</url>
 			<layout>default</layout>
 			<snapshots>
 				<enabled>false</enabled>
@@ -41,7 +41,7 @@
 		<repository>
 			<id>mvnrepository</id>
 			<name>mvnrepository</name>
-			<url>http://www.mvnrepository.com</url>
+			<url>https://www.mvnrepository.com</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
@@ -371,5 +371,6 @@
 			<artifactId>geocalc</artifactId>
 			<version>0.6</version>
 		</dependency>
+
 	</dependencies>
 </project>

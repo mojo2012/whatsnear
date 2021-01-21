@@ -19,7 +19,7 @@ const routes: Array<RouteRecordRaw> = [
 			{
 				name: "conversations",
 				path: "/tabs/conversations",
-				component: () => import("@/views/ConversionationsView/ConversionationsView.vue")
+				component: () => import("@/views/ConversationsView/ConversationsView.vue")
 			},
 			{
 				name: "settings",

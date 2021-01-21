@@ -23,7 +23,9 @@ ENV ADDITIONAL_JAVA_ARG="\
 	-Xms10m \
 	-Xmx300m \  
 	-XX:ShenandoahUncommitDelay=1000 \
-	-XX:ShenandoahGuaranteedGCInterval=10000"
+	-XX:ShenandoahGuaranteedGCInterval=10000 \
+	-XX:MaxHeapFreeRatio=16 \
+	-XX:MinHeapFreeRatio=8"
 
 ARG DEPENDENCY=target/dependency
 
