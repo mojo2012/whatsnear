@@ -1,8 +1,8 @@
 package io.spotnext.whatsnear;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.assertTrue;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * Empty unit test.
