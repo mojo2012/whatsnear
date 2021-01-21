@@ -10,6 +10,8 @@ services:
     environment:
       PORT: 19000
       SPRING_PROFILES_ACTIVE: "custom"
+    env_file:
+      - ../backend/.env.docker.local
 
 volumes:
   esdat1:

@@ -12,14 +12,16 @@ RUN apk add --update --no-cache \
 ENV SPRING_PROFILES_ACTIVE=""
 ENV PRINT_ENV="false"
 ENV ADDITIONAL_JAVA_ARG="\
-    -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000 \
 	-XXcompactRatio:50 \
 	-XX:+IgnoreUnrecognizedVMOptions \
 	-XX:+IdleTuningGcOnIdle \
 	-XX:-ShrinkHeapInSteps \
 	-XX:+UnlockExperimentalVMOptions \
 	-XX:+UseShenandoahGC \
-	-Xms10m -Xmx250m \  
+	-XX:+UseStringDeduplication \
+	-Xss512k \
+	-Xms10m \
+	-Xmx300m \  
 	-XX:ShenandoahUncommitDelay=1000 \
 	-XX:ShenandoahGuaranteedGCInterval=10000"
 

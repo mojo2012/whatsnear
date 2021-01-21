@@ -22,7 +22,8 @@
 		<maven.compiler.target>11</maven.compiler.target>
 		<java.version>11</java.version>
 		<docker.registry>registry.heroku.com</docker.registry>
-		<docker.image.prefix>core-next</docker.image.prefix>
+		<docker.image.prefix>whatsnear-backend</docker.image.prefix>
+		<docker.image.name>web</docker.image.name>
 	</properties>
 
 	<repositories>
@@ -117,10 +118,6 @@
 			<plugin>
 				<groupId>io.spot-next</groupId>
 				<artifactId>spot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>pl.project13.maven</groupId>
-				<artifactId>git-commit-id-plugin</artifactId>
 			</plugin>
 
 			<!-- CODE ANALYSIS -->
@@ -229,7 +226,7 @@
 				<artifactId>dockerfile-maven-plugin</artifactId>
 				<version>1.4.13</version>
 				<configuration>
-					<repository>${docker.registry}/${docker.image.prefix}/${project.artifactId}</repository>
+					<repository>${docker.registry}/${docker.image.prefix}/${docker.image.name}</repository>
 				</configuration>
 			</plugin>
 		</plugins>
