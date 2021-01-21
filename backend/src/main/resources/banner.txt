@@ -1,19 +1,4 @@
 
 
-${AnsiColor.BRIGHT_GREEN}                              ██████████                                            
-${AnsiColor.BRIGHT_GREEN}                          ██████████████████                                        
-${AnsiColor.BRIGHT_GREEN}          ██████████    ██████████████████████         ██████      ██████████       
-${AnsiColor.BRIGHT_GREEN}       ████████████    ████████     ███████████      ████████    ███████████████    
-${AnsiColor.BRIGHT_GREEN}      █████████████   ██████████      ██████████    █████████  ██████████████████   
-${AnsiColor.BRIGHT_GREEN}     █████████████   █████████████      █████████  ██████████ ██████████████████    
-${AnsiColor.BRIGHT_GREEN}     ████████        ███████████████      ███████  ████████   ████████   █████      
-${AnsiColor.BRIGHT_GREEN}     ████████        ███████████████     ████████  ████████   ████████  ████        
-${AnsiColor.BRIGHT_GREEN}     █████████████   █████████████     ██████████  ████████   ████████████████     
-${AnsiColor.BRIGHT_GREEN}      █████████████   ██████████     ███████████   ████████    ████████████████     
-${AnsiColor.BRIGHT_GREEN}       █████████████   ████████    ████████████    ████████     ████████████████    
-${AnsiColor.BRIGHT_GREEN}         ████████████   ██████████████████████     ████████       ███████████████   
-${AnsiColor.BRIGHT_GREEN}                          ██████████████████                                        
-${AnsiColor.BRIGHT_GREEN}                              ██████████    
-
 io.spot-next.coop:whatsnear ${application.version}
                                                          
