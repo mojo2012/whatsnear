@@ -5,7 +5,7 @@ services:
       - ./backend/data:/app/data:rw,delegated
     ports:
       - '19000:19000'
-    image: "registry.heroku.com/indahood/web"
+    image: "registry.heroku.com/whatsnear-backend/web"
     hostname: backend
     environment:
       PORT: 19000
