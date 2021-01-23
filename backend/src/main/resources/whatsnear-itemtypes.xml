@@ -11,7 +11,7 @@
 		<value code="SELLING" />
 		<value code="GIVE_AWAY" />
 	</enum>
-	
+
 	<enum name="DistanceUnit"
 		package="io.spotnext.whatsnear.itemtypes.enumeration">
 		<description>PointOfInterest Types</description>
@@ -20,7 +20,8 @@
 	</enum>
 
 	<!-- DTOs -->
-	<bean name="PointOfInterestData" package="io.spotnext.whatsnear.beans">
+	<bean name="PointOfInterestData"
+		package="io.spotnext.whatsnear.beans">
 		<properties>
 			<property name="uid" type="String">
 				<description>The listing id.</description>
@@ -33,22 +34,23 @@
 			<property name="distance" type="DistanceData" />
 		</properties>
 	</bean>
-	
+
 	<bean name="GeoLocationData" package="io.spotnext.whatsnear.beans">
 		<properties>
 			<property name="latitude" type="Double" />
 			<property name="longitude" type="Double" />
 		</properties>
 	</bean>
-	
+
 	<bean name="DistanceData" package="io.spotnext.whatsnear.beans">
 		<properties>
 			<property name="value" type="Double" />
 			<property name="unit" type="DistanceUnit" />
 		</properties>
 	</bean>
-	
-	<bean name="PointOfInterestQueryData" package="io.spotnext.whatsnear.beans">
+
+	<bean name="PointOfInterestQueryData"
+		package="io.spotnext.whatsnear.beans">
 		<properties>
 			<property name="location" type="String" />
 			<property name="type" type="String" />
@@ -57,6 +59,22 @@
 		</properties>
 	</bean>
 	
+	<bean name="AccessTokenData"
+		package="io.spotnext.whatsnear.beans">
+		<properties>
+			<property name="token" type="UUID" />
+			<property name="validTo" type="LocalDateTime" />
+		</properties>	
+	</bean>
+	
+	<bean name="LoginRequestData"
+		package="io.spotnext.whatsnear.beans">
+		<properties>
+			<property name="uid" type="String" />
+			<property name="password" type="String" />
+		</properties>
+	</bean>
+
 	<!-- ITEM TYPES -->
 	<type name="PointOfInterest" typeCode="PointOfInterest"
 		package="io.spotnext.whatsnear.itemtypes" extends="UniqueIdItem"
@@ -69,6 +87,22 @@
 			<property name="longitude" type="Double" />
 			<property name="type" type="PointOfInterestType" />
 		</properties>
+	</type>
+
+	<type name="CustomUser" typeCode="CustomUser" extends="User"
+		package="io.spotnext.whatsnear.itemtypes">
+		<properties>
+			<property name="token" type="AccessToken" />
+			<property name="maxDistance" type="Double" />
+		</properties>
+	</type>
+	
+	<type name="AccessToken" typeCode="AccessToken"
+		package="io.spotnext.whatsnear.itemtypes" >
+		<properties>
+			<property name="token" type="UUID" />
+			<property name="validTo" type="LocalDateTime" />
+		</properties>	
 	</type>
 
 </types>

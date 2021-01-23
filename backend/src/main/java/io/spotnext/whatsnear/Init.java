@@ -12,6 +12,7 @@ import io.spotnext.core.infrastructure.support.init.ModuleInit;
 		"io.spotnext.whatsnear", 
 		"io.spotnext.whatsnear.repositories", 
 		"io.spotnext.whatsnear.rest.controllers",
+		"io.spotnext.whatsnear.rest.filters",
 		"io.spotnext.whatsnear.services.impl"
 })
 public class Init extends ModuleInit {
@@ -28,6 +29,7 @@ public class Init extends ModuleInit {
 	@Override
 	protected void importSampleData() throws ModuleInitializationException {
 		super.importSampleData();
+		importScript("/data/sample/users.impex", "Importing sample users");
 		importScript("/data/sample/pointofinterests.impex", "Importing sample points of interest");
 	}
 

@@ -1,0 +1,2 @@
+INSERT_UPDATE CustomUser;uid[unique=true];password;maxDistance;groups(uid)
+;testuser;MD5:5f4dcc3b5aa765d61d8327deb882cf99;10000;rest-access
