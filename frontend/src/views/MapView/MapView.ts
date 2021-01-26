@@ -104,18 +104,22 @@ export class MapView extends Vue {
 
 		this.menuController = menuController
 		this.modalController = modalController
-		// this.numberFormat = await Globalization.getNumberPattern({ type: "decimal" })
-		// this.numberFormatter = Intl.NumberFormat.
 	}
 
 	public async mounted(this: this): Promise<void> {
 		console.log("Mounted")
 
-		await this.goToCurrentPosition()
+		try {
+			await this.goToCurrentPosition()
+			this.createCurrentPositionMarker()
+			await this.syncMarkers()
+		} catch (exception) {
+			this.showNotificationMessage("Cannot get current geo location.")
+		}
+	}
 
+	private createCurrentPositionMarker(): void {
 		this.currentPositionMarker = { position: this.mapCenter, label: "+" }
-
-		this.syncMarkers()
 	}
 
 	public async onSearchBarInput(event: InputEvent): Promise<void> {
