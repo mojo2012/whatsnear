@@ -6,12 +6,14 @@ import { GeoLocation } from "@/dtos/GeoLocation"
 import { Payload } from "@/dtos/Payload"
 import { PointOfInterest } from "@/dtos/PointOfInterest"
 import { BackendNotReachableException } from "@/exceptions/BackendNotReachableException"
+import { AuthService } from "@/services/AuthService"
 import { getDistance } from "geolib"
 
 export class MapsService {
 	private static _instance: MapsService
 
 	private cache: PointOfInterest[] = []
+	public authService = AuthService.instance
 
 	private constructor() {
 		console.log("MapsService instantiated")
@@ -65,9 +67,10 @@ export class MapsService {
 		const url = Settings.backendUrlV1 + "poi"
 
 		try {
-			await fetch(url, { method: "POST", headers: this.getAuthHeader(), body: JSON.stringify(pointOfInterest) })
+			await fetch(url, { method: "POST", headers: this.createAuthenticationHeader(), body: JSON.stringify(pointOfInterest) })
 		} catch (ex) {
 			console.error("Could not add marker", ex)
+			// throw new BackendNotReachableException("Could not load markers from backend", ex)
 		}
 	}
 
@@ -82,12 +85,10 @@ export class MapsService {
 			url.searchParams.append("textSearch", searchTerm)
 		}
 
-		//  type
-
 		try {
 			const conf = {
 				method: "GET",
-				headers: this.getAuthHeader()
+				headers: this.createAuthenticationHeader()
 			}
 			const results: Promise<Payload<PointOfInterest[]>> = await (await fetch(url.toString(), conf)).json()
 
@@ -97,9 +98,14 @@ export class MapsService {
 		}
 	}
 
-	private getAuthHeader(): Headers {
+	private createAuthenticationHeader(): Headers {
+		const authentication = this.authService.authentiation
 		const headers = new Headers()
-		headers.append("Authorization", "e7849a0b-296c-4c62-a01a-1c19cd6a0275")
+
+		if (authentication?.token) {
+			headers.append("Authorization", authentication.token)
+		}
+
 		return headers
 	}
 }

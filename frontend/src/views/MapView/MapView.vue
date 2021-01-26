@@ -49,10 +49,13 @@
 				</ion-input> -->
 
 				<ion-buttons slot="end" class="toolbar-item">
-					<ion-button @click="onLoginButtonClick">
-						<ion-icon slot="icon-only" :icon="icons.loginIcon"></ion-icon>
+					<ion-button @click="onLoginButtonClick" v-if="!authService.isAuthenticated()">
+						<ion-icon
+							slot="icon-only"
+							:icon="icons.loginIcon"
+						></ion-icon>
 					</ion-button>
-					<ion-button @click="onAddMarkerButtonClick">
+					<ion-button @click="onAddMarkerButtonClick" v-if="authService.isAuthenticated()">
 						<ion-icon
 							slot="icon-only"
 							:icon="icons.addIcon"
@@ -106,13 +109,22 @@
 			<add-marker-view
 				:mapLat="mapCenter.lat"
 				:mapLon="mapCenter.lng"
-				@onAddMarker="onAddMarkerClicked"
+				@onAddMarker="onAddMarker"
 			></add-marker-view>
 		</ion-modal>
 
-		<ion-modal mode="ios" :swipe-to-close="true" :is-open="isShowLoginView" css-class="login-view"
-			@onDidDismiss="isShowLoginView = false">
-			<login-view @onLogin="onLoginClicked"></login-view>
+		<ion-modal
+			mode="ios"
+			:swipe-to-close="true"
+			:is-open="isShowLoginView"
+			css-class="login-view"
+			@onDidDismiss="isShowLoginView = false"
+		>
+			<login-view
+				@onLoginSuccess="onLoginSuccess"
+				@onLoginFailed="onLoginFailed"
+			>
+			</login-view>
 		</ion-modal>
 
 		<ion-toast
@@ -137,14 +149,14 @@ ion-input#addInputBox {
 }
 </style>
 <style>
-.add-marker-view > .modal-wrapper {
+.modal-wrapper {
 	margin-top: 10px;
 	border-radius: 20px;
 	width: 98vw;
 	max-width: 500px;
 }
 
-ion-toolbar > ion-searchbar.toolbar-item  {
+ion-toolbar > ion-searchbar.toolbar-item {
 	padding-top: 14px;
 }
 </style>

@@ -48,6 +48,11 @@ export default {
 		IonIcon,
 		IonPage
 	},
+	// computed: {
+	// 	isAuthenticated = () => {
+	// 		AuthService
+	// 	}
+	// },
 	setup() {
 		return {
 			map,

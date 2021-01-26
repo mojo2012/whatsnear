@@ -1,11 +1,11 @@
 import { GeolocationPlugin, GeolocationPosition, Plugins } from "@capacitor/core"
 
 export class LocationService {
-	private static instance: LocationService
+	private static _instance: LocationService
 
 	private geolocation: GeolocationPlugin
 
-	public constructor() {
+	private constructor() {
 		this.geolocation = Plugins.Geolocation
 	}
 
@@ -15,13 +15,11 @@ export class LocationService {
 		})
 	}
 
-	public static getInstance(): LocationService {
-		if (!LocationService.instance) {
-			LocationService.instance = new LocationService()
+	public static get instance(): LocationService {
+		if (!LocationService._instance) {
+			LocationService._instance = new LocationService()
 		}
 
-		return LocationService.instance
+		return LocationService._instance
 	}
 }
-
-export const instance = new LocationService()

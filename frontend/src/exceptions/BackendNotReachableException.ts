@@ -1,9 +1,7 @@
-export class BackendNotReachableException extends Error {
-	public readonly rootCause: Error
+import { BaseException } from "@/exceptions/BaseException"
 
+export class BackendNotReachableException extends BaseException {
 	public constructor(message: string, rootCause: Error) {
-		super(message)
-
-		this.rootCause = rootCause
+		super(message, rootCause)
 	}
 }

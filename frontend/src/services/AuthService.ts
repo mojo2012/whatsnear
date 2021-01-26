@@ -1,9 +1,12 @@
 import { Settings } from "@/configuration/Settings"
 import { Authentication } from "@/dtos/Authentication"
 import { Payload } from "@/dtos/Payload"
+import { AuthenticationException } from "@/exceptions/BackendNotReachableException copy"
 
 export class AuthService {
 	private static _instance: AuthService
+
+	public authentiation?: Authentication
 
 	private constructor() {
 		console.log("AuthService instantiated")
@@ -17,9 +20,11 @@ export class AuthService {
 		return AuthService._instance
 	}
 
-	public async handleLogin(username: string, password: string): Promise<Authentication> {
-		console.log(username + ":" + password)
+	public isAuthenticated(): boolean {
+		return this.authentiation?.token != null && this.authentiation?.validTo != null
+	}
 
+	public async authenticate(username: string, password: string): Promise<void> {
 		const url = Settings.backendUrlV1 + "account/login"
 
 		const form = {
@@ -37,9 +42,15 @@ export class AuthService {
 
 			console.log("result: " + result)
 
-			return (await result).data
+			const data = (await result).data
+
+			if (data) {
+				this.authentiation = data
+			} else {
+				throw new AuthenticationException("Authentication failed")
+			}
 		} catch (ex) {
-			console.error("Could not authenticate user", ex)
+			console.debug("Could not authenticate user")
 			throw ex
 		}
 	}

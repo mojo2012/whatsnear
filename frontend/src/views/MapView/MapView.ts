@@ -5,6 +5,7 @@ import { CreatePointOfInterestRequest } from "@/dtos/CreatePointOfInterestReques
 import { GeoLocation } from "@/dtos/GeoLocation"
 import { LatLng } from "@/dtos/LatLng"
 import { MarkerDto } from "@/dtos/MarkerDto"
+import { AuthService } from "@/services/AuthService"
 import { LocationService } from "@/services/LocationService"
 import { MapsService } from "@/services/MapsService"
 import { MenuController, ModalController } from "@/types/IonicTypes"
@@ -34,6 +35,7 @@ import {
 } from "@ionic/vue"
 import { add, close, logIn, navigate, search } from "ionicons/icons"
 import { Options, Vue } from "vue-class-component"
+import { useRouter } from "vue-router"
 import { GoogleMap, Marker } from "vue3-google-map"
 
 @Options({
@@ -67,8 +69,12 @@ export class MapView extends Vue {
 	// private static nullGeoLocation: LatLng = { lat: 1, lng: 1 }
 	// private static distanceFormatter = new Intl.NumberFormat('en-us', {minimumFractionDigits: 2})
 
+	private router = useRouter()
 	private menuController!: MenuController
 	private modalController!: ModalController
+	private mapsService: MapsService = MapsService.instance
+	private locationService = LocationService.instance
+	public authService = AuthService.instance
 
 	// proprties
 	private static DEFAULT_MAP_CENTER: LatLng = {
@@ -99,9 +105,6 @@ export class MapView extends Vue {
 		navigateIcon: navigate,
 		loginIcon: logIn
 	}
-
-	private mapsService: MapsService = MapsService.instance
-	private locationService = LocationService.getInstance()
 
 	public async created(): Promise<void> {
 		console.log("Created")
@@ -194,10 +197,32 @@ export class MapView extends Vue {
 		this.isShowLoginView = true
 	}
 
-	public async onAddMarkerClicked(event: CreatePointOfInterestRequest): Promise<void> {
+	public async onAddMarker(event: CreatePointOfInterestRequest): Promise<void> {
 		console.log("onAddMarkerClicked: title=" + event.title)
 		await this.mapsService.addMarker(event)
 		await this.syncMarkers()
+	}
+
+	public onLoginSuccess(): void {
+		console.log("onLoginSuccess")
+
+		this.isShowLoginView = false
+
+		this.router.push("/tabs/map")
+	}
+
+	public async onLoginFailed(): Promise<Promise<void>> {
+		console.log("onLoginFailed")
+
+		// const errorAlert = await alertController.create({
+		// 	header: "Failed",
+		// 	subHeader: "Sign in Failed",
+		// 	message: "Login not successful",
+		// 	buttons: ["OK"]
+		// })
+		// await errorAlert.present()
+
+		this.showNotificationMessage("Login credentials not valid.")
 	}
 
 	private async toggleSidebarVisibility(): Promise<void> {

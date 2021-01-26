@@ -2,7 +2,6 @@
 import { AuthService } from "@/services/AuthService"
 import { ModalController } from "@/types/IonicTypes"
 import {
-	alertController,
 	IonButton,
 	IonButtons,
 	IonContent,
@@ -26,6 +25,7 @@ import { useRouter } from "vue-router"
 
 @Options({
 	name: "login-view",
+	emits: ["onLoginFailed", "onLoginSuccess"],
 	components: {
 		IonHeader,
 		IonToolbar,
@@ -46,23 +46,15 @@ import { useRouter } from "vue-router"
 })
 export class LoginView extends Vue {
 	private authService: AuthService = AuthService.instance
-
 	private modalController: ModalController = modalController
-
 	private router = useRouter()
+
+	private username = ""
+	private password = ""
 
 	public icons = {
 		personAdd: personAdd,
 		logIn: logIn
-	}
-
-	public form = {
-		username: "",
-		password: ""
-	}
-
-	public onLoginClicked(): void {
-		console.log("HUHU")
 	}
 
 	public onCancelButtonClick(_event: MouseEvent): void {
@@ -72,25 +64,41 @@ export class LoginView extends Vue {
 	}
 
 	private resetForm(): void {
-		this.form.username = ""
-		this.form.password = ""
+		this.username = ""
+		this.password = ""
+	}
+
+	public async onSubmitButtonClick(): Promise<void> {
+		await this.submitLogin()
+	}
+
+	public async onUsernameInputKeyPress(event: KeyboardEvent): Promise<void> {
+		if (event.code === "Enter" || event.code === "NumpadEnter") {
+			const passwordInput: HTMLIonInputElement = document.getElementById("password") as HTMLIonInputElement
+			await passwordInput.setFocus()
+		}
+	}
+
+	public async onPasswordInputKeyPress(event: KeyboardEvent): Promise<void> {
+		if (event.code === "Enter" || event.code === "NumpadEnter") {
+			await this.submitLogin()
+		}
 	}
 
 	public async submitLogin(): Promise<void> {
-		console.log(this.form.username + "/" + this.form.password)
+		console.log(this.username + "/" + this.password)
 		try {
-			const authentication = await this.authService.handleLogin(this.form.username, this.form.password)
+			await this.authService.authenticate(this.username, this.password)
 			this.resetForm()
-			this.router.push("/tabs/map")
-		} catch (err) {
-			const errorAlert = await alertController.create({
-				header: "Failed",
-				subHeader: "Sign in Failed",
-				message: err,
-				buttons: ["OK"]
-			})
+			this.modalController.dismiss()
 
-			await errorAlert.present()
+			this.$emit("onLoginSuccess")
+		} catch (err) {
+			this.$emit("onLoginFailed")
 		}
+	}
+
+	public get isFormFilledOut(): boolean {
+		return this.username.length > 0 && this.password.length > 0
 	}
 }
