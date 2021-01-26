@@ -3,6 +3,7 @@ package io.spotnext.whatsnear.rest.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import io.spotnext.core.infrastructure.annotation.logging.Log;
+import io.spotnext.core.infrastructure.exception.AuthenticationException;
 import io.spotnext.core.infrastructure.http.DataResponse;
 import io.spotnext.core.infrastructure.http.HttpResponse;
 import io.spotnext.core.infrastructure.support.LogLevel;
@@ -10,6 +11,7 @@ import io.spotnext.core.infrastructure.support.MimeType;
 import io.spotnext.core.management.annotation.Handler;
 import io.spotnext.core.management.annotation.RemoteEndpoint;
 import io.spotnext.core.management.service.impl.AbstractRestEndpoint;
+import io.spotnext.core.management.support.HttpAuthorizationType;
 import io.spotnext.core.management.support.NoAuthenticationFilter;
 import io.spotnext.core.management.transformer.JsonResponseTransformer;
 import io.spotnext.itemtype.core.beans.SerializationConfiguration;
@@ -35,12 +37,17 @@ public class AccountController extends AbstractRestEndpoint{
 	
 	@Log(logLevel = LogLevel.DEBUG, measureExecutionTime = true)
 	@Handler(method = HttpMethod.post, pathMapping = { "/login"}, mimeType = MimeType.JSON, responseTransformer = JsonResponseTransformer.class)
-	public HttpResponse postPointOfInterest(final Request request, final Response response) {
+	public HttpResponse login(final Request request, final Response response) {
 		
 		
 		var data = serializationService.deserialize(CONFIG, request.body(), LoginRequestData.class);
 		
 		var token = customUserService.login(data.getUid(), data.getPassword());
+		
+		if (token == null) {
+			response.header("WWW-Authenticate", HttpAuthorizationType.BASIC.toString());
+			throw new AuthenticationException("Could not authenticate user!");
+		}
 		
 		return DataResponse.ok().withPayload(token);
 	}

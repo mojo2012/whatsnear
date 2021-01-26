@@ -49,6 +49,9 @@
 				</ion-input> -->
 
 				<ion-buttons slot="end">
+					<ion-button @click="onLoginButtonClick">
+						<ion-icon slot="icon-only" :icon="icons.loginIcon"></ion-icon>
+					</ion-button>
 					<ion-button @click="onAddMarkerButtonClick">
 						<ion-icon
 							slot="icon-only"
@@ -105,6 +108,11 @@
 				:mapLon="mapCenter.lng"
 				@onAddMarker="onAddMarkerClicked"
 			></add-marker-view>
+		</ion-modal>
+
+		<ion-modal mode="ios" :swipe-to-close="true" :is-open="isShowLoginView" css-class="login-view"
+			@onDidDismiss="isShowLoginView = false">
+			<login-view @onLogin="onLoginClicked"></login-view>
 		</ion-modal>
 
 		<ion-toast

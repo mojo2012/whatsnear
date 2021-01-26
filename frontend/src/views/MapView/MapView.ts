@@ -10,6 +10,7 @@ import { MapsService } from "@/services/MapsService"
 import { MenuController, ModalController } from "@/types/IonicTypes"
 import { MathUtil } from "@/utils/MathUtil"
 import AddMarkerView from "@/views/AddMarkerView/AddMarkerView.vue"
+import LoginView from "@/views/LoginView/LoginView.vue"
 import {
 	IonButton,
 	IonButtons,
@@ -31,7 +32,7 @@ import {
 	menuController,
 	modalController
 } from "@ionic/vue"
-import { add, close, navigate, search } from "ionicons/icons"
+import { add, close, logIn, navigate, search } from "ionicons/icons"
 import { Options, Vue } from "vue-class-component"
 import { GoogleMap, Marker } from "vue3-google-map"
 
@@ -58,7 +59,8 @@ import { GoogleMap, Marker } from "vue3-google-map"
 		IonMenu,
 		IonLabel,
 		IonToast,
-		AddMarkerView
+		AddMarkerView,
+		LoginView
 	}
 })
 export class MapView extends Vue {
@@ -86,6 +88,7 @@ export class MapView extends Vue {
 	public markerFilter = ""
 	public apiKey = Settings.googleApiKey
 	public isShowAddMarkerView = false
+	public isShowLoginView = false
 	public markers: MarkerDto[] = []
 
 	// icons
@@ -93,7 +96,8 @@ export class MapView extends Vue {
 		addIcon: add,
 		searchIcon: search,
 		closeIcon: close,
-		navigateIcon: navigate
+		navigateIcon: navigate,
+		loginIcon: logIn
 	}
 
 	private mapsService: MapsService = MapsService.instance
@@ -175,6 +179,15 @@ export class MapView extends Vue {
 
 	public async onAddMarkerButtonClick(event: MouseEvent): Promise<void> {
 		await this.showAddMarkerView()
+	}
+
+	public async onLoginButtonClick(event: MouseEvent): Promise<void> {
+		console.log("onLoginButtonClick: " + event)
+		await this.showLoginView()
+	}
+
+	public async showLoginView(): Promise<void> {
+		this.isShowLoginView = true
 	}
 
 	public async onAddMarkerClicked(event: CreatePointOfInterestRequest): Promise<void> {
