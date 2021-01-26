@@ -33,7 +33,7 @@
 					debounce="1000"
 					animated
 					mode="ios"
-					class="search-box"
+					class="toolbar-item"
 					@input="onSearchBarInput"
 					placeholder="Filter ..."
 				></ion-searchbar>
@@ -48,7 +48,7 @@
 				>
 				</ion-input> -->
 
-				<ion-buttons slot="end">
+				<ion-buttons slot="end" class="toolbar-item">
 					<ion-button @click="onLoginButtonClick">
 						<ion-icon slot="icon-only" :icon="icons.loginIcon"></ion-icon>
 					</ion-button>
@@ -144,7 +144,7 @@ ion-input#addInputBox {
 	max-width: 500px;
 }
 
-ion-searchbar.search-box {
-	padding-top: 15px;
+ion-toolbar > ion-searchbar.toolbar-item  {
+	padding-top: 14px;
 }
 </style>
