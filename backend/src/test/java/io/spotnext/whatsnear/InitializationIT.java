@@ -1,6 +1,6 @@
 package io.spotnext.whatsnear;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +33,8 @@ public class InitializationIT extends AbstractIntegrationTest {
 
 	@Test
 	public void moduleInitialized() {
-		assertTrue(init.isAlreadyInitialized(), Init.class.getSimpleName() + " not initialized");
-		assertTrue(DynamicInstrumentationLoader.isInstrumentationAvailable(), "Instrumentation not initiazed");
+		assertTrue(Init.class.getSimpleName() + " not initialized", init.isAlreadyInitialized());
+		assertTrue("Instrumentation not initiazed", DynamicInstrumentationLoader.isInstrumentationAvailable());
 	}
 
 }
