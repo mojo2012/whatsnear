@@ -28,5 +28,9 @@
 			"editor.formatOnSaveMode": "modifications",
 			"editor.defaultFormatter": "dbaeumer.vscode-eslint"
 		},
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": []
 	}
 }

@@ -50,7 +50,7 @@ export class AuthService {
 				throw new AuthenticationException("Authentication failed")
 			}
 		} catch (ex) {
-			console.debug("Could not authenticate user")
+			console.debug("Could not authenticate user: ", ex)
 			throw ex
 		}
 	}

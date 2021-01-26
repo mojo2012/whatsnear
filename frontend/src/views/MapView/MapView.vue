@@ -49,13 +49,19 @@
 				</ion-input> -->
 
 				<ion-buttons slot="end" class="toolbar-item">
-					<ion-button @click="onLoginButtonClick" v-if="!authService.isAuthenticated()">
+					<ion-button
+						@click="onLoginButtonClick"
+						v-if="!authService.isAuthenticated()"
+					>
 						<ion-icon
 							slot="icon-only"
 							:icon="icons.loginIcon"
 						></ion-icon>
 					</ion-button>
-					<ion-button @click="onAddMarkerButtonClick" v-if="authService.isAuthenticated()">
+					<ion-button
+						@click="onAddMarkerButtonClick"
+						v-if="authService.isAuthenticated()"
+					>
 						<ion-icon
 							slot="icon-only"
 							:icon="icons.addIcon"
@@ -128,12 +134,17 @@
 		</ion-modal>
 
 		<ion-toast
-			:is-open="
-				notificationMessage !== null && notificationMessage.length > 0
-			"
+			:is-open="notificationMessage?.length > 0"
 			:message="notificationMessage"
 			:duration="5000"
+			@onDidDismiss="onToastClosed"
 		>
+			<!-- <ion-button @click="onLocateMeButtonClick">
+				<ion-icon
+					slot="icon-only"
+					:icon="icons.navigateIcon"
+				></ion-icon>
+			</ion-button> -->
 		</ion-toast>
 	</ion-page>
 </template>

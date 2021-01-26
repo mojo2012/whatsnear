@@ -208,7 +208,7 @@ export class MapView extends Vue {
 
 		this.isShowLoginView = false
 
-		this.router.push("/tabs/map")
+		// this.router.push("/tabs/map")
 	}
 
 	public async onLoginFailed(): Promise<Promise<void>> {
@@ -235,6 +235,10 @@ export class MapView extends Vue {
 
 	public async showAddMarkerView(): Promise<void> {
 		this.isShowAddMarkerView = true
+	}
+
+	public onToastClosed(): void {
+		this.notificationMessage = ""
 	}
 
 	private convertGeoLocationToLatLng(geoLocation: GeoLocation): LatLng {

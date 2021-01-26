@@ -51,10 +51,17 @@ export class LoginView extends Vue {
 
 	private username = ""
 	private password = ""
+	public usernameInputDisabled = false
+	public passwordInputDisabled = false
 
 	public icons = {
 		personAdd: personAdd,
 		logIn: logIn
+	}
+
+	public async mounted(this: this): Promise<void> {
+		// const usernameInput: HTMLIonInputElement = document.getElementById("username") as HTMLIonInputElement
+		// await (await usernameInput.getInputElement()).focus()
 	}
 
 	public onCancelButtonClick(_event: MouseEvent): void {
@@ -63,7 +70,7 @@ export class LoginView extends Vue {
 		this.modalController.dismiss()
 	}
 
-	private resetForm(): void {
+	private resetFormInputFields(): void {
 		this.username = ""
 		this.password = ""
 	}
@@ -85,17 +92,26 @@ export class LoginView extends Vue {
 		}
 	}
 
+	public setDisabledState(state: boolean): void {
+		this.usernameInputDisabled = state
+		this.passwordInputDisabled = state
+	}
+
 	public async submitLogin(): Promise<void> {
 		console.log(this.username + "/" + this.password)
+		this.setDisabledState(true)
+
 		try {
 			await this.authService.authenticate(this.username, this.password)
-			this.resetForm()
-			this.modalController.dismiss()
+			this.resetFormInputFields()
 
 			this.$emit("onLoginSuccess")
 		} catch (err) {
+			console.error(err)
 			this.$emit("onLoginFailed")
 		}
+
+		this.setDisabledState(false)
 	}
 
 	public get isFormFilledOut(): boolean {
