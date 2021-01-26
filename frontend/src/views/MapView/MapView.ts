@@ -230,6 +230,11 @@ export class MapView extends Vue {
 		// this.showNotificationMessage("Login credentials not valid.")
 	}
 
+	public onLoginDismiss(): void {
+		this.isShowLoginView = false
+		this.loginErrorMessage = ""
+	}
+
 	private async toggleSidebarVisibility(): Promise<void> {
 		this.menuController.toggle()
 	}

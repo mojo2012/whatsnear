@@ -12,8 +12,11 @@ import {
 	IonLabel,
 	IonList,
 	IonPage,
+	IonSegment,
+	IonSegmentButton,
 	IonSelect,
 	IonSelectOption,
+	IonSpinner,
 	IonTextarea,
 	IonTitle,
 	IonToolbar,
@@ -41,7 +44,10 @@ import { useRouter } from "vue-router"
 		IonSelect,
 		IonSelectOption,
 		IonPage,
-		IonIcon
+		IonIcon,
+		IonSegment,
+		IonSpinner,
+		IonSegmentButton
 	}
 })
 export class LoginView extends Vue {
@@ -50,9 +56,12 @@ export class LoginView extends Vue {
 	private router = useRouter()
 
 	private username = ""
+	private firstName = ""
+	private lastName = ""
 	private password = ""
-	public usernameInputDisabled = false
-	public passwordInputDisabled = false
+
+	public inputFieldsDisabled = false
+	public registerInputFieldsVisible = false
 
 	public isLoading = false
 
@@ -94,14 +103,26 @@ export class LoginView extends Vue {
 		}
 	}
 
-	public setDisabledState(state: boolean): void {
-		this.usernameInputDisabled = state
-		this.passwordInputDisabled = state
+	public onLoginTypeChanged(event: { detail: { value: "register" | "login" } }): void {
+		const type = event.detail.value
+
+		switch (type) {
+			case "register":
+				this.registerInputFieldsVisible = true
+				break
+			case "login":
+				this.registerInputFieldsVisible = false
+				break
+		}
+	}
+
+	public setInputFieldsDisabled(state: boolean): void {
+		this.inputFieldsDisabled = state
 	}
 
 	public async submitLogin(): Promise<void> {
 		console.log(this.username + "/" + this.password)
-		this.setDisabledState(true)
+		this.setInputFieldsDisabled(true)
 
 		try {
 			await this.authService.authenticate(this.username, this.password)
@@ -113,7 +134,7 @@ export class LoginView extends Vue {
 			this.$emit("onLoginFailed")
 		}
 
-		this.setDisabledState(false)
+		this.setInputFieldsDisabled(false)
 	}
 
 	public get isFormFilledOut(): boolean {

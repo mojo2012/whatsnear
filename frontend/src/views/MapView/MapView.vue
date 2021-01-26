@@ -126,7 +126,7 @@
 			:swipe-to-close="true"
 			:is-open="isShowLoginView"
 			css-class="login-view"
-			@onDidDismiss="isShowLoginView = false"
+			@onDidDismiss="onLoginDismiss"
 		>
 			<login-view
 				@onLoginSuccess="onLoginSuccess"
