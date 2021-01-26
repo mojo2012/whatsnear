@@ -8,7 +8,7 @@ import { MarkerDto } from "@/dtos/MarkerDto"
 import { AuthService } from "@/services/AuthService"
 import { LocationService } from "@/services/LocationService"
 import { MapsService } from "@/services/MapsService"
-import { MenuController, ModalController } from "@/types/IonicTypes"
+import { AlertController, MenuController, ModalController } from "@/types/IonicTypes"
 import { MathUtil } from "@/utils/MathUtil"
 import AddMarkerView from "@/views/AddMarkerView/AddMarkerView.vue"
 import LoginView from "@/views/LoginView/LoginView.vue"
@@ -33,7 +33,7 @@ import {
 	menuController,
 	modalController
 } from "@ionic/vue"
-import { add, close, logIn, navigate, search } from "ionicons/icons"
+import { add, alertCircleOutline, close, logIn, navigate, search } from "ionicons/icons"
 import { Options, Vue } from "vue-class-component"
 import { useRouter } from "vue-router"
 import { GoogleMap, Marker } from "vue3-google-map"
@@ -72,6 +72,7 @@ export class MapView extends Vue {
 	private router = useRouter()
 	private menuController!: MenuController
 	private modalController!: ModalController
+	private alertController!: AlertController
 	private mapsService: MapsService = MapsService.instance
 	private locationService = LocationService.instance
 	public authService = AuthService.instance
@@ -88,6 +89,7 @@ export class MapView extends Vue {
 		position: this.mapCenter
 	}
 
+	public loginErrorMessage = ""
 	public notificationMessage = ""
 	public isSearchBoxVisible = false
 	public isSidebarVisible = false
@@ -103,7 +105,8 @@ export class MapView extends Vue {
 		searchIcon: search,
 		closeIcon: close,
 		navigateIcon: navigate,
-		loginIcon: logIn
+		loginIcon: logIn,
+		alertCircle: alertCircleOutline
 	}
 
 	public async created(): Promise<void> {
@@ -156,7 +159,8 @@ export class MapView extends Vue {
 							lng: marker.location.longitude
 						},
 						label: label,
-						title: marker.description,
+						title: marker.title,
+						description: marker.description,
 						distance: (marker.distance.value / 1000).toFixed(1),
 						distanceUnit: "km"
 					} as MarkerDto
@@ -206,12 +210,11 @@ export class MapView extends Vue {
 	public onLoginSuccess(): void {
 		console.log("onLoginSuccess")
 
+		this.loginErrorMessage = ""
 		this.isShowLoginView = false
-
-		// this.router.push("/tabs/map")
 	}
 
-	public async onLoginFailed(): Promise<Promise<void>> {
+	public async onLoginFailed(): Promise<void> {
 		console.log("onLoginFailed")
 
 		// const errorAlert = await alertController.create({
@@ -222,7 +225,9 @@ export class MapView extends Vue {
 		// })
 		// await errorAlert.present()
 
-		this.showNotificationMessage("Login credentials not valid.")
+		this.loginErrorMessage = "Login not successful"
+
+		// this.showNotificationMessage("Login credentials not valid.")
 	}
 
 	private async toggleSidebarVisibility(): Promise<void> {
@@ -249,9 +254,8 @@ export class MapView extends Vue {
 		}
 	}
 
-	private async showNotificationMessage(message: string): Promise<void> {
+	private showNotificationMessage(message: string): void {
 		this.notificationMessage = message
-
 		// const toast = await toastController.create({
 		// 	header: message,
 		// 	position: "bottom",
@@ -266,7 +270,6 @@ export class MapView extends Vue {
 		// 		}
 		// 	]
 		// })
-
 		// toast.present()
 	}
 

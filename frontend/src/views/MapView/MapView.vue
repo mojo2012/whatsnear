@@ -106,6 +106,7 @@
 		</ion-content>
 
 		<ion-modal
+			key="add-marker-dialog"
 			mode="ios"
 			:swipe-to-close="true"
 			:is-open="isShowAddMarkerView"
@@ -120,6 +121,7 @@
 		</ion-modal>
 
 		<ion-modal
+			key="login-dialog"
 			mode="ios"
 			:swipe-to-close="true"
 			:is-open="isShowLoginView"
@@ -130,10 +132,18 @@
 				@onLoginSuccess="onLoginSuccess"
 				@onLoginFailed="onLoginFailed"
 			>
+				<div
+					class="login-error-message"
+					v-if="loginErrorMessage?.length > 0"
+				>
+					<ion-icon :icon="icons.alertCircle" />
+					<span>{{ loginErrorMessage }}</span>
+				</div>
 			</login-view>
 		</ion-modal>
 
 		<ion-toast
+			key="toast"
 			:is-open="notificationMessage?.length > 0"
 			:message="notificationMessage"
 			:duration="5000"
@@ -158,14 +168,38 @@ export default MapView;
 ion-input#addInputBox {
 	margin-left: 10px;
 }
-</style>
-<style>
+
 .modal-wrapper {
 	margin-top: 10px;
 	border-radius: 20px;
 	width: 98vw;
 	max-width: 500px;
 }
+
+div.login-error-message {
+	display: flex;
+	background-color: #f1d0d0;
+	border: 1px solid red;
+	border-radius: 0.5em;
+	margin: 20px;
+	padding: 4px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	align-items: center;
+}
+
+div.login-error-message > ion-icon {
+	width: 30px;
+	height: 30px;
+	color: red;
+	box-sizing: border-box;
+}
+
+div.login-error-message > span {
+	margin: 10px;
+}
+
 
 ion-toolbar > ion-searchbar.toolbar-item {
 	padding-top: 14px;

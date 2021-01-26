@@ -50,6 +50,11 @@
 					:disabled="passwordInputDisabled"
 				></ion-input>
 			</ion-item>
+
+			<!-- loading animation -->
+			<ion-spinner v-if="isLoading" class="loading-spinner" name="lines"></ion-spinner>
+
+			<slot></slot>
 		</ion-content>
 	</ion-page>
 </template>
@@ -58,3 +63,13 @@
 import { LoginView } from "./LoginView";
 export default LoginView;
 </script>
+
+<style>
+.loading-spinner {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	margin-top: 30px;
+	margin-bottom: auto;
+}
+</style>

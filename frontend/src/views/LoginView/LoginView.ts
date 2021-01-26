@@ -54,6 +54,8 @@ export class LoginView extends Vue {
 	public usernameInputDisabled = false
 	public passwordInputDisabled = false
 
+	public isLoading = false
+
 	public icons = {
 		personAdd: personAdd,
 		logIn: logIn
@@ -107,7 +109,7 @@ export class LoginView extends Vue {
 
 			this.$emit("onLoginSuccess")
 		} catch (err) {
-			console.error(err)
+			console.error("Login failed")
 			this.$emit("onLoginFailed")
 		}
 
