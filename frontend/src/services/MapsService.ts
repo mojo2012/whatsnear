@@ -3,6 +3,7 @@ import { CreatePointOfInterestRequest } from "@/dtos/CreatePointOfInterestReques
 import { DistanceData } from "@/dtos/DistanceData"
 import { DistanceUnit } from "@/dtos/DistanceUnit"
 import { GeoLocation } from "@/dtos/GeoLocation"
+import { Payload } from "@/dtos/Payload"
 import { PointOfInterest } from "@/dtos/PointOfInterest"
 import { BackendNotReachableException } from "@/exceptions/BackendNotReachableException"
 import { getDistance } from "geolib"
@@ -84,7 +85,11 @@ export class MapsService {
 		//  type
 
 		try {
-			const results: Promise<{ data: PointOfInterest[] }> = await (await fetch(url.toString(), { method: "GET", headers: this.getAuthHeader() })).json()
+			const conf = {
+				method: "GET",
+				headers: this.getAuthHeader()
+			}
+			const results: Promise<Payload<PointOfInterest[]>> = await (await fetch(url.toString(), conf)).json()
 
 			return (await results).data
 		} catch (ex) {
@@ -93,8 +98,8 @@ export class MapsService {
 	}
 
 	private getAuthHeader(): Headers {
-		let headers = new Headers()
-		headers.append('Authorization', 'e7849a0b-296c-4c62-a01a-1c19cd6a0275')
-		return headers;
+		const headers = new Headers()
+		headers.append("Authorization", "e7849a0b-296c-4c62-a01a-1c19cd6a0275")
+		return headers
 	}
 }

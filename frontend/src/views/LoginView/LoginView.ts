@@ -2,7 +2,8 @@
 import { AuthService } from "@/services/AuthService"
 import { ModalController } from "@/types/IonicTypes"
 import {
-	alertController, IonButton,
+	alertController,
+	IonButton,
 	IonButtons,
 	IonContent,
 	IonHeader,
@@ -19,9 +20,9 @@ import {
 	IonToolbar,
 	modalController
 } from "@ionic/vue"
-import { logIn, personAdd } from 'ionicons/icons'
+import { logIn, personAdd } from "ionicons/icons"
 import { Options, Vue } from "vue-class-component"
-import { useRouter } from 'vue-router'
+import { useRouter } from "vue-router"
 
 @Options({
 	name: "login-view",
@@ -44,7 +45,6 @@ import { useRouter } from 'vue-router'
 	}
 })
 export class LoginView extends Vue {
-
 	private authService: AuthService = AuthService.instance
 
 	private modalController: ModalController = modalController
@@ -61,8 +61,8 @@ export class LoginView extends Vue {
 		password: ""
 	}
 
-	public onLoginClicked() {
-		console.log("HUHU");
+	public onLoginClicked(): void {
+		console.log("HUHU")
 	}
 
 	public onCancelButtonClick(_event: MouseEvent): void {
@@ -71,21 +71,26 @@ export class LoginView extends Vue {
 		this.modalController.dismiss()
 	}
 
+	private resetForm(): void {
+		this.form.username = ""
+		this.form.password = ""
+	}
+
 	public async submitLogin(): Promise<void> {
-		console.log(this.form.username + "/" + this.form.password);
-		this.authService.handleLogin(this.form.username, this.form.password).then(() => {
-			this.form.username = ""
-			this.form.password = ""
+		console.log(this.form.username + "/" + this.form.password)
+		try {
+			const authentication = await this.authService.handleLogin(this.form.username, this.form.password)
+			this.resetForm()
 			this.router.push("/tabs/map")
-		}).catch(async (err: any) => {
-			const errorAlert = await alertController
-            .create({
-              header: 'Failed',
-              subHeader: 'Sign in Failed',
-              message: err,
-              buttons: ['OK'],
-            });
-        	await errorAlert.present()
-		})
+		} catch (err) {
+			const errorAlert = await alertController.create({
+				header: "Failed",
+				subHeader: "Sign in Failed",
+				message: err,
+				buttons: ["OK"]
+			})
+
+			await errorAlert.present()
+		}
 	}
 }

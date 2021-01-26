@@ -1,4 +1,6 @@
 import { Settings } from "@/configuration/Settings"
+import { Authentication } from "@/dtos/Authentication"
+import { Payload } from "@/dtos/Payload"
 
 export class AuthService {
 	private static _instance: AuthService
@@ -15,24 +17,30 @@ export class AuthService {
 		return AuthService._instance
 	}
 
-	public async handleLogin(username: String, password: String): Promise<{ data: {token: String, validTo: String}}> {
+	public async handleLogin(username: string, password: string): Promise<Authentication> {
 		console.log(username + ":" + password)
 
 		const url = Settings.backendUrlV1 + "account/login"
 
-		let form = {
+		const form = {
 			uid: username,
 			password: password
 		}
 
 		try {
-			const result: Promise<{ data: {token: String, validTo: String} }> = await (await fetch(url, { method: "POST", headers: [], body: JSON.stringify(form) })).json()
+			const conf = {
+				method: "POST",
+				headers: [],
+				body: JSON.stringify(form)
+			}
+			const result: Promise<Payload<Authentication>> = await (await fetch(url, conf)).json()
+
 			console.log("result: " + result)
-			return (await result)
+
+			return (await result).data
 		} catch (ex) {
 			console.error("Could not authenticate user", ex)
 			throw ex
 		}
 	}
-
 }
