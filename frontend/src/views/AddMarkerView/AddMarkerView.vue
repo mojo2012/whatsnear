@@ -18,8 +18,8 @@
 		<ion-content fullscreen>
 			<ion-list lines="full" class="ion-no-margin">
 				<GoogleMap
+					class="map"
 					:api-key="apiKey"
-					style="width: 100%; height: 30vh"
 					:center="mapCenter"
 					:zoom="15"
 				>
@@ -45,7 +45,11 @@
 				<ion-item>
 					<ion-label>Marker types</ion-label>
 
-					<ion-select placeholder="" :value="markerType" @ionChange="onMarkerTypeChanged">
+					<ion-select
+						placeholder=""
+						:value="markerType"
+						@ionChange="onMarkerTypeChanged"
+					>
 						<ion-label>Marker types</ion-label>
 						<ion-select-option
 							v-for="mk in markerTypes"
@@ -71,8 +75,8 @@
 </template>
 
 <script lang="ts">
-import { AddMarkerView } from "./AddMarkerView"
-export default AddMarkerView
+import { AddMarkerView } from "./AddMarkerView";
+export default AddMarkerView;
 </script>
 
 <style scope>
@@ -80,4 +84,10 @@ export default AddMarkerView
 	max-height: 80vh;
 	border-radius: 20px;
 } */
+
+.map {
+	width: 100%;
+	height: 30vh;
+	max-height: 270px;
+}
 </style>
