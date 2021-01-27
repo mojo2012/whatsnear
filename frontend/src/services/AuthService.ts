@@ -2,7 +2,8 @@ import { Settings } from "@/configuration/Settings"
 import { Authentication } from "@/dtos/Authentication"
 import { Payload } from "@/dtos/Payload"
 import { UserData } from "@/dtos/UserData"
-import { AuthenticationException } from "@/exceptions/BackendNotReachableException copy"
+import { AuthenticationException } from "@/exceptions/AuthenticationException"
+import { RegistrationException } from "@/exceptions/RegistrationException"
 
 export class AuthService {
 	private static _instance: AuthService
@@ -70,6 +71,10 @@ export class AuthService {
 			console.log("result: " + result)
 
 			const reg = (await result).data
+
+			if (!reg) {
+				throw new RegistrationException("Registration failed")
+			}
 
 		} catch (ex) {
 			console.debug("Could not register user")
