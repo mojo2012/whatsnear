@@ -12,6 +12,7 @@ import io.spotnext.core.infrastructure.support.MimeType;
 import io.spotnext.core.management.annotation.Handler;
 import io.spotnext.core.management.annotation.RemoteEndpoint;
 import io.spotnext.core.management.service.impl.AbstractRestEndpoint;
+import io.spotnext.core.management.support.NoAuthenticationFilter;
 import io.spotnext.core.management.transformer.JsonResponseTransformer;
 import io.spotnext.itemtype.core.beans.SerializationConfiguration;
 import io.spotnext.itemtype.core.enumeration.DataFormat;
@@ -23,7 +24,7 @@ import spark.Request;
 import spark.Response;
 import spark.route.HttpMethod;
 
-@RemoteEndpoint(portConfigKey = "service.typesystem.rest.port", port = 19000, pathMapping = "/v1/poi", authenticationFilter = CustomAuthenticationFilter.class)
+@RemoteEndpoint(portConfigKey = "service.typesystem.rest.port", port = 19000, pathMapping = "/v1/poi", authenticationFilter = NoAuthenticationFilter.class)
 public class PointOfInterestEndpoint extends AbstractRestEndpoint {
 
 	private static final SerializationConfiguration CONFIG = new SerializationConfiguration();
@@ -38,7 +39,7 @@ public class PointOfInterestEndpoint extends AbstractRestEndpoint {
 	private SerializationService serializationService;
 	
 	@Log(logLevel = LogLevel.DEBUG, measureExecutionTime = true)
-	@Handler(method = HttpMethod.get, pathMapping = { "", "/", "/:location" }, mimeType = MimeType.JSON, responseTransformer = JsonResponseTransformer.class)
+	@Handler(method = HttpMethod.get, pathMapping = { "", "/", "/:location" }, mimeType = MimeType.JSON, responseTransformer = JsonResponseTransformer.class, authenticationFilter = NoAuthenticationFilter.class)
 	public HttpResponse getPointOfInterests(final Request request, final Response response) {
 		
 		var locationParam = request.params(":location");
@@ -62,9 +63,8 @@ public class PointOfInterestEndpoint extends AbstractRestEndpoint {
 	}
 	
 	@Log(logLevel = LogLevel.DEBUG, measureExecutionTime = true)
-	@Handler(method = HttpMethod.post, pathMapping = { "", "/"}, mimeType = MimeType.JSON, responseTransformer = JsonResponseTransformer.class)
+	@Handler(method = HttpMethod.post, pathMapping = { "", "/"}, mimeType = MimeType.JSON, responseTransformer = JsonResponseTransformer.class, authenticationFilter = CustomAuthenticationFilter.class)
 	public HttpResponse postPointOfInterest(final Request request, final Response response) {
-		
 		
 		var data = serializationService.deserialize(CONFIG, request.body(), PointOfInterestData.class);
 		

@@ -74,6 +74,27 @@
 			<property name="password" type="String" />
 		</properties>
 	</bean>
+	
+	<bean name="CreateUserRequestData"
+		package="io.spotnext.whatsnear.beans">
+		<properties>
+			<property name="username" type="String" />
+			<property name="password" type="String" />
+			<property name="firstname" type="String" />
+			<property name="lastname" type="String" />
+		</properties>
+	</bean>
+	
+	<bean name="CustomUserData"
+		package="io.spotnext.whatsnear.beans"
+		extends="UserData">
+		<properties>
+			<property name="password" type="String" />
+			<property name="firstname" type="String" />
+			<property name="lastname" type="String" />
+			<property name="maxDistance" type="Double" />
+		</properties>
+	</bean>
 
 	<!-- ITEM TYPES -->
 	<type name="PointOfInterest" typeCode="PointOfInterest"
@@ -92,6 +113,8 @@
 	<type name="CustomUser" typeCode="CustomUser" extends="User"
 		package="io.spotnext.whatsnear.itemtypes">
 		<properties>
+			<property name="firstname" type="String" />
+			<property name="lastname" type="String" />
 			<property name="token" type="AccessToken" />
 			<property name="maxDistance" type="Double" />
 		</properties>

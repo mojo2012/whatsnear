@@ -19,4 +19,6 @@ public interface CustomUserRepository extends JpaRepository<CustomUser, Long> {
 			"")
 	Optional<CustomUser> findbyToken(@Param("token") UUID token);
 	
+	Optional<CustomUser> findByUid(String uid);
+	
 }
