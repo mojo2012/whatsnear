@@ -1,4 +1,5 @@
 /* eslint-disable max-classes-per-file */
+import { UserData } from "@/dtos/UserData"
 import { AuthService } from "@/services/AuthService"
 import { RegisterOrLoginType } from "@/types/helper-types"
 import { ModalController } from "@/types/IonicTypes"
@@ -126,7 +127,7 @@ export class LoginView extends Vue {
 
 		if (this.username.length > 0 && this.password.length > 0) {
 			if (this.isTypeRegister) {
-				if (this.firstName.length > 0 && this.lastName.length > 0) {
+				if (this.firstName.length > 0 && this.lastName.length > 0 && this.username.length > 0 && this.password.length > 0) {
 					ret = true
 				}
 			} else {
@@ -173,7 +174,13 @@ export class LoginView extends Vue {
 
 		try {
 			if (this.isTypeRegister) {
-				//
+				const registration: UserData = {
+						username: this.username,
+						password: this.password,
+						firstname: this.firstName,
+						lastname: this.lastName
+					}
+				await this.authService.register(registration)
 			} else {
 				await this.authService.authenticate(this.username, this.password)
 			}

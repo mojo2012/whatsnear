@@ -1,6 +1,7 @@
 import { Settings } from "@/configuration/Settings"
 import { Authentication } from "@/dtos/Authentication"
 import { Payload } from "@/dtos/Payload"
+import { UserData } from "@/dtos/UserData"
 import { AuthenticationException } from "@/exceptions/BackendNotReachableException copy"
 
 export class AuthService {
@@ -51,6 +52,27 @@ export class AuthService {
 			}
 		} catch (ex) {
 			console.debug("Could not authenticate user")
+			throw ex
+		}
+	}
+
+	public async register(data: UserData): Promise<void> {
+		const url = Settings.backendUrlV1 + "account/register"
+
+		try {
+			const conf = {
+				method: "POST",
+				headers: [],
+				body: JSON.stringify(data)
+			}
+			const result: Promise<Payload<Authentication>> = await (await fetch(url, conf)).json()
+
+			console.log("result: " + result)
+
+			const reg = (await result).data
+
+		} catch (ex) {
+			console.debug("Could not register user")
 			throw ex
 		}
 	}
