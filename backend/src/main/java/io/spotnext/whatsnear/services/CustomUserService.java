@@ -14,6 +14,6 @@ public interface CustomUserService<U extends User, G extends UserGroup> extends 
 	
 	public CustomUser getUser(AccessToken token);
 	
-	public CustomUserData register(CreateUserRequestData data);
+	public AccessTokenData register(CreateUserRequestData data);
 	
 }

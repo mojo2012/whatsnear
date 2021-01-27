@@ -91,7 +91,7 @@ public class DefaultCustomUserService
 	}
 
 	@Override
-	public CustomUserData register(CreateUserRequestData data) {
+	public AccessTokenData register(CreateUserRequestData data) {
 		if (StringUtils.isBlank(data.getUsername()) || checkIfUsernameExists(data.getUsername())) {
 			throw new CannotCreateUserException();
 		}
@@ -105,23 +105,26 @@ public class DefaultCustomUserService
 
 		user.setMaxDistance(100000.);
 		
+		var token = createToken();
+		user.setToken(token);
+		
 		modelService.save(user);
-
-		return convert(user);
+		
+		return convertToken(token);
 	}
 
-	private CustomUserData convert(CustomUser user) {
-		var data = new CustomUserData();
-
-		data.setUid(user.getUid());
+//	private CustomUserData convert(CustomUser user) {
+//		var data = new CustomUserData();
+//
+//		data.setUid(user.getUid());
+////		data.setPassword(user.getPassword());
+//		data.setFirstname(user.getFirstname());
+//		data.setLastname(user.getLastname());
 //		data.setPassword(user.getPassword());
-		data.setFirstname(user.getFirstname());
-		data.setLastname(user.getLastname());
-		data.setPassword(user.getPassword());
-		data.setMaxDistance(user.getMaxDistance());
-
-		return data;
-	}
+//		data.setMaxDistance(user.getMaxDistance());
+//
+//		return data;
+//	}
 
 	private boolean checkIfUsernameExists(String uid) {
 		var userOpt = customUserRepository.findByUid(uid);

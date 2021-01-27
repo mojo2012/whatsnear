@@ -72,10 +72,11 @@ export class AuthService {
 
 			const reg = (await result).data
 
-			if (!reg) {
+			if (reg) {
+				this.authentiation = reg
+			} else {
 				throw new RegistrationException("Registration failed")
 			}
-
 		} catch (ex) {
 			console.debug("Could not register user")
 			throw ex
