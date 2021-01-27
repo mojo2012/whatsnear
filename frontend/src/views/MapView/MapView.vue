@@ -50,8 +50,27 @@
 
 				<ion-buttons slot="end" class="toolbar-item">
 					<ion-button
+						@click="onAddMarkerButtonClick"
+						v-if="authService.isAuthenticated()"
+						title="Add marker"
+					>
+						<ion-icon
+							slot="icon-only"
+							:icon="icons.addIcon"
+						></ion-icon>
+					</ion-button>
+					<ion-button @click="onLocateMeButtonClick" title="Locate me">
+						<ion-icon
+							slot="icon-only"
+							:icon="icons.navigateIcon"
+						></ion-icon>
+					</ion-button>
+
+					<!-- login/logout buttons -->
+					<ion-button
 						@click="onLoginButtonClick"
 						v-if="!authService.isAuthenticated()"
+						title="Login"
 					>
 						<ion-icon
 							slot="icon-only"
@@ -59,26 +78,17 @@
 						></ion-icon>
 					</ion-button>
 					<ion-button
-						@click="onAddMarkerButtonClick"
+						@click="onLogoutButtonClick"
 						v-if="authService.isAuthenticated()"
+						title="Logout"
 					>
 						<ion-icon
 							slot="icon-only"
-							:icon="icons.addIcon"
+							:icon="icons.logoutIcon"
 						></ion-icon>
 					</ion-button>
-					<ion-button @click="onLocateMeButtonClick">
-						<ion-icon
-							slot="icon-only"
-							:icon="icons.navigateIcon"
-						></ion-icon>
-					</ion-button>
-					<!-- <ion-button @mouseup="onSearchButtonClick">
-						<ion-icon
-							slot="icon-only"
-							:icon="icons.searchIcon"
-						></ion-icon>
-					</ion-button> -->
+
+					<!-- menu button -->
 					<ion-menu-button
 						@click="onMenuButtonClick"
 						auto-hide="false"

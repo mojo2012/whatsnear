@@ -35,7 +35,7 @@ import {
 	modalController,
 	toastController
 } from "@ionic/vue"
-import { add, alertCircleOutline, close, logIn, navigate, search } from "ionicons/icons"
+import { add, alertCircleOutline, close, key, logOut, navigate, search } from "ionicons/icons"
 import { Options, Vue } from "vue-class-component"
 import { useRouter } from "vue-router"
 import { GoogleMap, Marker } from "vue3-google-map"
@@ -107,7 +107,8 @@ export class MapView extends Vue {
 		searchIcon: search,
 		closeIcon: close,
 		navigateIcon: navigate,
-		loginIcon: logIn,
+		loginIcon: key,
+		logoutIcon: logOut,
 		alertCircle: alertCircleOutline
 	}
 
@@ -116,6 +117,8 @@ export class MapView extends Vue {
 
 		this.menuController = menuController
 		this.modalController = modalController
+
+		await this.authService.loadStoredAuthentication()
 	}
 
 	public async mounted(this: this): Promise<void> {
@@ -124,6 +127,7 @@ export class MapView extends Vue {
 		try {
 			await this.goToCurrentPosition()
 			this.createCurrentPositionMarker()
+
 			await this.syncMarkers()
 		} catch (exception) {
 			this.showNotificationMessage("Cannot get current geo location.")
@@ -149,7 +153,7 @@ export class MapView extends Vue {
 		const currentGeoLocation = this.convertLatLngToGeoLocation(this.mapCenter)
 
 		try {
-			this.markers = (await this.mapsService.getMarkers(currentGeoLocation, 100_000, this.markerFilter)) //
+			this.markers = (await this.mapsService.getMarkers(currentGeoLocation, 500_000, this.markerFilter)) //
 				.map((marker) => {
 					const label = POINT_OF_SERVICE_MAPPING.filter((i) => i.code === marker.type)[0]?.icon
 
@@ -197,6 +201,11 @@ export class MapView extends Vue {
 	public async onLoginButtonClick(event: MouseEvent): Promise<void> {
 		console.log("onLoginButtonClick: " + event)
 		await this.showLoginView()
+	}
+
+	public async onLogoutButtonClick(event: MouseEvent): Promise<void> {
+		console.log("onLogoutButtonClick: " + event)
+		await this.authService.logout()
 	}
 
 	public async showLoginView(): Promise<void> {

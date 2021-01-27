@@ -4,11 +4,14 @@ import { Payload } from "@/dtos/Payload"
 import { UserData } from "@/dtos/UserData"
 import { AuthenticationException } from "@/exceptions/AuthenticationException"
 import { RegistrationException } from "@/exceptions/RegistrationException"
+import { LocalStorageService } from "@/services/LocalStorageService"
 
 export class AuthService {
 	private static _instance: AuthService
 
-	public authentiation?: Authentication
+	private localStorageService = LocalStorageService.instance
+
+	public authentication?: Authentication | null
 
 	private constructor() {
 		console.log("AuthService instantiated")
@@ -23,7 +26,27 @@ export class AuthService {
 	}
 
 	public isAuthenticated(): boolean {
-		return this.authentiation?.token != null && this.authentiation?.validTo != null
+		return this.authentication?.token != null && this.authentication?.validTo != null
+	}
+
+	public async loadStoredAuthentication(): Promise<void> {
+		const auth = await this.localStorageService.get<Authentication>("authentication")
+
+		this.authentication = auth
+	}
+
+	public async storeAuthentication(authentication?: Authentication | null): Promise<void> {
+		this.authentication = authentication
+
+		if (authentication) {
+			await this.localStorageService.set<Authentication>("authentication", authentication)
+		} else {
+			await this.localStorageService.remove("authentication")
+		}
+	}
+
+	public logout(): void {
+		this.storeAuthentication(null)
 	}
 
 	public async authenticate(username: string, password: string): Promise<void> {
@@ -44,10 +67,10 @@ export class AuthService {
 
 			console.log("result: " + result)
 
-			const data = (await result).data
+			const tokenData = (await result).data
 
-			if (data) {
-				this.authentiation = data
+			if (tokenData) {
+				await this.storeAuthentication(tokenData)
 			} else {
 				throw new AuthenticationException("Authentication failed")
 			}
@@ -57,23 +80,23 @@ export class AuthService {
 		}
 	}
 
-	public async register(data: UserData): Promise<void> {
+	public async register(registrationData: UserData): Promise<void> {
 		const url = Settings.backendUrlV1 + "account/register"
 
 		try {
 			const conf = {
 				method: "POST",
 				headers: [],
-				body: JSON.stringify(data)
+				body: JSON.stringify(registrationData)
 			}
 			const result: Promise<Payload<Authentication>> = await (await fetch(url, conf)).json()
 
 			console.log("result: " + result)
 
-			const reg = (await result).data
+			const tokenData = (await result).data
 
-			if (reg) {
-				this.authentiation = reg
+			if (tokenData) {
+				await this.storeAuthentication(tokenData)
 			} else {
 				throw new RegistrationException("Registration failed")
 			}

@@ -67,7 +67,8 @@ export class MapsService {
 		const url = Settings.backendUrlV1 + "poi"
 
 		try {
-			await fetch(url, { method: "POST", headers: this.createAuthenticationHeader(), body: JSON.stringify(pointOfInterest) })
+			const headers = await this.createAuthenticationHeader()
+			await fetch(url, { method: "POST", headers: headers, body: JSON.stringify(pointOfInterest) })
 		} catch (ex) {
 			console.error("Could not add marker", ex)
 			// throw new BackendNotReachableException("Could not load markers from backend", ex)
@@ -88,7 +89,7 @@ export class MapsService {
 		try {
 			const conf = {
 				method: "GET",
-				headers: this.createAuthenticationHeader()
+				headers: await this.createAuthenticationHeader()
 			}
 			const results: Promise<Payload<PointOfInterest[]>> = await (await fetch(url.toString(), conf)).json()
 
@@ -99,7 +100,7 @@ export class MapsService {
 	}
 
 	private createAuthenticationHeader(): Headers {
-		const authentication = this.authService.authentiation
+		const authentication = this.authService.authentication
 		const headers = new Headers()
 
 		if (authentication?.token) {
