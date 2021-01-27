@@ -8,6 +8,7 @@ import { MarkerDto } from "@/dtos/MarkerDto"
 import { AuthService } from "@/services/AuthService"
 import { LocationService } from "@/services/LocationService"
 import { MapsService } from "@/services/MapsService"
+import { RegisterOrLoginType } from "@/types/helper-types"
 import { AlertController, MenuController, ModalController } from "@/types/IonicTypes"
 import { MathUtil } from "@/utils/MathUtil"
 import AddMarkerView from "@/views/AddMarkerView/AddMarkerView.vue"
@@ -31,7 +32,8 @@ import {
 	IonToast,
 	IonToolbar,
 	menuController,
-	modalController
+	modalController,
+	toastController
 } from "@ionic/vue"
 import { add, alertCircleOutline, close, logIn, navigate, search } from "ionicons/icons"
 import { Options, Vue } from "vue-class-component"
@@ -90,7 +92,7 @@ export class MapView extends Vue {
 	}
 
 	public loginErrorMessage = ""
-	public notificationMessage = ""
+	// public notificationMessage = ""
 	public isSearchBoxVisible = false
 	public isSidebarVisible = false
 	public markerFilter = ""
@@ -207,14 +209,14 @@ export class MapView extends Vue {
 		await this.syncMarkers()
 	}
 
-	public onLoginSuccess(): void {
+	public onLoginSuccess(type: RegisterOrLoginType): void {
 		console.log("onLoginSuccess")
 
 		this.loginErrorMessage = ""
 		this.isShowLoginView = false
 	}
 
-	public async onLoginFailed(): Promise<void> {
+	public async onLoginFailed(type: RegisterOrLoginType): Promise<void> {
 		console.log("onLoginFailed")
 
 		// const errorAlert = await alertController.create({
@@ -225,7 +227,7 @@ export class MapView extends Vue {
 		// })
 		// await errorAlert.present()
 
-		this.loginErrorMessage = "Login not successful"
+		this.loginErrorMessage = `${type} not successful`
 
 		// this.showNotificationMessage("Login credentials not valid.")
 	}
@@ -248,7 +250,7 @@ export class MapView extends Vue {
 	}
 
 	public onToastClosed(): void {
-		this.notificationMessage = ""
+		// this.notificationMessage = ""
 	}
 
 	private convertGeoLocationToLatLng(geoLocation: GeoLocation): LatLng {
@@ -259,23 +261,28 @@ export class MapView extends Vue {
 		}
 	}
 
-	private showNotificationMessage(message: string): void {
-		this.notificationMessage = message
-		// const toast = await toastController.create({
-		// 	header: message,
-		// 	position: "bottom",
-		// 	translucent: true,
-		// 	buttons: [
-		// 		{
-		// 			text: "OK",
-		// 			role: "cancel",
-		// 			handler: () => {
-		// 				// console.log("Cancel clicked")
-		// 			}
-		// 		}
-		// 	]
-		// })
-		// toast.present()
+	private async showNotificationMessage(message: string): Promise<void> {
+		// this.notificationMessage = message
+
+		// using the html component causes duplicate modal dialogs to be shown
+		const toast = await toastController.create({
+			header: message,
+			position: "bottom",
+			translucent: true,
+			duration: 5000,
+			buttons: [
+				{
+					icon: "close",
+					side: "end",
+					role: "cancel",
+					handler: () => {
+						// console.log("Cancel clicked")
+						this.onToastClosed()
+					}
+				}
+			]
+		})
+		toast.present()
 	}
 
 	private convertLatLngToGeoLocation(value: LatLng): GeoLocation {

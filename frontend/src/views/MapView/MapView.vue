@@ -142,20 +142,14 @@
 			</login-view>
 		</ion-modal>
 
-		<ion-toast
+		<!-- <ion-toast
 			key="toast"
 			:is-open="notificationMessage?.length > 0"
 			:message="notificationMessage"
 			:duration="5000"
 			@onDidDismiss="onToastClosed"
 		>
-			<!-- <ion-button @click="onLocateMeButtonClick">
-				<ion-icon
-					slot="icon-only"
-					:icon="icons.navigateIcon"
-				></ion-icon>
-			</ion-button> -->
-		</ion-toast>
+		</ion-toast> -->
 	</ion-page>
 </template>
 

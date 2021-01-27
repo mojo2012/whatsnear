@@ -37,7 +37,8 @@
 					tabindex="0"
 					v-model="username"
 					id="username"
-					@keypress="onUsernameInputKeyPress"
+					class="form-field"
+					@keypress="onInputFieldKeyPress"
 					required
 					:autofocus="true"
 					enterkeyhint="next"
@@ -55,7 +56,8 @@
 					type="password"
 					v-model="password"
 					id="password"
-					@keypress="onPasswordInputKeyPress"
+					class="form-field"
+					@keypress="onInputFieldKeyPress"
 					required
 					autocomplete="current-password"
 					enterkeyhint="send"
@@ -70,12 +72,14 @@
 			</ion-item>
 
 			<!-- register fields -->
-			<ion-item v-if="registerInputFieldsVisible">
+			<ion-item v-if="isTypeRegister">
 				<ion-label position="floating">First name</ion-label>
 				<ion-input
 					tabindex="2"
 					v-model="firstName"
 					id="firstName"
+					class="form-field"
+					@keypress="onInputFieldKeyPress"
 					required
 					:autofocus="true"
 					enterkeyhint="next"
@@ -83,12 +87,14 @@
 				></ion-input>
 			</ion-item>
 
-			<ion-item v-if="registerInputFieldsVisible">
+			<ion-item v-if="isTypeRegister">
 				<ion-label position="floating">Last name</ion-label>
 				<ion-input
 					tabindex="3"
 					v-model="lastName"
 					id="lastName"
+					class="form-field"
+					@keypress="onInputFieldKeyPress"
 					required
 					:autofocus="true"
 					enterkeyhint="next"
