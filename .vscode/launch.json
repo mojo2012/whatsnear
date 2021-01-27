@@ -9,7 +9,7 @@
 			"request": "launch",
 			"name": "Chrome",
 			"url": "http://localhost:8100",
-			"webRoot": "${workspaceFolder}"
+			"webRoot": "${workspaceFolder}/frontend"
 		},
 		{
 			"type": "firefox",
@@ -17,7 +17,8 @@
 			"name": "firefox",
 			"reAttach": true,
 			"url": "http://localhost:8100",
-			"webRoot": "${workspaceFolder}"
-		},
+			"webRoot": "${workspaceFolder}/frontend",
+			"pathMappings": []
+		}
 	]
 }

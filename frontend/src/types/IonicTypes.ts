@@ -1,4 +1,5 @@
-import { menuController, modalController } from "@ionic/vue"
+import { alertController, menuController, modalController } from "@ionic/vue"
 
 export type ModalController = typeof modalController
 export type MenuController = typeof menuController
+export type AlertController = typeof alertController

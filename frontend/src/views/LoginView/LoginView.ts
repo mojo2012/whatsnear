@@ -1,5 +1,6 @@
 /* eslint-disable max-classes-per-file */
 import { AuthService } from "@/services/AuthService"
+import { RegisterOrLoginType } from "@/types/helper-types"
 import { ModalController } from "@/types/IonicTypes"
 import {
 	IonButton,
@@ -12,8 +13,11 @@ import {
 	IonLabel,
 	IonList,
 	IonPage,
+	IonSegment,
+	IonSegmentButton,
 	IonSelect,
 	IonSelectOption,
+	IonSpinner,
 	IonTextarea,
 	IonTitle,
 	IonToolbar,
@@ -41,7 +45,10 @@ import { useRouter } from "vue-router"
 		IonSelect,
 		IonSelectOption,
 		IonPage,
-		IonIcon
+		IonIcon,
+		IonSegment,
+		IonSpinner,
+		IonSegmentButton
 	}
 })
 export class LoginView extends Vue {
@@ -50,11 +57,22 @@ export class LoginView extends Vue {
 	private router = useRouter()
 
 	private username = ""
+	private firstName = ""
+	private lastName = ""
 	private password = ""
+
+	public inputFieldsDisabled = false
+	public registerOrLogin: RegisterOrLoginType = "login"
+
+	public isLoading = false
 
 	public icons = {
 		personAdd: personAdd,
 		logIn: logIn
+	}
+
+	public async mounted(this: this): Promise<void> {
+		//
 	}
 
 	public onCancelButtonClick(_event: MouseEvent): void {
@@ -63,39 +81,112 @@ export class LoginView extends Vue {
 		this.modalController.dismiss()
 	}
 
-	private resetForm(): void {
+	private resetFormInputFields(): void {
 		this.username = ""
 		this.password = ""
+		this.firstName = ""
+		this.lastName = ""
 	}
 
 	public async onSubmitButtonClick(): Promise<void> {
-		await this.submitLogin()
+		await this.submitForm()
 	}
 
-	public async onUsernameInputKeyPress(event: KeyboardEvent): Promise<void> {
+	public async onInputFieldKeyPress(event: KeyboardEvent): Promise<void> {
 		if (event.code === "Enter" || event.code === "NumpadEnter") {
-			const passwordInput: HTMLIonInputElement = document.getElementById("password") as HTMLIonInputElement
-			await passwordInput.setFocus()
+			if (this.validateForm()) {
+				await this.submitForm()
+			} else {
+				// const currentInput = event.target as HTMLIonInputElement
+				// const passwordInput: HTMLIonInputElement = document.getElementById("password") as HTMLIonInputElement
+				// await passwordInput.setFocus()
+				// this.focusInputField(currentInput.tabIndex + 1)
+			}
 		}
 	}
 
-	public async onPasswordInputKeyPress(event: KeyboardEvent): Promise<void> {
-		if (event.code === "Enter" || event.code === "NumpadEnter") {
-			await this.submitLogin()
+	private focusInputField(tabIndex: number): void {
+		const formFields = this.getFormFields()
+
+		if (formFields.length < tabIndex) {
+			const nextFormField = formFields.filter((field) => field.tabIndex === tabIndex)[0]
+			nextFormField?.focus()
 		}
 	}
 
-	public async submitLogin(): Promise<void> {
+	private validateForm(): boolean {
+		// TODO improve and validate in real
+		// const formFields = this.getFormFields()
+		// const validFormFields = formFields //
+		// 	.filter((field) => (field?.value?.toString()?.length ?? 0) > 0)
+
+		// return validFormFields.length == formFields.length
+
+		let ret = false
+
+		if (this.username.length > 0 && this.password.length > 0) {
+			if (this.isTypeRegister) {
+				if (this.firstName.length > 0 && this.lastName.length > 0) {
+					ret = true
+				}
+			} else {
+				ret = true
+			}
+		}
+
+		return ret
+	}
+
+	private getFormFields(): HTMLIonInputElement[] {
+		const inputFields = document.querySelectorAll("ion-input.form-field")
+		const mappedInputFields = []
+
+		for (const item of inputFields) {
+			mappedInputFields.push(item as HTMLIonInputElement)
+		}
+
+		return mappedInputFields
+	}
+
+	public onLoginTypeChanged(event: { detail: { value: RegisterOrLoginType } }): void {
+		this.registerOrLogin = event.detail.value
+	}
+
+	public get isTypeRegister(): boolean {
+		switch (this.registerOrLogin) {
+			case "register":
+				return true
+			case "login":
+				return false
+			default:
+				return false
+		}
+	}
+
+	public setInputFieldsDisabled(state: boolean): void {
+		this.inputFieldsDisabled = state
+	}
+
+	public async submitForm(): Promise<void> {
 		console.log(this.username + "/" + this.password)
-		try {
-			await this.authService.authenticate(this.username, this.password)
-			this.resetForm()
-			this.modalController.dismiss()
+		this.setInputFieldsDisabled(true)
 
-			this.$emit("onLoginSuccess")
+		try {
+			if (this.isTypeRegister) {
+				//
+			} else {
+				await this.authService.authenticate(this.username, this.password)
+			}
+
+			this.resetFormInputFields()
+
+			this.$emit("onLoginSuccess", this.registerOrLogin)
 		} catch (err) {
-			this.$emit("onLoginFailed")
+			console.error("Login failed")
+			this.$emit("onLoginFailed", this.registerOrLogin)
 		}
+
+		this.setInputFieldsDisabled(false)
 	}
 
 	public get isFormFilledOut(): boolean {

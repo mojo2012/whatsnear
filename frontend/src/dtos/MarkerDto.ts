@@ -4,4 +4,7 @@ export interface MarkerDto {
 	position: LatLng
 	label?: string
 	title?: string
+	description?: string
+	author?: string
+	uid?: string
 }
