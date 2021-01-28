@@ -7,6 +7,7 @@ import { Payload } from "@/dtos/Payload"
 import { PointOfInterest } from "@/dtos/PointOfInterest"
 import { BackendNotReachableException } from "@/exceptions/BackendNotReachableException"
 import { AuthService } from "@/services/AuthService"
+import { RequestUtil } from "@/utils/RequestUtil"
 import { getDistance } from "geolib"
 
 export class MapsService {
@@ -68,7 +69,12 @@ export class MapsService {
 
 		try {
 			const headers = await this.createAuthenticationHeader()
-			await fetch(url, { method: "POST", headers: headers, body: JSON.stringify(pointOfInterest) })
+			const options = {
+				method: "POST",
+				headers: headers,
+				body: JSON.stringify(pointOfInterest)
+			}
+			await RequestUtil.fetch(url, options)
 		} catch (ex) {
 			console.error("Could not add marker", ex)
 			// throw new BackendNotReachableException("Could not load markers from backend", ex)
@@ -91,7 +97,7 @@ export class MapsService {
 				method: "GET",
 				headers: await this.createAuthenticationHeader()
 			}
-			const results: Promise<Payload<PointOfInterest[]>> = await (await fetch(url.toString(), conf)).json()
+			const results: Promise<Payload<PointOfInterest[]>> = await (await RequestUtil.fetch(url.toString(), conf)).json()
 
 			return (await results).data
 		} catch (ex) {

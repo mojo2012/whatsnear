@@ -5,6 +5,7 @@ import { UserData } from "@/dtos/UserData"
 import { AuthenticationException } from "@/exceptions/AuthenticationException"
 import { RegistrationException } from "@/exceptions/RegistrationException"
 import { LocalStorageService } from "@/services/LocalStorageService"
+import { RequestUtil } from "@/utils/RequestUtil"
 
 export class AuthService {
 	private static _instance: AuthService
@@ -63,7 +64,7 @@ export class AuthService {
 				headers: [],
 				body: JSON.stringify(form)
 			}
-			const result: Promise<Payload<Authentication>> = await (await fetch(url, conf)).json()
+			const result: Promise<Payload<Authentication>> = await (await RequestUtil.fetch(url, conf)).json()
 
 			console.log("result: " + result)
 
@@ -89,7 +90,7 @@ export class AuthService {
 				headers: [],
 				body: JSON.stringify(registrationData)
 			}
-			const result: Promise<Payload<Authentication>> = await (await fetch(url, conf)).json()
+			const result: Promise<Payload<Authentication>> = await (await RequestUtil.fetch(url, conf)).json()
 
 			console.log("result: " + result)
 
