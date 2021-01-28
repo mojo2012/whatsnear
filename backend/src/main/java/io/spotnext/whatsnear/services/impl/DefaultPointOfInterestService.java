@@ -14,14 +14,17 @@ import com.grum.geocalc.EarthCalc;
 import com.grum.geocalc.Point;
 
 import io.spotnext.core.infrastructure.service.impl.AbstractService;
+import io.spotnext.itemtype.core.user.UserGroup;
 import io.spotnext.whatsnear.beans.DistanceData;
 import io.spotnext.whatsnear.beans.GeoLocationData;
 import io.spotnext.whatsnear.beans.PointOfInterestData;
 import io.spotnext.whatsnear.beans.PointOfInterestQueryData;
+import io.spotnext.whatsnear.itemtypes.CustomUser;
 import io.spotnext.whatsnear.itemtypes.PointOfInterest;
 import io.spotnext.whatsnear.itemtypes.enumeration.DistanceUnit;
 import io.spotnext.whatsnear.itemtypes.enumeration.PointOfInterestType;
 import io.spotnext.whatsnear.repositories.PointOfInterestRepository;
+import io.spotnext.whatsnear.services.CustomUserService;
 import io.spotnext.whatsnear.services.PointOfInterestService;
 
 @Service
@@ -29,6 +32,9 @@ public class DefaultPointOfInterestService extends AbstractService implements Po
 
 	@Autowired
 	private PointOfInterestRepository pointOfInterestRepository;
+	
+	@Autowired
+	private CustomUserService<CustomUser, UserGroup> customUserService;
 	
 	@Override
 	public List<PointOfInterestData> findAll(PointOfInterestQueryData query) {
@@ -82,13 +88,17 @@ public class DefaultPointOfInterestService extends AbstractService implements Po
 	public PointOfInterestData save(PointOfInterestData data) {
 		var poi = modelService.create(PointOfInterest.class);
 		
-		poi.setAuthor(data.getAuthor());
+//		poi.setAuthor(data.getAuthor());
 		poi.setDescription(data.getDescription());
 		poi.setTitle(data.getTitle());
 		poi.setType(data.getType());
 		poi.setUid(getUid(data.getTitle()));
 		poi.setLatitude(data.getLocation().getLatitude());
 		poi.setLongitude(data.getLocation().getLongitude());
+		
+		var currentUser = customUserService.getCurrentUser();
+		var user = customUserService.getUser(currentUser.getUid());
+		poi.setAuthor(user);
 		
 		modelService.save(poi);
 		
@@ -139,7 +149,7 @@ public class DefaultPointOfInterestService extends AbstractService implements Po
 		data.setTitle(source.getTitle());
 		data.setDescription(source.getDescription());
 		data.setType(source.getType());
-		data.setAuthor(source.getAuthor());
+		data.setAuthor(source.getAuthor().getUid());
 		
 		var location = new GeoLocationData();
 		location.setLatitude(source.getLatitude());

@@ -101,7 +101,7 @@
 		package="io.spotnext.whatsnear.itemtypes" extends="UniqueIdItem"
 		persistable="true">
 		<properties>
-			<property name="author" type="String" />
+			<property name="author" type="CustomUser" />
 			<property name="title" type="String" />
 			<property name="description" type="String" />
 			<property name="latitude" type="Double" />

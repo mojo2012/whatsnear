@@ -1,6 +1,8 @@
 package io.spotnext.whatsnear.services.impl;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 import org.apache.commons.lang3.StringUtils;
@@ -108,6 +110,9 @@ public class DefaultCustomUserService
 		var token = createToken();
 		user.setToken(token);
 		
+		var userGroup = getUserGroup("rest-access");
+		user.getGroups().add(userGroup);
+		
 		modelService.save(user);
 		
 		return convertToken(token);
@@ -129,6 +134,15 @@ public class DefaultCustomUserService
 	private boolean checkIfUsernameExists(String uid) {
 		var userOpt = customUserRepository.findByUid(uid);
 		return userOpt.isPresent();
+	}
+	
+	//TODO fix this in core
+	@Override
+	public UserGroup getUserGroup(final String uid) {
+		final Map<String, Object> params = new HashMap<>();
+		params.put("uid", uid);
+
+		return modelService.get(getUserGroupType(), params);
 	}
 
 }

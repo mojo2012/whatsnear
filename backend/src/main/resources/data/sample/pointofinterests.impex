@@ -1,5 +1,5 @@
-INSERT_UPDATE PointOfInterest;uid[unique=true];author;title;description;latitude;longitude;type;
-;testitem1;Testuser;Testitem;Testdescription;48;16;NEED_HELP;
-;testitem2;Testuser2;Testitem2;Testdescription2;48.5;16;LOOKING_FOR;
-;testitem3;Testuser3;Testitem3;Testdescription3;48;16.5;SELLING;
-;testitem4;Testuser4;Testitem4;Testdescription4;48.5;16.5;GIVE_AWAY;
+INSERT_UPDATE PointOfInterest;uid[unique=true];author(uid);title;description;latitude;longitude;type;
+;testitem1;testuser;Testitem;Testdescription;48;16;NEED_HELP;
+;testitem2;testuser;Testitem2;Testdescription2;48.5;16;LOOKING_FOR;
+;testitem3;testuser;Testitem3;Testdescription3;48;16.5;SELLING;
+;testitem4;testuser;Testitem4;Testdescription4;48.5;16.5;GIVE_AWAY;
