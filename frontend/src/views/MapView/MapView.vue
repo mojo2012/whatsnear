@@ -208,4 +208,8 @@ div.login-error-message > span {
 ion-toolbar > ion-searchbar.toolbar-item {
 	padding-top: 14px;
 }
+
+ion-buttons.ios {
+	margin-top: 6px;
+}
 </style>
