@@ -16,7 +16,6 @@ import io.spotnext.core.security.service.AuthenticationService;
 import io.spotnext.itemtype.core.user.UserGroup;
 import io.spotnext.whatsnear.beans.AccessTokenData;
 import io.spotnext.whatsnear.beans.CreateUserRequestData;
-import io.spotnext.whatsnear.beans.CustomUserData;
 import io.spotnext.whatsnear.itemtypes.AccessToken;
 import io.spotnext.whatsnear.itemtypes.CustomUser;
 import io.spotnext.whatsnear.repositories.CustomUserRepository;
