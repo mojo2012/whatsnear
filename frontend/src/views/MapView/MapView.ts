@@ -169,6 +169,8 @@ export class MapView extends Vue {
 						description: marker.description,
 						distance: (marker.distance.value / 1000).toFixed(1),
 						distanceUnit: "km"
+						// shape: { coords: [marker.location.latitude, marker.location.longitude, 1] } as google.maps.MarkerShapeCircle
+						// icon: { url: "https://media.tenor.com/images/822fb670841c6f6582fefbb82e338a50/tenor.gif" }
 					} as MarkerDto
 				})
 		} catch (exception) {
@@ -214,6 +216,15 @@ export class MapView extends Vue {
 
 	public async onAddMarker(event: CreatePointOfInterestRequest): Promise<void> {
 		console.log("onAddMarkerClicked: title=" + event.title)
+
+		const randomLower = -0.0001
+		const randomUpper = +0.0001
+
+		event.location = {
+			latitude: MathUtil.random(randomLower, randomUpper) + event.location.latitude,
+			longitude: MathUtil.random(randomLower, randomUpper) + event.location.longitude
+		}
+
 		await this.mapsService.addMarker(event)
 		await this.syncMarkers()
 	}

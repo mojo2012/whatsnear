@@ -1,9 +1,7 @@
 import { LatLng } from "@/dtos/LatLng"
 
-export interface MarkerDto {
+export interface MarkerDto extends google.maps.MarkerOptions {
 	position: LatLng
-	label?: string
-	title?: string
 	description?: string
 	author?: string
 	uid?: string
