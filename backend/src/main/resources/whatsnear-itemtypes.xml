@@ -85,9 +85,8 @@
 		</properties>
 	</bean>
 	
-	<bean name="CustomUserData"
-		package="io.spotnext.whatsnear.beans"
-		extends="UserData">
+	<bean name="UserData"
+		package="io.spotnext.itemtype.core.beans">
 		<properties>
 			<property name="password" type="String" />
 			<property name="firstname" type="String" />
@@ -101,7 +100,6 @@
 		package="io.spotnext.whatsnear.itemtypes" extends="UniqueIdItem"
 		persistable="true">
 		<properties>
-			<property name="author" type="CustomUser" />
 			<property name="title" type="String" />
 			<property name="description" type="String" />
 			<property name="latitude" type="Double" />
@@ -110,12 +108,11 @@
 		</properties>
 	</type>
 
-	<type name="CustomUser" typeCode="CustomUser" extends="User"
-		package="io.spotnext.whatsnear.itemtypes">
+	<type name="User" typeCode="User"
+		package="io.spotnext.itemtype.core.user">
 		<properties>
 			<property name="firstname" type="String" />
 			<property name="lastname" type="String" />
-			<property name="token" type="AccessToken" />
 			<property name="maxDistance" type="Double" />
 		</properties>
 	</type>
@@ -127,5 +124,20 @@
 			<property name="validTo" type="LocalDateTime" />
 		</properties>	
 	</type>
+	
+	<!-- RELATIONS -->
+	<relation name="User2PointOfInterest">
+		<description>Defines a poi ownership relation.</description>
+		<source itemType="User" mappedBy="author" cardinality="one" />
+		<target itemType="PointOfInterest" mappedBy="pois"
+			cardinality="many" />
+	</relation>
+	
+	<relation name="User2AccessToken">
+		<description>Defines a token ownership relation.</description>
+		<source itemType="User" mappedBy="owner" cardinality="one" />
+		<target itemType="AccessToken" mappedBy="tokens"
+			cardinality="many" />
+	</relation>
 
 </types>

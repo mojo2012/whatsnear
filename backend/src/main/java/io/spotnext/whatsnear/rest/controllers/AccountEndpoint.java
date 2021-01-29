@@ -17,10 +17,10 @@ import io.spotnext.core.management.support.NoAuthenticationFilter;
 import io.spotnext.core.management.transformer.JsonResponseTransformer;
 import io.spotnext.itemtype.core.beans.SerializationConfiguration;
 import io.spotnext.itemtype.core.enumeration.DataFormat;
+import io.spotnext.itemtype.core.user.User;
 import io.spotnext.itemtype.core.user.UserGroup;
 import io.spotnext.whatsnear.beans.CreateUserRequestData;
 import io.spotnext.whatsnear.beans.LoginRequestData;
-import io.spotnext.whatsnear.itemtypes.CustomUser;
 import io.spotnext.whatsnear.services.CustomUserService;
 import spark.Request;
 import spark.Response;
@@ -35,7 +35,7 @@ public class AccountEndpoint extends AbstractRestEndpoint{
 	}
 	
 	@Autowired
-	private CustomUserService<CustomUser, UserGroup> customUserService;
+	private CustomUserService<User, UserGroup> customUserService;
 	
 	@Log(logLevel = LogLevel.DEBUG, measureExecutionTime = true)
 	@Handler(method = HttpMethod.post, pathMapping = { "/login"}, mimeType = MimeType.JSON, responseTransformer = JsonResponseTransformer.class)

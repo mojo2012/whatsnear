@@ -1,10 +1,16 @@
 package io.spotnext.whatsnear.services.impl;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.TreeSet;
 import java.util.UUID;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,24 +19,21 @@ import io.spotnext.core.infrastructure.exception.CannotCreateUserException;
 import io.spotnext.core.infrastructure.service.ModelService;
 import io.spotnext.core.infrastructure.support.Logger;
 import io.spotnext.core.security.service.AuthenticationService;
+import io.spotnext.itemtype.core.user.User;
 import io.spotnext.itemtype.core.user.UserGroup;
 import io.spotnext.whatsnear.beans.AccessTokenData;
 import io.spotnext.whatsnear.beans.CreateUserRequestData;
 import io.spotnext.whatsnear.itemtypes.AccessToken;
-import io.spotnext.whatsnear.itemtypes.CustomUser;
-import io.spotnext.whatsnear.repositories.CustomUserRepository;
 import io.spotnext.whatsnear.services.CustomUserService;
+
 
 @Service
 public class DefaultCustomUserService
-		extends io.spotnext.core.infrastructure.service.impl.DefaultUserService<CustomUser, UserGroup>
-		implements CustomUserService<CustomUser, UserGroup> {
+		extends io.spotnext.core.infrastructure.service.impl.DefaultUserService<User, UserGroup>
+		implements CustomUserService<User, UserGroup> {
 
 	@Autowired
 	private AuthenticationService authenticationService;
-
-	@Autowired
-	private CustomUserRepository customUserRepository;
 
 	@Autowired
 	private ModelService modelService;
@@ -39,19 +42,21 @@ public class DefaultCustomUserService
 	public AccessTokenData login(String uid, String password) {
 		var user = authenticationService.getAuthenticatedUser(uid, password, false);
 
-		if (user != null && user instanceof CustomUser) {
-			var customUser = (CustomUser) user;
-			if (customUser.getToken() == null) {
+		if (user != null) {
+			var customUser = (User) user;
+			if (CollectionUtils.isEmpty(customUser.getTokens())) {
 				var token = createToken();
-				customUser.setToken(token);
+				var tokenSet = new HashSet<AccessToken>();
+				tokenSet.add(token);
+				customUser.setTokens(tokenSet);
 				modelService.save(customUser);
 				return convertToken(token);
 			} else {
-				var token = customUser.getToken();
+				var token = getLatestToken(customUser);
 				var now = LocalDateTime.now();
 				if (now.isAfter(token.getValidTo())) {
 					var newToken = createToken();
-					customUser.setToken(newToken);
+					customUser.getTokens().add(newToken);
 					modelService.save(customUser);
 					return convertToken(newToken);
 				} else {
@@ -64,11 +69,15 @@ public class DefaultCustomUserService
 		}
 
 	}
-
-	@Override
-	public CustomUser getUser(AccessToken token) {
-		var user = customUserRepository.findbyToken(token.getToken()).orElse(null);
-		return user;
+	
+	private AccessToken getLatestToken(User user) {
+		var tokens = user.getTokens();
+		if (CollectionUtils.isNotEmpty(user.getTokens())) {
+			Supplier<TreeSet<AccessToken>> token = () -> new TreeSet<AccessToken>(new TokenComparator());
+			var sortedTokens = tokens.stream().collect(Collectors.toCollection(token));
+			return tokens.iterator().next();
+		}
+		return null;
 	}
 
 	private AccessTokenData convertToken(AccessToken token) {
@@ -97,7 +106,7 @@ public class DefaultCustomUserService
 			throw new CannotCreateUserException();
 		}
 
-		var user = modelService.create(CustomUser.class);
+		var user = modelService.create(User.class);
 
 		user.setUid(data.getUsername());
 		user.setPassword(authenticationService.encryptPassword(data.getPassword()));
@@ -107,7 +116,7 @@ public class DefaultCustomUserService
 		user.setMaxDistance(100000.);
 		
 		var token = createToken();
-		user.setToken(token);
+		user.getTokens().add(token);
 		
 		var userGroup = getUserGroup("rest-access");
 		user.getGroups().add(userGroup);
@@ -131,8 +140,15 @@ public class DefaultCustomUserService
 //	}
 
 	private boolean checkIfUsernameExists(String uid) {
-		var userOpt = customUserRepository.findByUid(uid);
-		return userOpt.isPresent();
+		final Map<String, Object> params = new HashMap<>();
+		params.put("uid", uid);
+
+		var user = modelService.get(User.class, params);
+		if (user == null) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 	
 	//TODO fix this in core
@@ -142,6 +158,13 @@ public class DefaultCustomUserService
 		params.put("uid", uid);
 
 		return modelService.get(getUserGroupType(), params);
+	}
+	
+	private class TokenComparator implements Comparator<AccessToken> {
+		@Override
+		public int compare(AccessToken o1, AccessToken o2) {
+			return o1.getValidTo().compareTo(o2.getValidTo());
+		}
 	}
 
 }

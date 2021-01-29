@@ -13,18 +13,18 @@ import com.grum.geocalc.Coordinate;
 import com.grum.geocalc.EarthCalc;
 import com.grum.geocalc.Point;
 
+import io.spotnext.core.infrastructure.service.UserService;
 import io.spotnext.core.infrastructure.service.impl.AbstractService;
+import io.spotnext.itemtype.core.user.User;
 import io.spotnext.itemtype.core.user.UserGroup;
 import io.spotnext.whatsnear.beans.DistanceData;
 import io.spotnext.whatsnear.beans.GeoLocationData;
 import io.spotnext.whatsnear.beans.PointOfInterestData;
 import io.spotnext.whatsnear.beans.PointOfInterestQueryData;
-import io.spotnext.whatsnear.itemtypes.CustomUser;
 import io.spotnext.whatsnear.itemtypes.PointOfInterest;
 import io.spotnext.whatsnear.itemtypes.enumeration.DistanceUnit;
 import io.spotnext.whatsnear.itemtypes.enumeration.PointOfInterestType;
 import io.spotnext.whatsnear.repositories.PointOfInterestRepository;
-import io.spotnext.whatsnear.services.CustomUserService;
 import io.spotnext.whatsnear.services.PointOfInterestService;
 
 @Service
@@ -34,7 +34,7 @@ public class DefaultPointOfInterestService extends AbstractService implements Po
 	private PointOfInterestRepository pointOfInterestRepository;
 	
 	@Autowired
-	private CustomUserService<CustomUser, UserGroup> customUserService;
+	private UserService<User, UserGroup> userService;
 	
 	@Override
 	public List<PointOfInterestData> findAll(PointOfInterestQueryData query) {
@@ -96,8 +96,8 @@ public class DefaultPointOfInterestService extends AbstractService implements Po
 		poi.setLatitude(data.getLocation().getLatitude());
 		poi.setLongitude(data.getLocation().getLongitude());
 		
-		var currentUser = customUserService.getCurrentUser();
-		var user = customUserService.getUser(currentUser.getUid());
+		var currentUser = userService.getCurrentUser();
+		var user = userService.getUser(currentUser.getUid());
 		poi.setAuthor(user);
 		
 		modelService.save(poi);

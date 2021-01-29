@@ -13,7 +13,6 @@ import io.spotnext.core.management.support.HttpAuthorizationType;
 import io.spotnext.itemtype.core.user.User;
 import io.spotnext.itemtype.core.user.UserGroup;
 import io.spotnext.whatsnear.itemtypes.AccessToken;
-import io.spotnext.whatsnear.itemtypes.CustomUser;
 import io.spotnext.whatsnear.repositories.AccessTokenRepository;
 import io.spotnext.whatsnear.services.CustomUserService;
 import spark.Request;
@@ -26,7 +25,7 @@ public class CustomAuthenticationFilter implements AuthenticationFilter {
 	private AccessTokenRepository accessTokenRepository;
 	
 	@Autowired
-	private CustomUserService<CustomUser, UserGroup> customUserService;
+	private CustomUserService<User, UserGroup> customUserService;
 	
 	@Override
 	public void handle(Request request, Response response) throws AuthenticationException {
@@ -43,17 +42,17 @@ public class CustomAuthenticationFilter implements AuthenticationFilter {
 		return user != null && customUserService.isUserInGroup(user.getUid(), "rest-access");
 	}
 
-	protected CustomUser authenticate(final Request request, final Response response) {
+	protected User authenticate(final Request request, final Response response) {
 		final String authorizationHeader = request.headers("Authorization");
 
-		CustomUser authenticatedUser = null;
+		User authenticatedUser = null;
 
 		if (StringUtils.isNotBlank(authorizationHeader)) {
 			
 			var token = accessTokenRepository.findByToken(UUID.fromString(authorizationHeader)).orElse(null);
 			
 			if (token != null && isValid(token)) {
-				return customUserService.getUser(token);
+				return token.getOwner();
 			}
 			
 		}
