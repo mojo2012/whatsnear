@@ -1,7 +1,8 @@
+import { Optional } from "@/types/Optional"
 import { Supplier } from "@/types/Supplier"
 
 export class AsyncUtil {
-	public static run<T>(asyncFunction: Supplier<Promise<T>>): T | undefined | null {
+	public static await<T>(asyncFunction: Supplier<Promise<T>>): Optional<T> {
 		let result: T | undefined | null
 		;(async (): Promise<void> => {
 			asyncFunction()
@@ -16,6 +17,6 @@ export class AsyncUtil {
 	}
 }
 
-const result = AsyncUtil.run(() => fetch("https://httpstat.us/200?sleep=5000"))
+const result = AsyncUtil.await(() => fetch("https://httpstat.us/200?sleep=5000"))
 
 console.log(result)
