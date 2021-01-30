@@ -6,43 +6,24 @@ import { GeoLocation } from "@/dtos/GeoLocation"
 import { Payload } from "@/dtos/Payload"
 import { PointOfInterest } from "@/dtos/PointOfInterest"
 import { BackendNotReachableException } from "@/exceptions/BackendNotReachableException"
-import { AuthService } from "@/services/AuthService"
-import { RequestUtil } from "@/utils/RequestUtil"
+import { RequestService } from "@/services/RequestService"
 import { getDistance } from "geolib"
 
 export class MapsService {
 	private static _instance: MapsService
 
-	private cache: PointOfInterest[] = []
-	public authService = AuthService.instance
+	private requestService = RequestService.instance
 
 	private constructor() {
 		console.log("MapsService instantiated")
+	}
 
-		// for (let x = 0; x < 100; x++) {
-		// 	const randomLat = MathUtil.random(46, 49)
-		// 	const randomLon = MathUtil.random(9, 17)
+	public static get instance(): MapsService {
+		if (!MapsService._instance) {
+			MapsService._instance = new MapsService()
+		}
 
-		// 	const location: GeoLocation = {
-		// 		latitude: randomLat,
-		// 		longitude: randomLon
-		// 	}
-
-		// 	this.cache.push(
-		// 		new PointOfInterest(
-		// 			PointOfServiceType.SELLING,
-		// 			"me",
-		// 			location,
-		// 			{
-		// 				value: 0,
-		// 				unit: DistanceUnit.Meters
-		// 			},
-		// 			"Lego max" + x,
-		// 			"description",
-		// 			new Date()
-		// 		)
-		// 	)
-		// }
+		return MapsService._instance
 	}
 
 	private calculateDistance(point1: GeoLocation, point2: GeoLocation): DistanceData {
@@ -56,28 +37,13 @@ export class MapsService {
 		return distance
 	}
 
-	public static get instance(): MapsService {
-		if (!MapsService._instance) {
-			MapsService._instance = new MapsService()
-		}
-
-		return MapsService._instance
-	}
-
 	public async addMarker(pointOfInterest: CreatePointOfInterestRequest): Promise<void> {
 		const url = Settings.backendUrlV1 + "poi"
 
 		try {
-			const headers = await this.createAuthenticationHeader()
-			const options = {
-				method: "POST",
-				headers: headers,
-				body: JSON.stringify(pointOfInterest)
-			}
-			await RequestUtil.fetch(url, options)
+			await this.requestService.post(url, pointOfInterest)
 		} catch (ex) {
-			console.error("Could not add marker", ex)
-			// throw new BackendNotReachableException("Could not load markers from backend", ex)
+			throw new BackendNotReachableException("Could not add marker", ex)
 		}
 	}
 
@@ -93,26 +59,12 @@ export class MapsService {
 		}
 
 		try {
-			const conf = {
-				method: "GET",
-				headers: await this.createAuthenticationHeader()
-			}
-			const results: Promise<Payload<PointOfInterest[]>> = await (await RequestUtil.fetch(url.toString(), conf)).json()
+			const response = await this.requestService.get(url.toString())
+			const body: Promise<Payload<PointOfInterest[]>> = await response.json()
 
-			return (await results).data
+			return (await body).data
 		} catch (ex) {
 			throw new BackendNotReachableException("Could not load markers from backend", ex)
 		}
-	}
-
-	private createAuthenticationHeader(): Headers {
-		const authentication = this.authService.authentication
-		const headers = new Headers()
-
-		if (authentication?.token) {
-			headers.append("Authorization", authentication.token)
-		}
-
-		return headers
 	}
 }

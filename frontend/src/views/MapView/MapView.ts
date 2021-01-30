@@ -130,7 +130,7 @@ export class MapView extends Vue {
 
 			await this.syncMarkers()
 		} catch (exception) {
-			this.showNotificationMessage("Cannot get current geo location.")
+			this.showNotificationMessage("Cannot get current geo location: " + exception?.message)
 		}
 	}
 

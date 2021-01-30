@@ -4,6 +4,7 @@ import { PointOfServiceType } from "@/enums/PointOfServiceType"
 
 export class PointOfInterest {
 	public constructor(
+		public id: string,
 		public type: PointOfServiceType, //
 		public author: string,
 		public location: GeoLocation,

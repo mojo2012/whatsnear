@@ -11,7 +11,8 @@ export class LocationService {
 
 	public async getGeoLocation(): Promise<GeolocationPosition> {
 		return this.geolocation.getCurrentPosition({
-			enableHighAccuracy: true
+			enableHighAccuracy: true,
+			timeout: 5000
 		})
 	}
 
