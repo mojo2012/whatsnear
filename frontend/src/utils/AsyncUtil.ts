@@ -2,12 +2,16 @@ import { Optional } from "@/types/Optional"
 import { Supplier } from "@/types/Supplier"
 
 export class AsyncUtil {
+	// not working
 	public static await<T>(asyncFunction: Supplier<Promise<T>>): Optional<T> {
 		let result: T | undefined | null
 		;(async (): Promise<void> => {
-			asyncFunction()
-				.then((value) => (result = value))
-				.catch((err) => (result = null))
+			const retVal = await asyncFunction()
+
+			result = retVal
+			// .then((value) => (result = value))
+			// .catch((err) => (result = null))
+			// .finally(() => console.log("finally"))
 		})()
 
 		// let ret: T
@@ -17,6 +21,6 @@ export class AsyncUtil {
 	}
 }
 
-const result = AsyncUtil.await(() => fetch("https://httpstat.us/200?sleep=5000"))
+// const result = AsyncUtil.await(() => fetch("https://httpstat.us/200?sleep=5000"))
 
-console.log(result)
+// console.log(result)

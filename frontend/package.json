@@ -27,10 +27,12 @@
 	"dependencies": {
 		"@capacitor/core": "2.4.5",
 		"@capacitor/ios": "^2.4.5",
+		"@ionic-native/core": "^5.31.1",
 		"@ionic-native/globalization": "^5.31.1",
-		"@ionic/vue": "^5.4.0",
-		"@ionic/vue-router": "^5.4.0",
+		"@ionic/vue": "^5.5.3",
+		"@ionic/vue-router": "^5.5.3",
 		"core-js": "^3.8.3",
+		"eslint-plugin-import": "^2.22.1",
 		"exit-hook": "^2.2.0",
 		"geolib": "^3.3.1",
 		"ionicons": "^5.4.0",
@@ -59,7 +61,7 @@
 		"@vue/test-utils": "^2.0.0-rc.0",
 		"babel-jest": "^26.6.3",
 		"dotenv-webpack": "^6.0.0",
-		"eslint": "^7.18.0",
+		"eslint": "^7.19.0",
 		"eslint-config-prettier": "^7.2.0",
 		"eslint-plugin-node": "^11.1.0",
 		"eslint-plugin-prettier": "^3.3.1",
@@ -72,7 +74,6 @@
 		"ts-node": "~8.3.0",
 		"tslib": "^2.0.0",
 		"typescript": "~3.9.3",
-		"vue-jest": "^5.0.0-alpha.8",
 		"vue-template-compiler": "^2.6.12"
 	},
 	"homepage": "https://whatsnear-frontend.herokuapp.com/"

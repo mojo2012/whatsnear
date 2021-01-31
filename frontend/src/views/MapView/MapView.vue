@@ -59,7 +59,10 @@
 							:icon="icons.addIcon"
 						></ion-icon>
 					</ion-button>
-					<ion-button @click="onLocateMeButtonClick" title="Locate me">
+					<ion-button
+						@click="onLocateMeButtonClick"
+						title="Locate me"
+					>
 						<ion-icon
 							slot="icon-only"
 							:icon="icons.navigateIcon"
@@ -96,6 +99,7 @@
 				</ion-buttons>
 			</ion-toolbar>
 		</ion-header>
+
 		<ion-content id="main-content" :fullscreen="true">
 			<GoogleMap
 				:api-key="apiKey"
@@ -111,6 +115,7 @@
 					v-for="(marker, index) in markers"
 					:key="index"
 					:options="marker"
+					@click="onMarkerSelected($event, marker)"
 				/>
 			</GoogleMap>
 		</ion-content>
@@ -131,6 +136,17 @@
 		</ion-modal>
 
 		<ion-modal
+			key="show-marker-dialog"
+			mode="ios"
+			:swipe-to-close="true"
+			:is-open="isShowMarkerView"
+			css-class="show-marker-view"
+			@onDidDismiss="isShowMarkerView = false"
+		>
+			<show-marker-view :marker="selectedMarker"></show-marker-view>
+		</ion-modal>
+
+		<ion-modal
 			key="login-dialog"
 			mode="ios"
 			:swipe-to-close="true"
@@ -139,6 +155,7 @@
 			@onDidDismiss="onLoginDismiss"
 		>
 			<login-view
+				@onBeforeLogin="onBeforeLogin"
 				@onLoginSuccess="onLoginSuccess"
 				@onLoginFailed="onLoginFailed"
 			>
@@ -203,7 +220,6 @@ div.login-error-message > ion-icon {
 div.login-error-message > span {
 	margin: 10px;
 }
-
 
 ion-toolbar > ion-searchbar.toolbar-item {
 	padding-top: 14px;

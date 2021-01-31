@@ -30,7 +30,7 @@ import { useRouter } from "vue-router"
 
 @Options({
 	name: "login-view",
-	emits: ["onLoginFailed", "onLoginSuccess"],
+	emits: ["onBeforeLogin", "onLoginFailed", "onLoginSuccess"],
 	components: {
 		IonHeader,
 		IonToolbar,
@@ -170,16 +170,19 @@ export class LoginView extends Vue {
 
 	public async submitForm(): Promise<void> {
 		console.log(this.username + "/" + this.password)
+
+		this.$emit("onBeforeLogin")
+
 		this.setInputFieldsDisabled(true)
 
 		try {
 			if (this.isTypeRegister) {
 				const registration: UserData = {
-						username: this.username,
-						password: this.password,
-						firstname: this.firstName,
-						lastname: this.lastName
-					}
+					username: this.username,
+					password: this.password,
+					firstname: this.firstName,
+					lastname: this.lastName
+				}
 				await this.authService.register(registration)
 			} else {
 				await this.authService.authenticate(this.username, this.password)

@@ -8,14 +8,14 @@
 
 		<ion-content :fullscreen="true">
 			<ion-list>
-				<ion-item button onclick="showDetail('${tech.title}')">
+				<ion-item v-for="conversation, index in conversations">
 					<ion-icon
 						slot="start"
 						name="people-circle-outline"
-						style="color: #FFF"
+						style="color: #fff"
 					></ion-icon>
 					<ion-label>
-						<h3>A</h3>
+						<h3>{{conversation.poi}}</h3>
 					</ion-label>
 				</ion-item>
 			</ion-list>

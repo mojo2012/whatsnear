@@ -1,4 +1,4 @@
 export enum DistanceUnit {
-	Meters,
+	Meter,
 	Kilometer
 }

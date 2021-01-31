@@ -1,7 +1,7 @@
-import ExploreContainer from "@/components/ExploreContainer.vue"
 import { POINT_OF_SERVICE_MAPPING } from "@/configuration/Mappings"
 import { Settings } from "@/configuration/Settings"
 import { CreatePointOfInterestRequest } from "@/dtos/CreatePointOfInterestRequest"
+import { DistanceUnit } from "@/dtos/DistanceUnit"
 import { GeoLocation } from "@/dtos/GeoLocation"
 import { LatLng } from "@/dtos/LatLng"
 import { MarkerDto } from "@/dtos/MarkerDto"
@@ -13,6 +13,7 @@ import { AlertController, MenuController, ModalController } from "@/types/IonicT
 import { MathUtil } from "@/utils/MathUtil"
 import AddMarkerView from "@/views/AddMarkerView/AddMarkerView.vue"
 import LoginView from "@/views/LoginView/LoginView.vue"
+import ShowMarkerView from "@/views/ShowMarkerView/ShowMarkerView.vue"
 import {
 	IonButton,
 	IonButtons,
@@ -45,7 +46,6 @@ import { GoogleMap, Marker } from "vue3-google-map"
 	components: {
 		GoogleMap,
 		Marker,
-		ExploreContainer,
 		IonHeader,
 		IonToolbar,
 		IonTitle,
@@ -64,6 +64,7 @@ import { GoogleMap, Marker } from "vue3-google-map"
 		IonLabel,
 		IonToast,
 		AddMarkerView,
+		ShowMarkerView,
 		LoginView
 	}
 })
@@ -97,8 +98,10 @@ export class MapView extends Vue {
 	public isSidebarVisible = false
 	public markerFilter = ""
 	public apiKey = Settings.googleApiKey
+	public isShowMarkerView = false
 	public isShowAddMarkerView = false
 	public isShowLoginView = false
+	public selectedMarker!: MarkerDto
 	public markers: MarkerDto[] = []
 
 	// icons
@@ -111,7 +114,6 @@ export class MapView extends Vue {
 		logoutIcon: logOut,
 		alertCircle: alertCircleOutline
 	}
-
 	public async created(): Promise<void> {
 		console.log("Created")
 
@@ -146,7 +148,10 @@ export class MapView extends Vue {
 	public onMarkerSelected(event: MouseEvent, marker: MarkerDto): void {
 		console.log("onMarkerSelected")
 
+		this.selectedMarker = marker
 		this.mapCenter = marker.position
+
+		this.isShowMarkerView = true
 	}
 
 	public async syncMarkers(): Promise<void> {
@@ -168,7 +173,7 @@ export class MapView extends Vue {
 						title: marker.title,
 						description: marker.description,
 						distance: (marker.distance.value / 1000).toFixed(1),
-						distanceUnit: "km"
+						distanceUnit: DistanceUnit.Kilometer
 						// shape: { coords: [marker.location.latitude, marker.location.longitude, 1] } as google.maps.MarkerShapeCircle
 						// icon: { url: "https://media.tenor.com/images/822fb670841c6f6582fefbb82e338a50/tenor.gif" }
 					} as MarkerDto
@@ -227,6 +232,11 @@ export class MapView extends Vue {
 
 		await this.mapsService.addMarker(event)
 		await this.syncMarkers()
+	}
+
+	public onBeforeLogin(): void {
+		console.log("onBeforeLogin")
+		this.loginErrorMessage = ""
 	}
 
 	public onLoginSuccess(type: RegisterOrLoginType): void {

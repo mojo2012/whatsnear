@@ -1,5 +1,4 @@
 /* eslint-disable max-classes-per-file */
-import ExploreContainer from "@/components/ExploreContainer.vue"
 import { PointOfServiceTypeIconMappingType, POINT_OF_SERVICE_MAPPING } from "@/configuration/Mappings"
 import { Settings } from "@/configuration/Settings"
 import { CreatePointOfInterestRequest } from "@/dtos/CreatePointOfInterestRequest"
@@ -43,7 +42,6 @@ class Props {
 	components: {
 		GoogleMap,
 		Marker,
-		ExploreContainer,
 		IonHeader,
 		IonToolbar,
 		IonTitle,

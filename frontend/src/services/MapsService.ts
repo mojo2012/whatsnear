@@ -30,7 +30,7 @@ export class MapsService {
 		const distanceValueInMeters = getDistance(point1, point2)
 
 		const distance: DistanceData = {
-			unit: DistanceUnit.Meters,
+			unit: DistanceUnit.Meter,
 			value: distanceValueInMeters
 		}
 
