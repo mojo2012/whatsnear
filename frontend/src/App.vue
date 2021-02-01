@@ -18,7 +18,7 @@ export default defineComponent({
 </script>
 
 <style>
-:root {
+* {
 	--ion-color-primary: #ab00d7;
 	--ion-color-primary-rgb: 171, 0, 215;
 	--ion-color-primary-contrast: #ffffff;
@@ -126,7 +126,7 @@ ion-toolbar > ion-searchbar.toolbar-item {
 	padding-top: 14px;
 }
 
-ion-buttons.ios {
+ion-toolbar.main > ion-buttons.ios {
 	margin-top: 6px;
 }
 </style>

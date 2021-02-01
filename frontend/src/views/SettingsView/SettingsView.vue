@@ -1,7 +1,7 @@
 <template>
 	<ion-page>
 		<ion-header>
-			<ion-toolbar>
+			<ion-toolbar class="main" color="primary">
 				<ion-title size="large">Settings</ion-title>
 				<ion-buttons slot="end" class="toolbar-item">
 					<!-- login/logout buttons -->

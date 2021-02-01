@@ -1,7 +1,7 @@
 <template>
 	<ion-page>
 		<ion-header>
-			<ion-toolbar>
+			<ion-toolbar class="main"  color="primary">
 				<ion-searchbar
 					debounce="1000"
 					animated

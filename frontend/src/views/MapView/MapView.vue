@@ -28,7 +28,7 @@
 		</ion-menu>
 
 		<ion-header>
-			<ion-toolbar color="primary">
+			<ion-toolbar class="main" color="primary">
 				<ion-searchbar
 					debounce="1000"
 					animated
