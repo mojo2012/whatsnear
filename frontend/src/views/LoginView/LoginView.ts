@@ -174,6 +174,7 @@ export class LoginView extends Vue {
 		this.$emit("onBeforeLogin")
 
 		this.setInputFieldsDisabled(true)
+		this.isLoading = true
 
 		try {
 			if (this.isTypeRegister) {
@@ -196,6 +197,7 @@ export class LoginView extends Vue {
 			this.$emit("onLoginFailed", this.registerOrLogin)
 		}
 
+		this.isLoading = false
 		this.setInputFieldsDisabled(false)
 	}
 

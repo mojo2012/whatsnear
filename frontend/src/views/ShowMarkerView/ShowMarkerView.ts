@@ -1,4 +1,5 @@
 /* eslint-disable max-classes-per-file */
+import { PointOfServiceTypeIconMappingType, POINT_OF_SERVICE_MAPPING } from "@/configuration/Mappings"
 import { Settings } from "@/configuration/Settings"
 import { MarkerDto } from "@/dtos/MarkerDto"
 import { ModalController } from "@/types/IonicTypes"
@@ -28,6 +29,7 @@ class Props {
 		required: true
 	})
 }
+
 @Options({
 	name: "show-marker-view",
 	components: {
@@ -72,13 +74,16 @@ export class ShowMarkerView extends Vue.with(Props) {
 		return this._marker.description ?? ""
 	}
 
-	// public get title(): string {
-	// 	return this.pointOfService.title
-	// }
+	public get markerType(): string {
+		// const code = this.markerTypes
+		// 	.filter((t) => t.code === this.marker.type) //
+		// 	.map((t) => t.icon)
+		// const ret = `${this.marker.type} ${code}`
 
-	// public get mapCenter(): LatLng {
-	// 	return {
-	// 		lat: this.pointOfService.location.latitude,
-	// 		lng: this.pointOfService.location.longitude
-	// }
+		return this.marker.type
+	}
+
+	public get markerTypes(): PointOfServiceTypeIconMappingType[] {
+		return POINT_OF_SERVICE_MAPPING
+	}
 }

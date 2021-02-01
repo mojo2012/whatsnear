@@ -22,10 +22,17 @@
 
 				<ion-buttons slot="end">
 					<ion-button
+						v-show="!isLoading"
 						@click="onSubmitButtonClick"
 						:disabled="!isFormFilledOut"
 						>Submit</ion-button
 					>
+					<!-- loading animation -->
+					<ion-spinner
+						v-show="isLoading"
+						class="loading-spinner"
+						name="lines"
+					></ion-spinner>
 				</ion-buttons>
 			</ion-toolbar>
 		</ion-header>
@@ -102,13 +109,6 @@
 				></ion-input>
 			</ion-item>
 
-			<!-- loading animation -->
-			<ion-spinner
-				v-if="isLoading"
-				class="loading-spinner"
-				name="lines"
-			></ion-spinner>
-
 			<slot></slot>
 		</ion-content>
 	</ion-page>
@@ -120,11 +120,11 @@ export default LoginView;
 </script>
 
 <style>
-.loading-spinner {
+/* .loading-spinner {
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
 	margin-top: 30px;
 	margin-bottom: auto;
-}
+} */
 </style>

@@ -1,4 +1,5 @@
 /* eslint-disable max-classes-per-file */
+import { AuthService } from "@/services/AuthService"
 import {
 	IonButton,
 	IonButtons,
@@ -12,6 +13,7 @@ import {
 	IonLabel,
 	IonList,
 	IonListHeader,
+	IonMenuButton,
 	IonPage,
 	IonSelect,
 	IonSelectOption,
@@ -20,11 +22,13 @@ import {
 	IonToggle,
 	IonToolbar
 } from "@ionic/vue"
+import { add, alertCircleOutline, close, key, logOut, navigate, search } from "ionicons/icons"
 import { Options, Vue } from "vue-class-component"
 
 @Options({
 	name: "settings-view",
 	components: {
+		IonMenuButton,
 		IonListHeader,
 		IonIcon,
 		IonItemGroup,
@@ -47,7 +51,20 @@ import { Options, Vue } from "vue-class-component"
 	}
 })
 export class SettingsView extends Vue {
+	public authService = AuthService.instance
+
 	public radiusEntries = [50, 100, 200, 500, 1000]
 	public maxRadius = 100
 	public notifyAboutNewMarkers = true
+
+	// icons
+	public icons = {
+		addIcon: add,
+		searchIcon: search,
+		closeIcon: close,
+		navigateIcon: navigate,
+		loginIcon: key,
+		logoutIcon: logOut,
+		alertCircle: alertCircleOutline
+	}
 }

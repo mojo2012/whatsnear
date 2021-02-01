@@ -8,11 +8,11 @@
 
 				<ion-title size="middle">{{marker.title}}</ion-title>
 
-				<!-- <ion-buttons slot="end">
-					<ion-button @click="onAddButtonClick" color="primary">
-						Add
+				<ion-buttons slot="end">
+					<ion-button @click="onContactButtonClick" color="primary">
+						Contact
 					</ion-button>
-				</ion-buttons> -->
+				</ion-buttons>
 			</ion-toolbar>
 		</ion-header>
 		<ion-content fullscreen>
@@ -35,37 +35,26 @@
 				<!-- TITLE -->
 				<ion-item>
 					<ion-input
+						readonly
 						placeholder="Title"
-						v-model="title"
 						:value="marker.title"
 					></ion-input>
 				</ion-item>
 
 				<!-- MARKER TYPE -->
-				<!-- <ion-item>
-					<ion-label>Marker types</ion-label>
-
-					<ion-select
-						placeholder=""
-						:value="marker.markerType"
-						@ionChange="onMarkerTypeChanged"
-					>
-						<ion-label>Marker types</ion-label>
-						<ion-select-option
-							v-for="mk in markerTypes"
-							:value="mk.code"
-						>
-							{{ mk.icon }} {{ mk.code }}
-						</ion-select-option>
-					</ion-select>
-				</ion-item> -->
+				<ion-item>
+					<ion-input
+						readonly
+						placeholder="Type"
+						:value="markerType"
+					></ion-input>
+				</ion-item>
 
 				<!-- DESCRIPTION -->
 				<ion-item>
 					<ion-textarea
+						readonly
 						:autoGrow="true"
-						placeholder="Description"
-						v-model="description"
 						:value="marker.description"
 					></ion-textarea>
 				</ion-item>

@@ -28,7 +28,7 @@
 		</ion-menu>
 
 		<ion-header>
-			<ion-toolbar>
+			<ion-toolbar color="primary">
 				<ion-searchbar
 					debounce="1000"
 					animated
@@ -37,16 +37,6 @@
 					@input="onSearchBarInput"
 					placeholder="Filter ..."
 				></ion-searchbar>
-
-				<!-- <ion-input
-					type="search"
-					:clearInput="true"
-					:debounce="true"
-					inputmode="search"
-					placeholder="Search ..."
-					@input="onSearchBarInput"
-				>
-				</ion-input> -->
 
 				<ion-buttons slot="end" class="toolbar-item">
 					<ion-button
@@ -186,46 +176,5 @@ export default MapView;
 </script>
 
 <style scoped>
-ion-input#addInputBox {
-	margin-left: 10px;
-}
 
-.modal-wrapper {
-	margin-top: 10px;
-	border-radius: 20px;
-	width: 98vw;
-	max-width: 500px;
-}
-
-div.login-error-message {
-	display: flex;
-	background-color: #f1d0d0;
-	border: 1px solid red;
-	border-radius: 0.5em;
-	margin: 20px;
-	padding: 4px;
-	padding-bottom: 5px;
-	padding-left: 10px;
-	padding-right: 10px;
-	align-items: center;
-}
-
-div.login-error-message > ion-icon {
-	width: 30px;
-	height: 30px;
-	color: red;
-	box-sizing: border-box;
-}
-
-div.login-error-message > span {
-	margin: 10px;
-}
-
-ion-toolbar > ion-searchbar.toolbar-item {
-	padding-top: 14px;
-}
-
-ion-buttons.ios {
-	margin-top: 6px;
-}
 </style>
