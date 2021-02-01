@@ -1,7 +1,9 @@
 package io.spotnext.whatsnear.services.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.apache.commons.collections4.CollectionUtils;
@@ -142,9 +144,11 @@ public class DefaultPointOfInterestService extends AbstractService implements Po
 		}
 	}
 	
-	private PointOfInterestData convert(PointOfInterest source) {
+	@Override
+	public PointOfInterestData convert(PointOfInterest source) {
 		var data = new PointOfInterestData();
 		
+		data.setId(source.getId().toString());
 		data.setUid(source.getUid());
 		data.setTitle(source.getTitle());
 		data.setDescription(source.getDescription());
@@ -175,6 +179,13 @@ public class DefaultPointOfInterestService extends AbstractService implements Po
 	
 	private Point getPoint(PointOfInterestData data) {
 		return getPoint(data.getLocation().getLatitude(), data.getLocation().getLongitude());
+	}
+
+	@Override
+	public PointOfInterest getPoi(String id) {
+		var opt = pointOfInterestRepository.findById(Long.parseLong(id));
+		
+		return opt.isPresent() ? opt.get() : null;
 	}
 
 }

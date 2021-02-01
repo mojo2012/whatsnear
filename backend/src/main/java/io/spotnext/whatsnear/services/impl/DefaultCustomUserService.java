@@ -19,11 +19,13 @@ import io.spotnext.core.infrastructure.exception.CannotCreateUserException;
 import io.spotnext.core.infrastructure.service.ModelService;
 import io.spotnext.core.infrastructure.support.Logger;
 import io.spotnext.core.security.service.AuthenticationService;
+import io.spotnext.itemtype.core.beans.UserData;
 import io.spotnext.itemtype.core.user.User;
 import io.spotnext.itemtype.core.user.UserGroup;
 import io.spotnext.whatsnear.beans.AccessTokenData;
 import io.spotnext.whatsnear.beans.CreateUserRequestData;
 import io.spotnext.whatsnear.itemtypes.AccessToken;
+import io.spotnext.whatsnear.repositories.UserRepository;
 import io.spotnext.whatsnear.services.CustomUserService;
 
 
@@ -37,6 +39,9 @@ public class DefaultCustomUserService
 
 	@Autowired
 	private ModelService modelService;
+	
+	@Autowired
+	private UserRepository userRepository;
 
 	@Override
 	public AccessTokenData login(String uid, String password) {
@@ -151,6 +156,13 @@ public class DefaultCustomUserService
 		}
 	}
 	
+	@Override
+	public User getUser(String uid) {
+		var opt = userRepository.findByUid(uid);
+		return opt.isPresent() ? opt.get() : null;
+		
+	}
+	
 	//TODO fix this in core
 	@Override
 	public UserGroup getUserGroup(final String uid) {
@@ -165,6 +177,16 @@ public class DefaultCustomUserService
 		public int compare(AccessToken o1, AccessToken o2) {
 			return o1.getValidTo().compareTo(o2.getValidTo());
 		}
+	}
+
+	@Override
+	public UserData convert(User user) {
+		var data = new UserData();
+		data.setId(user.getId().toString());
+		data.setUid(user.getUid());
+		data.setFirstname(user.getFirstname());
+		data.setLastname(user.getLastname());
+		return data;
 	}
 
 }
