@@ -5,6 +5,7 @@ import { DistanceUnit } from "@/dtos/DistanceUnit"
 import { GeoLocation } from "@/dtos/GeoLocation"
 import { LatLng } from "@/dtos/LatLng"
 import { MarkerDto } from "@/dtos/MarkerDto"
+import { PointOfServiceType } from "@/enums/PointOfServiceType"
 import { AuthService } from "@/services/AuthService"
 import { LocationService } from "@/services/LocationService"
 import { MapsService } from "@/services/MapsService"
@@ -89,7 +90,8 @@ export class MapView extends Vue {
 	public mapCenter: LatLng = MapView.DEFAULT_MAP_CENTER
 
 	public currentPositionMarker: MarkerDto = {
-		position: this.mapCenter
+		position: this.mapCenter,
+		type: PointOfServiceType.UNKNOWN
 	}
 
 	public loginErrorMessage = ""
@@ -114,6 +116,7 @@ export class MapView extends Vue {
 		logoutIcon: logOut,
 		alertCircle: alertCircleOutline
 	}
+
 	public async created(): Promise<void> {
 		console.log("Created")
 
@@ -137,7 +140,11 @@ export class MapView extends Vue {
 	}
 
 	private createCurrentPositionMarker(): void {
-		this.currentPositionMarker = { position: this.mapCenter, label: "+" }
+		this.currentPositionMarker = {
+			position: this.mapCenter,
+			label: "+",
+			type: PointOfServiceType.UNKNOWN
+		}
 	}
 
 	public async onSearchBarInput(event: InputEvent): Promise<void> {
@@ -173,7 +180,8 @@ export class MapView extends Vue {
 						title: marker.title,
 						description: marker.description,
 						distance: (marker.distance.value / 1000).toFixed(1),
-						distanceUnit: DistanceUnit.Kilometer
+						distanceUnit: DistanceUnit.Kilometer,
+						type: marker.type
 						// shape: { coords: [marker.location.latitude, marker.location.longitude, 1] } as google.maps.MarkerShapeCircle
 						// icon: { url: "https://media.tenor.com/images/822fb670841c6f6582fefbb82e338a50/tenor.gif" }
 					} as MarkerDto

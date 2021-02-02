@@ -1,4 +1,5 @@
 export enum PointOfServiceType {
+	UNKNOWN = "UNKNOWN",
 	NEED_HELP = "NEED_HELP",
 	LOOKING_FOR = "LOOKING_FOR",
 	SELLING = "SELLING",

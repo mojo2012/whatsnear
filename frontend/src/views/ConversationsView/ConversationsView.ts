@@ -1,5 +1,6 @@
 /* eslint-disable max-classes-per-file */
 import { Conversation } from "@/dtos/Conversation"
+import { AuthService } from "@/services/AuthService"
 import { MessageService } from "@/services/MessageService"
 import {
 	IonButton,
@@ -18,6 +19,7 @@ import {
 	IonTitle,
 	IonToolbar
 } from "@ionic/vue"
+import { add, alertCircleOutline, close, key, logOut, navigate, search } from "ionicons/icons"
 import { Options, Vue } from "vue-class-component"
 
 @Options({
@@ -41,16 +43,29 @@ import { Options, Vue } from "vue-class-component"
 	}
 })
 export class ConversationsView extends Vue {
+	public authService = AuthService.instance
 	private messageService = MessageService.instance
 	public conversations: Conversation[] = []
 
+	// icons
+	public icons = {
+		addIcon: add,
+		searchIcon: search,
+		closeIcon: close,
+		navigateIcon: navigate,
+		loginIcon: key,
+		logoutIcon: logOut,
+		alertCircle: alertCircleOutline
+	}
+
 	public async created(): Promise<void> {
-		const conversations = await this.messageService.getConversations()
-
-		this.conversations = conversations
-
+		// const conversations = await this.messageService.getConversations()
+		// this.conversations = conversations
 		// this.conversations.push({
-		// 	poi: { id: "aaa", type: PointOfServiceType.GIVE_AWAY }
+		// 	poi: {
+		// 		id: "aaa",
+		// 		type: PointOfServiceType.GIVE_AWAY,
+		// 	}
 		// })
 	}
 }
