@@ -1,9 +1,17 @@
+/* eslint-disable max-classes-per-file */
 import { AppFacade } from "@/facades/AppFacade"
 import { AuthService } from "@/services/AuthService"
 import LoginView from "@/views/LoginView/LoginView.vue"
 import { IonButton, IonButtons, IonHeader, IonIcon, IonMenu, IonMenuButton, IonModal, IonSearchbar, IonToolbar } from "@ionic/vue"
 import { add, alertCircleOutline, close, key, logOut, navigate, search } from "ionicons/icons"
-import { Options, Vue } from "vue-class-component"
+import { Options, prop, Vue } from "vue-class-component"
+
+class Props {
+	public menuId = prop({
+		type: String,
+		required: false
+	})
+}
 
 @Options({
 	name: "app-toolbar",
@@ -20,7 +28,7 @@ import { Options, Vue } from "vue-class-component"
 		IonSearchbar
 	}
 })
-export default class AppToolbar extends Vue {
+export default class AppToolbar extends Vue.with(Props) {
 	public authService = AuthService.instance
 	public appFacade = AppFacade.instance
 
@@ -44,7 +52,7 @@ export default class AppToolbar extends Vue {
 	}
 
 	public async onMenuButtonClick(event: MouseEvent): Promise<void> {
-		await this.appFacade.toggleSidebarVisibility()
+		await this.appFacade.toggleSidebarVisibility(this.menuId)
 	}
 
 	public async onLoginButtonClick(event: MouseEvent): Promise<void> {

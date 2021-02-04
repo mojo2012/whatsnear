@@ -114,8 +114,6 @@ export class MapView extends Vue {
 
 		this.menuController = menuController
 		this.modalController = modalController
-
-		await this.authService.loadStoredAuthentication()
 	}
 
 	public async mounted(this: this): Promise<void> {

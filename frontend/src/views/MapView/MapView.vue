@@ -1,24 +1,31 @@
 <template>
 	<ion-page>
-		<app-toolbar>
-			<template v-slot:menu-left>
-				<ion-content>
-					<ion-list>
-						<ion-item
-							v-for="(marker, index) in markers"
-							:key="'markerListItem-' + index"
-							button
-							@click="onMarkerSelected($event, marker)"
-						>
-							<ion-label
-								>{{ marker.label }} {{ marker.title }} ({{
-									marker.distance
-								}}
-								{{ marker.distanceUnit }})</ion-label
+		<app-toolbar menu-id="map-markers-menu" >
+			<template v-slot:menu>
+				<ion-menu
+					side="end"
+					type="reveal"
+					menu-id="map-markers-menu"
+					content-id="map-content"
+				>
+					<ion-content>
+						<ion-list>
+							<ion-item
+								v-for="(marker, index) in markers"
+								:key="'markerListItem-' + index"
+								button
+								@click="onMarkerSelected($event, marker)"
 							>
-						</ion-item>
-					</ion-list>
-				</ion-content>
+								<ion-label
+									>{{ marker.label }} {{ marker.title }} ({{
+										marker.distance
+									}}
+									{{ marker.distanceUnit }})</ion-label
+								>
+							</ion-item>
+						</ion-list>
+					</ion-content>
+				</ion-menu>
 			</template>
 
 			<template v-slot:start>
@@ -49,7 +56,7 @@
 			</template>
 		</app-toolbar>
 
-		<ion-content id="main-content" :fullscreen="true">
+		<ion-content id="map-content" :fullscreen="true">
 			<GoogleMap
 				:api-key="apiKey"
 				style="width: 100%; height: 100%"

@@ -15,4 +15,8 @@ import { Options, Vue } from "vue-class-component"
 })
 export default class App extends Vue {
 	public appFacade = AppFacade.instance
+
+	public async created(): Promise<void> {
+		// await this.appFacade.initAuthService()
+	}
 }

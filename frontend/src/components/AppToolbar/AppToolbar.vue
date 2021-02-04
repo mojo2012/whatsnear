@@ -1,7 +1,5 @@
 <template>
-	<ion-menu side="start" type="reveal" content-id="main-content">
-		<slot name="menu-left"></slot>
-	</ion-menu>
+	<slot name="menu"></slot>
 
 	<ion-header>
 		<ion-toolbar class="main" color="primary">
@@ -40,7 +38,6 @@
 			</ion-buttons>
 		</ion-toolbar>
 	</ion-header>
-
 </template>
 
 <script lang="ts" src="./AppToolbar.ts"></script>

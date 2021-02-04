@@ -10,7 +10,7 @@
 			css-class="login-view"
 			@onDidDismiss="onLoginDismiss"
 		> -->
-			<!-- <login-view
+		<!-- <login-view
 				@onBeforeLogin="onBeforeLogin"
 				@onLoginSuccess="onLoginSuccess"
 				@onLoginFailed="onLoginFailed"
@@ -140,5 +140,9 @@ ion-toolbar > ion-searchbar.toolbar-item {
 
 ion-toolbar.main > ion-buttons.ios {
 	margin-top: 6px;
+}
+
+ion-menu {
+	margin-top: 50px;
 }
 </style>

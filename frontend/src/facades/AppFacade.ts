@@ -1,4 +1,5 @@
 import { LatLng } from "@/dtos/LatLng"
+import { AuthService } from "@/services/AuthService"
 import { LocationService } from "@/services/LocationService"
 import { MapsService } from "@/services/MapsService"
 import { RegisterOrLoginType } from "@/types/helper-types"
@@ -13,20 +14,24 @@ export class AppFacade {
 	private modalController: ModalController = modalController
 	private locationService = LocationService.instance
 	private mapsService = MapsService.instance
+	private authService = AuthService.instance
 
+	private loginDialog!: HTMLIonModalElement
 	private static DEFAULT_MAP_CENTER: LatLng = {
 		lat: 48,
 		lng: 16
 	}
 
 	public currentPosition: LatLng = AppFacade.DEFAULT_MAP_CENTER
-	// public _isShowLoginView = false
 	public loginErrorMessage = ""
-	private loginDialog!: HTMLIonModalElement
 
 	private constructor() {
-		console.log("AuthService instantiated")
+		console.log("AppFacade instantiated")
 	}
+
+	// public async initAuthService(): Promise<void> {
+	// 	await this.authService.loadStoredAuthentication()
+	// }
 
 	public static get instance(): AppFacade {
 		if (!AppFacade._instance) {
@@ -36,8 +41,12 @@ export class AppFacade {
 		return AppFacade._instance
 	}
 
-	public async toggleSidebarVisibility(): Promise<void> {
-		this.menuController.toggle()
+	public async toggleSidebarVisibility(menuId?: string): Promise<void> {
+		if (menuId) {
+			this.menuController.enable(true, menuId)
+		}
+
+		this.menuController.toggle(menuId)
 	}
 
 	public async goToCurrentPosition(): Promise<void> {
