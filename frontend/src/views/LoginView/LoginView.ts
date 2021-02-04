@@ -3,6 +3,7 @@ import { UserData } from "@/dtos/UserData"
 import { AuthService } from "@/services/AuthService"
 import { RegisterOrLoginType } from "@/types/helper-types"
 import { ModalController } from "@/types/IonicTypes"
+import { tryAndLog } from "@/utils/MiscUtil"
 import {
 	IonButton,
 	IonButtons,
@@ -25,8 +26,26 @@ import {
 	modalController
 } from "@ionic/vue"
 import { logIn, personAdd } from "ionicons/icons"
-import { Options, Vue } from "vue-class-component"
+import { Options, prop, Vue } from "vue-class-component"
 import { useRouter } from "vue-router"
+class Props {
+	public onBeforeLogin = prop({
+		type: Function,
+		required: false
+	})
+	public onLoginDismiss = prop({
+		type: Function,
+		required: false
+	})
+	public onLoginSuccess = prop({
+		type: Function,
+		required: false
+	})
+	public onLoginFailed = prop({
+		type: Function,
+		required: false
+	})
+}
 
 @Options({
 	name: "login-view",
@@ -52,7 +71,7 @@ import { useRouter } from "vue-router"
 		IonSegmentButton
 	}
 })
-export class LoginView extends Vue {
+export class LoginView extends Vue.with(Props) {
 	private authService: AuthService = AuthService.instance
 	private modalController: ModalController = modalController
 	private router = useRouter()
@@ -172,6 +191,7 @@ export class LoginView extends Vue {
 		console.log(this.username + "/" + this.password)
 
 		this.$emit("onBeforeLogin")
+		tryAndLog(this.onBeforeLogin, null)
 
 		this.setInputFieldsDisabled(true)
 		this.isLoading = true
@@ -192,9 +212,11 @@ export class LoginView extends Vue {
 			this.resetFormInputFields()
 
 			this.$emit("onLoginSuccess", this.registerOrLogin)
+			tryAndLog(this.onLoginSuccess, null, this.registerOrLogin)
 		} catch (err) {
 			console.error("Login failed")
 			this.$emit("onLoginFailed", this.registerOrLogin)
+			tryAndLog(this.onLoginFailed, null, this.registerOrLogin)
 		}
 
 		this.isLoading = false

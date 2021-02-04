@@ -3,10 +3,12 @@ import { CreatePointOfInterestRequest } from "@/dtos/CreatePointOfInterestReques
 import { DistanceData } from "@/dtos/DistanceData"
 import { DistanceUnit } from "@/dtos/DistanceUnit"
 import { GeoLocation } from "@/dtos/GeoLocation"
+import { LatLng } from "@/dtos/LatLng"
 import { Payload } from "@/dtos/Payload"
 import { PointOfInterest } from "@/dtos/PointOfInterest"
 import { BackendNotReachableException } from "@/exceptions/BackendNotReachableException"
 import { RequestService } from "@/services/RequestService"
+import { MathUtil } from "@/utils/MathUtil"
 import { getDistance } from "geolib"
 
 export class MapsService {
@@ -65,6 +67,20 @@ export class MapsService {
 			return (await body).data
 		} catch (ex) {
 			throw new BackendNotReachableException("Could not load markers from backend", ex)
+		}
+	}
+
+	public convertGeoLocationToLatLng(geoLocation: GeoLocation): LatLng {
+		// need to make sure that the coordinates change a bit for vue to pickup the change
+		return {
+			lat: geoLocation.latitude + MathUtil.random(0, 0.000001),
+			lng: geoLocation.longitude + MathUtil.random(0, 0.000001)
+		}
+	}
+	public convertLatLngToGeoLocation(value: LatLng): GeoLocation {
+		return {
+			latitude: value.lat,
+			longitude: value.lng
 		}
 	}
 }

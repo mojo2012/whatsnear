@@ -1,19 +1,17 @@
+import AppToolbar from "@/components/AppToolbar/AppToolbar.vue"
 import { POINT_OF_SERVICE_MAPPING } from "@/configuration/Mappings"
 import { Settings } from "@/configuration/Settings"
 import { CreatePointOfInterestRequest } from "@/dtos/CreatePointOfInterestRequest"
 import { DistanceUnit } from "@/dtos/DistanceUnit"
-import { GeoLocation } from "@/dtos/GeoLocation"
-import { LatLng } from "@/dtos/LatLng"
 import { MarkerDto } from "@/dtos/MarkerDto"
 import { PointOfServiceType } from "@/enums/PointOfServiceType"
+import { AppFacade } from "@/facades/AppFacade"
 import { AuthService } from "@/services/AuthService"
 import { LocationService } from "@/services/LocationService"
 import { MapsService } from "@/services/MapsService"
-import { RegisterOrLoginType } from "@/types/helper-types"
 import { AlertController, MenuController, ModalController } from "@/types/IonicTypes"
 import { MathUtil } from "@/utils/MathUtil"
 import AddMarkerView from "@/views/AddMarkerView/AddMarkerView.vue"
-import LoginView from "@/views/LoginView/LoginView.vue"
 import ShowMarkerView from "@/views/ShowMarkerView/ShowMarkerView.vue"
 import {
 	IonButton,
@@ -66,7 +64,7 @@ import { GoogleMap, Marker } from "vue3-google-map"
 		IonToast,
 		AddMarkerView,
 		ShowMarkerView,
-		LoginView
+		AppToolbar
 	}
 })
 export class MapView extends Vue {
@@ -81,20 +79,15 @@ export class MapView extends Vue {
 	private locationService = LocationService.instance
 	public authService = AuthService.instance
 
-	// proprties
-	private static DEFAULT_MAP_CENTER: LatLng = {
-		lat: 48,
-		lng: 16
-	}
+	public appFacade = AppFacade.instance
 
-	public mapCenter: LatLng = MapView.DEFAULT_MAP_CENTER
+	// proprties
 
 	public currentPositionMarker: MarkerDto = {
-		position: this.mapCenter,
+		position: this.appFacade.currentPosition,
 		type: PointOfServiceType.UNKNOWN
 	}
 
-	public loginErrorMessage = ""
 	// public notificationMessage = ""
 	public isSearchBoxVisible = false
 	public isSidebarVisible = false
@@ -102,7 +95,6 @@ export class MapView extends Vue {
 	public apiKey = Settings.googleApiKey
 	public isShowMarkerView = false
 	public isShowAddMarkerView = false
-	public isShowLoginView = false
 	public selectedMarker!: MarkerDto
 	public markers: MarkerDto[] = []
 
@@ -130,7 +122,7 @@ export class MapView extends Vue {
 		console.log("Mounted")
 
 		try {
-			await this.goToCurrentPosition()
+			await this.appFacade.goToCurrentPosition()
 			this.createCurrentPositionMarker()
 
 			await this.syncMarkers()
@@ -141,7 +133,7 @@ export class MapView extends Vue {
 
 	private createCurrentPositionMarker(): void {
 		this.currentPositionMarker = {
-			position: this.mapCenter,
+			position: this.appFacade.currentPosition,
 			label: "+",
 			type: PointOfServiceType.UNKNOWN
 		}
@@ -152,17 +144,21 @@ export class MapView extends Vue {
 		this.syncMarkers()
 	}
 
+	public async onLocateMeButtonClick(event: MouseEvent): Promise<void> {
+		await this.appFacade.goToCurrentPosition()
+	}
+
 	public onMarkerSelected(event: MouseEvent, marker: MarkerDto): void {
 		console.log("onMarkerSelected")
 
 		this.selectedMarker = marker
-		this.mapCenter = marker.position
+		this.appFacade.currentPosition = marker.position
 
 		this.isShowMarkerView = true
 	}
 
 	public async syncMarkers(): Promise<void> {
-		const currentGeoLocation = this.convertLatLngToGeoLocation(this.mapCenter)
+		const currentGeoLocation = this.mapsService.convertLatLngToGeoLocation(this.appFacade.currentPosition)
 
 		try {
 			this.markers = (await this.mapsService.getMarkers(currentGeoLocation, 500_000, this.markerFilter)) //
@@ -192,39 +188,12 @@ export class MapView extends Vue {
 		}
 	}
 
-	public async goToCurrentPosition(): Promise<void> {
-		const coords = await this.locationService.getGeoLocation()
-		this.mapCenter = this.convertGeoLocationToLatLng(coords.coords)
-	}
-
-	public async onLocateMeButtonClick(event: MouseEvent): Promise<void> {
-		await this.goToCurrentPosition()
-	}
-
-	public async onMenuButtonClick(event: MouseEvent): Promise<void> {
-		await this.toggleSidebarVisibility()
-	}
-
 	public onSearchButtonClick(event: MouseEvent): void {
 		this.toggleSearchBoxVisibility()
 	}
 
 	public async onAddMarkerButtonClick(event: MouseEvent): Promise<void> {
 		await this.showAddMarkerView()
-	}
-
-	public async onLoginButtonClick(event: MouseEvent): Promise<void> {
-		console.log("onLoginButtonClick: " + event)
-		await this.showLoginView()
-	}
-
-	public async onLogoutButtonClick(event: MouseEvent): Promise<void> {
-		console.log("onLogoutButtonClick: " + event)
-		await this.authService.logout()
-	}
-
-	public async showLoginView(): Promise<void> {
-		this.isShowLoginView = true
 	}
 
 	public async onAddMarker(event: CreatePointOfInterestRequest): Promise<void> {
@@ -242,43 +211,6 @@ export class MapView extends Vue {
 		await this.syncMarkers()
 	}
 
-	public onBeforeLogin(): void {
-		console.log("onBeforeLogin")
-		this.loginErrorMessage = ""
-	}
-
-	public onLoginSuccess(type: RegisterOrLoginType): void {
-		console.log("onLoginSuccess")
-
-		this.loginErrorMessage = ""
-		this.isShowLoginView = false
-	}
-
-	public async onLoginFailed(type: RegisterOrLoginType): Promise<void> {
-		console.log("onLoginFailed")
-
-		// const errorAlert = await alertController.create({
-		// 	header: "Failed",
-		// 	subHeader: "Sign in Failed",
-		// 	message: "Login not successful",
-		// 	buttons: ["OK"]
-		// })
-		// await errorAlert.present()
-
-		this.loginErrorMessage = `${type} not successful`
-
-		// this.showNotificationMessage("Login credentials not valid.")
-	}
-
-	public onLoginDismiss(): void {
-		this.isShowLoginView = false
-		this.loginErrorMessage = ""
-	}
-
-	private async toggleSidebarVisibility(): Promise<void> {
-		this.menuController.toggle()
-	}
-
 	public toggleSearchBoxVisibility(): void {
 		this.isSearchBoxVisible = !this.isSearchBoxVisible
 	}
@@ -289,14 +221,6 @@ export class MapView extends Vue {
 
 	public onToastClosed(): void {
 		// this.notificationMessage = ""
-	}
-
-	private convertGeoLocationToLatLng(geoLocation: GeoLocation): LatLng {
-		// need to make sure that the coordinates change a bit for vue to pickup the change
-		return {
-			lat: geoLocation.latitude + MathUtil.random(0, 0.000001),
-			lng: geoLocation.longitude + MathUtil.random(0, 0.000001)
-		}
 	}
 
 	private async showNotificationMessage(message: string): Promise<void> {
@@ -321,12 +245,5 @@ export class MapView extends Vue {
 			]
 		})
 		toast.present()
-	}
-
-	private convertLatLngToGeoLocation(value: LatLng): GeoLocation {
-		return {
-			latitude: value.lat,
-			longitude: value.lng
-		}
 	}
 }

@@ -1,4 +1,5 @@
 /* eslint-disable max-classes-per-file */
+import AppToolbar from "@/components/AppToolbar/AppToolbar.vue"
 import { Conversation } from "@/dtos/Conversation"
 import { AuthService } from "@/services/AuthService"
 import { MessageService } from "@/services/MessageService"
@@ -39,7 +40,8 @@ import { Options, Vue } from "vue-class-component"
 		IonSelect,
 		IonSelectOption,
 		IonPage,
-		IonIcon
+		IonIcon,
+		AppToolbar
 	}
 })
 export class ConversationsView extends Vue {

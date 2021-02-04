@@ -18,7 +18,12 @@
 			"reAttach": true,
 			"url": "http://localhost:8100",
 			"webRoot": "${workspaceFolder}/frontend",
-			"pathMappings": []
+			"pathMappings": [
+				{
+					"url": "webpack:///src",
+					"path": "${workspaceFolder}/frontend/src"
+				}
+			]
 		}
 	]
 }
