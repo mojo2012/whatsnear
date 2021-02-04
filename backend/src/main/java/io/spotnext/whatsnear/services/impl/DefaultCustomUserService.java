@@ -164,13 +164,13 @@ public class DefaultCustomUserService
 	}
 	
 	//TODO fix this in core
-	@Override
-	public UserGroup getUserGroup(final String uid) {
-		final Map<String, Object> params = new HashMap<>();
-		params.put("uid", uid);
-
-		return modelService.get(getUserGroupType(), params);
-	}
+//	@Override
+//	public UserGroup getUserGroup(final String uid) {
+//		final Map<String, Object> params = new HashMap<>();
+//		params.put("uid", uid);
+//
+//		return modelService.get(getUserGroupType(), params);
+//	}
 	
 	private class TokenComparator implements Comparator<AccessToken> {
 		@Override

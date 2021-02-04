@@ -27,6 +27,7 @@ import io.spotnext.whatsnear.itemtypes.PointOfInterest;
 import io.spotnext.whatsnear.itemtypes.enumeration.DistanceUnit;
 import io.spotnext.whatsnear.itemtypes.enumeration.PointOfInterestType;
 import io.spotnext.whatsnear.repositories.PointOfInterestRepository;
+import io.spotnext.whatsnear.services.MessageService;
 import io.spotnext.whatsnear.services.PointOfInterestService;
 
 @Service
@@ -34,6 +35,9 @@ public class DefaultPointOfInterestService extends AbstractService implements Po
 
 	@Autowired
 	private PointOfInterestRepository pointOfInterestRepository;
+	
+	@Autowired
+	private MessageService messageService;
 	
 	@Autowired
 	private UserService<User, UserGroup> userService;
@@ -159,6 +163,10 @@ public class DefaultPointOfInterestService extends AbstractService implements Po
 		location.setLatitude(source.getLatitude());
 		location.setLongitude(source.getLongitude());
 		data.setLocation(location);
+		
+		if (source.getConversation() != null) {
+			data.setConversation(messageService.convert(source.getConversation(), false));
+		}
 		
 		return data;
 	}

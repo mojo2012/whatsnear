@@ -11,6 +11,7 @@ import io.spotnext.core.management.annotation.Handler;
 import io.spotnext.core.management.annotation.RemoteEndpoint;
 import io.spotnext.core.management.service.impl.AbstractRestEndpoint;
 import io.spotnext.core.management.transformer.JsonResponseTransformer;
+import io.spotnext.itemtype.core.beans.ConversationData;
 import io.spotnext.itemtype.core.beans.SerializationConfiguration;
 import io.spotnext.itemtype.core.enumeration.DataFormat;
 import io.spotnext.whatsnear.beans.MessageData;
@@ -32,10 +33,12 @@ public class MessageEndpoint extends AbstractRestEndpoint{
 	private MessageService messageService;
 	
 	@Log(logLevel = LogLevel.DEBUG, measureExecutionTime = true)
-	@Handler(method = HttpMethod.get, pathMapping = { "/messages"}, mimeType = MimeType.JSON, responseTransformer = JsonResponseTransformer.class)
+	@Handler(method = HttpMethod.get, pathMapping = { "/messages/:conversationId"}, mimeType = MimeType.JSON, responseTransformer = JsonResponseTransformer.class)
 	public HttpResponse getMessages(final Request request, final Response response) {
-		
-		var messages = messageService.getMessages(null);
+		var conversationId = request.params(":conversationId");
+		var data = new ConversationData();
+		data.setId(conversationId);
+		var messages = messageService.getMessages(data);
 		
 		return DataResponse.ok().withPayload(messages);
 	}

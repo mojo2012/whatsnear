@@ -51,6 +51,7 @@
 			<property name="description" type="String" />
 			<property name="location" type="GeoLocationData" />
 			<property name="distance" type="DistanceData" />
+			<property name="conversation" type="ConversationData" />
 		</properties>
 	</bean>
 
@@ -132,7 +133,6 @@
 			<property name="poi" type="String" />
 			<property name="conversation" type="String" />
 			<property name="sender" type="String" />
-			<property name="recipients" type="StringList" />
 			<property name="text" type="String" />
 			<property name="visibility" type="MessageVisibility" />
 <!-- 			<property name="sendStatus" type="MessageSendStatus" /> -->
