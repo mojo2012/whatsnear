@@ -1,42 +1,49 @@
 <template>
 	<ion-page>
-		<app-toolbar menu-id="conversation-overview-menu">
+		<app-toolbar
+			menu-position="end"
+			menu-id="conversation-overview-menu"
+			content-id="conversation-content"
+		>
 			<template v-slot:menu>
-				<ion-menu
-					side="end"
-					type="reveal"
-					menu-id="conversation-overview-menu"
-					content-id="conversation-content"
-				>
-					<ion-content>
-						<ion-list>
-							<ion-item
-								v-for="(conversation, index) in conversations"
-							>
-								<ion-icon
-									slot="start"
-									name="people-circle-outline"
-									style="color: #ff0"
-								></ion-icon>
-								<ion-label>
-									{{ conversation.title }} aaa
-								</ion-label>
-							</ion-item>
-						</ion-list>
-					</ion-content>
-				</ion-menu>
+				<ion-content>
+					<ion-list>
+						<ion-item
+							v-for="(conversation, index) in conversations"
+						>
+							<ion-icon
+								slot="start"
+								name="people-circle-outline"
+								style="color: #ff0"
+							></ion-icon>
+							<ion-label>
+								{{ conversation.title }}
+							</ion-label>
+						</ion-item>
+					</ion-list>
+				</ion-content>
+			</template>
+
+			<template v-slot:start>
+				<ion-searchbar
+					debounce="1000"
+					animated
+					mode="ios"
+					class="toolbar-item"
+					@input="onSearchBarInput"
+					placeholder="Search ..."
+				></ion-searchbar>
 			</template>
 		</app-toolbar>
 
 		<ion-content id="conversation-content" :fullscreen="true">
 			<ion-list>
 				<ion-item v-for="(conversation, index) in conversations">
-					<ion-icon
-						slot="start"
-						name="people-circle-outline"
-						style="color: #ff0"
-					></ion-icon>
-					<ion-label>{{conversation.poi.type}} {{ conversation.poi.title }} </ion-label>
+					<ion-label>
+						{{ getPoiIcon(conversation.poi.type) }}
+						{{ conversation.poi.title }}
+						{{ conversation.poi.description }}
+					</ion-label>
 				</ion-item>
 			</ion-list>
 		</ion-content>

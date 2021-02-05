@@ -32,8 +32,7 @@ import {
 	IonToast,
 	IonToolbar,
 	menuController,
-	modalController,
-	toastController
+	modalController
 } from "@ionic/vue"
 import { add, alertCircleOutline, close, key, logOut, navigate, search } from "ionicons/icons"
 import { Options, Vue } from "vue-class-component"
@@ -125,7 +124,7 @@ export class MapView extends Vue {
 
 			await this.syncMarkers()
 		} catch (exception) {
-			this.showNotificationMessage("Cannot get current geo location: " + exception?.message)
+			this.appFacade.showNotificationMessage("Cannot get current geo location: " + exception?.message)
 		}
 	}
 
@@ -182,7 +181,7 @@ export class MapView extends Vue {
 				})
 		} catch (exception) {
 			console.log(exception.message)
-			this.showNotificationMessage(exception.message)
+			this.appFacade.showNotificationMessage(exception.message)
 		}
 	}
 
@@ -213,35 +212,11 @@ export class MapView extends Vue {
 		this.isSearchBoxVisible = !this.isSearchBoxVisible
 	}
 
-	public async showAddMarkerView(): Promise<void> {
+	public async showAddMarkerView(this: this): Promise<void> {
 		this.isShowAddMarkerView = true
 	}
 
 	public onToastClosed(): void {
 		// this.notificationMessage = ""
-	}
-
-	private async showNotificationMessage(message: string): Promise<void> {
-		// this.notificationMessage = message
-
-		// using the html component causes duplicate modal dialogs to be shown
-		const toast = await toastController.create({
-			header: message,
-			position: "bottom",
-			translucent: true,
-			duration: 5000,
-			buttons: [
-				{
-					icon: "close",
-					side: "end",
-					role: "cancel",
-					handler: () => {
-						// console.log("Cancel clicked")
-						this.onToastClosed()
-					}
-				}
-			]
-		})
-		toast.present()
 	}
 }

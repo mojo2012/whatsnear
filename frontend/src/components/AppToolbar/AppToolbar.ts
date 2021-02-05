@@ -11,6 +11,14 @@ class Props {
 		type: String,
 		required: false
 	})
+	public contentId = prop({
+		type: String,
+		required: false
+	})
+	public menuPosition = prop({
+		type: String,
+		required: false
+	})
 }
 
 @Options({

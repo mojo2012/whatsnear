@@ -1,31 +1,28 @@
 <template>
 	<ion-page>
-		<app-toolbar menu-id="map-markers-menu" >
+		<app-toolbar
+			menu-position="end"
+			menu-id="map-markers-menu"
+			content-id="map-content"
+		>
 			<template v-slot:menu>
-				<ion-menu
-					side="end"
-					type="reveal"
-					menu-id="map-markers-menu"
-					content-id="map-content"
-				>
-					<ion-content>
-						<ion-list>
-							<ion-item
-								v-for="(marker, index) in markers"
-								:key="'markerListItem-' + index"
-								button
-								@click="onMarkerSelected($event, marker)"
+				<ion-content>
+					<ion-list>
+						<ion-item
+							v-for="(marker, index) in markers"
+							:key="'markerListItem-' + index"
+							button
+							@click="onMarkerSelected($event, marker)"
+						>
+							<ion-label
+								>{{ marker.label }} {{ marker.title }} ({{
+									marker.distance
+								}}
+								{{ marker.distanceUnit }})</ion-label
 							>
-								<ion-label
-									>{{ marker.label }} {{ marker.title }} ({{
-										marker.distance
-									}}
-									{{ marker.distanceUnit }})</ion-label
-								>
-							</ion-item>
-						</ion-list>
-					</ion-content>
-				</ion-menu>
+						</ion-item>
+					</ion-list>
+				</ion-content>
 			</template>
 
 			<template v-slot:start>
@@ -35,7 +32,7 @@
 					mode="ios"
 					class="toolbar-item"
 					@input="onSearchBarInput"
-					placeholder="Filter ..."
+					placeholder="Search ..."
 				></ion-searchbar>
 			</template>
 

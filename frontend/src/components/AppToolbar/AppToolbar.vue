@@ -1,5 +1,12 @@
 <template>
-	<slot name="menu"></slot>
+	<ion-menu
+		:side="menuPosition"
+		type="reveal"
+		:menu-id="menuId"
+		:content-id="contentId"
+	>
+		<slot name="menu"></slot>
+	</ion-menu>
 
 	<ion-header>
 		<ion-toolbar class="main" color="primary">

@@ -1,7 +1,8 @@
 /* eslint-disable max-classes-per-file */
 import AppToolbar from "@/components/AppToolbar/AppToolbar.vue"
-import { PointOfServiceTypeIconMappingType, POINT_OF_SERVICE_MAPPING } from "@/configuration/Mappings"
+import { POINT_OF_SERVICE_MAPPING } from "@/configuration/Mappings"
 import { Conversation } from "@/dtos/Conversation"
+import { AppFacade } from "@/facades/AppFacade"
 import { AuthService } from "@/services/AuthService"
 import { MessageService } from "@/services/MessageService"
 import {
@@ -16,6 +17,7 @@ import {
 	IonList,
 	IonMenu,
 	IonPage,
+	IonSearchbar,
 	IonSelect,
 	IonSelectOption,
 	IonTextarea,
@@ -37,6 +39,7 @@ import { Options, Vue } from "vue-class-component"
 		IonButton,
 		IonButtons,
 		IonLabel,
+		IonSearchbar,
 		IonContent,
 		IonInput,
 		IonTextarea,
@@ -48,9 +51,12 @@ import { Options, Vue } from "vue-class-component"
 	}
 })
 export class ConversationsView extends Vue {
-	public authService = AuthService.instance
+	private appFacade = AppFacade.instance
+	private authService = AuthService.instance
 	private messageService = MessageService.instance
-	public conversations: Conversation[] = []
+
+	private allConversations: Conversation[] = []
+	public filterText = ""
 
 	// icons
 	public icons = {
@@ -68,8 +74,13 @@ export class ConversationsView extends Vue {
 	}
 
 	public async mounted(this: this): Promise<void> {
-		const conversations = await this.messageService.getConversations()
-		this.conversations = conversations
+		try {
+			const conversations = await this.messageService.getConversations()
+			this.allConversations = conversations
+		} catch (exception) {
+			this.appFacade.showNotificationMessage("Cannot get conversations from backend.")
+		}
+
 		// this.conversations.push({
 		// 	poi: {
 		// 		id: "aaa",
@@ -84,7 +95,17 @@ export class ConversationsView extends Vue {
 		// })
 	}
 
-	public get markerTypes(): PointOfServiceTypeIconMappingType[] {
-		return POINT_OF_SERVICE_MAPPING
+	public get conversations(): Conversation[] {
+		return this.filterText
+			? this.allConversations.filter((c) => c.poi.title.includes(this.filterText)) //
+			: this.allConversations
+	}
+
+	public getPoiIcon(code: string): string {
+		return POINT_OF_SERVICE_MAPPING.filter((p) => p.code === code).map((p) => p.icon)[0]
+	}
+
+	public onSearchBarInput(event: InputEvent): void {
+		this.filterText = (event.data as string) ?? ""
 	}
 }

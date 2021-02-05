@@ -3,9 +3,10 @@ import { AuthService } from "@/services/AuthService"
 import { LocationService } from "@/services/LocationService"
 import { MapsService } from "@/services/MapsService"
 import { RegisterOrLoginType } from "@/types/helper-types"
-import { MenuController, ModalController } from "@/types/IonicTypes"
+import { MenuController, ModalController, ToastController } from "@/types/IonicTypes"
+import { Runnable } from "@/types/Runnable"
 import LoginView from "@/views/LoginView/LoginView.vue"
-import { menuController, modalController } from "@ionic/vue"
+import { menuController, modalController, toastController } from "@ionic/vue"
 
 export class AppFacade {
 	private static _instance: AppFacade
@@ -15,6 +16,7 @@ export class AppFacade {
 	private locationService = LocationService.instance
 	private mapsService = MapsService.instance
 	private authService = AuthService.instance
+	private notificationController: ToastController = toastController
 
 	private loginDialog!: HTMLIonModalElement
 	private static DEFAULT_MAP_CENTER: LatLng = {
@@ -79,6 +81,32 @@ export class AppFacade {
 			this.loginDialog.dismiss()
 			this.loginErrorMessage = ""
 		}
+	}
+
+	public async showNotificationMessage(message: string, cancelCallback?: Runnable): Promise<void> {
+		// this.notificationMessage = message
+
+		// using the html component causes duplicate modal dialogs to be shown
+		const toast = await toastController.create({
+			header: message,
+			position: "bottom",
+			translucent: true,
+			duration: 5000,
+			buttons: [
+				{
+					icon: "close",
+					side: "end",
+					role: "cancel",
+					handler: () => {
+						// console.log("Cancel clicked")
+						if (cancelCallback) {
+							cancelCallback()
+						}
+					}
+				}
+			]
+		})
+		toast.present()
 	}
 
 	public onLoginSuccess(this: this, type: RegisterOrLoginType): void {
