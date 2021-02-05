@@ -175,6 +175,9 @@ public class DefaultMessageService implements MessageService {
 	@Override
 	public ConversationData convert(Conversation conversation, boolean full) {
 		var data = new ConversationData();
+		if (conversation.getId() != null) {
+			data.setId(conversation.getId().toString());
+		}
 		
 		if (full) {
 			data.setPoi(pointOfInterestService.convert(conversation.getPoi()));
@@ -207,7 +210,12 @@ public class DefaultMessageService implements MessageService {
 		data.setId(message.getId().toString());
 		
 		data.setSender(message.getSender().getUid());
-		data.setConversation(message.getOwner().getId().toString());
+		if (message.getOwner() != null) {
+			data.setConversation(message.getOwner().getId().toString());
+			if (message.getOwner().getPoi() != null) {
+				data.setPoi(message.getOwner().getPoi().getId().toString());
+			}
+		}
 //		data.setSendStatus(message.getSendStatus());
 //		data.setReadStatus(message.getReadStatus());
 		data.setText(message.getText());
