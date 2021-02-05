@@ -39,8 +39,8 @@ export class RequestService {
 		return await RequestUtil.fetch(url, options)
 	}
 
-	private createAuthenticationHeader(): Headers {
-		const authentication = this.authService.authentication
+	private async createAuthenticationHeader(): Promise<Headers> {
+		const authentication = await this.authService.loadStoredAuthentication()
 		const headers = new Headers()
 
 		if (authentication?.token) {

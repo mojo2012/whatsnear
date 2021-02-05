@@ -28,8 +28,9 @@ export class MessageService {
 		try {
 			const response = await this.requestService.get(url.toString())
 			const body: Promise<Payload<Conversation[]>> = await response.json()
+			const data = (await body).data
 
-			return (await body).data
+			return data
 		} catch (ex) {
 			throw new BackendNotReachableException("Could not load conversations from backend", ex)
 		}

@@ -5,6 +5,7 @@ import { UserData } from "@/dtos/UserData"
 import { AuthenticationException } from "@/exceptions/AuthenticationException"
 import { RegistrationException } from "@/exceptions/RegistrationException"
 import { LocalStorageService } from "@/services/LocalStorageService"
+import { Optional } from "@/types/Optional"
 import { RequestUtil } from "@/utils/RequestUtil"
 
 export class AuthService {
@@ -30,10 +31,12 @@ export class AuthService {
 		return this.authentication?.token != null && this.authentication?.validTo != null
 	}
 
-	public async loadStoredAuthentication(): Promise<void> {
+	public async loadStoredAuthentication(): Promise<Optional<Authentication>> {
 		const auth = await this.localStorageService.get<Authentication>("authentication")
 
 		this.authentication = auth
+
+		return auth
 	}
 
 	public async storeAuthentication(authentication?: Authentication | null): Promise<void> {
