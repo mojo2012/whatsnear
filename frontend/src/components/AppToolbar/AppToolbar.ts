@@ -52,11 +52,11 @@ export default class AppToolbar extends Vue.with(Props) {
 	}
 
 	public created(): void {
-		console.log("Created")
+		console.info("Created")
 	}
 
 	public async mounted(this: this): Promise<void> {
-		console.log("Mounted")
+		console.info("Mounted")
 	}
 
 	public async onMenuButtonClick(event: MouseEvent): Promise<void> {
@@ -64,12 +64,12 @@ export default class AppToolbar extends Vue.with(Props) {
 	}
 
 	public async onLoginButtonClick(event: MouseEvent): Promise<void> {
-		console.log("onLoginButtonClick: " + event)
+		console.info("onLoginButtonClick: " + event)
 		await this.appFacade.showLoginView()
 	}
 
 	public async onLogoutButtonClick(event: MouseEvent): Promise<void> {
-		console.log("onLogoutButtonClick: " + event)
+		console.info("onLogoutButtonClick: " + event)
 		await this.authService.logout()
 	}
 }

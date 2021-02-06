@@ -96,7 +96,7 @@ export class LoginView extends Vue.with(Props) {
 	}
 
 	public onCancelButtonClick(_event: MouseEvent): void {
-		console.log("onCancelButtonClick")
+		console.info("onCancelButtonClick")
 
 		this.modalController.dismiss()
 	}
@@ -188,7 +188,7 @@ export class LoginView extends Vue.with(Props) {
 	}
 
 	public async submitForm(): Promise<void> {
-		console.log(this.username + "/" + this.password)
+		console.info(this.username + "/" + this.password)
 
 		this.$emit("onBeforeLogin")
 		tryAndLog(this.onBeforeLogin, null)

@@ -59,9 +59,11 @@
 				style="width: 100%; height: 100%"
 				:center="appFacade.currentPosition"
 				:zoom="10"
+				theme="dark"
 			>
 				<!-- current position -->
 				<Marker :options="currentPositionMarker" />
+				<Circle :options="currentPositionCircle" />
 
 				<!-- marker -->
 				<Marker

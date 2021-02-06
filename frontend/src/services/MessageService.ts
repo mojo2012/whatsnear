@@ -26,7 +26,7 @@ export class MessageService {
 		const url = `${Settings.backendUrlV1}/conversations`
 
 		try {
-			const response = await this.requestService.get(url.toString())
+			const response = await this.requestService.get(url)
 			const body: Promise<Payload<Conversation[]>> = await response.json()
 			const data = (await body).data
 
@@ -40,12 +40,28 @@ export class MessageService {
 		const url = `${Settings.backendUrlV1}/conversations/${conversationId}`
 
 		try {
-			const response = await this.requestService.get(url.toString())
+			const response = await this.requestService.get(url)
 			const body: Promise<Payload<Message[]>> = await response.json()
 
 			return (await body).data
 		} catch (ex) {
 			throw new BackendNotReachableException(`Could not load messages for conversation ${conversationId}`, ex)
+		}
+	}
+
+	public async sendMessage(poiId: string): Promise<void> {
+		const url = `${Settings.backendUrlV1}/conversations/messages/send${poiId}`
+
+		try {
+			const response = await this.requestService.post(url)
+			const body: Promise<Payload<void>> = await response.json()
+			const data = (await body).data
+
+			if (!response.ok) {
+				throw new BackendNotReachableException(`Got bad response while sending message to poi ${poiId}`)
+			}
+		} catch (ex) {
+			throw new BackendNotReachableException(`Could not send messages for poi ${poiId}`, ex)
 		}
 	}
 }

@@ -16,7 +16,7 @@ export class AuthService {
 	public authentication?: Authentication | null
 
 	private constructor() {
-		console.log("AuthService instantiated")
+		console.info("AuthService instantiated")
 	}
 
 	public static get instance(): AuthService {
@@ -69,7 +69,7 @@ export class AuthService {
 			}
 			const result: Promise<Payload<Authentication>> = await (await RequestUtil.fetch(url, conf)).json()
 
-			console.log("result: " + result)
+			console.info("result: " + result)
 
 			const tokenData = (await result).data
 
@@ -95,7 +95,7 @@ export class AuthService {
 			}
 			const result: Promise<Payload<Authentication>> = await (await RequestUtil.fetch(url, conf)).json()
 
-			console.log("result: " + result)
+			console.info("result: " + result)
 
 			const tokenData = (await result).data
 

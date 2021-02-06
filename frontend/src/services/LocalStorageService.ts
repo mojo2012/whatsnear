@@ -8,7 +8,7 @@ export class LocalStorageService {
 	private localStorage = Storage
 
 	private constructor() {
-		console.log("LocalStorageService instantiated")
+		console.info("LocalStorageService instantiated")
 	}
 
 	public static get instance(): LocalStorageService {

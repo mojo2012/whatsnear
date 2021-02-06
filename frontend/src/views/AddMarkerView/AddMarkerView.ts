@@ -67,13 +67,13 @@ export class AddMarkerView extends Vue.with(Props) {
 	public markerType: PointOfServiceType = PointOfServiceType.NEED_HELP
 
 	public onCancelButtonClick(_event: MouseEvent): void {
-		console.log("onCancelButtonClick")
+		console.info("onCancelButtonClick")
 
 		this.modalController.dismiss()
 	}
 
 	public onAddButtonClick(_event: MouseEvent): void {
-		console.log("onAddButtonClick")
+		console.info("onAddButtonClick")
 
 		const mapCenter: GeoLocation = {
 			latitude: this.mapLat,

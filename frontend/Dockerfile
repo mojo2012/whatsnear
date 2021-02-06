@@ -4,13 +4,13 @@ LABEL authors="Matthias Fuchs, Thomas Rotter"
 LABEL projectName="whatsnear-frontend"
 
 WORKDIR /app
-#COPY package*.json /app/
 
 COPY package*.json /app/
 
-RUN npm install -g npm@latest && \
-	npm install -g @ionic/cli && \
-	npm install
+RUN apk add --no-cache --virtual .gyp python make g++ && \
+	npm install -g npm@latest @ionic/cli && \
+	npm install && \
+	apk del .gyp
 
 COPY ./ /app/
 

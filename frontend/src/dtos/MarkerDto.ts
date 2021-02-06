@@ -9,4 +9,5 @@ export interface MarkerDto extends google.maps.MarkerOptions {
 	author?: string
 	distanceUnit?: DistanceUnit
 	type: PointOfServiceType
+	id?: string
 }

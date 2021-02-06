@@ -1,5 +1,6 @@
 /* eslint-disable max-classes-per-file */
 import AppToolbar from "@/components/AppToolbar/AppToolbar.vue"
+import ChatBubble from "@/components/ChatBubble/ChatBubble.vue"
 import { POINT_OF_SERVICE_MAPPING } from "@/configuration/Mappings"
 import { Conversation } from "@/dtos/Conversation"
 import { AppFacade } from "@/facades/AppFacade"
@@ -16,10 +17,13 @@ import {
 	IonLabel,
 	IonList,
 	IonMenu,
+	IonNav,
 	IonPage,
+	IonRouterOutlet,
 	IonSearchbar,
 	IonSelect,
 	IonSelectOption,
+	IonSplitPane,
 	IonTextarea,
 	IonTitle,
 	IonToolbar
@@ -32,9 +36,12 @@ import { Options, Vue } from "vue-class-component"
 	components: {
 		IonHeader,
 		IonToolbar,
+		IonRouterOutlet,
+		IonNav,
 		IonMenu,
 		IonTitle,
 		IonList,
+		IonSplitPane,
 		IonItem,
 		IonButton,
 		IonButtons,
@@ -47,7 +54,8 @@ import { Options, Vue } from "vue-class-component"
 		IonSelectOption,
 		IonPage,
 		IonIcon,
-		AppToolbar
+		AppToolbar,
+		ChatBubble
 	}
 })
 export class ConversationsView extends Vue {

@@ -11,7 +11,7 @@ export class AsyncUtil {
 			result = retVal
 			// .then((value) => (result = value))
 			// .catch((err) => (result = null))
-			// .finally(() => console.log("finally"))
+			// .finally(() => console.info("finally"))
 		})()
 
 		// let ret: T
@@ -23,4 +23,4 @@ export class AsyncUtil {
 
 // const result = AsyncUtil.await(() => fetch("https://httpstat.us/200?sleep=5000"))
 
-// console.log(result)
+// console.info(result)

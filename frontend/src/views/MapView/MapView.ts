@@ -37,12 +37,13 @@ import {
 import { add, alertCircleOutline, close, key, logOut, navigate, search } from "ionicons/icons"
 import { Options, Vue } from "vue-class-component"
 import { useRouter } from "vue-router"
-import { GoogleMap, Marker } from "vue3-google-map"
+import { Circle, GoogleMap, Marker } from "vue3-google-map"
 
 @Options({
 	name: "map-view",
 	components: {
 		GoogleMap,
+		Circle,
 		Marker,
 		IonHeader,
 		IonToolbar,
@@ -86,6 +87,15 @@ export class MapView extends Vue {
 		position: this.appFacade.currentPosition,
 		type: PointOfServiceType.UNKNOWN
 	}
+	public currentPositionCircle = {
+		center: this.appFacade.currentPosition,
+		radius: Settings.mapRadius,
+		strokeColor: "#ab00d7",
+		strokeOpacity: 1.0,
+		strokeWeight: 4,
+		fillColor: "#ab00d7",
+		fillOpacity: 0.05
+	}
 
 	// public notificationMessage = ""
 	public isSearchBoxVisible = false
@@ -109,14 +119,14 @@ export class MapView extends Vue {
 	}
 
 	public async created(): Promise<void> {
-		console.log("Created")
+		console.info("Created")
 
 		this.menuController = menuController
 		this.modalController = modalController
 	}
 
 	public async mounted(this: this): Promise<void> {
-		console.log("Mounted")
+		console.info("Mounted")
 
 		try {
 			await this.appFacade.goToCurrentPosition()
@@ -129,10 +139,17 @@ export class MapView extends Vue {
 	}
 
 	private createCurrentPositionMarker(): void {
+		const position = this.appFacade.currentPosition
+
 		this.currentPositionMarker = {
-			position: this.appFacade.currentPosition,
+			position: position,
 			label: "+",
 			type: PointOfServiceType.UNKNOWN
+		}
+
+		this.currentPositionCircle = {
+			...this.currentPositionCircle,
+			center: position
 		}
 	}
 
@@ -146,7 +163,7 @@ export class MapView extends Vue {
 	}
 
 	public onMarkerSelected(event: MouseEvent, marker: MarkerDto): void {
-		console.log("onMarkerSelected")
+		console.info("onMarkerSelected")
 
 		this.selectedMarker = marker
 		this.appFacade.currentPosition = marker.position
@@ -158,7 +175,7 @@ export class MapView extends Vue {
 		const currentGeoLocation = this.mapsService.convertLatLngToGeoLocation(this.appFacade.currentPosition)
 
 		try {
-			this.markers = (await this.mapsService.getMarkers(currentGeoLocation, 500_000, this.markerFilter)) //
+			this.markers = (await this.mapsService.getMarkers(currentGeoLocation, Settings.mapRadius, this.markerFilter)) //
 				.map((marker) => {
 					const label = POINT_OF_SERVICE_MAPPING.filter((i) => i.code === marker.type)[0]?.icon
 
@@ -174,13 +191,14 @@ export class MapView extends Vue {
 						description: marker.description,
 						distance: (marker.distance.value / 1000).toFixed(1),
 						distanceUnit: DistanceUnit.Kilometer,
-						type: marker.type
+						type: marker.type,
+						id: marker.id
 						// shape: { coords: [marker.location.latitude, marker.location.longitude, 1] } as google.maps.MarkerShapeCircle
 						// icon: { url: "https://media.tenor.com/images/822fb670841c6f6582fefbb82e338a50/tenor.gif" }
 					} as MarkerDto
 				})
 		} catch (exception) {
-			console.log(exception.message)
+			console.info(exception.message)
 			this.appFacade.showNotificationMessage(exception.message)
 		}
 	}
@@ -194,7 +212,7 @@ export class MapView extends Vue {
 	}
 
 	public async onAddMarker(event: CreatePointOfInterestRequest): Promise<void> {
-		console.log("onAddMarkerClicked: title=" + event.title)
+		console.info("onAddMarkerClicked: title=" + event.title)
 
 		const randomLower = -0.0001
 		const randomUpper = +0.0001

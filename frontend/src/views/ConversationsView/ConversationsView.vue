@@ -37,15 +37,44 @@
 		</app-toolbar>
 
 		<ion-content id="conversation-content" :fullscreen="true">
-			<ion-list>
-				<ion-item v-for="(conversation, index) in conversations">
-					<ion-label>
-						{{ getPoiIcon(conversation.poi.type) }}
-						{{ conversation.poi.title }}
-						{{ conversation.poi.description }}
-					</ion-label>
-				</ion-item>
-			</ion-list>
+			<ion-split-pane content-id="main">
+				<!--  the side menu  -->
+				<ion-menu content-id="main">
+					<ion-header>
+						<ion-toolbar>
+							<ion-title>Conversations</ion-title>
+						</ion-toolbar>
+					</ion-header>
+					<ion-content>
+						<ion-list>
+							<ion-item
+								v-for="(conversation, index) in conversations"
+							>
+								<ion-label>
+									{{ getPoiIcon(conversation.poi.type) }}
+									{{ conversation.poi.title }}
+									{{ conversation.poi.description }}
+								</ion-label>
+							</ion-item>
+						</ion-list>
+					</ion-content>
+				</ion-menu>
+
+				<!-- the main content -->
+				<ion-list id="main">
+					<ion-item>
+						<chat-bubble text="test" alignment="left">
+						</chat-bubble>
+					</ion-item>
+					<ion-item>
+						<chat-bubble text="test 2" alignment="right">
+						</chat-bubble>
+					</ion-item>
+					<ion-item class="bottom">
+						<ion-input txpe="text" id="new-message"> </ion-input>
+					</ion-item>
+				</ion-list>
+			</ion-split-pane>
 		</ion-content>
 	</ion-page>
 </template>
@@ -54,3 +83,16 @@
 import { ConversationsView } from "./ConversationsView";
 export default ConversationsView;
 </script>
+
+<style scoped>
+ion-list#main {
+	margin-top: 56px;
+}
+ion-input#new-message {
+	margin: 40px;
+}
+ion-item.bottom {
+	margin-bottom: 0px;
+	margin-top: auto;
+}
+</style>

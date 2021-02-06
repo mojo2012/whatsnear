@@ -2,6 +2,8 @@
 import { PointOfServiceTypeIconMappingType, POINT_OF_SERVICE_MAPPING } from "@/configuration/Mappings"
 import { Settings } from "@/configuration/Settings"
 import { MarkerDto } from "@/dtos/MarkerDto"
+import { MessageException } from "@/exceptions/MessageException"
+import { MessageService } from "@/services/MessageService"
 import { ModalController } from "@/types/IonicTypes"
 import {
 	IonButton,
@@ -53,11 +55,12 @@ class Props {
 })
 export class ShowMarkerView extends Vue.with(Props) {
 	private modalController: ModalController = modalController
+	private messageService = MessageService.instance
 
 	public apiKey = Settings.googleApiKey
 
 	public onCancelButtonClick(_event: MouseEvent): void {
-		console.log("onCancelButtonClick")
+		console.info("onCancelButtonClick")
 
 		this.modalController.dismiss()
 	}
@@ -85,5 +88,13 @@ export class ShowMarkerView extends Vue.with(Props) {
 
 	public get markerTypes(): PointOfServiceTypeIconMappingType[] {
 		return POINT_OF_SERVICE_MAPPING
+	}
+
+	public async onContactButtonClick(event: unknown): Promise<void> {
+		if (this._marker.id) {
+			this.messageService.sendMessage(this._marker.id)
+		} else {
+			throw new MessageException("Cannot send message to poi with empty id")
+		}
 	}
 }

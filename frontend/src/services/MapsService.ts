@@ -17,7 +17,7 @@ export class MapsService {
 	private requestService = RequestService.instance
 
 	private constructor() {
-		console.log("MapsService instantiated")
+		console.info("MapsService instantiated")
 	}
 
 	public static get instance(): MapsService {

@@ -14,4 +14,8 @@ export class Settings {
 	public static get backendUrlV1(): string {
 		return Settings.backendUrl + "/v1/"
 	}
+
+	public static get mapRadius(): number {
+		return 200_000
+	}
 }

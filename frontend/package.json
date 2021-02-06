@@ -40,7 +40,7 @@
 		"vue": "^3.0.0-0",
 		"vue-class-component": "^8.0.0-0",
 		"vue-router": "^4.0.2",
-		"vue3-google-map": "^0.5.2"
+		"vue3-google-map": "^0.6.0"
 	},
 	"devDependencies": {
 		"@capacitor/cli": "2.4.5",

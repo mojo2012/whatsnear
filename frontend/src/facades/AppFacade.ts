@@ -28,7 +28,7 @@ export class AppFacade {
 	public loginErrorMessage = ""
 
 	private constructor() {
-		console.log("AppFacade instantiated")
+		console.info("AppFacade instantiated")
 	}
 
 	// public async initAuthService(): Promise<void> {
@@ -98,7 +98,7 @@ export class AppFacade {
 					side: "end",
 					role: "cancel",
 					handler: () => {
-						// console.log("Cancel clicked")
+						// console.info("Cancel clicked")
 						if (cancelCallback) {
 							cancelCallback()
 						}
@@ -110,13 +110,13 @@ export class AppFacade {
 	}
 
 	public onLoginSuccess(this: this, type: RegisterOrLoginType): void {
-		console.log("onLoginSuccess")
+		console.info("onLoginSuccess")
 
 		this.showLoginView(false)
 	}
 
 	public onBeforeLogin(this: this): void {
-		console.log("onBeforeLogin")
+		console.info("onBeforeLogin")
 	}
 
 	public onLoginDismiss(this: this): void {
@@ -124,7 +124,7 @@ export class AppFacade {
 	}
 
 	public async onLoginFailed(this: this, type: RegisterOrLoginType): Promise<void> {
-		console.log("onLoginFailed")
+		console.info("onLoginFailed")
 
 		this.loginErrorMessage = `${type} not successful`
 	}

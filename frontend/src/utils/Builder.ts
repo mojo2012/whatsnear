@@ -29,7 +29,7 @@ type MethodsOnly<T> = ConditionalPick<T, (arg: any) => void>
 const data: MethodsOnly<Data> = new Data()
 data.init()
 
-console.log(data)
+console.info(data)
 
 // export const build = <T>(object: T): Builder<T> => {
 // 	//

@@ -18,11 +18,11 @@ export class SpotIcon extends Vue {
 	public _iconSvg = square
 
 	public created(): void {
-		console.log("Created")
+		console.info("Created")
 	}
 
 	public async mounted(this: this): Promise<void> {
-		console.log(`Mounted ${this.icon}`)
+		console.info(`Mounted ${this.icon}`)
 
 		await this.loadSvgIcon(this.icon)
 	}
@@ -30,7 +30,7 @@ export class SpotIcon extends Vue {
 	public async loadSvgIcon(icon: string): Promise<void> {
 		await import("ionicons/icons").then((module: any) => {
 			if (module && module.icon) {
-				console.log(`Loaded SVG icon: ${this.iconSvg}`)
+				console.info(`Loaded SVG icon: ${this.iconSvg}`)
 				// this.iconSvg = module.icon as string
 			} else {
 				// error
