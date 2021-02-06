@@ -7,9 +7,8 @@ import { MarkerDto } from "@/dtos/MarkerDto"
 import { PointOfServiceType } from "@/enums/PointOfServiceType"
 import { AppFacade } from "@/facades/AppFacade"
 import { AuthService } from "@/services/AuthService"
-import { LocationService } from "@/services/LocationService"
 import { MapsService } from "@/services/MapsService"
-import { AlertController, MenuController, ModalController } from "@/types/IonicTypes"
+import { MessageService } from "@/services/MessageService"
 import { MathUtil } from "@/utils/MathUtil"
 import AddMarkerView from "@/views/AddMarkerView/AddMarkerView.vue"
 import ShowMarkerView from "@/views/ShowMarkerView/ShowMarkerView.vue"
@@ -30,13 +29,10 @@ import {
 	IonSearchbar,
 	IonTitle,
 	IonToast,
-	IonToolbar,
-	menuController,
-	modalController
+	IonToolbar
 } from "@ionic/vue"
 import { add, alertCircleOutline, close, key, logOut, navigate, search } from "ionicons/icons"
 import { Options, Vue } from "vue-class-component"
-import { useRouter } from "vue-router"
 import { Circle, GoogleMap, Marker } from "vue3-google-map"
 
 @Options({
@@ -68,18 +64,12 @@ import { Circle, GoogleMap, Marker } from "vue3-google-map"
 	}
 })
 export class MapView extends Vue {
-	// private static nullGeoLocation: LatLng = { lat: 1, lng: 1 }
 	// private static distanceFormatter = new Intl.NumberFormat('en-us', {minimumFractionDigits: 2})
 
-	private router = useRouter()
-	private menuController!: MenuController
-	private modalController!: ModalController
-	private alertController!: AlertController
 	private mapsService: MapsService = MapsService.instance
-	private locationService = LocationService.instance
 	public authService = AuthService.instance
-
 	public appFacade = AppFacade.instance
+	public messageService = MessageService.instance
 
 	// proprties
 
@@ -120,9 +110,6 @@ export class MapView extends Vue {
 
 	public async created(): Promise<void> {
 		console.info("Created")
-
-		this.menuController = menuController
-		this.modalController = modalController
 	}
 
 	public async mounted(this: this): Promise<void> {
@@ -165,8 +152,24 @@ export class MapView extends Vue {
 	public onMarkerSelected(event: MouseEvent, marker: MarkerDto): void {
 		console.info("onMarkerSelected")
 
+		this.navigateToMarker(marker)
+	}
+
+	public async onCreateConversation(marker: MarkerDto): Promise<void> {
+		this.isShowMarkerView = false
+
+		if (marker.id) {
+			const conversationId = await this.messageService.createConversation(marker.id)
+			this.appFacade.navigateToConversations(conversationId)
+		} else {
+			this.appFacade.showNotificationMessage(`Error sending initial message for poi: ${marker}`)
+		}
+	}
+
+	private navigateToMarker(marker: MarkerDto): void {
 		this.selectedMarker = marker
 		this.appFacade.currentPosition = marker.position
+		this.appFacade.navigateToMap(marker.id)
 
 		this.isShowMarkerView = true
 	}

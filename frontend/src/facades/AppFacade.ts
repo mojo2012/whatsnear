@@ -1,4 +1,5 @@
 import { LatLng } from "@/dtos/LatLng"
+import router, { Routes } from "@/router"
 import { AuthService } from "@/services/AuthService"
 import { LocationService } from "@/services/LocationService"
 import { MapsService } from "@/services/MapsService"
@@ -107,6 +108,27 @@ export class AppFacade {
 			]
 		})
 		toast.present()
+	}
+
+	private nagivateTo(routeId: Routes, params = {}): void {
+		const route = router.getRoutes().filter((r) => r.name === routeId)[0]
+		router.push({ name: route.name, params: params })
+	}
+
+	public navigateToConversations(conversationId?: string): void {
+		const params = conversationId //
+			? { conversationId: conversationId }
+			: {}
+
+		this.nagivateTo(Routes.Conversations, params)
+	}
+
+	public navigateToMap(poiId?: string): void {
+		const params = poiId //
+			? { poiId: poiId }
+			: {}
+
+		this.nagivateTo(Routes.MapView, params)
 	}
 
 	public onLoginSuccess(this: this, type: RegisterOrLoginType): void {

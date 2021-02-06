@@ -98,7 +98,10 @@
 			css-class="show-marker-view"
 			@onDidDismiss="isShowMarkerView = false"
 		>
-			<show-marker-view :marker="selectedMarker"></show-marker-view>
+			<show-marker-view
+				:marker="selectedMarker"
+				@onCreateConversation="onCreateConversation"
+			></show-marker-view>
 		</ion-modal>
 	</ion-page>
 </template>

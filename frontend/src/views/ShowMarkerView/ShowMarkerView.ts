@@ -34,6 +34,7 @@ class Props {
 
 @Options({
 	name: "show-marker-view",
+	emits: ["onCreateConversation"],
 	components: {
 		GoogleMap,
 		Marker,
@@ -59,6 +60,10 @@ export class ShowMarkerView extends Vue.with(Props) {
 	private appFacade = AppFacade.instance
 
 	public apiKey = Settings.googleApiKey
+
+	public mounted(): void {
+		console.info("mounted")
+	}
 
 	public onCancelButtonClick(_event: MouseEvent): void {
 		console.info("onCancelButtonClick")
@@ -93,9 +98,13 @@ export class ShowMarkerView extends Vue.with(Props) {
 
 	public async onContactButtonClick(event: unknown): Promise<void> {
 		if (this._marker.id) {
-			await this.messageService.sendMessage(this._marker.id)
-			this.modalController.dismiss()
-			this.appFacade.showNotificationMessage(`Send initial message for poi: ${this._marker.title}`)
+			// const top = await this.modalController.getTop()
+			// this.modalController.dismiss(null, "", top?.id)
+			// this.appFacade.navigateToConversations(conversationId)
+
+			this.$emit("onCreateConversation", this.marker)
+
+			// this.appFacade.showNotificationMessage(`Send initial message for poi: ${this._marker.title}`)
 		} else {
 			this.appFacade.showNotificationMessage(`Error sending initial message for poi: ${this._marker.title}`)
 		}

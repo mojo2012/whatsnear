@@ -39,6 +39,11 @@ export class AuthService {
 		return auth
 	}
 
+	public async getCurrentUsername(): Promise<Optional<string>> {
+		const currentAuthentication = await this.loadStoredAuthentication()
+		return currentAuthentication?.uid
+	}
+
 	public async storeAuthentication(authentication?: Authentication | null): Promise<void> {
 		this.authentication = authentication
 
@@ -72,6 +77,7 @@ export class AuthService {
 			console.info("result: " + result)
 
 			const tokenData = (await result).data
+			tokenData.uid = username
 
 			if (tokenData) {
 				await this.storeAuthentication(tokenData)
@@ -98,6 +104,7 @@ export class AuthService {
 			console.info("result: " + result)
 
 			const tokenData = (await result).data
+			tokenData.uid = registrationData.username
 
 			if (tokenData) {
 				await this.storeAuthentication(tokenData)

@@ -3,6 +3,7 @@ import AppToolbar from "@/components/AppToolbar/AppToolbar.vue"
 import ChatBubble from "@/components/ChatBubble/ChatBubble.vue"
 import { POINT_OF_SERVICE_MAPPING } from "@/configuration/Mappings"
 import { Conversation } from "@/dtos/Conversation"
+import { Message } from "@/dtos/Message"
 import { AppFacade } from "@/facades/AppFacade"
 import { AuthService } from "@/services/AuthService"
 import { MessageService } from "@/services/MessageService"
@@ -65,6 +66,10 @@ export class ConversationsView extends Vue {
 
 	private allConversations: Conversation[] = []
 	public filterText = ""
+	public selectedConversation!: Conversation
+	public messagesOfSelectedConversation: Message[] = []
+	public selectedConversationId = ""
+	public currentUsername = ""
 
 	// icons
 	public icons = {
@@ -78,7 +83,7 @@ export class ConversationsView extends Vue {
 	}
 
 	public async created(): Promise<void> {
-		// await this.authService.loadStoredAuthentication()
+		this.currentUsername = (await this.authService.getCurrentUsername()) ?? ""
 	}
 
 	public async mounted(this: this): Promise<void> {
@@ -96,10 +101,34 @@ export class ConversationsView extends Vue {
 		// })
 	}
 
+	public updateConversationId(): void {
+		const conversationId = this.$route?.params["conversationId"]
+		const selectedConversationId =
+			conversationId instanceof Array //
+				? (conversationId[0] as string)
+				: (conversationId as string)
+
+		this.selectedConversationId = selectedConversationId
+	}
+
+	public async fetchMessagesForSelectedConversation(): Promise<void> {
+		let messages: Message[]
+		if (this.selectedConversationId) {
+			messages = await this.messageService.getMessages(this.selectedConversationId)
+		} else {
+			messages = []
+		}
+
+		this.messagesOfSelectedConversation = messages
+	}
+
 	public async beforeUpdate(this: this): Promise<void> {
 		try {
 			const conversations = await this.messageService.getConversations()
 			this.allConversations = conversations
+			this.updateConversationId()
+
+			await this.fetchMessagesForSelectedConversation()
 		} catch (exception) {
 			this.appFacade.showNotificationMessage("Cannot get conversations from backend.")
 		}
@@ -117,5 +146,11 @@ export class ConversationsView extends Vue {
 
 	public onSearchBarInput(event: InputEvent): void {
 		this.filterText = (event.data as string) ?? ""
+	}
+
+	public async onConversationSelected(event: MouseEvent, conversationId: string): Promise<void> {
+		this.appFacade.navigateToConversations(conversationId)
+		this.selectedConversationId = conversationId
+		await this.fetchMessagesForSelectedConversation()
 	}
 }

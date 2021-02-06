@@ -4,6 +4,7 @@ import { Message } from "@/dtos/Message"
 import { Payload } from "@/dtos/Payload"
 import { SendMessageRequest } from "@/dtos/SendMessageRequest"
 import { BackendNotReachableException } from "@/exceptions/BackendNotReachableException"
+import { MessageException } from "@/exceptions/MessageException"
 import { RequestService } from "@/services/RequestService"
 
 export class MessageService {
@@ -38,7 +39,7 @@ export class MessageService {
 	}
 
 	public async getMessages(conversationId: string): Promise<Message[]> {
-		const url = `${Settings.backendUrlV1}/conversations/${conversationId}`
+		const url = `${Settings.backendUrlV1}/conversations/messages/${conversationId}`
 
 		try {
 			const response = await this.requestService.get(url)
@@ -50,14 +51,25 @@ export class MessageService {
 		}
 	}
 
-	public async sendMessage(poiId: string): Promise<Message> {
+	public async createConversation(poiId: string): Promise<string> {
+		// send initial message
+		const message = await this.sendMessage(poiId, "Hi")
+
+		if (message.conversation) {
+			return message.conversation
+		}
+
+		throw new MessageException("Could not start conversation")
+	}
+
+	public async sendMessage(poiId: string, text: string): Promise<Message> {
 		const url = `${Settings.backendUrlV1}/conversations/messages/send`
 
-		const request = {
+		const request: SendMessageRequest = {
 			poi: poiId,
-			text: "hello",
+			text: text,
 			visibility: "PUBLIC"
-		} as SendMessageRequest
+		}
 
 		try {
 			const response = await this.requestService.post(url, request)

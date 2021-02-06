@@ -47,8 +47,27 @@
 					</ion-header>
 					<ion-content>
 						<ion-list>
+							<!-- <ion-item v-if="pendingInCreationConversation != null">
+								<ion-label>
+									{{ getPoiIcon(pendingInCreationConversation.poi.type) }}
+									{{ pendingInCreationConversation.poi.title }}
+									{{ pendingInCreationConversation.poi.description }}
+								</ion-label>
+							</ion-item> -->
 							<ion-item
 								v-for="(conversation, index) in conversations"
+								v-bind:class="{
+									active:
+										conversation.id ===
+										selectedConversationId,
+								}"
+								:button="true"
+								@click="
+									onConversationSelected(
+										$event,
+										conversation.id
+									)
+								"
 							>
 								<ion-label>
 									{{ getPoiIcon(conversation.poi.type) }}
@@ -62,18 +81,21 @@
 
 				<!-- the main content -->
 				<ion-list id="main">
-					<ion-item>
+					<!-- <ion-item>
 						<chat-bubble text="test" alignment="left">
 						</chat-bubble>
 					</ion-item>
 					<ion-item>
 						<chat-bubble text="test 2" alignment="right">
 						</chat-bubble>
-					</ion-item>
-					<ion-item class="bottom">
-						<ion-input txpe="text" id="new-message"> </ion-input>
+					</ion-item> -->
+
+					<ion-item v-for="message in messagesOfSelectedConversation">
+						<chat-bubble :text="message.text" v-bind:alignment="currentUsername === message.sender ? 'right' : 'left'">
+						</chat-bubble>
 					</ion-item>
 				</ion-list>
+				<!-- <ion-input txpe="text" id="new-message"> </ion-input> -->
 			</ion-split-pane>
 		</ion-content>
 	</ion-page>
@@ -94,5 +116,9 @@ ion-input#new-message {
 ion-item.bottom {
 	margin-bottom: 0px;
 	margin-top: auto;
+}
+ion-item.active {
+	background: green;
+	font-weight: bold;
 }
 </style>
