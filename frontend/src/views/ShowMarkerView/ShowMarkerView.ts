@@ -2,7 +2,7 @@
 import { PointOfServiceTypeIconMappingType, POINT_OF_SERVICE_MAPPING } from "@/configuration/Mappings"
 import { Settings } from "@/configuration/Settings"
 import { MarkerDto } from "@/dtos/MarkerDto"
-import { MessageException } from "@/exceptions/MessageException"
+import { AppFacade } from "@/facades/AppFacade"
 import { MessageService } from "@/services/MessageService"
 import { ModalController } from "@/types/IonicTypes"
 import {
@@ -56,6 +56,7 @@ class Props {
 export class ShowMarkerView extends Vue.with(Props) {
 	private modalController: ModalController = modalController
 	private messageService = MessageService.instance
+	private appFacade = AppFacade.instance
 
 	public apiKey = Settings.googleApiKey
 
@@ -92,9 +93,11 @@ export class ShowMarkerView extends Vue.with(Props) {
 
 	public async onContactButtonClick(event: unknown): Promise<void> {
 		if (this._marker.id) {
-			this.messageService.sendMessage(this._marker.id)
+			await this.messageService.sendMessage(this._marker.id)
+			this.modalController.dismiss()
+			this.appFacade.showNotificationMessage(`Send initial message for poi: ${this._marker.title}`)
 		} else {
-			throw new MessageException("Cannot send message to poi with empty id")
+			this.appFacade.showNotificationMessage(`Error sending initial message for poi: ${this._marker.title}`)
 		}
 	}
 }

@@ -2,6 +2,7 @@ import { Settings } from "@/configuration/Settings"
 import { Conversation } from "@/dtos/Conversation"
 import { Message } from "@/dtos/Message"
 import { Payload } from "@/dtos/Payload"
+import { SendMessageRequest } from "@/dtos/SendMessageRequest"
 import { BackendNotReachableException } from "@/exceptions/BackendNotReachableException"
 import { RequestService } from "@/services/RequestService"
 
@@ -49,17 +50,25 @@ export class MessageService {
 		}
 	}
 
-	public async sendMessage(poiId: string): Promise<void> {
-		const url = `${Settings.backendUrlV1}/conversations/messages/send${poiId}`
+	public async sendMessage(poiId: string): Promise<Message> {
+		const url = `${Settings.backendUrlV1}/conversations/messages/send`
+
+		const request = {
+			poi: poiId,
+			text: "hello",
+			visibility: "PUBLIC"
+		} as SendMessageRequest
 
 		try {
-			const response = await this.requestService.post(url)
-			const body: Promise<Payload<void>> = await response.json()
+			const response = await this.requestService.post(url, request)
+			const body: Promise<Payload<Message>> = await response.json()
 			const data = (await body).data
 
-			if (!response.ok) {
-				throw new BackendNotReachableException(`Got bad response while sending message to poi ${poiId}`)
+			if (response.ok) {
+				return data
 			}
+
+			throw new BackendNotReachableException(`Got bad response while sending message to poi ${poiId}`)
 		} catch (ex) {
 			throw new BackendNotReachableException(`Could not send messages for poi ${poiId}`, ex)
 		}

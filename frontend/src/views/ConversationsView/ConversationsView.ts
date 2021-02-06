@@ -82,13 +82,6 @@ export class ConversationsView extends Vue {
 	}
 
 	public async mounted(this: this): Promise<void> {
-		try {
-			const conversations = await this.messageService.getConversations()
-			this.allConversations = conversations
-		} catch (exception) {
-			this.appFacade.showNotificationMessage("Cannot get conversations from backend.")
-		}
-
 		// this.conversations.push({
 		// 	poi: {
 		// 		id: "aaa",
@@ -101,6 +94,15 @@ export class ConversationsView extends Vue {
 		// 		validTo: new Date()
 		// 	}
 		// })
+	}
+
+	public async beforeUpdate(this: this): Promise<void> {
+		try {
+			const conversations = await this.messageService.getConversations()
+			this.allConversations = conversations
+		} catch (exception) {
+			this.appFacade.showNotificationMessage("Cannot get conversations from backend.")
+		}
 	}
 
 	public get conversations(): Conversation[] {
