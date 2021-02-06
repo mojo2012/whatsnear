@@ -1,100 +1,63 @@
 <template>
 	<ion-page>
-		<ion-menu side="start" type="reveal" content-id="main-content">
-			<ion-header>
-				<ion-toolbar translucent>
-					<ion-title>Menu</ion-title>
-				</ion-toolbar>
-			</ion-header>
-			<ion-content>
-				<ion-list>
-					<ion-item
-						v-for="(marker, index) in markers"
-						:key="'markerListItem-' + index"
-						button
-						@click="onMarkerSelected($event, marker)"
-					>
-						<!-- <ion-icon :name="marker.label" slot="start"></ion-icon> -->
-						<!-- <ion-label>{{marker.label}}</ion-label> -->
-						<ion-label
-							>{{ marker.label }} {{ marker.title }} ({{
-								marker.distance
-							}}
-							{{ marker.distanceUnit }})</ion-label
+		<app-toolbar
+			menu-position="end"
+			menu-id="map-markers-menu"
+			content-id="map-content"
+		>
+			<template v-slot:menu>
+				<ion-content>
+					<ion-list>
+						<ion-item
+							v-for="(marker, index) in markers"
+							:key="'markerListItem-' + index"
+							button
+							@click="onMarkerSelected($event, marker)"
 						>
-					</ion-item>
-				</ion-list>
-			</ion-content>
-		</ion-menu>
+							<ion-label
+								>{{ marker.label }} {{ marker.title }} ({{
+									marker.distance
+								}}
+								{{ marker.distanceUnit }})</ion-label
+							>
+						</ion-item>
+					</ion-list>
+				</ion-content>
+			</template>
 
-		<ion-header>
-			<ion-toolbar class="main" color="primary">
+			<template v-slot:start>
 				<ion-searchbar
 					debounce="1000"
 					animated
 					mode="ios"
 					class="toolbar-item"
 					@input="onSearchBarInput"
-					placeholder="Filter ..."
+					placeholder="Search ..."
 				></ion-searchbar>
+			</template>
 
-				<ion-buttons slot="end" class="toolbar-item">
-					<ion-button
-						@click="onAddMarkerButtonClick"
-						v-if="authService.isAuthenticated()"
-						title="Add marker"
-					>
-						<ion-icon
-							slot="icon-only"
-							:icon="icons.addIcon"
-						></ion-icon>
-					</ion-button>
-					<ion-button
-						@click="onLocateMeButtonClick"
-						title="Locate me"
-					>
-						<ion-icon
-							slot="icon-only"
-							:icon="icons.navigateIcon"
-						></ion-icon>
-					</ion-button>
+			<template v-slot:end>
+				<ion-button
+					@click="onAddMarkerButtonClick"
+					v-if="authService.isAuthenticated()"
+					title="Add marker"
+				>
+					<ion-icon slot="icon-only" :icon="icons.addIcon"></ion-icon>
+				</ion-button>
+				<ion-button @click="onLocateMeButtonClick" title="Locate me">
+					<ion-icon
+						slot="icon-only"
+						:icon="icons.navigateIcon"
+					></ion-icon>
+				</ion-button>
+			</template>
+		</app-toolbar>
 
-					<!-- login/logout buttons -->
-					<ion-button
-						@click="onLoginButtonClick"
-						v-if="!authService.isAuthenticated()"
-						title="Login"
-					>
-						<ion-icon
-							slot="icon-only"
-							:icon="icons.loginIcon"
-						></ion-icon>
-					</ion-button>
-					<ion-button
-						@click="onLogoutButtonClick"
-						v-if="authService.isAuthenticated()"
-						title="Logout"
-					>
-						<ion-icon
-							slot="icon-only"
-							:icon="icons.logoutIcon"
-						></ion-icon>
-					</ion-button>
-
-					<!-- menu button -->
-					<ion-menu-button
-						@click="onMenuButtonClick"
-						auto-hide="false"
-					></ion-menu-button>
-				</ion-buttons>
-			</ion-toolbar>
-		</ion-header>
-
-		<ion-content id="main-content" :fullscreen="true">
+		<ion-content id="map-content" :fullscreen="true">
 			<GoogleMap
 				:api-key="apiKey"
 				style="width: 100%; height: 100%"
-				:center="mapCenter"
+				:center="appFacade.currentPosition"
 				:zoom="10"
 			>
 				<!-- current position -->
@@ -119,8 +82,8 @@
 			@onDidDismiss="isShowAddMarkerView = false"
 		>
 			<add-marker-view
-				:mapLat="mapCenter.lat"
-				:mapLon="mapCenter.lng"
+				:mapLat="appFacade.currentPosition.lat"
+				:mapLon="appFacade.currentPosition.lng"
 				@onAddMarker="onAddMarker"
 			></add-marker-view>
 		</ion-modal>
@@ -135,38 +98,6 @@
 		>
 			<show-marker-view :marker="selectedMarker"></show-marker-view>
 		</ion-modal>
-
-		<ion-modal
-			key="login-dialog"
-			mode="ios"
-			:swipe-to-close="true"
-			:is-open="isShowLoginView"
-			css-class="login-view"
-			@onDidDismiss="onLoginDismiss"
-		>
-			<login-view
-				@onBeforeLogin="onBeforeLogin"
-				@onLoginSuccess="onLoginSuccess"
-				@onLoginFailed="onLoginFailed"
-			>
-				<div
-					class="login-error-message"
-					v-if="loginErrorMessage?.length > 0"
-				>
-					<ion-icon :icon="icons.alertCircle" />
-					<span>{{ loginErrorMessage }}</span>
-				</div>
-			</login-view>
-		</ion-modal>
-
-		<!-- <ion-toast
-			key="toast"
-			:is-open="notificationMessage?.length > 0"
-			:message="notificationMessage"
-			:duration="5000"
-			@onDidDismiss="onToastClosed"
-		>
-		</ion-toast> -->
 	</ion-page>
 </template>
 
@@ -175,6 +106,4 @@ import { MapView } from "./MapView";
 export default MapView;
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

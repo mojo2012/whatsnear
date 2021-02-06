@@ -1,5 +1,8 @@
 /* eslint-disable max-classes-per-file */
+import AppToolbar from "@/components/AppToolbar/AppToolbar.vue"
+import { POINT_OF_SERVICE_MAPPING } from "@/configuration/Mappings"
 import { Conversation } from "@/dtos/Conversation"
+import { AppFacade } from "@/facades/AppFacade"
 import { AuthService } from "@/services/AuthService"
 import { MessageService } from "@/services/MessageService"
 import {
@@ -12,7 +15,9 @@ import {
 	IonItem,
 	IonLabel,
 	IonList,
+	IonMenu,
 	IonPage,
+	IonSearchbar,
 	IonSelect,
 	IonSelectOption,
 	IonTextarea,
@@ -27,25 +32,31 @@ import { Options, Vue } from "vue-class-component"
 	components: {
 		IonHeader,
 		IonToolbar,
+		IonMenu,
 		IonTitle,
 		IonList,
 		IonItem,
 		IonButton,
 		IonButtons,
 		IonLabel,
+		IonSearchbar,
 		IonContent,
 		IonInput,
 		IonTextarea,
 		IonSelect,
 		IonSelectOption,
 		IonPage,
-		IonIcon
+		IonIcon,
+		AppToolbar
 	}
 })
 export class ConversationsView extends Vue {
-	public authService = AuthService.instance
+	private appFacade = AppFacade.instance
+	private authService = AuthService.instance
 	private messageService = MessageService.instance
-	public conversations: Conversation[] = []
+
+	private allConversations: Conversation[] = []
+	public filterText = ""
 
 	// icons
 	public icons = {
@@ -59,13 +70,42 @@ export class ConversationsView extends Vue {
 	}
 
 	public async created(): Promise<void> {
-		// const conversations = await this.messageService.getConversations()
-		// this.conversations = conversations
+		// await this.authService.loadStoredAuthentication()
+	}
+
+	public async mounted(this: this): Promise<void> {
+		try {
+			const conversations = await this.messageService.getConversations()
+			this.allConversations = conversations
+		} catch (exception) {
+			this.appFacade.showNotificationMessage("Cannot get conversations from backend.")
+		}
+
 		// this.conversations.push({
 		// 	poi: {
 		// 		id: "aaa",
 		// 		type: PointOfServiceType.GIVE_AWAY,
+		// 		author: "me",
+		// 		description: "test",
+		// 		location: { latitude: 49, longitude: 16 },
+		// 		distance: { unit: DistanceUnit.Kilometer, value: 20 },
+		// 		title: "title",
+		// 		validTo: new Date()
 		// 	}
 		// })
+	}
+
+	public get conversations(): Conversation[] {
+		return this.filterText
+			? this.allConversations.filter((c) => c.poi.title.includes(this.filterText)) //
+			: this.allConversations
+	}
+
+	public getPoiIcon(code: string): string {
+		return POINT_OF_SERVICE_MAPPING.filter((p) => p.code === code).map((p) => p.icon)[0]
+	}
+
+	public onSearchBarInput(event: InputEvent): void {
+		this.filterText = (event.data as string) ?? ""
 	}
 }

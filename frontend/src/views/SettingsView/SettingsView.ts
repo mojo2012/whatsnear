@@ -1,4 +1,5 @@
 /* eslint-disable max-classes-per-file */
+import AppToolbar from "@/components/AppToolbar/AppToolbar.vue"
 import { AuthService } from "@/services/AuthService"
 import {
 	IonButton,
@@ -24,7 +25,6 @@ import {
 } from "@ionic/vue"
 import { add, alertCircleOutline, close, key, logOut, navigate, search } from "ionicons/icons"
 import { Options, Vue } from "vue-class-component"
-
 @Options({
 	name: "settings-view",
 	components: {
@@ -47,7 +47,8 @@ import { Options, Vue } from "vue-class-component"
 		IonSelectOption,
 		IonPage,
 		IonItemDivider,
-		IonToggle
+		IonToggle,
+		AppToolbar
 	}
 })
 export class SettingsView extends Vue {

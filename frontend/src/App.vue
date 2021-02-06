@@ -1,21 +1,33 @@
 <template>
 	<ion-app>
 		<ion-router-outlet />
+
+		<!-- <ion-modal
+			key="login-dialog"
+			mode="ios"
+			:swipe-to-close="true"
+			:is-open="isShowLoginView"
+			css-class="login-view"
+			@onDidDismiss="onLoginDismiss"
+		> -->
+		<!-- <login-view
+				@onBeforeLogin="onBeforeLogin"
+				@onLoginSuccess="onLoginSuccess"
+				@onLoginFailed="onLoginFailed"
+			>
+				<div
+					class="login-error-message"
+					v-if="appFacade.loginErrorMessage?.length > 0"
+				>
+					<ion-icon :icon="icons.alertCircle" />
+					<span>{{ appFacade.loginErrorMessage }}</span>
+				</div>
+			</login-view> -->
+		<!-- </ion-modal> -->
 	</ion-app>
 </template>
 
-<script lang="ts">
-import { IonApp, IonRouterOutlet } from "@ionic/vue";
-import { defineComponent } from "vue";
-
-export default defineComponent({
-	name: "App",
-	components: {
-		IonApp,
-		IonRouterOutlet,
-	},
-});
-</script>
+<script lang="ts" src="./App.ts"></script>
 
 <style>
 * {
@@ -128,5 +140,9 @@ ion-toolbar > ion-searchbar.toolbar-item {
 
 ion-toolbar.main > ion-buttons.ios {
 	margin-top: 6px;
+}
+
+ion-menu {
+	margin-top: 50px;
 }
 </style>

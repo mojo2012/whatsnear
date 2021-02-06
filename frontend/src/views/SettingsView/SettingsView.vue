@@ -1,36 +1,6 @@
 <template>
 	<ion-page>
-		<ion-header>
-			<ion-toolbar class="main" color="primary">
-				<ion-title size="large">Settings</ion-title>
-				<ion-buttons slot="end" class="toolbar-item">
-					<!-- login/logout buttons -->
-					<ion-button
-						@click="onLoginButtonClick"
-						v-if="!authService.isAuthenticated()"
-						title="Login"
-					>
-						<ion-icon
-							slot="icon-only"
-							:icon="icons.loginIcon"
-						></ion-icon>
-					</ion-button>
-					<ion-button
-						@click="onLogoutButtonClick"
-						v-if="authService.isAuthenticated()"
-						title="Logout"
-					>
-						<ion-icon
-							slot="icon-only"
-							:icon="icons.logoutIcon"
-						></ion-icon>
-					</ion-button>
-
-					<!-- menu button -->
-					<ion-menu-button auto-hide="false"></ion-menu-button>
-				</ion-buttons>
-			</ion-toolbar>
-		</ion-header>
+		<app-toolbar />
 
 		<ion-content :fullscreen="true">
 			<ion-list>

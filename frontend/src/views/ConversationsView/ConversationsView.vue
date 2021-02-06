@@ -1,58 +1,48 @@
 <template>
 	<ion-page>
-		<ion-header>
-			<ion-toolbar class="main"  color="primary">
+		<app-toolbar
+			menu-position="end"
+			menu-id="conversation-overview-menu"
+			content-id="conversation-content"
+		>
+			<template v-slot:menu>
+				<ion-content>
+					<ion-list>
+						<ion-item
+							v-for="(conversation, index) in conversations"
+						>
+							<ion-icon
+								slot="start"
+								name="people-circle-outline"
+								style="color: #ff0"
+							></ion-icon>
+							<ion-label>
+								{{ conversation.title }}
+							</ion-label>
+						</ion-item>
+					</ion-list>
+				</ion-content>
+			</template>
+
+			<template v-slot:start>
 				<ion-searchbar
 					debounce="1000"
 					animated
 					mode="ios"
 					class="toolbar-item"
 					@input="onSearchBarInput"
-					placeholder="Filter ..."
+					placeholder="Search ..."
 				></ion-searchbar>
+			</template>
+		</app-toolbar>
 
-				<ion-buttons slot="end" class="toolbar-item">
-					<!-- login/logout buttons -->
-					<ion-button
-						@click="onLoginButtonClick"
-						v-if="!authService.isAuthenticated()"
-						title="Login"
-					>
-						<ion-icon
-							slot="icon-only"
-							:icon="icons.loginIcon"
-						></ion-icon>
-					</ion-button>
-					<ion-button
-						@click="onLogoutButtonClick"
-						v-if="authService.isAuthenticated()"
-						title="Logout"
-					>
-						<ion-icon
-							slot="icon-only"
-							:icon="icons.logoutIcon"
-						></ion-icon>
-					</ion-button>
-
-					<!-- menu button -->
-					<ion-menu-button
-						@click="onMenuButtonClick"
-						auto-hide="false"
-					></ion-menu-button>
-				</ion-buttons>
-			</ion-toolbar>
-		</ion-header>
-
-		<ion-content :fullscreen="true">
+		<ion-content id="conversation-content" :fullscreen="true">
 			<ion-list>
 				<ion-item v-for="(conversation, index) in conversations">
-					<ion-icon
-						slot="start"
-						name="people-circle-outline"
-						style="color: #fff"
-					></ion-icon>
 					<ion-label>
-						<h3>{{ conversation.poi }}</h3>
+						{{ getPoiIcon(conversation.poi.type) }}
+						{{ conversation.poi.title }}
+						{{ conversation.poi.description }}
 					</ion-label>
 				</ion-item>
 			</ion-list>
