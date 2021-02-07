@@ -126,7 +126,9 @@ public class DefaultMessageService implements MessageService {
 //			return conv;
 //		});
 		
-		return conv.getMessages().stream().map(m -> convert(m)).collect(Collectors.toList());
+		return conv.getMessages().stream().map(m -> convert(m)).sorted((a, b) -> {
+			return a.getCreatedAt().compareTo(b.getCreatedAt());
+		}).collect(Collectors.toList());
 	}
 	
 	@Override
@@ -178,28 +180,34 @@ public class DefaultMessageService implements MessageService {
 		if (conversation.getId() != null) {
 			data.setId(conversation.getId().toString());
 		}
+		data.setCreatedAt(conversation.getCreatedAt());
 		
 		if (full) {
 			data.setPoi(pointOfInterestService.convert(conversation.getPoi()));
+			if (CollectionUtils.isNotEmpty(conversation.getParticipants())) {
+				data.setParticipants(new ArrayList<>());
+				for (var participant : conversation.getParticipants()) {
+					data.getParticipants().add(userService.convert(participant));
+				}
+			}
+			
+			if (CollectionUtils.isNotEmpty(conversation.getMessages())) {
+				List<MessageData> msgs = new ArrayList<>();
+				for (var msg : conversation.getMessages()) {
+					msgs.add(convert(msg));
+				}
+				msgs = msgs.stream().sorted((a, b) -> {
+					return a.getCreatedAt().compareTo(b.getCreatedAt());
+				}).collect(Collectors.toList());
+				
+				data.setMessages(msgs);
+			}
 		} else {
 			var poi = new PointOfInterestData();
 			poi.setId(conversation.getPoi().getId().toString());
 			data.setPoi(poi);
 		}
 		
-		if (CollectionUtils.isNotEmpty(conversation.getParticipants())) {
-			data.setParticipants(new ArrayList<>());
-			for (var participant : conversation.getParticipants()) {
-				data.getParticipants().add(userService.convert(participant));
-			}
-		}
-		
-		if (CollectionUtils.isNotEmpty(conversation.getMessages())) {
-			data.setMessages(new ArrayList<>());
-			for (var msg : conversation.getMessages()) {
-				data.getMessages().add(convert(msg));
-			}
-		}
 		
 		return data;
 	}
@@ -208,6 +216,7 @@ public class DefaultMessageService implements MessageService {
 		var data = new MessageData();
 		
 		data.setId(message.getId().toString());
+		data.setCreatedAt(message.getCreatedAt());
 		
 		data.setSender(message.getSender().getUid());
 		if (message.getOwner() != null) {

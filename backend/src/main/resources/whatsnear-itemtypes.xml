@@ -123,6 +123,7 @@
 			<property name="poi" type="PointOfInterestData" />
 			<property name="participants" type="UserDataList" />
 			<property name="messages" type="MessageDataList" />
+			<property name="createdAt" type="LocalDateTime" />
 		</properties>
 	</bean>
 	
@@ -135,6 +136,7 @@
 			<property name="sender" type="String" />
 			<property name="text" type="String" />
 			<property name="visibility" type="MessageVisibility" />
+			<property name="createdAt" type="LocalDateTime" />
 <!-- 			<property name="sendStatus" type="MessageSendStatus" /> -->
 <!-- 			<property name="readStatus" type="MessageReadStatus" /> -->
 		</properties>
