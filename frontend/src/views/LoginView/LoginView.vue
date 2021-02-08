@@ -109,6 +109,14 @@
 			></ion-input>
 		</ion-item>
 
+		<div
+			class="login-error-message"
+			v-if="appFacade.loginErrorMessage?.length > 0"
+		>
+			<ion-icon :icon="icons.alertCircle" />
+			<span>{{ appFacade.loginErrorMessage }}</span>
+		</div>
+
 		<slot></slot>
 	</ion-content>
 </template>

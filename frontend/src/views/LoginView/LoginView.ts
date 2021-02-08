@@ -1,5 +1,6 @@
 /* eslint-disable max-classes-per-file */
 import { UserData } from "@/dtos/UserData"
+import { AppFacade } from "@/facades/AppFacade"
 import { AuthService } from "@/services/AuthService"
 import { RegisterOrLoginType } from "@/types/helper-types"
 import { ModalController } from "@/types/IonicTypes"
@@ -25,7 +26,7 @@ import {
 	IonToolbar,
 	modalController
 } from "@ionic/vue"
-import { logIn, personAdd } from "ionicons/icons"
+import { alertCircle, logIn, personAdd } from "ionicons/icons"
 import { Options, prop, Vue } from "vue-class-component"
 import { useRouter } from "vue-router"
 class Props {
@@ -73,6 +74,7 @@ class Props {
 })
 export class LoginView extends Vue.with(Props) {
 	private authService: AuthService = AuthService.instance
+	private appFacade: AppFacade = AppFacade.instance
 	private modalController: ModalController = modalController
 	private router = useRouter()
 
@@ -88,7 +90,8 @@ export class LoginView extends Vue.with(Props) {
 
 	public icons = {
 		personAdd: personAdd,
-		logIn: logIn
+		logIn: logIn,
+		alertCircle: alertCircle
 	}
 
 	public async mounted(this: this): Promise<void> {

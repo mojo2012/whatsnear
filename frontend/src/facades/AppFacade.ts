@@ -139,6 +139,7 @@ export class AppFacade {
 
 	public onBeforeLogin(this: this): void {
 		console.info("onBeforeLogin")
+		this.loginErrorMessage = ""
 	}
 
 	public onLoginDismiss(this: this): void {
