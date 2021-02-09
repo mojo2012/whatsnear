@@ -22,44 +22,58 @@ import spark.Response;
 import spark.route.HttpMethod;
 
 @RemoteEndpoint(portConfigKey = "service.typesystem.rest.port", port = 19000, pathMapping = "/v1/conversations", authenticationFilter = CustomAuthenticationFilter.class)
-public class MessageEndpoint extends AbstractRestEndpoint{
+public class MessageEndpoint extends AbstractRestEndpoint {
 
 	private static final SerializationConfiguration CONFIG = new SerializationConfiguration();
 	static {
 		CONFIG.setFormat(DataFormat.JSON);
 	}
-	
+
 	@Autowired
 	private MessageService messageService;
-	
+
 	@Log(logLevel = LogLevel.DEBUG, measureExecutionTime = true)
-	@Handler(method = HttpMethod.get, pathMapping = { "/messages/:conversationId"}, mimeType = MimeType.JSON, responseTransformer = JsonResponseTransformer.class)
-	public HttpResponse getMessages(final Request request, final Response response) {
-		var conversationId = request.params(":conversationId");
-		var data = new ConversationData();
-		data.setId(conversationId);
-		var messages = messageService.getMessages(data);
-		
-		return DataResponse.ok().withPayload(messages);
-	}
-	
-	@Log(logLevel = LogLevel.DEBUG, measureExecutionTime = true)
-	@Handler(method = HttpMethod.get, pathMapping = { "", "/"}, mimeType = MimeType.JSON, responseTransformer = JsonResponseTransformer.class)
+	@Handler(method = HttpMethod.get, pathMapping = { "", "/" }, mimeType = MimeType.JSON, responseTransformer = JsonResponseTransformer.class)
 	public HttpResponse getConversations(final Request request, final Response response) {
-		
-		var conversations = messageService.getConversations();
-		
+		final var conversations = messageService.getConversations();
+
 		return DataResponse.ok().withPayload(conversations);
 	}
-	
+
 	@Log(logLevel = LogLevel.DEBUG, measureExecutionTime = true)
-	@Handler(method = HttpMethod.post, pathMapping = { "/messages/send"}, mimeType = MimeType.JSON, responseTransformer = JsonResponseTransformer.class)
+	@Handler(method = HttpMethod.post, pathMapping = { "", "/" }, mimeType = MimeType.JSON, responseTransformer = JsonResponseTransformer.class)
+	public HttpResponse createConversations(final Request request, final Response response) {
+		final var data = serializationService.deserialize(CONFIG, request.body(), ConversationData.class);
+		final var conversations = messageService.createConversation(data);
+
+		return DataResponse.ok().withPayload(conversations);
+	}
+
+	@Log(logLevel = LogLevel.DEBUG, measureExecutionTime = true)
+	@Handler(method = HttpMethod.get, pathMapping = {
+			"/:conversationId/messages/" }, mimeType = MimeType.JSON, responseTransformer = JsonResponseTransformer.class)
+	public HttpResponse getMessages(final Request request, final Response response) {
+		final var conversationId = request.params(":conversationId");
+		final var data = new ConversationData();
+		data.setId(conversationId);
+		
+		final var messages = messageService.getMessages(data);
+
+		return DataResponse.ok().withPayload(messages);
+	}
+
+
+	@Log(logLevel = LogLevel.DEBUG, measureExecutionTime = true)
+	@Handler(method = HttpMethod.post, pathMapping = {
+			"/:conversationId/messages/" }, mimeType = MimeType.JSON, responseTransformer = JsonResponseTransformer.class)
 	public HttpResponse sendMessage(final Request request, final Response response) {
-		var data = serializationService.deserialize(CONFIG, request.body(), MessageData.class);
-		
-		var message = messageService.sendMessage(data);
-		
+		final var conversationId = request.params(":conversationId");
+		final var data = serializationService.deserialize(CONFIG, request.body(), MessageData.class);
+		data.setConversation(conversationId);
+
+		final var message = messageService.sendMessage(data);
+
 		return DataResponse.ok().withPayload(message);
 	}
-	
+
 }

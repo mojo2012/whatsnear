@@ -17,7 +17,9 @@ public interface MessageService {
 	void deleteMessage(MessageData data);
 	
 	ConversationData convert(Conversation conversation, boolean full);
-	
+
+	ConversationData createConversation(ConversationData data);
+
 //	MessageData readMessage(MessageData data);
 	
 }

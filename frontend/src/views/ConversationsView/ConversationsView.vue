@@ -47,13 +47,6 @@
 					</ion-header>
 					<ion-content>
 						<ion-list>
-							<!-- <ion-item v-if="pendingInCreationConversation != null">
-								<ion-label>
-									{{ getPoiIcon(pendingInCreationConversation.poi.type) }}
-									{{ pendingInCreationConversation.poi.title }}
-									{{ pendingInCreationConversation.poi.description }}
-								</ion-label>
-							</ion-item> -->
 							<ion-item
 								v-for="(conversation, index) in conversations"
 								v-bind:class="{
@@ -80,8 +73,9 @@
 				</ion-menu>
 
 				<!-- the main content -->
-				<ion-list id="main">
-					<!-- <ion-item>
+				<div id="message-list" id="main" class="menu-content menu-content-overlay split-pane-main md list-md list-lines-none list-md-lines-none hydrated">
+					<ion-list  lines="none">
+						<!-- <ion-item>
 						<chat-bubble text="test" alignment="left">
 						</chat-bubble>
 					</ion-item>
@@ -90,11 +84,21 @@
 						</chat-bubble>
 					</ion-item> -->
 
-					<ion-item v-for="message in messagesOfSelectedConversation">
-						<chat-bubble :text="message.text" v-bind:alignment="currentUsername === message.sender ? 'right' : 'left'">
-						</chat-bubble>
-					</ion-item>
-				</ion-list>
+						<ion-item
+							v-for="message in messagesOfSelectedConversation"
+						>
+							<chat-bubble
+								:text="message.text"
+								v-bind:alignment="
+									currentUsername === message.sender
+										? 'right'
+										: 'left'
+								"
+							>
+							</chat-bubble>
+						</ion-item>
+					</ion-list>
+				</div>
 				<!-- <ion-input txpe="text" id="new-message"> </ion-input> -->
 			</ion-split-pane>
 		</ion-content>
@@ -107,9 +111,21 @@ export default ConversationsView;
 </script>
 
 <style scoped>
-ion-list#main {
-	margin-top: 56px;
+div#message-list {
+	display: flex;
+	flex-direction: column-reverse;
+	padding-bottom: 50px;
+	overflow-y: scroll;
+	width: 100vw;
+	/* min-width: 100vw; */
 }
+ion-list#main {
+	padding-top: 56px;
+	margin-top: auto;
+
+	/* height: 100vh; */
+}
+
 ion-input#new-message {
 	margin: 40px;
 }

@@ -1,10 +1,10 @@
 import { Settings } from "@/configuration/Settings"
 import { Conversation } from "@/dtos/Conversation"
+import { CreateConversationRequest } from "@/dtos/CreateConversationRequest"
 import { Message } from "@/dtos/Message"
 import { Payload } from "@/dtos/Payload"
 import { SendMessageRequest } from "@/dtos/SendMessageRequest"
 import { BackendNotReachableException } from "@/exceptions/BackendNotReachableException"
-import { MessageException } from "@/exceptions/MessageException"
 import { RequestService } from "@/services/RequestService"
 
 export class MessageService {
@@ -52,21 +52,32 @@ export class MessageService {
 	}
 
 	public async createConversation(poiId: string): Promise<string> {
-		// send initial message
-		const message = await this.sendMessage(poiId, "Hi")
+		const url = `${Settings.backendUrlV1}/conversations/`
 
-		if (message.conversation) {
-			return message.conversation
+		const request: CreateConversationRequest = {
+			poi: { id: poiId }
 		}
 
-		throw new MessageException("Could not start conversation")
+		try {
+			const response = await this.requestService.post(url, request)
+			const body: Promise<Payload<Conversation>> = await response.json()
+			const data = (await body).data
+
+			if (response.ok) {
+				return data.id
+			}
+
+			throw new BackendNotReachableException(`Got bad response while creating conversation for poi ${poiId}`)
+		} catch (ex) {
+			throw new BackendNotReachableException(`Could not create conversation for poi ${poiId}`, ex)
+		}
 	}
 
-	public async sendMessage(poiId: string, text: string): Promise<Message> {
+	public async sendMessage(conversationId: string, text: string): Promise<Message> {
 		const url = `${Settings.backendUrlV1}/conversations/messages/send`
 
 		const request: SendMessageRequest = {
-			poi: poiId,
+			conversation: conversationId,
 			text: text,
 			visibility: "PUBLIC"
 		}
@@ -80,9 +91,9 @@ export class MessageService {
 				return data
 			}
 
-			throw new BackendNotReachableException(`Got bad response while sending message to poi ${poiId}`)
+			throw new BackendNotReachableException(`Got bad response while sending message to conversation ${conversationId}`)
 		} catch (ex) {
-			throw new BackendNotReachableException(`Could not send messages for poi ${poiId}`, ex)
+			throw new BackendNotReachableException(`Could not send messages for conversation ${conversationId}`, ex)
 		}
 	}
 }

@@ -5,16 +5,34 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
+			"type": "java",
+			"name": "backend",
+			"request": "launch",
+			"mainClass": "io.spotnext.whatsnear.Init",
+			"console": "internalConsole",
+			"envFile": "${workspaceFolder}/backend/.env.local",
+			"presentation": {
+				"hidden": false,
+				"group": "backend",
+				"order": 1
+			}
+		},
+		{
 			"type": "chrome",
 			"request": "launch",
-			"name": "Chrome",
+			"name": "frontend - Chrome",
 			"url": "http://localhost:8100",
-			"webRoot": "${workspaceFolder}/frontend"
+			"webRoot": "${workspaceFolder}/frontend",
+			"presentation": {
+				"hidden": false,
+				"group": "frontend",
+				"order": 1
+			}
 		},
 		{
 			"type": "firefox",
 			"request": "launch",
-			"name": "firefox",
+			"name": "frontend - firefox",
 			"reAttach": true,
 			"url": "http://localhost:8100",
 			"webRoot": "${workspaceFolder}/frontend",
@@ -23,7 +41,12 @@
 					"url": "webpack:///src",
 					"path": "${workspaceFolder}/frontend/src"
 				}
-			]
+			],
+			"presentation": {
+				"hidden": false,
+				"group": "frontend",
+				"order": 1
+			}
 		}
 	]
 }

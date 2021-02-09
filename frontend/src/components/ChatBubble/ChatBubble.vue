@@ -10,10 +10,15 @@ div#text {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	padding: 20px;
-	border: 2px solid var(--ion-color-primary);
-	background-color: white;
+	border: 1px solid var(--ion-color-primary);
 	min-width: 500px;
 	/* color: white; */
+	background: rgb(171, 0, 215);
+	background: linear-gradient(
+		170deg,
+		rgba(171, 0, 215, 0.2) 50%,
+		rgba(14, 35, 255, 0.2) 100%
+	);
 }
 
 div.left {
