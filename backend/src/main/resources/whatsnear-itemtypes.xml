@@ -2,6 +2,10 @@
 <types xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="https://core-next.io/schemas/v2/itemtypes.xsd">
 
+	<atomic
+			className="java.util.UUID"
+			name="UUID"></atomic>
+
 	<!-- COLLECTION TYPES -->
 	<collection name="UserDataList" elementType="UserData" />
 	<collection name="MessageDataList" elementType="MessageData" />
