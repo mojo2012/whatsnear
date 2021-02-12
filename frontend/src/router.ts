@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "@ionic/vue-router"
 import { RouteRecordRaw } from "vue-router"
-import Tabs from "./views/Tabs.vue"
+import TabsView from "./views/TabsView/TabsView.vue"
 
 export enum Routes {
 	MapView = "map-view",
@@ -15,7 +15,7 @@ const routes: Array<RouteRecordRaw> = [
 	},
 	{
 		path: "/",
-		component: Tabs,
+		component: TabsView,
 		children: [
 			{
 				name: Routes.MapView,

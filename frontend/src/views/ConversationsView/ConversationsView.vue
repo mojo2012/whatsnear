@@ -73,7 +73,7 @@
 				</ion-menu>
 
 				<!-- the main content -->
-				<div id="message-list" id="main" class="menu-content menu-content-overlay split-pane-main md list-md list-lines-none list-md-lines-none hydrated">
+				<div id="main" class="menu-content menu-content-overlay split-pane-main md list-md list-lines-none list-md-lines-none hydrated">
 					<ion-list  lines="none">
 						<!-- <ion-item>
 						<chat-bubble text="test" alignment="left">
@@ -111,12 +111,12 @@ export default ConversationsView;
 </script>
 
 <style scoped>
-div#message-list {
+div#main {
 	display: flex;
 	flex-direction: column-reverse;
 	padding-bottom: 50px;
 	overflow-y: scroll;
-	width: 100vw;
+	/* width: 100vw; */
 	/* min-width: 100vw; */
 }
 ion-list#main {

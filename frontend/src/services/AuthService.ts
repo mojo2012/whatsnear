@@ -2,6 +2,7 @@ import { Settings } from "@/configuration/Settings"
 import { Authentication } from "@/dtos/Authentication"
 import { Payload } from "@/dtos/Payload"
 import { UserData } from "@/dtos/UserData"
+import { HttpStatus } from "@/enums/HttpStatus"
 import { AuthenticationException } from "@/exceptions/AuthenticationException"
 import { RegistrationException } from "@/exceptions/RegistrationException"
 import { LocalStorageService } from "@/services/LocalStorageService"
@@ -88,6 +89,31 @@ export class AuthService {
 			console.debug("Could not authenticate user")
 			throw ex
 		}
+	}
+
+	public async isCurrentAuthenticationValid(): Promise<boolean> {
+		const url = Settings.backendUrlV1 + "account/status"
+
+		let isValid = false
+
+		if (this.isAuthenticated()) {
+			try {
+				const conf = {
+					method: "GET",
+					headers: []
+				}
+				const result = await RequestUtil.fetch(url, conf)
+				const status = await result.status
+
+				if (status === HttpStatus.OK) {
+					isValid = true
+				}
+			} catch (ex) {
+				console.debug("Could not check token status")
+			}
+		}
+
+		return isValid
 	}
 
 	public async register(registrationData: UserData): Promise<void> {

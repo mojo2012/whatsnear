@@ -44,6 +44,11 @@ export class AppFacade {
 		return AppFacade._instance
 	}
 
+	public async initialize(): Promise<void> {
+		console.info("AppFacade initializing")
+		await this.authService.loadStoredAuthentication()
+	}
+
 	public async toggleSidebarVisibility(menuId?: string): Promise<void> {
 		if (menuId) {
 			this.menuController.enable(true, menuId)
@@ -108,6 +113,14 @@ export class AppFacade {
 			]
 		})
 		toast.present()
+	}
+
+	public async checkAuthentication(): Promise<void> {
+		const isValid = this.authService.isCurrentAuthenticationValid()
+
+		// if (!isValid) {
+		// 	this.authService.logout()
+		// }
 	}
 
 	private nagivateTo(routeId: Routes, params = {}): void {
