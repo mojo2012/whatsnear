@@ -22,6 +22,7 @@ import io.spotnext.itemtype.core.user.User;
 import io.spotnext.itemtype.core.user.UserGroup;
 import io.spotnext.whatsnear.beans.CreateUserRequestData;
 import io.spotnext.whatsnear.beans.LoginRequestData;
+import io.spotnext.whatsnear.beans.UpdateUserRequestData;
 import io.spotnext.whatsnear.rest.filters.CustomAuthenticationFilter;
 import io.spotnext.whatsnear.services.CustomUserService;
 import spark.Request;
@@ -79,6 +80,17 @@ public class AccountEndpoint extends AbstractRestEndpoint {
 		}
 
 		return DataResponse.ok();
+	}
+	
+	@Log(logLevel = LogLevel.DEBUG, measureExecutionTime = true)
+	@Handler(method = HttpMethod.put, pathMapping = {
+	"/", "" }, mimeType = MimeType.JSON, responseTransformer = JsonResponseTransformer.class, authenticationFilter = CustomAuthenticationFilter.class)
+	public HttpResponse update(final Request request, final Response response) {
+		var data = serializationService.deserialize(CONFIG, request.body(), UpdateUserRequestData.class);
+		
+		var user = customUserService.updateUser(data);
+		
+		return DataResponse.ok().withPayload(user);
 	}
 
 }

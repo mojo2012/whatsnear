@@ -24,6 +24,7 @@ import io.spotnext.itemtype.core.user.User;
 import io.spotnext.itemtype.core.user.UserGroup;
 import io.spotnext.whatsnear.beans.AccessTokenData;
 import io.spotnext.whatsnear.beans.CreateUserRequestData;
+import io.spotnext.whatsnear.beans.UpdateUserRequestData;
 import io.spotnext.whatsnear.itemtypes.AccessToken;
 import io.spotnext.whatsnear.repositories.UserRepository;
 import io.spotnext.whatsnear.services.CustomUserService;
@@ -186,7 +187,27 @@ public class DefaultCustomUserService
 		data.setUid(user.getUid());
 		data.setFirstname(user.getFirstname());
 		data.setLastname(user.getLastname());
+		data.setMaxDistance(user.getMaxDistance());
+		data.setShowOnlyWithinRadius(user.getShowOnlyWithinRadius());
 		return data;
+	}
+
+	@Override
+	public UserData updateUser(UpdateUserRequestData data) {
+		var uid = getCurrentUser().getUid();
+		var user = getUser(uid);
+		
+		if (data.getMaxDistance() != null) {
+			user.setMaxDistance(data.getMaxDistance());
+		}
+		
+		if (data.getShowOnlyWithinRadius() != null) {
+			user.setShowOnlyWithinRadius(data.getShowOnlyWithinRadius());
+		}
+		
+		modelService.save(user);
+		
+		return convert(user);
 	}
 
 }

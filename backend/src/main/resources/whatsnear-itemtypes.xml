@@ -78,15 +78,14 @@
 			<property name="maxDistance" type="String" />
 		</properties>
 	</bean>
-	
-	<bean name="AccessTokenData"
-		package="io.spotnext.whatsnear.beans">
+
+	<bean name="AccessTokenData" package="io.spotnext.whatsnear.beans">
 		<properties>
 			<property name="token" type="UUID" />
 			<property name="validTo" type="LocalDateTime" />
-		</properties>	
+		</properties>
 	</bean>
-	
+
 	<bean name="LoginRequestData"
 		package="io.spotnext.whatsnear.beans">
 		<properties>
@@ -94,7 +93,7 @@
 			<property name="password" type="String" />
 		</properties>
 	</bean>
-	
+
 	<bean name="CreateUserRequestData"
 		package="io.spotnext.whatsnear.beans">
 		<properties>
@@ -104,18 +103,26 @@
 			<property name="lastname" type="String" />
 		</properties>
 	</bean>
-	
-	<bean name="UserData"
-		package="io.spotnext.itemtype.core.beans">
+
+	<bean name="UpdateUserRequestData"
+		package="io.spotnext.whatsnear.beans">
+		<properties>
+			<property name="maxDistance" type="Double" />
+			<property name="showOnlyWithinRadius" type="Boolean" />
+		</properties>
+	</bean>
+
+	<bean name="UserData" package="io.spotnext.itemtype.core.beans">
 		<properties>
 			<property name="id" type="String" />
 			<property name="password" type="String" />
 			<property name="firstname" type="String" />
 			<property name="lastname" type="String" />
 			<property name="maxDistance" type="Double" />
+			<property name="showOnlyWithinRadius" type="Boolean" />
 		</properties>
 	</bean>
-	
+
 	<bean name="ConversationData"
 		package="io.spotnext.itemtype.core.beans">
 		<properties>
@@ -126,9 +133,8 @@
 			<property name="createdAt" type="LocalDateTime" />
 		</properties>
 	</bean>
-	
-	<bean name="MessageData"
-		package="io.spotnext.whatsnear.beans">
+
+	<bean name="MessageData" package="io.spotnext.whatsnear.beans">
 		<properties>
 			<property name="id" type="String" />
 			<property name="poi" type="String" />
@@ -137,8 +143,8 @@
 			<property name="text" type="String" />
 			<property name="visibility" type="MessageVisibility" />
 			<property name="createdAt" type="LocalDateTime" />
-<!-- 			<property name="sendStatus" type="MessageSendStatus" /> -->
-<!-- 			<property name="readStatus" type="MessageReadStatus" /> -->
+			<!-- <property name="sendStatus" type="MessageSendStatus" /> -->
+			<!-- <property name="readStatus" type="MessageReadStatus" /> -->
 		</properties>
 	</bean>
 
@@ -161,65 +167,69 @@
 			<property name="firstname" type="String" />
 			<property name="lastname" type="String" />
 			<property name="maxDistance" type="Double" />
+			<property name="showOnlyWithinRadius" type="Boolean" />
 		</properties>
 	</type>
-	
+
 	<type name="AccessToken" typeCode="AccessToken"
-		package="io.spotnext.whatsnear.itemtypes" >
+		package="io.spotnext.whatsnear.itemtypes">
 		<properties>
 			<property name="token" type="UUID" />
 			<property name="validTo" type="LocalDateTime" />
-		</properties>	
+		</properties>
 	</type>
-	
+
 	<type name="Conversation" typeCode="Conversation"
-		package="io.spotnext.whatsnear.itemtypes" >
-		
+		package="io.spotnext.whatsnear.itemtypes">
+
 	</type>
-	
+
 	<type name="Message" typeCode="Message"
-		package="io.spotnext.whatsnear.itemtypes" >
+		package="io.spotnext.whatsnear.itemtypes">
 		<properties>
 			<property name="sender" type="User" />
 			<property name="text" type="String" />
 			<property name="visibility" type="MessageVisibility" />
-<!-- 			<property name="sendStatus" type="MessageSendStatus" /> -->
-<!-- 			<property name="readStatus" type="MessageReadStatus" /> -->
-		</properties>	
+			<!-- <property name="sendStatus" type="MessageSendStatus" /> -->
+			<!-- <property name="readStatus" type="MessageReadStatus" /> -->
+		</properties>
 	</type>
-	
+
 	<!-- RELATIONS -->
 	<relation name="Conversation2PointOfInterest">
 		<description>Defines a poi ownership relation.</description>
-		<source itemType="Conversation" mappedBy="conversation" cardinality="one" />
+		<source itemType="Conversation" mappedBy="conversation"
+			cardinality="one" />
 		<target itemType="PointOfInterest" mappedBy="poi"
 			cardinality="one" />
 	</relation>
-	
+
 	<relation name="User2PointOfInterest">
 		<description>Defines a poi ownership relation.</description>
 		<source itemType="User" mappedBy="author" cardinality="one" />
 		<target itemType="PointOfInterest" mappedBy="pois"
 			cardinality="many" />
 	</relation>
-	
+
 	<relation name="User2AccessToken">
 		<description>Defines a token ownership relation.</description>
 		<source itemType="User" mappedBy="owner" cardinality="one" />
 		<target itemType="AccessToken" mappedBy="tokens"
 			cardinality="many" />
 	</relation>
-	
+
 	<relation name="Conversation2User">
 		<description>Defines a message-recipient relation.</description>
-		<source itemType="Conversation" mappedBy="conversations" cardinality="many" />
+		<source itemType="Conversation" mappedBy="conversations"
+			cardinality="many" />
 		<target itemType="User" mappedBy="participants"
 			cardinality="many" />
 	</relation>
-	
+
 	<relation name="Conversation2Message">
 		<description>Defines a message-recipient relation.</description>
-		<source itemType="Conversation" mappedBy="owner" cardinality="one" />
+		<source itemType="Conversation" mappedBy="owner"
+			cardinality="one" />
 		<target itemType="Message" mappedBy="messages"
 			cardinality="many" />
 	</relation>
