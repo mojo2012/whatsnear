@@ -10,7 +10,7 @@
 					</ion-list-header>
 					<ion-item>
 						<ion-label>Max. radius</ion-label>
-						<ion-select placeholder="" :value="maxRadius">
+						<ion-select placeholder="" :value="maxDistance">
 							<ion-label>Max radius</ion-label>
 							<ion-select-option
 								v-for="step in radiusEntries"

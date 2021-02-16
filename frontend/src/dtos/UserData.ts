@@ -5,4 +5,6 @@ export interface UserData extends Identifiable<string> {
 	password: string
 	firstname: string
 	lastname: string
+	maxDistance?: number
+	showOnlyWithinRadius?: boolean
 }

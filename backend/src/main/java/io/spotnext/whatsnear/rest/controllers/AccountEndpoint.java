@@ -73,13 +73,15 @@ public class AccountEndpoint extends AbstractRestEndpoint {
 	@Handler(method = HttpMethod.get, pathMapping = {
 			"/status" }, mimeType = MimeType.JSON, responseTransformer = JsonResponseTransformer.class, authenticationFilter = CustomAuthenticationFilter.class)
 	public HttpResponse status(final Request request, final Response response) {
-		var user = customUserService.getCurrentUser();
+		var userId = customUserService.getCurrentUser().getUid();
+		var user = customUserService.getUser(userId);
+		var userData = customUserService.convert(user);
 
-		if (user == null || user.getUid().equals("anonymous")) {
+		if (userData == null || userData.getUid().equals("anonymous")) {
 			return DataResponse.withStatus(HttpStatus.UNAUTHORIZED);
 		}
 
-		return DataResponse.ok().withPayload(user);
+		return DataResponse.ok().withPayload(userData);
 	}
 	
 	@Log(logLevel = LogLevel.DEBUG, measureExecutionTime = true)

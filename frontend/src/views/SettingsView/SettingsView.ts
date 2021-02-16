@@ -1,5 +1,6 @@
 /* eslint-disable max-classes-per-file */
 import AppToolbar from "@/components/AppToolbar/AppToolbar.vue"
+import { AccountService } from "@/services/AccountService"
 import { AuthService } from "@/services/AuthService"
 import {
 	IonButton,
@@ -53,9 +54,10 @@ import { Options, Vue } from "vue-class-component"
 })
 export class SettingsView extends Vue {
 	public authService = AuthService.instance
+	public accountService = AccountService.instance
 
-	public radiusEntries = [50, 100, 200, 500, 1000]
-	public maxRadius = 100
+	public radiusEntries = [10, 30, 50, 100, 200]
+	public maxDistance = 100
 	public notifyAboutNewMarkers = true
 
 	// icons
@@ -67,5 +69,10 @@ export class SettingsView extends Vue {
 		loginIcon: key,
 		logoutIcon: logOut,
 		alertCircle: alertCircleOutline
+	}
+
+	public async created(): Promise<void> {
+		const settings = await this.accountService.getSettings()
+		this.maxDistance = settings.maxDistance ?? 100
 	}
 }
