@@ -119,7 +119,8 @@ public class DefaultCustomUserService
 		user.setFirstname(data.getFirstname());
 		user.setLastname(data.getLastname());
 
-		user.setMaxDistance(100000.);
+		user.setMaxDistance(100.);
+		user.setShowOnlyWithinRadius(true);
 		
 		var token = createToken();
 		user.getTokens().add(token);

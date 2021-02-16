@@ -125,8 +125,8 @@ public class DefaultPointOfInterestService extends AbstractService implements Po
 		if (CollectionUtils.isNotEmpty(pois)) {
 			for (var poi : pois) {
 				var distance = getDistance(searchPoint, getPoint(poi));
-				var distanceInMeters = convertUnit(distance, DistanceUnit.Meters);
-				if (maxDistance != null && maxDistance >= distanceInMeters.getValue()) {
+				var distanceInKm = convertUnit(distance, DistanceUnit.Kilometers);
+				if (maxDistance != null && maxDistance >= distanceInKm.getValue()) {
 					poi.setDistance(distance);
 					ret.add(poi);
 				}
