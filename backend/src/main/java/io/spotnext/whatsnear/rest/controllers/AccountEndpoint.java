@@ -78,7 +78,7 @@ public class AccountEndpoint extends AbstractRestEndpoint {
 			return DataResponse.withStatus(HttpStatus.UNAUTHORIZED);
 		}
 
-		return DataResponse.ok();
+		return DataResponse.ok().withPayload(user);
 	}
 
 }
