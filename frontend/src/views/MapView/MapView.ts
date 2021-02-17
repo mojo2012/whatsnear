@@ -77,6 +77,7 @@ export class MapView extends Vue {
 		position: this.appFacade.currentPosition,
 		type: PointOfServiceType.UNKNOWN
 	}
+
 	public currentPositionCircle = {
 		center: this.appFacade.currentPosition,
 		radius: Settings.mapRadius,
