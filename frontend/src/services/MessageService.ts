@@ -39,7 +39,7 @@ export class MessageService {
 	}
 
 	public async getMessages(conversationId: string): Promise<Message[]> {
-		const url = `${Settings.backendUrlV1}/conversations/messages/${conversationId}`
+		const url = `${Settings.backendUrlV1}/conversations/${conversationId}/messages/`
 
 		try {
 			const response = await this.requestService.get(url)
@@ -74,7 +74,7 @@ export class MessageService {
 	}
 
 	public async sendMessage(conversationId: string, text: string): Promise<Message> {
-		const url = `${Settings.backendUrlV1}/conversations/messages/send`
+		const url = `${Settings.backendUrlV1}/conversations/${conversationId}/messages/`
 
 		const request: SendMessageRequest = {
 			conversation: conversationId,

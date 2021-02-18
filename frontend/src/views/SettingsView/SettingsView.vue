@@ -35,8 +35,7 @@
 				<ion-item-group>
 					<ion-list-header>
 						<ion-label
-							>Notifications
-							{{ notifyAboutNewMarkers }}</ion-label
+							>Notifications</ion-label
 						>
 					</ion-list-header>
 					<ion-item>
