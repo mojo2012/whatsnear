@@ -48,11 +48,32 @@
 					<ion-content>
 						<ion-list>
 							<ion-item
+								v-for="index in 5"
+								v-if="isConversationLoading"
+							>
+								<ion-thumbnail slot="start" class="skeleton">
+									⏱
+								</ion-thumbnail>
+								<ion-label>
+									<p>
+										<ion-skeleton-text
+											animated
+										></ion-skeleton-text>
+									</p>
+									<p>
+										<ion-skeleton-text
+											animated
+										></ion-skeleton-text>
+									</p>
+								</ion-label>
+							</ion-item>
+
+							<ion-item
+								v-if="!isConversationLoading"
 								v-for="(conversation, index) in conversations"
 								v-bind:class="{
 									active:
-										conversation.id ===
-										selectedConversationId,
+										conversation.id === selectedConversationId
 								}"
 								:button="true"
 								@click="
@@ -62,10 +83,12 @@
 									)
 								"
 							>
-								<ion-label>
+								<ion-thumbnail slot="start">
 									{{ getPoiIcon(conversation.poi.type) }}
-									{{ conversation.poi.title }}
-									{{ conversation.poi.description }}
+								</ion-thumbnail>
+								<ion-label>
+									<p>{{ conversation.poi.title }}</p>
+									<p>{{ conversation.poi.description }}</p>
 								</ion-label>
 							</ion-item>
 						</ion-list>
@@ -77,7 +100,12 @@
 					id="main"
 					class="menu-content menu-content-overlay split-pane-main md list-md list-lines-none list-md-lines-none hydrated"
 				>
-					<div>
+					<ion-spinner
+						id="message-loading-spinner"
+						v-if="isMessageListLoading"
+					></ion-spinner>
+
+					<div v-if="!isMessageListLoading">
 						<ion-list lines="none" class="message-list">
 							<ion-item
 								v-for="message in messagesOfSelectedConversation"
@@ -100,12 +128,14 @@
 								id="new-message"
 								:value="newMessage"
 								v-model="newMessage"
+								@keypress="onNewMessageKeypress"
 							>
 							</ion-input>
 							<ion-button
 								@click="onSendButtonClick"
 								title="Send"
 								mode="ios"
+								:disabled="newMessage.length == 0"
 							>
 								<ion-icon
 									slot="icon-only"
@@ -155,5 +185,16 @@ ion-item.bottom {
 ion-item.active {
 	background: green;
 	font-weight: bold;
+}
+ion-spinner#message-loading-spinner {
+	margin: auto;
+}
+ion-thumbnail {
+	font-size: 32px;
+	line-height: 55px;
+	max-width: 30px;
+}
+.skeleton {
+	opacity: 0.3;
 }
 </style>

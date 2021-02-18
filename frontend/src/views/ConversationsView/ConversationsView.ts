@@ -24,8 +24,11 @@ import {
 	IonSearchbar,
 	IonSelect,
 	IonSelectOption,
+	IonSkeletonText,
+	IonSpinner,
 	IonSplitPane,
 	IonTextarea,
+	IonThumbnail,
 	IonTitle,
 	IonToolbar
 } from "@ionic/vue"
@@ -56,7 +59,10 @@ import { Options, Vue } from "vue-class-component"
 		IonPage,
 		IonIcon,
 		AppToolbar,
-		ChatBubble
+		ChatBubble,
+		IonSkeletonText,
+		IonSpinner,
+		IonThumbnail
 	}
 })
 export class ConversationsView extends Vue {
@@ -71,6 +77,8 @@ export class ConversationsView extends Vue {
 	public selectedConversationId = ""
 	public currentUsername = ""
 	public newMessage = ""
+	public isConversationLoading = true
+	public isMessageListLoading = true
 
 	// icons
 	public icons = {
@@ -93,18 +101,7 @@ export class ConversationsView extends Vue {
 	}
 
 	public async mounted(this: this): Promise<void> {
-		// this.conversations.push({
-		// 	poi: {
-		// 		id: "aaa",
-		// 		type: PointOfServiceType.GIVE_AWAY,
-		// 		author: "me",
-		// 		description: "test",
-		// 		location: { latitude: 49, longitude: 16 },
-		// 		distance: { unit: DistanceUnit.Kilometer, value: 20 },
-		// 		title: "title",
-		// 		validTo: new Date()
-		// 	}
-		// })
+		//
 	}
 
 	public updateConversationId(): void {
@@ -115,6 +112,10 @@ export class ConversationsView extends Vue {
 				: (conversationId as string)
 
 		this.selectedConversationId = selectedConversationId
+
+		if (!this.selectedConversationId && this.allConversations.length > 0) {
+			this.selectedConversationId = this.allConversations[0].id
+		}
 	}
 
 	public async fetchMessagesForSelectedConversation(): Promise<void> {
@@ -126,12 +127,14 @@ export class ConversationsView extends Vue {
 		}
 
 		this.messagesOfSelectedConversation = messages
+		this.isMessageListLoading = false
 	}
 
 	public async beforeUpdate(this: this): Promise<void> {
 		try {
 			const conversations = await this.messageService.getConversations()
 			this.allConversations = conversations
+			this.isConversationLoading = false
 			this.updateConversationId()
 
 			await this.fetchMessagesForSelectedConversation()
@@ -157,15 +160,27 @@ export class ConversationsView extends Vue {
 	public async onConversationSelected(event: MouseEvent, conversationId: string): Promise<void> {
 		this.appFacade.navigateToConversations(conversationId)
 		this.selectedConversationId = conversationId
+		this.isMessageListLoading = true
 		await this.fetchMessagesForSelectedConversation()
+	}
+
+	public async onNewMessageKeypress(event: KeyboardEvent): Promise<void> {
+		if (event.code === "Enter" || event.code === "NumpadEnter") {
+			await this.sendNewMessage()
+		}
 	}
 
 	public async onSendButtonClick(event: unknown): Promise<void> {
 		console.log("send")
+		await this.sendNewMessage()
+	}
 
-		const newMessage = await this.messageService.sendMessage(this.selectedConversationId, this.newMessage)
-		this.messagesOfSelectedConversation.push(newMessage)
+	private async sendNewMessage(): Promise<void> {
+		if (this.newMessage) {
+			const newMessage = await this.messageService.sendMessage(this.selectedConversationId, this.newMessage)
+			this.messagesOfSelectedConversation.push(newMessage)
 
-		this.newMessage = ""
+			this.newMessage = ""
+		}
 	}
 }
