@@ -29,7 +29,7 @@ import {
 	IonTitle,
 	IonToolbar
 } from "@ionic/vue"
-import { add, alertCircleOutline, close, key, logOut, navigate, search } from "ionicons/icons"
+import { add, alertCircleOutline, close, key, logOut, navigate, search, sendSharp } from "ionicons/icons"
 import { Options, Vue } from "vue-class-component"
 
 @Options({
@@ -70,6 +70,7 @@ export class ConversationsView extends Vue {
 	public messagesOfSelectedConversation: Message[] = []
 	public selectedConversationId = ""
 	public currentUsername = ""
+	public newMessage = ""
 
 	// icons
 	public icons = {
@@ -79,10 +80,15 @@ export class ConversationsView extends Vue {
 		navigateIcon: navigate,
 		loginIcon: key,
 		logoutIcon: logOut,
-		alertCircle: alertCircleOutline
+		alertCircle: alertCircleOutline,
+		sendIcon: sendSharp
 	}
 
 	public async created(): Promise<void> {
+		//
+	}
+
+	public async beforeMount(): Promise<void> {
 		this.currentUsername = (await this.authService.getCurrentUsername()) ?? ""
 	}
 
@@ -152,5 +158,14 @@ export class ConversationsView extends Vue {
 		this.appFacade.navigateToConversations(conversationId)
 		this.selectedConversationId = conversationId
 		await this.fetchMessagesForSelectedConversation()
+	}
+
+	public async onSendButtonClick(event: unknown): Promise<void> {
+		console.log("send")
+
+		const newMessage = await this.messageService.sendMessage(this.selectedConversationId, this.newMessage)
+		this.messagesOfSelectedConversation.push(newMessage)
+
+		this.newMessage = ""
 	}
 }

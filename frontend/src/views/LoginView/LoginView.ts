@@ -1,5 +1,6 @@
 /* eslint-disable max-classes-per-file */
 import { UserData } from "@/dtos/UserData"
+import { AppFacade } from "@/facades/AppFacade"
 import { AuthService } from "@/services/AuthService"
 import { RegisterOrLoginType } from "@/types/helper-types"
 import { ModalController } from "@/types/IonicTypes"
@@ -73,6 +74,7 @@ class Props {
 export class LoginView extends Vue.with(Props) {
 	private authService: AuthService = AuthService.instance
 	private modalController: ModalController = modalController
+	public appFacade = AppFacade.instance
 
 	private username = ""
 	private firstName = ""

@@ -73,33 +73,48 @@
 				</ion-menu>
 
 				<!-- the main content -->
-				<div id="main" class="menu-content menu-content-overlay split-pane-main md list-md list-lines-none list-md-lines-none hydrated">
-					<ion-list  lines="none">
-						<!-- <ion-item>
-						<chat-bubble text="test" alignment="left">
-						</chat-bubble>
-					</ion-item>
-					<ion-item>
-						<chat-bubble text="test 2" alignment="right">
-						</chat-bubble>
-					</ion-item> -->
-
-						<ion-item
-							v-for="message in messagesOfSelectedConversation"
-						>
-							<chat-bubble
-								:text="message.text"
-								v-bind:alignment="
-									currentUsername === message.sender
-										? 'right'
-										: 'left'
-								"
+				<div
+					id="main"
+					class="menu-content menu-content-overlay split-pane-main md list-md list-lines-none list-md-lines-none hydrated"
+				>
+					<div>
+						<ion-list lines="none" class="message-list">
+							<ion-item
+								v-for="message in messagesOfSelectedConversation"
 							>
-							</chat-bubble>
-						</ion-item>
-					</ion-list>
+								<chat-bubble
+									:text="message.text"
+									v-bind:alignment="
+										currentUsername === message.sender
+											? 'right'
+											: 'left'
+									"
+								>
+								</chat-bubble>
+							</ion-item>
+						</ion-list>
+						<div>
+							<ion-input
+								txpe="text"
+								placeholder="Send ..."
+								id="new-message"
+								:value="newMessage"
+								v-model="newMessage"
+							>
+							</ion-input>
+							<ion-button
+								@click="onSendButtonClick"
+								title="Send"
+								mode="ios"
+							>
+								<ion-icon
+									slot="icon-only"
+									:icon="icons.sendIcon"
+								></ion-icon>
+							</ion-button>
+						</div>
+					</div>
 				</div>
-				<!-- <ion-input txpe="text" id="new-message"> </ion-input> -->
 			</ion-split-pane>
 		</ion-content>
 	</ion-page>
@@ -119,15 +134,19 @@ div#main {
 	/* width: 100vw; */
 	/* min-width: 100vw; */
 }
-ion-list#main {
-	padding-top: 56px;
-	margin-top: auto;
+ion-list.message-list {
+	/* padding-top: 56px;
+	margin-top: auto; */
+	border-bottom: 1px solid grey !important;
 
 	/* height: 100vh; */
 }
 
 ion-input#new-message {
-	margin: 40px;
+	/* margin: 20px !important; */
+	padding: 20px !important;
+	background-color: #fafafa;
+	/* border-radius: 20px; */
 }
 ion-item.bottom {
 	margin-bottom: 0px;

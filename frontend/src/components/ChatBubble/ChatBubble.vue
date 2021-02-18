@@ -11,7 +11,7 @@ div#text {
 	margin-bottom: 20px;
 	padding: 20px;
 	border: 1px solid var(--ion-color-primary);
-	min-width: 500px;
+	min-width: 100px;
 	/* color: white; */
 	background: rgb(171, 0, 215);
 	background: linear-gradient(
