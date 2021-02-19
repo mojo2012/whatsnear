@@ -120,7 +120,7 @@ public class DefaultCustomUserService
 		user.setLastname(data.getLastname());
 
 		user.setMaxDistance(100.);
-		user.setShowOnlyWithinRadius(true);
+		user.setNotifyNewMarkers(true);
 		
 		var token = createToken();
 		user.getTokens().add(token);
@@ -189,7 +189,7 @@ public class DefaultCustomUserService
 		data.setFirstname(user.getFirstname());
 		data.setLastname(user.getLastname());
 		data.setMaxDistance(user.getMaxDistance());
-		data.setShowOnlyWithinRadius(user.getShowOnlyWithinRadius());
+		data.setNotifyNewMarkers(user.getNotifyNewMarkers());
 		return data;
 	}
 
@@ -202,8 +202,8 @@ public class DefaultCustomUserService
 			user.setMaxDistance(data.getMaxDistance());
 		}
 		
-		if (data.getShowOnlyWithinRadius() != null) {
-			user.setShowOnlyWithinRadius(data.getShowOnlyWithinRadius());
+		if (data.getNotifyNewMarkers() != null) {
+			user.setNotifyNewMarkers(data.getNotifyNewMarkers());
 		}
 		
 		modelService.save(user);
