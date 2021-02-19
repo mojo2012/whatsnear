@@ -22,6 +22,18 @@
 					:api-key="apiKey"
 					:center="mapCenter"
 					:zoom="15"
+					:zoomControl="false"
+					:disableDefaultUi="true"
+					:disableDoubleClickZoom="true"
+					:fullscreenControl="false"
+					:panControl="false"
+					gestureHandling="none"
+					:draggable="false"
+					:clickableIcons="false"
+					:keyboardShortcuts="false"
+					:mapTypeControl="false"
+					:rotateControl="false"
+					:scaleControl="false"
 				>
 					<!-- current position -->
 					<Marker :options="{ position: mapCenter }" />

@@ -39,6 +39,17 @@ export class RequestService {
 		return await RequestUtil.fetch(url, options)
 	}
 
+	public async put(url: string, body?: unknown): Promise<Response> {
+		const headers = await this.createAuthenticationHeader()
+		const options = {
+			method: "PUT",
+			headers: headers,
+			body: JSON.stringify(body)
+		}
+
+		return await RequestUtil.fetch(url, options)
+	}
+
 	private async createAuthenticationHeader(): Promise<Headers> {
 		const authentication = await this.authService.loadStoredAuthentication()
 		const headers = new Headers()

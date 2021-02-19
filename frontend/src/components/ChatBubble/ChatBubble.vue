@@ -7,12 +7,12 @@
 <style scoped>
 div#text {
 	display: block;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	padding: 20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 15px;
 	border: 1px solid var(--ion-color-primary);
-	min-width: 500px;
-	/* color: white; */
+	min-width: 40px;
+	min-height: 50px;
 	background: rgb(171, 0, 215);
 	background: linear-gradient(
 		170deg,
@@ -22,12 +22,13 @@ div#text {
 }
 
 div.left {
-	border-radius: 30px 5px;
+	border-radius: 10px 2px;
 }
 
 div.right {
-	border-radius: 5px 30px;
+	border-radius: 2px 10px;
 	margin-right: 0px;
 	margin-left: auto;
+	text-align: right;
 }
 </style>

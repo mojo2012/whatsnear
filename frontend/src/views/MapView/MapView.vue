@@ -60,6 +60,9 @@
 				:center="appFacade.currentPosition"
 				:zoom="10"
 				theme="dark"
+				:streetViewControl="false"
+				:mapTypeControl="false"
+				:fullscreenControl="false"
 			>
 				<!-- current position -->
 				<Marker :options="currentPositionMarker" />

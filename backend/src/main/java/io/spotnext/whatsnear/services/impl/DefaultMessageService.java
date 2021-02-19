@@ -94,6 +94,7 @@ public class DefaultMessageService implements MessageService {
 
 			conversation.setPoi(poi);
 			conversation.getParticipants().add(user);
+			conversation.getParticipants().add(poi.getAuthor());
 			conversation = conversationRepository.saveAndFlush(conversation);
 			poi.setConversation(conversation);
 		}

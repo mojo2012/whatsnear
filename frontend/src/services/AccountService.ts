@@ -32,4 +32,25 @@ export class AccountService {
 			throw new BackendNotReachableException("Could not load markers from backend", ex as Error)
 		}
 	}
+
+	public async setMaxDistance(maxDistance: number): Promise<UserData> {
+		return this.updateSettings({ maxDistance: maxDistance })
+	}
+
+	public async setNotifyAboutNewMarkers(notifyAboutNewMarkers: boolean): Promise<UserData> {
+		return this.updateSettings({ showOnlyWithinRadius: notifyAboutNewMarkers })
+	}
+
+	public async updateSettings(settings: Partial<UserData>): Promise<UserData> {
+		const url = new URL(Settings.backendUrlV1 + "account")
+
+		try {
+			const response = await this.requestService.put(url.toString(), settings)
+			const body: Promise<Payload<UserData>> = await response.json()
+
+			return (await body).data
+		} catch (ex) {
+			throw new BackendNotReachableException("Could not load markers from backend", ex as Error)
+		}
+	}
 }
