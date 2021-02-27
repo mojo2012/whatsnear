@@ -13,7 +13,7 @@ export class RequestUtil {
 
 		const response = await fetch(resource, {
 			...options,
-			mode: "no-cors",
+			// mode: "no-cors",
 			signal: controller.signal
 		})
 
