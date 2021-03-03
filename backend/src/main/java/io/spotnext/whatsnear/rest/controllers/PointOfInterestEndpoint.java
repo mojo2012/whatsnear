@@ -53,8 +53,6 @@ public class PointOfInterestEndpoint extends AbstractRestEndpoint {
 		query.setTextSearch(textSearch);
 		if (StringUtils.isNotBlank(maxDistance)) {
 			query.setMaxDistance(maxDistance);
-		} else {
-			query.setMaxDistance("100");
 		}
 		
 		var listings = pointOfInterestService.findAllNear(query);

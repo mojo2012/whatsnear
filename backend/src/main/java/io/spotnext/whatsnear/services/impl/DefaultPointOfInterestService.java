@@ -54,6 +54,18 @@ public class DefaultPointOfInterestService extends AbstractService implements Po
 	
 	@Override
 	public List<PointOfInterestData> findAllNear(PointOfInterestQueryData query) {
+		
+		var u = userService.getCurrentUser();
+		var user = userService.getUser(u.getUid());
+		
+		if (StringUtils.isBlank(query.getMaxDistance())) {
+			if (user.getMaxDistance() != null) {
+				query.setMaxDistance(user.getMaxDistance().toString());
+			} else {
+				query.setMaxDistance("100");
+			}
+		}
+		
 		var location = query.getLocation();
 		List<PointOfInterestData> ret = null;
 		
