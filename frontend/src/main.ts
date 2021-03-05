@@ -1,3 +1,5 @@
+import App from "@/App"
+import router from "@/router"
 import { IonicVue } from "@ionic/vue"
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/vue/css/core.css"
@@ -13,8 +15,6 @@ import "@ionic/vue/css/text-alignment.css"
 import "@ionic/vue/css/text-transformation.css"
 import "@ionic/vue/css/typography.css"
 import { createApp } from "vue"
-import App from "./App.vue"
-import router from "./router"
 /* Theme variables */
 import "./theme/variables.css"
 
