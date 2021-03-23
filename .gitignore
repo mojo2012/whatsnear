@@ -40,3 +40,4 @@ frontend/dist
 ajcore*
 backend/data/store/*
 **/node_modules/*
+infrastructure/postgres/data/**
