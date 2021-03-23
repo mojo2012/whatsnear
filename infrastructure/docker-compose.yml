@@ -5,13 +5,27 @@ services:
       - ./backend/data:/app/data:rw,delegated
     ports:
       - '19000:19000'
-    image: "registry.heroku.com/indahood/web"
+    image: "registry.heroku.com/whatsnear-backend/web"
     hostname: backend
     environment:
       PORT: 19000
       SPRING_PROFILES_ACTIVE: "custom"
     env_file:
       - ../backend/.env.docker.local
+    depends_on:
+      - postgresql
 
+  postgresql:
+      image: postgres:12.1
+      ports:
+        - 5432:5432
+      hostname: postgres
+      volumes:
+        - ./postgres/data:/var/lib/postgresql/data:rw,delegated
+        - ./postgres/scripts:/docker-entrypoint-initdb.d:ro,delegated
+      environment:
+        - POSTGRES_USER=admin
+        - POSTGRES_PASSWORD=change123
+        - POSTGRES_MULTIPLE_DATABASES=whatsnear
 volumes:
   esdat1:
