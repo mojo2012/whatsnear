@@ -200,6 +200,7 @@ export class LoginView extends Vue.with(Props) {
 		try {
 			if (this.isTypeRegister) {
 				const registration: UserData = {
+					id: null,
 					username: this.username,
 					password: this.password,
 					firstname: this.firstName,

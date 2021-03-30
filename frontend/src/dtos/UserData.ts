@@ -1,6 +1,7 @@
 import { Identifiable } from "@/dtos/Identifiable"
+import { Optional } from "@/types/Optional"
 
-export interface UserData extends Identifiable<string> {
+export interface UserData extends Identifiable<Optional<string>> {
 	username: string
 	password: string
 	firstname: string

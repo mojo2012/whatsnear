@@ -144,7 +144,8 @@
 			"off"
 		],
 		"space-before-function-paren": [
-			"off"
+			"warn",
+			"never"
 		],
 		"no-eq-null": [
 			"warn"
@@ -173,7 +174,7 @@
 		],
 		"newline-per-chained-call": "warn",
 		"@typescript-eslint/explicit-function-return-type": [
-			"warn",
+			"error",
 			{
 				"allowExpressions": true,
 				"allowTypedFunctionExpressions": true,

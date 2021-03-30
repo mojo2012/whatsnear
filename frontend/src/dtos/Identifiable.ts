@@ -1,3 +1,3 @@
-export interface Identifiable<T> {
-	id?: T
+export class Identifiable<T> {
+	public id!: T
 }

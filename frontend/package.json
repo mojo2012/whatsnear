@@ -31,6 +31,7 @@
 		"@ionic-native/globalization": "^5.31.1",
 		"@ionic/vue": "^5.5.3",
 		"@ionic/vue-router": "^5.5.3",
+		"class-validator": "^0.13.1",
 		"core-js": "^3.8.3",
 		"eslint-plugin-import": "^2.22.1",
 		"exit-hook": "^2.2.0",
